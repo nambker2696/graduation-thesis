@@ -39,6 +39,9 @@ GEM
       i18n (~> 0.7)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
+    acts-as-taggable-on (5.0.0)
+      activerecord (>= 4.2.8)
+    acts_as_votable (0.10.0)
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
     arel (8.0.0)
@@ -46,6 +49,9 @@ GEM
       execjs
     bcrypt (3.1.11)
     bindex (0.5.0)
+    bootstrap-kaminari-views (0.0.5)
+      kaminari (>= 0.13)
+      rails (>= 3.1)
     bootstrap-sass (3.3.6)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
@@ -137,6 +143,8 @@ GEM
       rails-dom-testing (>= 1, < 3)
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
+    jquery-ui-rails (6.0.1)
+      railties (>= 3.2.16)
     jwt (1.5.6)
     kaminari (1.1.1)
       activesupport (>= 4.1.0)
@@ -199,6 +207,8 @@ GEM
       omniauth-oauth (~> 1.1)
       rack
     orm_adapter (0.5.0)
+    owlcarousel-rails (1.1.3.3)
+      jquery-rails
     paperclip (5.2.1)
       activemodel (>= 4.2.0)
       activesupport (>= 4.2.0)
@@ -234,6 +244,8 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.0.3)
       loofah (~> 2.0)
+    rails-jquery-autocomplete (1.0.3)
+      rails (>= 3.2)
     rails_12factor (0.0.3)
       rails_serve_static_assets
       rails_stdout_logging
@@ -277,6 +289,8 @@ GEM
     simple_form (3.5.1)
       actionpack (> 4, < 5.2)
       activemodel (> 4, < 5.2)
+    social-share-button (1.1.0)
+      coffee-rails
     spring (2.0.2)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
@@ -311,6 +325,7 @@ GEM
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.3)
+    will_paginate (3.1.6)
     xpath (3.0.0)
       nokogiri (~> 1.8)
 
@@ -318,6 +333,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts-as-taggable-on
+  acts_as_votable (~> 0.10.0)
+  bootstrap-kaminari-views
   bootstrap-sass (= 3.3.6)
   byebug
   capybara (~> 2.13)
@@ -330,6 +348,7 @@ DEPENDENCIES
   i18n-js
   jbuilder (~> 2.5)
   jquery-rails
+  jquery-ui-rails
   kaminari
   listen (>= 3.0.5, < 3.2)
   mini_magick
@@ -337,17 +356,20 @@ DEPENDENCIES
   omniauth-facebook
   omniauth-instagram
   omniauth-twitter
+  owlcarousel-rails
   paperclip
   pg
   puma (~> 3.7)
   rails (~> 5.1.4)
   rails-assets-chosen!
   rails-assets-sweetalert2 (~> 5.1.1)!
+  rails-jquery-autocomplete
   rails_12factor
   ransack
   sass-rails (~> 5.0)
   selenium-webdriver
   simple_form
+  social-share-button
   spring
   spring-watcher-listen (~> 2.0.0)
   sqlite3
@@ -356,6 +378,7 @@ DEPENDENCIES
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console (>= 3.3.0)
+  will_paginate
 
 BUNDLED WITH
    1.16.1

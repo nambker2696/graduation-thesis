@@ -1,0 +1,9 @@
+<ul class="nav navbar-nav navbar-right">
+  <li><%= link_to "Home", root_path, method: :get %></li>
+  <li><%= link_to "Join us", new_user_registration_path, method: :get %></li>
+  <li>
+    <%= link_to user_session_path, method: :get do %>
+      <i class="fa fa-sign-in" aria-hidden="true"></i> Login
+    <% end %>
+  </li>
+</ul>

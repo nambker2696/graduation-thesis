@@ -1,0 +1,16 @@
+<div class="section">
+  <br><br><br>
+  <% flash.each do |key, value| %>
+    <div class="flash-message <%= key %>">
+      <%= value %>
+    </div>
+  <% end %>
+  <div class="col-sm-8 col-sm-offset-2 col-xs-12" style="background: white;padding: 20px 10px">
+    <h3>Your notifications</h3><hr>
+    <% if @notifications == nil %>
+      No notification.
+    <% else %>
+      <%= render "notifications" %>
+    <% end %>
+  </div>
+</div>

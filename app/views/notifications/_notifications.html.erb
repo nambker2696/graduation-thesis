@@ -1,0 +1,41 @@
+<% @notifications.each do |notification| %>
+  <div class="_33c">
+      <%= link_to link_through_path(notification), class:"_33e _1_0e" do %>
+        <div direction="left" class="clearfix">
+          <div class="_ohe lfloat ava">
+            <img src=<%= notification.notified_by.avatar %> alt="" class=" _12u1"
+            onerror="this.src='http://i.imgur.com/3cg67mg.jpg';" >
+          </div>
+          <div class="_42ef _8u">
+            <div direction="right">
+              <div class="_42ef">
+                <div class="_4l_v">
+                  <span class="content-noti">
+                    <span class="fwb"><%= notification.notified_by.username %> </span>
+                    <span>
+                      has <%= notification.notice_type %>d your post: 
+                    <% if notification.notice_type == "like" %>
+                      "<b><%= notification.food.name %><b>"
+                    <% else %>
+                      "<b><%= Comment.find(notification.comment_id).content %></b>"
+                    <% end %>
+                    </span>
+                  </span>
+                  <div class="_33f clearfix" direction="left">
+                    <div class="_ohe lfloat">
+                      <% if notification.notice_type == "like" %>
+                        <img class="_10cu img _8o _8r img" src="https://www.facebook.com/rsrc.php/v3/ym/r/-gtkr8sn4nQ.png" alt="">
+                      <% else %>
+                        <img class="_10cu img _8o _8r img" src="https://www.facebook.com/rsrc.php/v3/yZ/r/njB8FqmOJA7.png" alt="">
+                      <% end %>
+                      <p class="_8u time"><%= time_ago_in_words(notification.created_at) %> ago.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+  </div>
+<% end %>
