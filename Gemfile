@@ -22,6 +22,14 @@ gem "simple_form"
 gem "bootstrap-sass", "3.3.6"
 gem "kaminari"
 gem "ransack"
+gem "bootstrap-kaminari-views"
+gem "jquery-ui-rails"
+gem "social-share-button"
+gem "will_paginate"
+gem "owlcarousel-rails"
+gem "acts_as_votable", "~> 0.10.0"
+gem "acts-as-taggable-on"
+gem "rails-jquery-autocomplete"
 gem "config"
 gem "omniauth"
 gem "omniauth-twitter"
@@ -31,6 +39,7 @@ gem "i18n-js"
 gem 'rails-assets-sweetalert2', '~> 5.1.1', source: 'https://rails-assets.org'
 gem 'sweet-alert2-rails'
 gem "mini_magick"
+
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

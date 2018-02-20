@@ -1,0 +1,35 @@
+<div class="_33c">
+      <%= link_to link_through_path(notification), class:"_33e _1_0e" do %>
+          <div class="_ohe lfloat ava">
+            <img src=<%= notification.notified_by.avatar %> alt="" class=" _12u2"
+            onerror="this.src='http://i.imgur.com/3cg67mg.jpg';" >
+          </div>
+          <div class="_42ef _8u" style="width: 88% !important">
+              <div class="_42ef" style="float: left;width: 100%">
+                <div class="_4l_v">
+                  <span class="content-noti">
+                    <span class="fwb"><%= notification.notified_by.username %> </span>
+                    <span>
+                      has <%= notification.notice_type %>d your post: 
+                    <% if notification.notice_type == "like" %>
+                      "<b><%= notification.food.name %></b>"
+                    <% else %>
+                      "<b><%= Comment.find(notification.comment_id).content %></b>"
+                    <% end %>
+                    </span>
+                  </span>
+                  <div class="_33f clearfix" direction="left">
+                    <div class="_ohe lfloat" style="width: 90%;float: right;">
+                      <% if notification.notice_type == "like" %>
+                        <img class="_10cu img _8o _8r1 img" src="https://www.facebook.com/rsrc.php/v3/ym/r/-gtkr8sn4nQ.png" alt="" style="width: auto;float: left;margin-left: -30px;">
+                      <% else %>
+                        <img class="_10cu img _8o _8r1 img" src="https://www.facebook.com/rsrc.php/v3/yZ/r/njB8FqmOJA7.png" alt="" style="width: auto;float: left;margin-left: -30px;">
+                      <% end %>
+                      <p class="" style="margin-left: -190px; display: inline-block;"><%= time_ago_in_words(notification.created_at) %> ago.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+      <% end %>
+</div>

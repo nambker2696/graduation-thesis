@@ -13,3 +13,11 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+//= require jquery
+//= require jquery_ujs
+//= require bootstrap
+//= require social-share-button
+//= require owl.carousel
+//= require jquery-ui
+//= require chosen
+//= require autocomplete-rails

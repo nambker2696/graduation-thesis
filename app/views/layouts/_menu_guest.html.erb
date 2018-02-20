@@ -1,0 +1,14 @@
+<ul class="nav navbar-nav navbar-right">
+  <li><a href="features">Features</a></li>
+  <li><a href="pricing">Pricing & FAQ</a></li>
+  <li><a href="resources">Resources</a></li>
+  <li>
+    <%= render "notifications/language_dropdown" %>
+  </li>
+  <li><%= link_to "Join us", new_user_registration_path, method: :get %></li>
+  <li>
+    <%= link_to user_session_path, method: :get do %>
+      <i class="fa fa-sign-in" aria-hidden="true"></i> Login
+    <% end %>
+  </li>
+</ul>
