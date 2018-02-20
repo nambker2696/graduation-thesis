@@ -11,7 +11,10 @@
     <li class="divider"></li>
     <li><a href="#">Favourites Snippets <span class="glyphicon glyphicon-heart pull-right"></span></a></li>
     <li class="divider"></li>
-    <li><a href="#">Sign Out <span class="glyphicon glyphicon-log-out pull-right"></span></a></li>
+    <li><%= link_to destroy_user_session_path, method: :delete do %>
+            Sign Out <span class="glyphicon glyphicon-log-out pull-right"></span>
+    <% end %>
+    </li>
     </ul>
   </li>
 </ul>
