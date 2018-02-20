@@ -1,0 +1,22 @@
+
+<ul class="nav navbar-nav">
+  <li class="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= t(".languages") %><span class="glyphicon glyphicon-user pull-right"></span></a>
+    <ul class="dropdown-menu">
+      <% if I18n.locale == I18n.default_locale %>
+      <li><%= link_to t(".japanese"), locale: "ja" %></li>
+      <li class="divider"></li>
+      <li><%= link_to t(".vietnamese"), locale: "vi" %></li>
+      <% elsif I18n.locale == "vi" %>
+      <li><%= link_to t(".japanese"), locale:"ja" %></li>
+      <li class="divider"></li>
+      <li><%= link_to t(".english"), locale:"en" %></li>
+      <% else %>
+      <li><%= link_to t(".english"),locale:"en" %></li>
+      <li class="divider"></li>
+      <li><%= link_to t(".vietnamese"), locale:"vi" %></li>
+      <%end%>
+
+    </ul>
+  </li>
+</ul>
