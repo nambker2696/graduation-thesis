@@ -127,6 +127,8 @@ GEM
     faraday (0.12.2)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.21)
+    font-awesome-rails (4.7.0.3)
+      railties (>= 3.2, < 5.2)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     gravatar_image_tag (1.2.0)
@@ -344,6 +346,7 @@ DEPENDENCIES
   config
   devise
   faker
+  font-awesome-rails
   gravatar_image_tag
   i18n-js
   jbuilder (~> 2.5)

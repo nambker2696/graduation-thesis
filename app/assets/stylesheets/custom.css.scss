@@ -88,10 +88,55 @@ $btn-color1: #41deb6;
 $form-control-color: #23ffd0;
 $outside-ground: rgba(168, 129, 110, 0.82);
 $inside-ground: rgba(199, 194, 155, 0.93);
+$blue-zodiac :#404453;
 
 body {
-  background: #F4F4F4;
+  background: $white;
+  color: $blue-zodiac;
+  font-family: 'Nunito'
 }
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Nunito';
+  line-height: 1.45;
+}
+h1 {
+  font-size: 32px;
+  font-weight: 500;
+}
+
+h2 {
+  font-size: 28px;
+  font-weight: 500;
+  padding: 20px;
+  color: #ecf0f1;
+}
+
+h3 {
+  font-size: 23px;
+  font-weight: 600;
+}
+
+h4 {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+p {
+  line-height: 1.45;
+  &.big {
+    font-size: 20px;
+    line-height: 32px;
+  }
+  font-size: 16px;
+  line-height: 28px;
+  &.small {
+    font-size: 14px;
+    line-height: 24px;
+  }
+}
+
+
 #wrap {
   margin: 0 auto 30px;
 }
@@ -105,12 +150,6 @@ body {
 #navthing {
   margin-left: 50px;
 }
-
-h2 {
-  padding: 20px;
-  color: #ecf0f1;
-}
-
 fieldset {
   border: none;
 }
@@ -2480,7 +2519,7 @@ a.morelink {
     color: #90949c;
 }
 .dropdown-menu {
-  width: 400px !important;
+  width: 200px !important;
 }
 ._8u {
   width: 92%;

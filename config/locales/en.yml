@@ -210,8 +210,24 @@ en:
       long: "%B %d, %Y %H:%M"
       short: "%d %b %H:%M"
     pm: pm
-  language:
-    languages: Languages 
-    english: English
-    japanese: Japanese
-    vietnamese: Vietnamese
+  notifications:
+    language_dropdown:
+      language: Languages 
+      english: English
+      japanese: Japanese
+      vietnamese: Vietnamese
+  layouts:
+    footer:
+      awesomevn: AwesomeVN
+      home: Home
+      about: About
+      faq: FaQ
+      street-company: No. 1 Dai Co Viet Street
+      contact: Contact
+      address-company: Hanoi, Vietnam
+      about-company: We are a professional company providing catering services to restaurants. To meet the need to introduce a website for restaurants and to help restaurants more easily reach customers.
+    menu_guest:
+      features: Features
+      resources: Fesources
+      join_us: Join us
+      login: Login

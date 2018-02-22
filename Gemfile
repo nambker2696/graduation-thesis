@@ -39,6 +39,7 @@ gem "i18n-js"
 gem 'rails-assets-sweetalert2', '~> 5.1.1', source: 'https://rails-assets.org'
 gem 'sweet-alert2-rails'
 gem "mini_magick"
+gem "font-awesome-rails"
 
 
 group :development, :test do
