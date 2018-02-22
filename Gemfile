@@ -42,10 +42,12 @@ gem "mini_magick"
 gem "font-awesome-rails"
 gem 'puma', '~> 3.7'
 
+
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  gem 'rspec-rails'
 end
 
 group :development do
@@ -55,6 +57,7 @@ group :development do
   gem 'spring'
   gem 'sqlite3'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'rspec-rails'
 end
 
 group :production do
