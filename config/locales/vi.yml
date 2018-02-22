@@ -205,7 +205,12 @@ vi:
       english: Tiếng Anh
       japanese: Tiếng Nhật
       vietnamese: Tiếng Việt
-  layouts:
+    logged_dropdown:
+      account_settings: Cài đặt tài khoản
+      user_stats: Thống kê người dùng
+      messages: Thông báo
+      favourites_snippets: Đoạn phim yêu thích
+      sign_out: Đăng xuất
     footer:
       awesomevn: AwesomeVN
       home: Trang chủ

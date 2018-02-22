@@ -216,6 +216,12 @@ en:
       english: English
       japanese: Japanese
       vietnamese: Vietnamese
+    logged_dropdown:
+      account_settings: Account settings
+      user_stats: User stats
+      messages: Messages
+      favourites_snippets: Favourites Snippets
+      sign_out: Sign Out
   layouts:
     footer:
       awesomevn: AwesomeVN
