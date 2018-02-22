@@ -1,0 +1,125 @@
+$white: #fff;
+$jelly-blue: #2d97a7;
+$bermuda: rgba(137, 222, 200, .76);
+$pelorous: rgba(54, 178, 194, .71);
+$pelorous-opacity: rgba(54, 178, 194, .91);
+$black-light: rgba(0, 0, 0, .25);
+$grey-opacity: rgba(119, 119, 119, .58);
+$admin-background: rgba(185, 176, 176, .2);
+$slide-link: #07a6f5;
+$form-background: rgba(253, 255, 255, .7);
+$btn-color1: #41deb6;
+$form-control-color: #23ffd0;
+$outside-ground: rgba(168, 129, 110, 0.82);
+$caribbean-green: #05bba5;
+$blue-zodiac :#404453;
+
+.main-content{
+  min-height: 500px;
+  margin-top:80px;
+}
+.hover:hover.shift-right-sm, .footer-links a:hover {
+  -webkit-transform: translateX(3px);
+  transform: translateX(3px);
+  color: $caribbean-green;
+}
+.page-section:first-child {
+  padding: 60px 20px;
+}
+.page-section .page-section-body {
+  max-width: 1260px;
+  margin: 0 auto;
+}
+#hp-header .title {
+  text-align: center;
+  margin: 0px 0 40px 0;
+}
+#hp-next{
+  background-color:#e6e6e6;
+  padding: 60px 20px;
+}
+#hp-header .title h1 {
+    font-weight: 600;
+}
+.page-section-body h2,p{
+  color:$blue-zodiac;
+}
+.contain-body{
+  padding:50px 40px 40px 50px;
+}
+.page-section-body{
+  img{
+    width: 100%;
+  }  
+}
+
+/* form login */
+.field input {
+  width:20px;
+}
+.box.mini-box{
+  margin-top: 120px;
+  margin-bottom:50px;
+  max-width: 360px;
+  box-shadow: 0 6px 12px rgba(0,0,0,.23), 0 10px 40px rgba(0,0,0,.19);
+}
+.box{
+  background: $white;
+  width: 100%;
+  position: relative;
+}
+.box-header{
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  text-align: center!important;
+  background-color: $pelorous-opacity;
+}
+.box-content{
+  padding-top: 20px!important;
+  padding-bottom: 20px!important;
+  padding-left: 15px!important;
+  padding-right: 15px!important;
+
+}
+.formButton{
+  width:100%;
+
+}
+.box-footer{
+  margin-top:30px;
+}
+.box-footer p>span>a{
+  color:$form-control-color;
+}
+.text-center {
+  text-align: center!important;
+}
+.navbar-default .navbar-nav > li > a{
+  text-align: center;
+}
+
+@media (max-width: 768px){
+  .header-nav .header-mobile-menu {
+    border-top: 1px solid #f2f2f2;
+    background: white;
+  }
+  .header-nav .header-mobile-menu .header-mobile-link>li>a {
+    display: block;
+    padding: 15px;
+    color: $blue-zodiac;
+    font-family: "Roboto",sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    -webkit-transition: 0.3s all;
+    transition: 0.3s all;
+  }
+  .navbar-nav .open .dropdown-menu{
+    text-align:center;
+  }  
+}
+
+@media(min-width:768px) and (max-width: 990px){
+  .header-nav .header-mobile-menu {
+    padding:0px;
+  }
+}

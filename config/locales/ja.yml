@@ -202,8 +202,24 @@ ja:
       long: "%Y年%m月%d日(%a) %H時%M分%S秒 %z"
       short: "%y/%m/%d %H:%M"
     pm: 午後
-  language:
-    languages: 言語
-    english: 英語
-    japanese: 日本語
-    vietnamese: ベトナム語
+  notifications:
+    language_dropdown:
+      language: 言語
+      english: 英語
+      japanese: 日本語
+      vietnamese: ベトナム語
+  layouts:    
+    footer:
+      awesomevn: 素晴らしい
+      home: ホーム
+      about: 情報
+      faq: FaQ
+      street-company: 1位ダイカットベトナム通り
+      contact: 連絡先
+      address-company: Hハノイ、ベトナム
+      about-company: 私たちは、レストランのウェブサイトを紹介し、消費者が顧客にアプローチしやすくするニーズに応えるレストランサービス会社です
+    menu_guest:
+      features: 機能
+      resources: リソース
+      join_us: 登録
+      login: ログイン

@@ -1,36 +1,39 @@
 <footer class="footer-distributed">
 	<div class="container">
 		<div class="footer-left">
-			<h3>AwesomeVN<span></span></h3>
+			<h3><%= t(".awesomevn") %><span></span></h3> 
 			<p class="footer-links">
-				<a href="#">Home</a>
-				·
-				<a href="#">About</a>
-				·
-				<a href="#">Faq</a>
-				·
-				<a href="#">Contact</a>
+				<a href="#"><%= t(".home") %></a>
 			</p>
-			<p class="footer-company-name">AwesomeVN &copy; 2017</p>
+			<p class="footer-links">
+				<a href="#"><%= t(".about") %></a>
+			</p>
+			<p class="footer-links">
+				<a href="#"><%= t(".faq") %></a>
+			</p>
+			<p class="footer-links">
+				<a href="#"><%= t(".contact") %></a>
+			</p>
+			<p class="footer-company-name"><%= t(".awesomevn") %> &copy; <%= Time.current.year  %></p>
 		</div>
 		<div class="footer-center">
+		<h3><%= t(".contact") %><span></span></h3>
 			<div>
 				<i class="fa fa-map-marker"></i>
-				<p><span>1 Dai Co Viet Street</span> Hanoi, Vietnam</p>
+				<p><span><%= t(".street-company") %></span><%= t(".address-company") %> </p>
 			</div>
 			<div>
 				<i class="fa fa-phone"></i>
-				<p>+1 999 123456</p>
+				<p>+84 0988 783 148</p>
 			</div>
 			<div>
 				<i class="fa fa-envelope"></i>
-				<p><a href="mailto:support@awesomevn.com">support@awesomevn.com</a></p>
+				<p><a href="mailto:support@awesomevn.com">namnv95.bn@gmail.com</a></p>
 			</div>
 		</div>
 		<div class="footer-right">
-			<p class="footer-company-about">
-				<span>About the company</span>
-				Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet.
+		<h3><%= t(".about") %><span></span></h3>
+			<p class="footer-company-about"><%= t(".about-company") %>
 			</p>
 			<div class="footer-icons">
 				<a href="#"><i class="fa fa-facebook"></i></a>

@@ -199,8 +199,24 @@ vi:
       long: "%d %B, %Y %H:%M"
       short: "%d %b %H:%M"
     pm: chiều
-  language:
-    languages: Ngôn Ngữ
-    english: Tiếng Anh
-    japanese: Tiếng Nhật
-    vietnamese: Tiếng việt
+  notifications:
+    language_dropdown:
+      language: Ngôn Ngữ
+      english: Tiếng Anh
+      japanese: Tiếng Nhật
+      vietnamese: Tiếng Việt
+  layouts:
+    footer:
+      awesomevn: AwesomeVN
+      home: Trang chủ
+      about: Thông tin
+      faq: FaQ
+      street-company: Số 1 đường Đại Cồ Việt
+      contact: Liên lạc
+      address-company: Hà Nội, Việt Nam
+      about-company: Chúng tôi là công ty chuyên cung cấp dịch vụ cho các nhà hàng. Nhằm đáp ứng nhu cầu giới thiệu trang web dành cho nhà hàng và giúp các nhà hàng dễ dàng tiếp cận với khách hàng hơn.
+    menu_guest:
+      features: Chức năng
+      resources: Tài nguyên
+      join_us: Tham gia
+      login: Đăng nhập
