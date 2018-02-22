@@ -11,7 +11,7 @@
         <%= f.input :email, required: true, autofocus: true %>
       </div>
       <div class="form-group">
-        <%= f.input :password,:input_html => {:maxlength => 15, :size => 30}, required: true, hint: (t('devise.shared.minimum_password_length', count: @minimum_password_length) if @minimum_password_length) %>
+        <%= f.input :password,:input_html => {:maxlength => 15, :size => 28}, required: true, hint: (t('devise.shared.minimum_password_length', count: @minimum_password_length) if @minimum_password_length) %>
       </div>
       <div class="form-group">
         <%= f.input :password_confirmation,:input_html => {:maxlength => 15, :size => 30}, required: true %>
