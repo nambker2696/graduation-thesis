@@ -23,9 +23,11 @@ $blue-zodiac :#404453;
   transform: translateX(3px);
   color: $caribbean-green;
 }
+
 .page-section:first-child {
   padding: 60px 20px;
 }
+
 .page-section .page-section-body {
   max-width: 1260px;
   margin: 0 auto;
@@ -39,7 +41,7 @@ $blue-zodiac :#404453;
   padding: 60px 20px;
 }
 #hp-header .title h1 {
-    font-weight: 600;
+  font-weight: 600;
 }
 .page-section-body h2,p{
   color:$blue-zodiac;
@@ -54,6 +56,10 @@ $blue-zodiac :#404453;
 }
 .text_name{
   color: $black-light
+}
+p.big_boot{
+  font-size: 20px;
+  line-height: 32px;
 }
 /* form login */
 .field input {
@@ -85,7 +91,13 @@ $blue-zodiac :#404453;
 }
 .formButton{
   width:100%;
-
+  background-color:$jelly-blue;
+  border: none;
+  font-size: 14px;
+  height: 38px;
+  line-height: 38px;
+  color:$white;
+  border-radius: 3px;
 }
 .box-footer{
   margin-top:30px;
@@ -100,6 +112,67 @@ $blue-zodiac :#404453;
   text-align: center;
 }
 
+.button.underline-button {
+  background: transparent;
+  color: #ee5252;
+  border: none;
+  border-bottom: 2px solid #ee5252;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 38px;
+  padding: 0 15px;
+}
+
+.prices-contain{
+  background-color:#404453;
+  .pricing-plan-wrapper{
+    padding:30px;
+    max-width: 400px;
+    margin: auto;
+    text-align: center;
+    .pricing-plan{
+      border-radius: 5px;
+      border: 1px solid rgba(0,0,0,0.05);
+      padding: 30px;
+      color:#404453;
+      background-color:#ffff;
+      .plan-name{
+        color:#404453;
+        font-size: 16px;
+        font-weight: 600; 
+        text-transform: uppercase;
+        font-family: "Roboto",sans-serif;    
+      }
+      .big{
+        font-size: 32px;
+        font-family: "Roboto",sans-serif;
+      }
+      .block {
+        display: block;
+      }
+      p{
+        color:#404453;
+      }
+    }
+  }
+}
+
+.border-bottom.light {
+  border-bottom: 1px solid #d9d9d9;
+}
+.navbar-default .navbar-nav > .open > a{
+  height:60px !important;
+}
+.nav-narrow .dropdown .dropdown-menu{
+    width: 80px !important;
+    text-align: center;
+}
+
+@media (min-width: 720px){
+  h1 {
+    font-size: 40px;
+  }
+}
 @media (max-width: 768px){
   .header-nav .header-mobile-menu {
     border-top: 1px solid #f2f2f2;

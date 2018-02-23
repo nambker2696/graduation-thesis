@@ -1,6 +1,8 @@
 <ul class="nav navbar-nav navbar-right">
-  <li><a href="features"><%= t(".features") %></a></li>
-  <li><a href="resources"><%= t(".resources") %></a></li>
+  <li><%= link_to t(".features"), features_url  %></li>
+  <li><%= link_to t(".faq"), faq_url%></li>
+  <li>
+  <%= render "notifications/resources_dropdown"  %>
   <li>
     <%= render "notifications/language_dropdown" %>
   </li>

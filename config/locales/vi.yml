@@ -211,6 +211,12 @@ vi:
       messages: Thông báo
       favourites_snippets: Đoạn phim yêu thích
       sign_out: Đăng xuất
+    resources_dropdown:
+      resources: Tài nguyên
+      about: Thông tin
+      contact: Liên lạc
+      service: Dịch vụ
+  layouts:    
     footer:
       awesomevn: AwesomeVN
       home: Trang chủ
@@ -223,5 +229,6 @@ vi:
     menu_guest:
       features: Chức năng
       resources: Tài nguyên
+      faq: FaQ
       join_us: Tham gia
       login: Đăng nhập

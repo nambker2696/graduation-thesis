@@ -214,6 +214,11 @@ ja:
       messages: メッセージ
       favourites_snippets: お気に入りスニペット
       sign_out: ログアウト
+    resources_dropdown:
+      resources: リソース
+      about: 情報
+      contact: 連絡先
+      service: サービス
   layouts:    
     footer:
       awesomevn: 素晴らしい
@@ -227,5 +232,6 @@ ja:
     menu_guest:
       features: 機能
       resources: リソース
+      faq: FaQ
       join_us: 登録
       login: ログイン

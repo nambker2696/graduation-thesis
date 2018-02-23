@@ -222,6 +222,11 @@ en:
       messages: Messages
       favourites_snippets: Favourites Snippets
       sign_out: Sign Out
+    resources_dropdown:
+      resources: Resources
+      about: About
+      contact: Contact
+      service: Service
   layouts:
     footer:
       awesomevn: AwesomeVN
@@ -234,6 +239,6 @@ en:
       about-company: We are a professional company providing catering services to restaurants. To meet the need to introduce a website for restaurants and to help restaurants more easily reach customers.
     menu_guest:
       features: Features
-      resources: Fesources
+      faq: FaQ
       join_us: Join us
       login: Login

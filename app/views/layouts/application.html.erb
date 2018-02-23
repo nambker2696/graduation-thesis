@@ -5,8 +5,8 @@
   <%= csrf_meta_tags %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= stylesheet_link_tag 'application',
-'https://fonts.googleapis.com/css?family=Open+Sans:400&subset=latin',
- media: 'all', 'data-turbolinks-track' => true %>
+  'https://fonts.googleapis.com/css?family=Open+Sans:400&subset=latin',
+  media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 
@@ -14,6 +14,12 @@
   <%= render "layouts/head" %>
   <div class="container">
     <div class="main-content">
+      <% if notice %>
+      <p class="alert alert-success"><%= notice %></p>
+      <% end %>
+      <% if alert %>
+      <p class="alert alert-danger"><%= alert %></p>
+      <% end %>
       <%= yield %>
     </div>
   </div>

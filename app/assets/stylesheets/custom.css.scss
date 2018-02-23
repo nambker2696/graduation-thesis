@@ -88,7 +88,8 @@ $btn-color1: #41deb6;
 $form-control-color: #23ffd0;
 $outside-ground: rgba(168, 129, 110, 0.82);
 $inside-ground: rgba(199, 194, 155, 0.93);
-$blue-zodiac :#404453;
+$blue-zodiac : #404453;
+
 
 body {
   background: $white;
@@ -354,7 +355,7 @@ a:hover {
 }
 
 .navbar {
-  box-shadow: 0 4px 6px $bitter;
+  box-shadow: 0 4px 6px #8f8f8159;
   height: 60px;
   margin-bottom: 1px;
   position: fixed;
@@ -2265,9 +2266,8 @@ img.rec-photo {
   width: 100%;
   text-align: left;
   font: bold 16px sans-serif;
-
   padding: 55px 50px;
-  /*margin-top: 80px;*/
+  margin-top: 80px;
 }
 
 .footer-distributed .footer-left,
@@ -2519,7 +2519,7 @@ a.morelink {
     color: #90949c;
 }
 .dropdown-menu {
-  width: 200px !important;
+  width: 200px;
 }
 ._8u {
   width: 92%;
