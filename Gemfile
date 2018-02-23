@@ -1,73 +1,55 @@
 source 'https://rubygems.org'
-
-git_source(:github) do |repo_name|
-  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
-  "https://github.com/#{repo_name}.git"
-end
-
-gem 'devise'
-gem 'rails', '~> 5.1.4'
-gem 'puma', '~> 3.7'
-gem 'sass-rails', '~> 5.0'
-gem "uglifier", ">= 1.3.0"
-gem "coffee-rails", "~> 4.2"
-gem "jquery-rails"
-gem 'uglifier', '>= 1.3.0'
+gem 'acts-as-taggable-on'
+gem 'acts_as_votable', '~> 0.10.0'
+gem 'bootstrap-kaminari-views'
+gem 'bootstrap-sass', '3.3.6'
+gem 'carrierwave', '~> 1.0'
 gem 'coffee-rails', '~> 4.2'
-gem 'turbolinks', '~> 5'
+gem 'config'
+gem 'devise'
+gem 'font-awesome-rails'
+gem 'i18n-js'
 gem 'jbuilder', '~> 2.5'
-gem "paperclip"
-gem "carrierwave", "~> 1.0"
-gem "simple_form"
-gem "bootstrap-sass", "3.3.6"
-gem "kaminari"
-gem "ransack"
-gem "bootstrap-kaminari-views"
-gem "jquery-ui-rails"
-gem "social-share-button"
-gem "will_paginate"
-gem "owlcarousel-rails"
-gem "acts_as_votable", "~> 0.10.0"
-gem "acts-as-taggable-on"
-gem "rails-jquery-autocomplete"
-gem "config"
-gem "omniauth"
-gem "omniauth-twitter"
-gem "omniauth-facebook"
-gem "omniauth-instagram"
-gem "i18n-js"
-gem 'rails-assets-sweetalert2', '~> 5.1.1', source: 'https://rails-assets.org'
-gem 'sweet-alert2-rails'
-gem "mini_magick"
-gem "font-awesome-rails"
+gem 'jquery-rails'
+gem 'jquery-ui-rails'
+gem 'kaminari'
+gem 'mini_magick'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-instagram'
+gem 'omniauth-twitter'
+gem 'owlcarousel-rails'
+gem 'paperclip'
 gem 'puma', '~> 3.7'
-
-
+gem 'rails', '~> 5.1.4'
+gem 'rails-assets-sweetalert2', '~> 5.1.1', source: 'https://rails-assets.org'
+gem 'rails-jquery-autocomplete'
+gem 'ransack'
+gem 'sass-rails', '~> 5.0'
+gem 'simple_form'
+gem 'social-share-button'
+gem 'sweet-alert2-rails'
+gem 'turbolinks', '~> 5'
+gem 'uglifier', '>= 1.3.0'
+gem 'will_paginate'
 group :development, :test do
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
-  gem 'rspec-rails'
 end
-
 group :development do
-  gem "faker"
-  gem 'web-console', '>= 3.3.0'
+  gem 'faker'
   gem 'listen', '>= 3.0.5', '< 3.2'
-  gem 'spring'
-  gem 'sqlite3'
-  gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'rspec-rails'
+  gem 'rubocop', '~> 0.52.1', require: false
+  gem 'spring'
+  gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'sqlite3'
+  gem 'web-console', '>= 3.3.0'
 end
-
 group :production do
-  gem "pg"
+  gem 'pg'
   gem 'rails_12factor'
 end
-gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-gem "gravatar_image_tag"
-source "https://rails-assets.org" do
-  gem "rails-assets-chosen"
-end
-
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'gravatar_image_tag'
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
