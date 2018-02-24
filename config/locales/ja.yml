@@ -235,3 +235,23 @@ ja:
       faq: FaQ
       join_us: 登録
       login: ログイン
+  home:
+    index:
+      title: Mana Restaurant
+    about:
+      title: About
+    contact:
+      title: Contact
+    faq:
+      title: FAQ
+    features:
+      title: Features
+    resources:
+      title: Resources
+  devise:
+    registrations:
+      new:
+        title: Register
+    sessions:
+      new:
+        title: Login

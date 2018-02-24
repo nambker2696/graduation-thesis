@@ -4,15 +4,16 @@
 class DeviseCreateUsers < ActiveRecord::Migration[5.1]
   def change
     create_table :users do |t|
-      t.string :name, null: false, default: :null
-      t.string :email, null: false, default: :null
-      t.string :encrypted_password, null: false, default: :null
+      t.string :name, null: false, default: ""
+      t.string :email, null: false, default: ""
+      t.string :encrypted_password, null: false, default: ""
       t.string :provider
       t.string :uid
+      t.boolean :admin
+      t.string :avatar, default: "/assets/images/fallback/ava-default-male.jpg"
 
       t.string   :reset_password_token
       t.datetime :reset_password_sent_at
-
       t.datetime :remember_created_at
 
       t.integer  :sign_in_count, default: 0, null: false

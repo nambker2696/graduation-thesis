@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Food</title>
+  <title><%= title %></title>
   <%= csrf_meta_tags %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= stylesheet_link_tag 'application',
@@ -14,13 +14,11 @@
   <%= render "layouts/head" %>
   <div class="container">
     <div class="main-content">
-      <% if notice %>
-      <p class="alert alert-success"><%= notice %></p>
-      <% end %>
-      <% if alert %>
-      <p class="alert alert-danger"><%= alert %></p>
+      <% flash.each do |message_type, message| %>
+      <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
       <% end %>
       <%= yield %>
+      <%= debug(params) if Rails.env.development? %>
     </div>
   </div>
   <%= render "layouts/footer" %>
