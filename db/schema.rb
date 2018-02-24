@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20180220163005) do
     t.string "provider"
     t.string "uid"
     t.boolean "admin"
-    t.string "avatar", default: "/assets/images/fallback/ava-default-male.jpg"
+    t.string "avatar", default: "/assets/images/ava-default-male.jpg"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

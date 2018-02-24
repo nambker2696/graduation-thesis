@@ -1,4 +1,4 @@
-<div class="box mini-box center">
+<div class="box center">
   <div class="box-header">
     <h2><%= t(".sign_in") %></h2>
   </div>
@@ -24,14 +24,14 @@
       <%= f.button :submit,:class =>"formButton",:name => t(".sign_in") %>
     </div>
     <% end %>
-    </div>
-    <div class="form-actions">
-    <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
-    </div>
-    <div class="box-footer text-center">
+  </div>
+  <div class="form-actions">
+    <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path,:class => "sign-in-facebook" %>
+  </div>
+  <div class="box-footer text-center">
     <p class="for-get"><span>Forgot Your Password - <a href="/reset_password">Reset Password</a></span></p>
-      <p><span>Don't Have An Account - <a href="/register">Sign Up</a></span></p>
-    </div>
+    <p class="for-get"><span>Don't Have An Account - <a href="/register">Sign Up</a></span></p>
+  </div>
 
   <%= render "devise/shared/links" %>
 </div>

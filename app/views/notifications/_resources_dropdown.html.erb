@@ -1,12 +1,13 @@
+
 <ul class="nav navbar-nav nav-narrow">
   <li class="dropdown">
     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= t(".resources") %></a>
     <ul class="dropdown-menu">
-      <li><%= link_to t(".about") %></li>      
+      <li><%= link_to t(".about"),about_url %></li>      
       <li class="divider"></li>
-      <li><%= link_to t(".contact"), locale: "vi" %></li>
+      <li><%= link_to t(".contact"),contact_url %></li>
       <li class="divider"></li>
-      <li><%= link_to t(".service"), locale: "ja" %></li>
+      <li><%= link_to t(".service"), faq_url %></li>
     </ul>
   </li>
 </ul>

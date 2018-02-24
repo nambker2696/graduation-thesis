@@ -1,4 +1,4 @@
-<div class="box mini-box center">
+<div class="box center">
   <div class="box-header">
     <h2><%= t(".sign_up") %></h2>
   </div>
@@ -20,15 +20,14 @@
         <%= f.input :password_confirmation,:input_html => {:maxlength => 15, :size => 30}, required: true %>
       </div>
     </div>
-
     <div class="form-actions">
       <%= f.button :submit,:class =>"formButton",:name => t(".sign_up") %>
     </div>
     <% end %>
   </div>
-  <div class="box-footer text-center">
+  <div class="box-footer">
     <p class="for-get"><span>Forgot Your Password - <a href="/reset_password">Reset Password</a></span></p>
-    <p><span>Don't Have An Account - <a href="/register">Sign Up</a></span></p>
+    <p class="for-get"><span>Don't Have An Account - <a href="/register">Sign Up</a></span></p>
   </div>
 
   <%= render "devise/shared/links" %>
