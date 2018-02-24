@@ -13,7 +13,7 @@ $form-control-color: #23ffd0;
 $outside-ground: rgba(168, 129, 110, 0.82);
 $caribbean-green: #05bba5;
 $blue-zodiac :#404453;
-
+$red-line: #ee5252;
 .navbar-top{
   z-index: 1;
   .navbar-header{
@@ -31,9 +31,9 @@ $blue-zodiac :#404453;
   .navbar-collapse{
     .header-mobile-menu{
       .navbar-right{
-        li>a{
-          text-align:center;
-        }
+        // li>a{
+        //   text-align:center;
+        // }
 
       }
     }
@@ -44,7 +44,8 @@ $blue-zodiac :#404453;
   /* css in home */
   min-height: 500px;
   margin-top:80px;
-
+  text-align:center;
+  
   .page-section:first-child {
     padding: 60px 20px;
   }
@@ -58,13 +59,13 @@ $blue-zodiac :#404453;
         text-align: center;
         margin: 0px 0 40px 0;
       }
+      h1 {
+        font-weight: 600;
+      }
     }
     #hp-next{
       background-color:#e6e6e6;
       padding: 60px 20px;
-    }
-    #hp-header .title h1 {
-      font-weight: 600;
     }
     .page-section-body h2,p{
       color:$blue-zodiac;
@@ -74,11 +75,12 @@ $blue-zodiac :#404453;
     }
     .page-section-body{
       .title{
+        margin-bottom:60px;
         .button.underline-button {
           background: transparent;
-          color: #ee5252;
+          color: $red-line;
           border: none;
-          border-bottom: 2px solid #ee5252;
+          border-bottom: 2px solid $red-line;
           font-weight: 600;
           font-size: 16px;
           line-height: 38px;
@@ -213,6 +215,7 @@ $blue-zodiac :#404453;
 @media (max-width: 575.98px) {
   h1 {
     font-size: 20px;
+    text-align:center;
   }
   .header-nav .header-mobile-menu {
     border-top: 1px solid #f2f2f2;

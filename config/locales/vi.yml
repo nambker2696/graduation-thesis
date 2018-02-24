@@ -216,7 +216,9 @@ vi:
       about: Thông tin
       contact: Liên lạc
       service: Dịch vụ
-  layouts:    
+  layouts:
+    head:
+      sm-restaurant: SM Restaurant
     footer:
       awesomevn: AwesomeVN
       home: Trang chủ

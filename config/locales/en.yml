@@ -228,6 +228,8 @@ en:
       contact: Contact
       service: Service
   layouts:
+    head:
+      sm-restaurant: SM Restaurant
     footer:
       awesomevn: AwesomeVN
       home: Home

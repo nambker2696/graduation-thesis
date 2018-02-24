@@ -219,7 +219,9 @@ ja:
       about: 情報
       contact: 連絡先
       service: サービス
-  layouts:    
+  layouts:
+    head:
+      sm-restaurant: SMレストラン
     footer:
       awesomevn: 素晴らしい
       home: ホーム

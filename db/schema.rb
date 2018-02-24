@@ -18,8 +18,12 @@ ActiveRecord::Schema.define(version: 20180220163005) do
     t.string "encrypted_password", default: "", null: false
     t.string "provider"
     t.string "uid"
-    t.boolean "admin"
+    t.datetime "birthday"
     t.string "avatar", default: "/assets/images/ava-default-male.jpg"
+    t.boolean "sex"
+    t.string "phone"
+    t.string "address"
+    t.boolean "admin"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

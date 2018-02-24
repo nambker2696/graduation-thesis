@@ -9,8 +9,12 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
       t.string :encrypted_password, null: false, default: ""
       t.string :provider
       t.string :uid
-      t.boolean :admin
+      t.datetime :birthday
       t.string :avatar, default: '/assets/images/ava-default-male.jpg'
+      t.boolean :sex
+      t.string :phone
+      t.address :address
+      t.boolean :admin
 
       t.string   :reset_password_token
       t.datetime :reset_password_sent_at
