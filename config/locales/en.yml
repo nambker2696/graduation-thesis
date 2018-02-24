@@ -222,6 +222,7 @@ en:
       messages: Messages
       favourites_snippets: Favourites Snippets
       sign_out: Sign Out
+      your_store: Yours Store
     resources_dropdown:
       resources: Resources
       about: About
@@ -229,7 +230,7 @@ en:
       service: Service
   layouts:
     head:
-      sm-restaurant: SM Restaurant
+      sm_restaurant: SM Restaurant
     footer:
       awesomevn: AwesomeVN
       home: Home

@@ -13,7 +13,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
       t.string :avatar, default: '/assets/images/ava-default-male.jpg'
       t.boolean :sex
       t.string :phone
-      t.address :address
+      t.string :address
       t.boolean :admin
 
       t.string   :reset_password_token
