@@ -17,5 +17,6 @@ module Food
     config.middleware.use I18n::JS::Middleware
     config.i18n.available_locales = %i[en vi ja]
     config.assets.initialize_on_precompile = false
+    config.autoload_paths += %W(#{config.root}/config/routes)
   end
 end
