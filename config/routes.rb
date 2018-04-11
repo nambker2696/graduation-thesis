@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
-  scope module: 'admin' do
-    get '' => 'home#index'
-end
+  namespace :admin do
+    get 'admin/login'
+  end
+
+  namespace :admin do
+    get '', to: 'dashboard#index', as: '/admin' 
+  end
   
   devise_for :users, only: :omniauth_callbacks, controllers:
   { omniauth_callbacks: 'users/omniauth_callbacks',
