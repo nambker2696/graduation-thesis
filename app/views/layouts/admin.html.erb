@@ -16,7 +16,7 @@
       <!-- /.login-logo -->
       <div class="login-box-body">
         <p class="login-box-msg">Sign in to start your session</p>
-        <%= form_for :user, url: {action: :index, controller: { sessions: 'users/sessions' }} do |f|%>
+        <%= form_for :user, url: user_session_path do |f|%>
         <%= f.label :email %>
         <%= f.email_field :email, class: 'form-control', :required => true %>
         <%= f.label :password %>  

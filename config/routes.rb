@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
   namespace :admin do
-    get 'admin/login'
-  end
-
-  namespace :admin do
+    resources :sessions
+    devise_for :users, skip: :omniauth_callbacks
+     { omniauth_callbacks: 'users/omniauth_callbacks',
+    registrations: 'registrations' }
     get '', to: 'dashboard#index', as: '/admin' 
   end
-  
+
   devise_for :users, only: :omniauth_callbacks, controllers:
   { omniauth_callbacks: 'users/omniauth_callbacks',
     registrations: 'registrations' }
@@ -21,4 +21,5 @@ Rails.application.routes.draw do
   end
   root to: redirect('/#{I18n.default_locale}', status: 302),
   as: :redirected_root
+  get '*path' => redirect('/')
 end
