@@ -235,7 +235,7 @@ ja:
       faq: FaQ
       join_us: 登録
       login: ログイン
-    admin:
+    admin/index:
       title: Admin
   home:
     index:

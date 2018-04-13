@@ -232,7 +232,7 @@ vi:
       faq: FaQ
       join_us: Tham gia
       login: Đăng nhập
-    admin:
+    admin/index:
       title: Admin
   home:
     index:
