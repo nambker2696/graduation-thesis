@@ -232,6 +232,8 @@ vi:
       faq: FaQ
       join_us: Tham gia
       login: Đăng nhập
+    admin:
+      title: Admin
   home:
     index:
       title: Mana Restaurant

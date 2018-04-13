@@ -10,7 +10,62 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180220163005) do
+ActiveRecord::Schema.define(version: 20180413165721) do
+
+  create_table "book_table_details", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "book_table_id"
+    t.integer "dish_id"
+    t.float "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "book_tables", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "guess_id"
+    t.float "total_price"
+    t.boolean "status"
+    t.date "date_order"
+    t.date "date_receipt"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.string "display_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "dishes", force: :cascade do |t|
+    t.string "name"
+    t.string "display_name"
+    t.string "subtitle"
+    t.float "price"
+    t.string "description"
+    t.integer "category_id"
+    t.string "tags"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "guesses", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "phone"
+    t.string "address"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "stores", force: :cascade do |t|
+    t.string "subdomain"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name", default: "", null: false
