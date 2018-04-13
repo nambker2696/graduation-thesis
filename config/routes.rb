@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  resources :book_table_details
+  resources :book_tables
+  resources :guesses
+  resources :dishes
+  resources :categories
+  resources :stores
   namespace :admin do
     resources :sessions
     devise_for :users, skip: :omniauth_callbacks

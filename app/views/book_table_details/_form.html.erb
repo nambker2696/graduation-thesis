@@ -1,0 +1,15 @@
+
+<%= simple_form_for(@book_table_detail) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :user_id %>
+    <%= f.input :book_table_id %>
+    <%= f.input :dish_id %>
+    <%= f.input :price %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

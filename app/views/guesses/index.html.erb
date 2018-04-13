@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Guesses</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Address</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @guesses.each do |guess| %>
+      <tr>
+        <td><%= guess.name %></td>
+        <td><%= guess.email %></td>
+        <td><%= guess.phone %></td>
+        <td><%= guess.address %></td>
+        <td><%= link_to 'Show', guess %></td>
+        <td><%= link_to 'Edit', edit_guess_path(guess) %></td>
+        <td><%= link_to 'Destroy', guess, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Guess', new_guess_path %>

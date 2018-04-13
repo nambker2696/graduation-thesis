@@ -1,0 +1,2 @@
+class BookTable < ApplicationRecord
+end
