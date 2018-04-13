@@ -5,7 +5,7 @@
   <%= stylesheet_link_tag "admin", :media => "all" %>
   <%= javascript_include_tag 'admin' %>
 </head>
-<body>
+<body id="admin-panel">
   <% if user_signed_in? and current_user.admin? %>
     <%= render 'layouts/admin/index' %>
   <% else %>
@@ -28,7 +28,7 @@
             <% end %> 
           </div> 
         </div>
-        <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+        <%= f.button :submit,:class =>"formButton",:name => t(".sign_in"),:value => t(".sign_in") %>
         <% end %>
         <a href="#">I forgot my password</a><br>
         <a href="#" class="text-center">Register a new membership</a>
