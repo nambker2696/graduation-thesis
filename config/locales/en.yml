@@ -242,8 +242,10 @@ en:
       faq: FaQ
       join_us: Join us
       login: Login
-    admin/index:
-      title: Admin
+  admin:
+    dashboard:
+      index:
+        title: Admin
   home:
     index:
       title: Mana Restaurant
