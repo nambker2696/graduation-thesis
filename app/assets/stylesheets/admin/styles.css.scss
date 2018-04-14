@@ -69,8 +69,20 @@
     padding: 10px 25px;
     background: #fff;
     margin: 25px;
+    a {
+        color: #03A9F4;
+        text-decoration: none;
+    }
     .content-heading{
-      box-shadow: 0 1px 3px rgba(0,0,0,.2);
+      box-shadow: 1px 1px 1px 2px rgba(0, 0, 0, 0.2)
+    }
+    .content{
+      box-shadow: 1px 1px 1px 2px rgba(0, 0, 0, 0.2);
+      max-width: 875px;
+
+      .box-tools{
+        float: right;
+      }
     }
   }
   #wrapper-content{

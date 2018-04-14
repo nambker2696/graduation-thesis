@@ -1,7 +1,6 @@
 <div id="wrapper-content" class="bottom-bar">
   <div class="content-heading">
     <div style="position: relative;">
-      <h3 class=""><i class="fa fa-home"></i>Dashboard</h3>
       <div class="flex-l-r-center no-wrap border-top m-t-3 p-t-3">
         <div class=""><a class="m-r-2"><small>Day</small></a>
           <a class="m-r-2 button button-sm primary-bg light-text round">
@@ -22,9 +21,13 @@
             <i class="fa fa-chevron-right"></i>
           </a>
         </div>
-      </div><p class="heading-help">
-      <a id="supportDocLink" target="_blank" href="https://www.cloudwaitress.com/support/guide/getting-started"><i class="fa fa-question-circle"></i></a>
-    </p>
+      </div>
+      <p class="heading-help">
+        <a id="supportDocLink" target="_blank" href="https://www.cloudwaitress.com/support/guide/getting-started"><i class="fa fa-question-circle"></i></a>
+      </p>
+    </div>
   </div>
-</div>
+  <div class="content">
+    <%= yield %>
+  </div>
 </div>
