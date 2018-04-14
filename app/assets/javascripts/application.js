@@ -20,3 +20,5 @@
 //= require owl.carousel
 //= require jquery-ui
 //= require autocomplete-rails
+//= require sweetalert2
+//= require sweet-alert2-rails

@@ -17,4 +17,5 @@
  *= require owl.theme
  *= require jquery-ui
  *= require font-awesome
+  *= require sweetalert2
  */
