@@ -1,2 +1,90 @@
-<h1>Admin::Dashboard#index</h1>
-<p>Find me in app/views/admin/dashboard/index.html.erb</p>
+<div class="content-heading">
+  <div class="cover-time flex-center">
+    <div class="date-time">
+      <a class="time-css">
+        <small>Day</small>
+      </a>
+      <a class="time-css button button-sm">
+        <small>Week</small>
+      </a>
+      <a class="time-css">
+        <small>Month</small>
+      </a>
+      <a class="time-css">
+        <small>Year</small>
+      </a>
+    </div>
+    <div class="button-nex-time">
+      <a class="button button-next-day">
+        <i class="fa fa-chevron-left"></i>
+      </a>
+      <a class="button button-next-day">
+        <i class="fa fa-chevron-right"></i>
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+  <h3>26 November - 2 December</h3>
+  <h4>Overview</h4>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="flex-center">
+        <%= image_tag('money.svg', alt: 'money') %>
+        <div class="sale-results">
+          <p class="font-bold">Sales</p>
+          <h2><span>₫0</span></h2>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="flex-center">
+        <%= image_tag('spoon.svg', alt: 'money') %>
+        Orders
+      </div>
+    </div>
+  </div>
+  <h4>Order Completion</h4>
+  <div class="row">
+    <div class="col-md-4">
+      Cancelled
+    </div>
+    <div class="col-md-4">
+      In-Complete
+    </div>
+    <div class="col-md-4">
+      Complete
+    </div>
+  </div>
+  <h4>Overview</h4>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="flex-center">
+        <%= image_tag('place.svg', alt: 'money') %>
+        Pickups
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="flex-center">
+        <%= image_tag('transport.svg', alt: 'money') %>
+        Deliveries
+      </div>
+    </div>
+  </div>
+  <h4>Due</h4>
+  <div class="row">
+    <div class="col-md-6">
+    <div class="flex-center">
+        <%= image_tag('book.svg', alt: 'money') %>
+      Now
+      </div>
+    </div>
+    <div class="col-md-6">
+    <div class="flex-center">
+        <%= image_tag('date.svg', alt: 'money') %>
+      Later
+      </div>
+    </div>
+  </div>
+</div>
