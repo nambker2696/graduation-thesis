@@ -69,6 +69,6 @@ class Admin::StoresController < Admin::BaseController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def store_params
-      params.fetch(:store, {})
+      params.require(:store).permit(:subdomain, :user_id)
     end
 end

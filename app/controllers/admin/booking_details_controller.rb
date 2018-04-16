@@ -69,6 +69,6 @@ class Admin::BookingDetailsController < Admin::BaseController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def booking_detail_params
-      params.fetch(:booking_detail, {})
+      params.require(:booking_detail).permit(:user_id, :booking_id, :dish_id, :price)
     end
 end

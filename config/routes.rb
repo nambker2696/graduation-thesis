@@ -1,5 +1,16 @@
 Rails.application.routes.draw do
   namespace :admin do
+    resources :order_details
+  end
+  namespace :admin do
+    resources :openinghours
+  end
+  resources :opening_hours
+  namespace :admin do
+    resources :locations
+  end
+  resources :locations
+  namespace :admin do
     resources :booking_details
   end
   resources :booking_details
