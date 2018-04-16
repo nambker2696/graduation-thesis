@@ -1,25 +1,74 @@
-<p id="notice"><%= notice %></p>
+<div class="card">
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab" class="underline-button">Show</a></li>
+    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab" class="underline-button">Create</a></li>
+    <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab" class="underline-button">Edit</a></li>
+    <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab" class="underline-button">Settings</a></li>
+  </ul>
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="home">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="box">
+            <div class="box-header">
+              <h5 class="box-title">Search location</h5>
+              <div class="box-tools">
+                <div class="input-group input-group-sm" style="width: 150px;">
+                  <input type="text" name="table_search" class="form-control pull-right" placeholder="Search" id="search">
 
-<h1>Locations</h1>
+                  <div class="input-group-btn">
+                    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <table class="table table-hover" id="table">
+              <tbody>
+                <tr>
+                  <th>store_id</th>
+                  <th>name</th>
+                  <th>Status</th>
+                  <th>address</th>
+                  <th>phone</th>
+                  <th>Edit</th>
+                  <th>Delete</th>
+                </tr>
+                <% @locations.each do |location| %>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+                <tr>
+                  <td><%= location.store_id %></td>
+                  <td><%= location.name %></td>
+                  <td><%= location.address %></td>
+                  <td><%= location.phone %></td>
+                  <td><%= link_to 'Edit', edit_admin_location_path(location) %></td>
+                  <td><%= link_to 'Destroy', admin_location_url(location.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                </tr>
+                <% end %>
 
-  <tbody>
-    <% @locations.each do |location| %>
-      <tr>
-        <td><%= link_to 'Show', location %></td>
-        <td><%= link_to 'Edit', edit_location_path(location) %></td>
-        <td><%= link_to 'Destroy', location, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="profile"></div>
+    <div role="tabpanel" class="tab-pane" id="messages"></div>
+    <div role="tabpanel" class="tab-pane" id="settings"></div>
+  </div>
+</div>
+</div>
 
-<br>
-
-<%= link_to 'New Location', new_location_path %>
+<div class="box-body table-responsive no-padding">
+  <script type="text/javascript">
+   $("#search").keyup(function(){
+    _this = this;
+        // Show only matching TR, hide rest of them
+        $.each($("#table tbody tr"), function() {
+          if($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) === -1)
+           $(this).hide();
+         else
+           $(this).show();                
+       });
+      }); 
+    </script>

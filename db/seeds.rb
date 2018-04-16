@@ -12,7 +12,7 @@ User.create!(name:  "NambKer",
  avatar: Faker::Avatar.image("my-own-slug", "50x50", "jpg"),
  admin: 0)
 
-puts "Faker 15 Users"
+puts "Faker 15 Users(admin:0)"
 15.times do
   User.create(
     name: Faker::Name.name,
@@ -21,6 +21,17 @@ puts "Faker 15 Users"
     password_confirmation: "123456",
     avatar: Faker::Avatar.image("my-own-slug", "50x50", "jpg"),
     admin: 0
+    )
+end
+puts "Faker 5 staff(admin:5)"
+10.times do
+  User.create(
+    name: Faker::Name.name,
+    email: Faker::Internet.email,
+    password:              "123456",
+    password_confirmation: "123456",
+    avatar: Faker::Avatar.image("my-own-slug", "50x50", "jpg"),
+    admin: 5
     )
 end
 
@@ -79,3 +90,29 @@ puts "Faker 10 Booking"
     action: Faker::Number.between(1, 3)
     )
 end
+puts "Faker 10 Location"
+10.times do
+  Location.create(
+    store_id: Faker::Number.between(1, 10),
+    name: Faker::Name.name
+    address: Faker::Address.city,
+    phone: Faker::PhoneNumber.cell_phone
+    )
+end
+puts "Faker 7 OpeningHours for each location"
+locat = Location.all
+7.times do
+
+
+  # puts "Faker 50 Food"
+# users = User.order(:created_at).take(6)
+# 50.times do
+#   content = Faker::Lorem.sentence(5)
+#   users.each { |user| user.foods.create!(
+#     description: content,
+#     name:Faker::Name.name ,
+#     address: Faker::Address.street_address,
+#     price: Faker::Number.decimal(2, 3),
+#     file:Faker::Avatar.image("my-own-slug", "50x50"),
+#     ) }
+# end

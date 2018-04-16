@@ -26,6 +26,9 @@ $blue-zodiac :#404453;
     .nav-narrow .dropdown .dropdown-menu{
       width: 80px !important;
       text-align: center;
+      a:hover{
+        border-bottom: 2px solid #03A9F4;
+      }
     }
   } 
   .navbar-collapse{
@@ -74,11 +77,11 @@ $blue-zodiac :#404453;
     }
     .page-section-body{
       .title{
-        .button.underline-button {
+        .button.underline-button{
           background: transparent;
-          color: #ee5252;
+          color: #03A9F4;
           border: none;
-          border-bottom: 2px solid #ee5252;
+          border-bottom: 2px solid #03A9F4;
           font-weight: 600;
           font-size: 16px;
           line-height: 38px;

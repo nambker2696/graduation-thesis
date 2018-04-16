@@ -5,71 +5,98 @@
   </div>
   <div class="navbar-links">
     <ul>
-      <li id="DashboardMenuLink">
+      <li>
         <%= link_to admin_admin_url,:class => "active" do %>
         <i class="fa fa-star"></i>
         <span>Dashboard</span>
         <% end %>
       </li>
-      <li id="DashboardMenuLink">
+      <li>
         <%= link_to admin_orders_url,:class => "" do %>
         <i class="fa fa-cubes"></i>
         <span>Order</span>
         <% end %>
       </li>
-      <li id="DashboardMenuLink">
+      <li>
         <%= link_to admin_bookings_url,:class => "" do %>
         <i class="fa fa-calendar"></i>
         <span>Bookings</span>
         <% end %>
       </li>
-      <li id="DashboardMenuLink">
+      <li>
         <%= link_to admin_users_url,:class => "" do %>
         <i class="fa fa-users"></i>
         <span>Custommers</span>
         <% end %>
       </li>
-      <li id="DashboardMenuLink">
-        <%= link_to admin_admin_url,:class => "" do %>
+      <li>
+        <%= link_to admin_locations_url,:class => "" do %>
         <i class="fa fa-map-marker"></i>
         <span>Locations</span>
         <% end %>
       </li>
-      <li id="DashboardMenuLink">
-        <%= link_to admin_admin_url,:class => "" do %>
+      <li>
+        <%= link_to admin_admin_url,:class => "menu-dropdown" do %>
         <i class="fa fa-cutlery"></i>
         <span>Menu</span>
+        <i class="dropdown-arrow fa fa-chevron-left"></i>
         <% end %>
+        <ul class="dropdown-food">
+          <li><%= link_to admin_admin_url,:class => "" do %>
+          <span>Menu</span>
+            <% end %>
+          </li>
+          <li><%= link_to admin_admin_url,:class => "" do %>
+          <span>Categories</span>
+            <% end %>
+          </li>
+          <li><%= link_to admin_admin_url,:class => "" do %>
+          <span>Dishs</span>
+            <% end %>
+          </li>
+          <li><%= link_to admin_admin_url,:class => "" do %>
+          <span>Order</span>
+            <% end %>
+          </li>
+
+        </ul>
       </li>
-      <li id="DashboardMenuLink">
-        <%= link_to admin_admin_url,:class => "" do %>
+      <li>
+        <%= link_to admin_users_url,:class => "" do %>
         <i class="fa fa-vcard"></i>
         <span>Staff</span>
         <% end %>
       </li>  
-      <li id="DashboardMenuLink">
-      <%= link_to admin_admin_url,:class => "" do %>
-        <i class="fa fa-tag"></i>
-          <span>Promotions</span>
+      <li>
+        <%= link_to admin_admin_url,:class => "" do %>
+        <i class="glyphicon glyphicon-gift"></i>
+        <span>Events</span>
         <% end %>
       </li>
-      <li id="DashboardMenuLink">
+      <li>
+        <%= link_to admin_admin_url,:class => "" do %>
+        <i class="glyphicon glyphicon-tint"></i>
+        <span>Layout</span>
+        <% end %>
+      </li>
+
+      <li>
         <%= link_to admin_admin_url,:class => "" do %>
         <i class="fa fa-gear"></i>
-          <span>Bassic Setting</span>
+        <span>Bassic Setting</span>
         
         <% end %>
       </li>
-      <li id="DashboardMenuLink">
+      <li>
         <%= link_to admin_admin_url,:class => "" do %>
         <i class="fa fa-plug"></i>
-          <span>Advanced Setting</span>
+        <span>Advanced Setting</span>
         <% end %>
       </li>
-      <li id="DashboardMenuLink">
+      <li>
         <%= link_to admin_admin_url,:class => "" do %>
-        <i class="fa fa-home"></i>
-          <span>Biling</span>
+        <i class="glyphicon glyphicon-usd"></i>
+        <span>Biling</span>
         <% end %>
       </li>
     </ul>
@@ -87,3 +114,7 @@
     </div>
   </div>
 </div>
+
+<script>
+
+</script>
