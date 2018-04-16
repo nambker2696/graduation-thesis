@@ -5,20 +5,22 @@ Rails.application.routes.draw do
   scope '(:locale)', locale: /en|vi|ja/ do
 
   namespace :admin do
-  resources :stores
-  resources :users
-  devise_for :users, skip: :omniauth_callbacks
-  { omniauth_callbacks: 'users/omniauth_callbacks',
-    registrations: 'registrations' }
+    resources :stores
+    resources :users
+    resources :orders
+    resources :bookings
+    devise_for :users, skip: :omniauth_callbacks
+    { omniauth_callbacks: 'users/omniauth_callbacks',
+      registrations: 'registrations' }
     get '', to: 'dashboard#index', as: '/admin' 
   end 
-
-  resources :book_table_details
-  resources :book_tables
+  
   resources :guesses
   resources :dishes
   resources :categories
   resources :stores
+  resources :order_details
+  resources :bookings
 
     devise_for :users, skip: :omniauth_callbacks
     root to: 'home#index'

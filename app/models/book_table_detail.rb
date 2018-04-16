@@ -1,2 +1,0 @@
-class BookTableDetail < ApplicationRecord
-end

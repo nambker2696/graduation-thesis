@@ -10,34 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180414042950) do
+ActiveRecord::Schema.define(version: 20180415175018) do
 
-  create_table "admin_stores", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "admin_users", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "book_table_details", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "book_table_id"
-    t.integer "dish_id"
-    t.float "price"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "book_tables", force: :cascade do |t|
+  create_table "bookings", force: :cascade do |t|
     t.integer "user_id"
     t.integer "guess_id"
-    t.float "total_price"
+    t.string "place"
     t.boolean "status"
-    t.date "date_order"
+    t.date "date_booked"
     t.date "date_receipt"
+    t.integer "action"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -66,6 +48,26 @@ ActiveRecord::Schema.define(version: 20180414042950) do
     t.string "email"
     t.string "phone"
     t.string "address"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "order_details", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "order_id"
+    t.integer "dish_id"
+    t.float "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "guess_id"
+    t.float "total_price"
+    t.boolean "status"
+    t.date "date_order"
+    t.date "date_receipt"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

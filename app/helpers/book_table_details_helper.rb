@@ -1,2 +1,0 @@
-module BookTableDetailsHelper
-end

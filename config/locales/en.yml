@@ -245,7 +245,13 @@ en:
   admin:
     dashboard:
       index:
-        title: Admin
+        title: Dashboard
+    orders:
+      index:
+        title: Orders
+    bookings:
+      index:
+        title: Bookings
   home:
     index:
       title: Mana Restaurant
