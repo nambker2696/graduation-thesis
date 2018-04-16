@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180415175018) do
+ActiveRecord::Schema.define(version: 20180416041650) do
+
+  create_table "booking_details", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "booking_id"
+    t.integer "dish_id"
+    t.float "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "bookings", force: :cascade do |t|
     t.integer "user_id"
@@ -85,7 +94,7 @@ ActiveRecord::Schema.define(version: 20180415175018) do
     t.string "encrypted_password", default: "", null: false
     t.string "provider"
     t.string "uid"
-    t.boolean "admin"
+    t.integer "admin"
     t.string "avatar", default: "/assets/images/ava-default-male.jpg"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"

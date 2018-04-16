@@ -242,6 +242,9 @@ vi:
     bookings:
       index:
         title: Bookings
+    users:
+      index:
+        title: Customers
   home:
     index:
       title: Mana Restaurant

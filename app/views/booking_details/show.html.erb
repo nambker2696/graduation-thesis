@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @booking_detail.user_id %>
+</p>
+
+<p>
+  <strong>Booking:</strong>
+  <%= @booking_detail.booking_id %>
+</p>
+
+<p>
+  <strong>Dish:</strong>
+  <%= @booking_detail.dish_id %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @booking_detail.price %>
+</p>
+
+<%= link_to 'Edit', edit_booking_detail_path(@booking_detail) %> |
+<%= link_to 'Back', booking_details_path %>

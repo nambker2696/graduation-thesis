@@ -1,4 +1,18 @@
 <p id="notice"><%= notice %></p>
+<table class="table table-hover" id="table">
+  <tbody>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+    <tr>
+      <td><%= @user.name %></td>
+      <td><%= @user.email %></td>
+    </tr>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+  </tbody>
+</table>
+<%= link_to 'Edit', edit_admin_user_path(@user) %> |
+<%= link_to 'Back', admin_users_path %>
