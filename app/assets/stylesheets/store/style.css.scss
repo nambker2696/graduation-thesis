@@ -11,8 +11,9 @@
     }
 
     .carousel-inner{
-      height:300px;
+      display:block;
       img{
+        height: 500px !important;
         width:100%;
       }
     }

@@ -1,0 +1,23 @@
+<div class="navbar navbar-default navbar-top animated"
+data-wow-delay="0.1s" role="navigation">
+<div class="container">
+  <div class="navbar-header">
+    <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+      <span class="icon icon-bar"></span>
+      <span class="icon icon-bar"></span>
+      <span class="icon icon-bar"></span>
+    </button>
+    <%= link_to "CreateS", root_path , id: "brand", class: "navbar-brand animated faded",
+    "data-wow-delay": "0.3s", method: :get %>
+  </div>
+  <div class="collapse navbar-collapse header-nav">
+    <ul class="nav navbar-nav navbar-right header-mobile-menu">
+      <% if user_signed_in? %>
+      <%= render "layouts/createS/menu_user" %>
+      <% else %>
+      <%= render "layouts/createS/menu_guest" %>
+      <% end %>
+    </ul>
+    </div>
+  </div>
+</div>

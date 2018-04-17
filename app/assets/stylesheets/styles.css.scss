@@ -15,19 +15,28 @@ $caribbean-green: #05bba5;
 $blue-zodiac :#404453;
 
 .navbar-top{
+  position: fixed;
   z-index: 1;
+  height: 60px;
   .navbar-header{
-    .navbar-nav > li > a{
-      text-align: center;
-    }
-    .navbar-nav > .open > a{
-      height:60px !important;
-    }
-    .nav-narrow .dropdown .dropdown-menu{
-      width: 80px !important;
-      text-align: center;
-      a:hover{
-        border-bottom: 2px solid #03A9F4;
+    .navbar-nav{
+      margin-top:10px;
+      height: 60px;
+      li > a{
+        text-align: center;
+        .open > a{
+          height:60px !important;
+        }
+        .dropdown{
+          height:60px !important;
+          .dropdown-menu{
+            width: 80px !important;
+            text-align: center;
+            a:hover{
+              border-bottom: 2px solid #03A9F4;
+            }
+          }
+        }
       }
     }
   } 

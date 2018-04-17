@@ -12,7 +12,7 @@
 </head>
 
 <body>
-  <%= render "layouts/head" %>
+  <%= render "layouts/createS/head" %>
   <div class="container">
     <div class="main-content">
       <% flash.each do |message_type, message| %>
@@ -21,9 +21,6 @@
       <%= yield %>
     </div>
   </div>
-
-  <a href="/posts/1" data-method="delete" data-confirm="Are you sure?" style="color:red">Delete</a>
-  <%= render "layouts/footer" %>
-  
+  <%= render "layouts/createS/footer" %>  
 </body>
 </html>

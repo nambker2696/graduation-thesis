@@ -12,12 +12,14 @@ data-wow-delay="0.1s" role="navigation">
   </div>
   <div class="collapse navbar-collapse header-nav">
     <ul class="nav navbar-nav navbar-right header-mobile-menu">
-      <% if user_signed_in? %>
-      <%= render "layouts/menu_user" %>
-      <% else %>
-      <%= render "layouts/menu_guest" %>
-      <% end %>
+      <li><a href=""><i class="fa fa-home"></i></a></li>
+      <li><%= link_to "Locations", features_url  %></li>
+      <li><%= link_to "Informations", features_url  %></li>
+      <li><%= link_to "Contacts Us", features_url  %></li>
+      <li>
+        <%= render "notifications/language_dropdown" %>
+      </li>
     </ul>
-    </div>
   </div>
+</div>
 </div>
