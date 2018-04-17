@@ -1,0 +1,90 @@
+<div id="left-navbar" class="sidebar-admin">
+  <div class="navbar-header cherry-gradient">
+    <div><p class="">Admin store </p>
+    </div>
+  </div>
+  <div class="navbar-links">
+    <ul>
+      <li>
+        <%= link_to admin_admin_url,:class => "active" do %>
+        <i class="fa fa-star"></i>
+        <span>Menu</span>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to admin_users_url,:class => "" do %>
+        <i class="glyphicon glyphicon-user"></i>
+        <span>Login</span>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to admin_locations_url,:class => "" do %>
+        <i class="fa fa-map-marker"></i>
+        <span>Locations</span>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to admin_admin_url,:class => "menu-dropdown" do %>
+        <i class="fa fa-cutlery"></i>
+        <span>Menu</span>
+        <i class="dropdown-arrow fa fa-chevron-left"></i>
+        <% end %>
+        <ul class="dropdown-food">
+          <li><%= link_to admin_admin_url,:class => "" do %>
+          <span>Menu</span>
+            <% end %>
+          </li>
+          <li><%= link_to admin_admin_url,:class => "" do %>
+          <span>Categories</span>
+            <% end %>
+          </li>
+          <li><%= link_to admin_admin_url,:class => "" do %>
+          <span>Dishs</span>
+            <% end %>
+          </li>
+          <li><%= link_to admin_admin_url,:class => "" do %>
+          <span>Order</span>
+            <% end %>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <%= link_to admin_users_url,:class => "" do %>
+        <i class="fa fa-vcard"></i>
+        <span>Staff</span>
+        <% end %>
+      </li>  
+      <li>
+        <%= link_to admin_admin_url,:class => "" do %>
+        <i class="glyphicon glyphicon-gift"></i>
+        <span>Events</span>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to admin_admin_url,:class => "" do %>
+        <i class="fa fa-gear"></i>
+        <span>Bassic Setting</span>
+        
+        <% end %>
+      </li>
+      <li>
+        <%= link_to admin_admin_url,:class => "" do %>
+        <i class="glyphicon glyphicon-usd"></i>
+        <span>Biling</span>
+        <% end %>
+      </li>
+    </ul>
+
+    <div class="tab-menu"></div>
+    <div class="check-store">
+      <a id="yourstore" class="button-store" href="#" target="_blank">
+        <i class="fa fa-shopping-basket"></i> Cart
+      </a>
+    </div>
+    <div class="support-store">
+      <a id="supportstore" class="button-store" href="#" target="_blank">
+        <i class="fa fa-life-ring"></i> Call: 091231312
+      </a>
+    </div>
+  </div>
+</div>

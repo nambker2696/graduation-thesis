@@ -7,15 +7,15 @@ data-wow-delay="0.1s" role="navigation">
       <span class="icon icon-bar"></span>
       <span class="icon icon-bar"></span>
     </button>
-    <%= link_to "CreateS", root_path , id: "brand", class: "navbar-brand animated faded",
+    <%= link_to "LOGO_Store", root_path , id: "brand", class: "navbar-brand animated faded",
     "data-wow-delay": "0.3s", method: :get %>
   </div>
   <div class="collapse navbar-collapse header-nav">
     <ul class="nav navbar-nav navbar-right header-mobile-menu">
       <li><a href=""><i class="fa fa-home"></i></a></li>
-      <li><%= link_to "Locations", features_url  %></li>
-      <li><%= link_to "Informations", features_url  %></li>
-      <li><%= link_to "Contacts Us", features_url  %></li>
+      <li><%= link_to "Locations", store_store_url  %></li>
+      <li><%= link_to "Informations", store_store_url  %></li>
+      <li><%= link_to "Contacts Us", store_store_url  %></li>
       <li>
         <%= render "notifications/language_dropdown" %>
       </li>
