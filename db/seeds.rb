@@ -37,10 +37,11 @@ end
 
 
 puts "Faker 10 Store"
-10.times do
+users =  User.all
+users.each do |user|
   Store.create(
     subdomain: Faker::Company.buzzword,
-    user_id: Faker::Number.between(1, 10)
+    user_id: user.id
     )
 end
 
@@ -94,25 +95,23 @@ puts "Faker 10 Location"
 10.times do
   Location.create(
     store_id: Faker::Number.between(1, 10),
-    name: Faker::Name.name
+    name: Faker::Name.name,
     address: Faker::Address.city,
     phone: Faker::PhoneNumber.cell_phone
     )
 end
 puts "Faker 7 OpeningHours for each location"
-locat = Location.all
-7.times do
-
-
-  # puts "Faker 50 Food"
-# users = User.order(:created_at).take(6)
-# 50.times do
-#   content = Faker::Lorem.sentence(5)
-#   users.each { |user| user.foods.create!(
-#     description: content,
-#     name:Faker::Name.name ,
-#     address: Faker::Address.street_address,
-#     price: Faker::Number.decimal(2, 3),
-#     file:Faker::Avatar.image("my-own-slug", "50x50"),
-#     ) }
-# end
+locats = Location.all
+locats.each do |locat|
+  i = 0
+  7.times do
+    i+=1
+    OpeningHour.create(
+      day: i,
+      location_id: locat.id,
+      open: Faker::Time.forward(23, :morning),
+      close: Faker::Time.backward(14, :evening),
+      status: true
+      )
+  end
+end
