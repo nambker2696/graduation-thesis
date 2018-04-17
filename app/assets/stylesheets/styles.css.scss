@@ -21,14 +21,16 @@ $blue-zodiac :#404453;
   .navbar-header{
     .navbar-nav{
       margin-top:10px;
-      height: 60px;
+      height: 60px; 
       li > a{
         text-align: center;
         .open > a{
           height:60px !important;
         }
+        
         .dropdown{
           height:60px !important;
+
           .dropdown-menu{
             width: 80px !important;
             text-align: center;
@@ -40,6 +42,13 @@ $blue-zodiac :#404453;
       }
     }
   } 
+  #language{
+    a>img {
+      height: 35px;
+      margin-right: 10px;
+      width: 35px;
+    }
+  }
   .navbar-collapse{
     .header-mobile-menu{
       .navbar-right{
