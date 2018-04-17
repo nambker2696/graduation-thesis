@@ -1,5 +1,5 @@
-<div class="row affix-row left-navbar">
-  <div class="col-sm-3 col-md-2 affix-sidebar navbar-links">
+<div id="left-navbar" class="sidebar-admin">
+  <div class="navbar-header cherry-gradient">
     <div class="sidebar-nav">
       <div class="navbar navbar-default" role="navigation">
         <div class="navbar-header">
@@ -21,51 +21,68 @@
                   <small>Guest <span class="caret"></span></small>
 
                 </h4>
-              
-              <div class="collapse" id="toggleDemo0" style="height: 0px;">
-                <ul class="nav nav-list">
-                  <li><a href="#">ProfileSubMenu1</a></li>
-                  <li><a href="#">ProfileSubMenu2</a></li>
-                  <li><a href="#">ProfileSubMenu3</a></li>
-                </ul>
-              </div>
-            </li>
-            <li>
-              <a data-toggle="collapse" data-target="#toggleDemo" data-parent="#sidenav01" class="collapsed">
-                <span class="glyphicon glyphicon-cloud"></span> Location <span class="caret pull-right"></span>
-              </a>
-              <div class="collapse" id="toggleDemo" style="height: 0px;">
-                <ul class="nav nav-list">
-                  <li><a href="#">10,Quan Dong da,Ha Noi</a></li>
-                  <li><a href="#">Minh KHai Ha Noi  </a></li>
-                  <li><a href="#">Submenu1.3</a></li>
-                </ul>
-              </div>
-            </li>
-            <li class="active">
-              <a  data-toggle="collapse" data-target="#toggleDemo2" data-parent="#sidenav01" class="collapsed">
-                <span class="glyphicon glyphicon-inbox"></span> Information<span class="caret pull-right"></span>
-              </a>
-              <div class="collapse" id="toggleDemo2" style="height: 0px;">
-                <ul class="nav nav-list">
-                  <li><a href="#">Submenu2.1</a></li>
-                  <li><a href="#">Submenu2.2</a></li>
-                  <li><a href="#">Submenu2.3</a></li>
-                </ul>
-              </div>
-            </li>
-            <li><a href="#"><span class="glyphicon glyphicon-lock"></span> Contact</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-calendar"></span> Langugus <span class="badge pull-right">42</span></a></li>
-            <li><a href=""><span class="glyphicon glyphicon-cog"></span> Order/Booking</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
+
+                <div class="collapse" id="toggleDemo0" style="height: 0px;">
+                  <ul class="nav nav-list">
+                    <li><a href="#">ProfileSubMenu1</a></li>
+                    <li><a href="#">ProfileSubMenu2</a></li>
+                    <li><a href="#">ProfileSubMenu3</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li>
+                <a data-toggle="collapse" data-target="#toggleDemo" data-parent="#sidenav01" class="collapsed">
+                  <span class="glyphicon glyphicon-cloud"></span> Location <span class="caret pull-right"></span>
+                </a>
+                <div class="collapse" id="toggleDemo" style="height: 0px;">
+                  <ul class="nav nav-list">
+                    <li><a href="#">10,Quan Dong da,Ha Noi</a></li>
+                    <li><a href="#">Minh KHai Ha Noi  </a></li>
+                    <li><a href="#">Submenu1.3</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="active">
+                <a  data-toggle="collapse" data-target="#toggleDemo2" data-parent="#sidenav01" class="collapsed">
+                  <span class="glyphicon glyphicon-inbox"></span> Information<span class="caret pull-right"></span>
+                </a>
+                <div class="collapse" id="toggleDemo2" style="height: 0px;">
+                  <ul class="nav nav-list">
+                    <li><a href="#">Submenu2.1</a></li>
+                    <li><a href="#">Submenu2.2</a></li>
+                    <li><a href="#">Submenu2.3</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li><a href="#"><span class="glyphicon glyphicon-lock"></span> Contact</a></li>
+              <li><a href="#"><span class="glyphicon glyphicon-calendar"></span> Langugus <span class="badge pull-right">42</span></a></li>
+              <li><a href=""><span class="glyphicon glyphicon-cog"></span> Order/Booking</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
       </div>
     </div>
-  </div>
-  <div class="col-sm-9 col-md-10 affix-content">
     <div class="container">
-    <%= render "layouts/store/slider_store" %>
-    <%= render "layouts/store/content_store" %>
+      <ul class="nav navbar-nav navbar-right header-mobile-menu">
+        <li><a href=""><i class="fa fa-home"></i></a></li>
+        <li><%= link_to "Locations", store_store_url  %></li>
+        <li><%= link_to "Informations", store_store_url  %></li>
+        <li><%= link_to "Contacts Us", store_store_url  %></li>
+        <li>
+          <%= render "notifications/language_dropdown" %>
+        </li>
+      </ul>
+      <div class="main-content">
+        <%= render "layouts/store/slider_store" %>
+        <%= render "layouts/store/content_store" %>
+        <div class="main-content">
+          <% flash.each do |message_type, message| %>
+          <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+          <% end %>
+          <%= yield %>
+        </div>
+      </div>
+      <a href="/posts/1" data-method="delete" data-confirm="Are you sure?" style="color:red">Delete</a>
+      <%= render "layouts/store/footer" %>
     </div>
   </div>
-</div>

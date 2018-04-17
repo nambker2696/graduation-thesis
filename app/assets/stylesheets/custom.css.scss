@@ -89,8 +89,8 @@ $form-control-color: #23ffd0;
 $outside-ground: rgba(168, 129, 110, 0.82);
 $inside-ground: rgba(199, 194, 155, 0.93);
 $blue-zodiac : #404453;
-
-
+$blue-like: #03A9F4;
+$blue-logo:#2391ff;
 body {
   background: $white;
   color: $blue-zodiac;
@@ -286,7 +286,7 @@ a:hover {
 @keyframes fading {
   from,
   to {
-    color: $form-control-color;
+    color: $blue-logo;
   }
 
   50% {
@@ -323,7 +323,7 @@ a:hover {
 }
 
 .nav.navbar-nav.navbar-right li a:hover {
-  color: $caribbean-green;
+  color: $blue-like;
 }
 
 #brand {
