@@ -1,2 +1,4 @@
-class Store::DashboardController < ApplicationController
+class Store::DashboardController < Store::BaseController
+  def index
+  end
 end
