@@ -4,9 +4,10 @@ class Admin::LocationsController < Admin::BaseController
   # GET /locations
   # GET /locations.json
   def index
-    @locations = Location.all
+    store = Store.find_by(user_id: current_user.id)
+    @locations = Location.joins(:store).where("stores.id" => 1)
+    @openinghours =  OpeningHour.joins(:location).joins(:store).where("stores.id=?",store.id)
   end
-
   # GET /locations/1
   # GET /locations/1.json
   def show
@@ -69,6 +70,6 @@ class Admin::LocationsController < Admin::BaseController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def location_params
-      params.require(:location).permit(:store_id, :name, :address, :phone)
+      params.require(:location).permit(:store_id, :name, :address, :phone, :status)
     end
 end

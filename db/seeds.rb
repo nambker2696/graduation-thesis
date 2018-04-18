@@ -92,12 +92,14 @@ puts "Faker 10 Booking"
     )
 end
 puts "Faker 10 Location"
-10.times do
+stores = Store.all
+stores.each do |store|
   Location.create(
-    store_id: Faker::Number.between(1, 10),
+    store_id: store.id,
     name: Faker::Name.name,
     address: Faker::Address.city,
-    phone: Faker::PhoneNumber.cell_phone
+    phone: Faker::PhoneNumber.cell_phone,
+    status: true
     )
 end
 puts "Faker 7 OpeningHours for each location"

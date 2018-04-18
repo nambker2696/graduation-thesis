@@ -1,74 +1,68 @@
 <div class="card">
   <ul class="nav nav-tabs" role="tablist">
-    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab" class="underline-button">Show</a></li>
-    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab" class="underline-button">Create</a></li>
-    <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab" class="underline-button">Edit</a></li>
-    <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab" class="underline-button">Settings</a></li>
+    <li class="tab-head active" role="presentation"><a href="#home" aria-controls="home" role="tab" data-toggle="tab" class="underline-button">Show</a></li>
+    <li class="tab-head" role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab" class="underline-button">Create</a></li>
+    <li class="tab-head" role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab" class="underline-button">Edit</a></li>
   </ul>
   <!-- Tab panes -->
   <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="home">
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="box">
-            <div class="box-header">
-              <h5 class="box-title">Search location</h5>
-              <div class="box-tools">
-                <div class="input-group input-group-sm" style="width: 150px;">
-                  <input type="text" name="table_search" class="form-control pull-right" placeholder="Search" id="search">
-
-                  <div class="input-group-btn">
-                    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+        <div class="st-headings">
+          Name
+        </div>
+        <div class="st-rows">
+          <ul class="my-toggle">
+            <% @locations.each do |location| %>
+            <li>
+              <a class="view">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <h5 class="toggle-title"><%= location.name %> <div class="status-store"><%= location.status %></div> </h5>
                   </div>
                 </div>
-              </div>
-            </div>
-            <table class="table table-hover" id="table">
-              <tbody>
-                <tr>
-                  <th>store_id</th>
-                  <th>name</th>
-                  <th>Status</th>
-                  <th>address</th>
-                  <th>phone</th>
-                  <th>Edit</th>
-                  <th>Delete</th>
-                </tr>
-                <% @locations.each do |location| %>
+              </a>
+              <div class="detail">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div class="toggle-wrapper">
+                     <ul class="nav nav-list">
+                       <li>Adrress: <%= location.address %></li>
+                       <li>Phone: <%= location.phone %></li>
+                       <li>Status: <%= location.status %></li>
+                       <% @openinghours.each do |openinghour| %>
+                       <li><%= openinghour.day %>: <%if openinghour.status == true %> Open <% else %> Close <% end %> | <%= openinghour.open.strftime("%I:%M %P") %> | <%= openinghour.close.strftime("%I:%M %P")  %>  </li>
+                       <% end %>
 
-                <tr>
-                  <td><%= location.store_id %></td>
-                  <td><%= location.name %></td>
-                  <td><%= location.address %></td>
-                  <td><%= location.phone %></td>
-                  <td><%= link_to 'Edit', edit_admin_location_path(location) %></td>
-                  <td><%= link_to 'Destroy', admin_location_url(location.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-                </tr>
-                <% end %>
-
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div role="tabpanel" class="tab-pane" id="profile"></div>
-    <div role="tabpanel" class="tab-pane" id="messages"></div>
-    <div role="tabpanel" class="tab-pane" id="settings"></div>
-  </div>
+                     </ul>
+                   </div>
+                 </div>
+               </div>
+             </div>
+           </li>
+           <% end %>
+         </ul>
+       </div>
+     </div>
+   <div role="tabpanel" class="tab-pane" id="profile">
+     ghjgjh
+   </div>
+   <div role="tabpanel" class="tab-pane" id="messages"></div>
+ </div>
 </div>
 </div>
+
 
 <div class="box-body table-responsive no-padding">
   <script type="text/javascript">
-   $("#search").keyup(function(){
-    _this = this;
-        // Show only matching TR, hide rest of them
-        $.each($("#table tbody tr"), function() {
-          if($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) === -1)
-           $(this).hide();
-         else
-           $(this).show();                
-       });
-      }); 
-    </script>
+    $(function() {
+      $(".view").on( "click", function() {
+        $(this).next().slideToggle(250);
+        $fexpand = $(this).find(">:first-child");
+        if ($(this).hasClass('opened')) {
+          $(this).removeClass('opened');
+        } else {
+          $(this).addClass('opened');
+        };
+      });
+    });
+  </script>

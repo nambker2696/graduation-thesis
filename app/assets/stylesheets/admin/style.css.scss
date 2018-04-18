@@ -1,0 +1,59 @@
+.my-toggle {
+    margin-left: -38px;
+}
+.my-toggle > li {
+  display: block;
+  list-style: outside none none;
+  margin-bottom: 15px;
+}
+.toggle-title {
+  font-weight: 400;
+  font-size: 18px;
+  color: #304351;
+  padding-top: 7px;
+}
+.view {
+  background-color: #f4f8f8;
+  color: #5d5d5d;
+  cursor: pointer;
+  display: block;
+  padding: 0 20px;
+  text-decoration: none;
+  height: 52px;
+  border-radius: 2px;
+  -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+      -ms-transition: all 0.2s;
+        -o-transition: all 0.2s;
+  transition:all 0.2s;
+  line-height: 52px;
+  position: relative;
+}
+.view.opened {
+  background: #03adf8;
+  border-radius: 3px 3px 0 0;
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+.detail {
+  padding: 15px 20px;
+  display: none;
+  line-height: 20px;
+  font-size: 16px;
+  background-color: #FFF;
+  color: #5d5d5d;
+  border-radius: 0 0 3px 3px;
+  border-top: 1px solid rgba(255,255,255,0.15);
+  font-weight: 300;
+}
+.view:hover {
+  text-decoration: none;
+  background: #eeeeee;
+}
+.view.opened {
+  background-color: #eeeeee;
+  border: 0 none;
+}
+.view.opened .toggle-title,
+.view:hover .toggle-title {
+  color:#5d5d5d;
+}
