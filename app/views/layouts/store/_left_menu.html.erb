@@ -1,22 +1,19 @@
 <div id="left-navbar" class="sidebar-admin">
   <div class="navbar-header cherry-gradient">
-    <div><p class="">Admin store </p>
+    <div>
+    <div class="logged-user">
+      <% if user_signed_in? %>
+      
+        Hello Gay  
+      
+      <% else %>
+      <button type="button" class="btn launchConfirm">Login</button>
+      <% end %>
+      </div>
     </div>
   </div>
   <div class="navbar-links">
     <ul>
-      <li>
-        <%= link_to admin_admin_url,:class => "active" do %>
-        <i class="fa fa-star"></i>
-        <span>Menu</span>
-        <% end %>
-      </li>
-      <li>
-        <%= link_to admin_users_url,:class => "" do %>
-        <i class="glyphicon glyphicon-user"></i>
-        <span>Login</span>
-        <% end %>
-      </li>
       <li>
         <%= link_to admin_locations_url,:class => "" do %>
         <i class="fa fa-map-marker"></i>
@@ -31,19 +28,19 @@
         <% end %>
         <ul class="dropdown-food">
           <li><%= link_to admin_admin_url,:class => "" do %>
-          <span>Menu</span>
+            <span>Menu</span>
             <% end %>
           </li>
           <li><%= link_to admin_admin_url,:class => "" do %>
-          <span>Categories</span>
+            <span>Categories</span>
             <% end %>
           </li>
           <li><%= link_to admin_admin_url,:class => "" do %>
-          <span>Dishs</span>
+            <span>Dishs</span>
             <% end %>
           </li>
           <li><%= link_to admin_admin_url,:class => "" do %>
-          <span>Order</span>
+            <span>Order</span>
             <% end %>
           </li>
         </ul>
@@ -88,3 +85,66 @@
     </div>
   </div>
 </div>
+
+<div class="modal fade" id="confirm">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+        </button>
+        <div id="form-login-admin" class="box-header">
+          <h2><%= t(".sign_in") %></h2>    
+        </div>
+
+      </div>
+      <div class="modal-body">
+        <div class="box center">
+
+          <div class="box-content">
+            <%= form_for :user, url: user_session_path do |f|%>
+            <div id="form-login-user">
+              <div class="form-group float-label-control">
+                <%= f.label :Email %>
+                <%= f.email_field :email, class: 'form-control', :required => true %>
+              </div>
+              <div class="form-group float-label-control">
+                <%= f.label :Password %>
+                <%= f.password_field :password, class: 'form-control', :required => true %>
+              </div>
+              <div class="form-group">
+                <div class="checkbox"> 
+                  <%= f.label :remember_me do %> 
+                  <%= f.check_box :remember_me %> Remember me 
+                  <% end %> 
+                </div> 
+              </div>
+            </div>
+            <div class="form-actions">
+              <%= f.button :submit,:class =>"formButton",:id => "btn-login-admin",:name => t(".sign_in"),:value => t(".sign_in") %>
+            </div>
+            <% end %>
+            <a href="#">I forgot my password</a><br>
+            <a href="#" class="text-center">Register a new membership</a>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        some random buttons
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script>  
+  $('.launchConfirm').on('click', function (e) {
+    $('#confirm').modal({
+      show: true
+    });
+  });
+
+
+
+
+  
+</script>

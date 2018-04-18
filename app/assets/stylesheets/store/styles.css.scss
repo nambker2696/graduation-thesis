@@ -1,164 +1,11 @@
 #store-panel{
-  // login admin
-  #form-login-admin{
-    background-color: #244c5ade;
-    h2{
-      color:#FFF;
-    }
-    #btn-login-admin{
-      background-color:#2e808b;
-      color:#FFF;
-    }
-
-  }
-
-
-  // top bar
-  #top-navbar{
-    background: #fff;
-    height: 52px;
-    box-shadow: 0 1px 3px rgba(0,0,0,.2);
-    .topbar-inner{
-      max-width: 900px;
-      margin-left: 220px;
-      padding: 0 22px;
-      .navbar-header{
-        .navbar-nav{
-          .navbar-nav{
-            .navbar-right{
-              li a:hover{
-                height:52px;
-              }
-            }
-          }
-        }
-      }
-    }
-    #logo-store{
-      margin-left: 40px;
-    }
-    #admin-ac{
-      height:52px;
-    }
-    span{
-      color: black;
-    }
-  }
-  // seting wrapper-content
-  #wrapper-content{
-    position: relative;
-    padding: 10px 25px;
-    margin: 25px;
-    margin-left: 220px;
-    max-width: 900px;
-    a {
-      color: #03A9F4;
-      text-decoration: none;
-    }
-
-    .flex-center{
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-orient: horizontal;
-      -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-      flex-direction: row;
-      -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-      justify-content: space-between;
-    }
-    .content{
-      // dashboard
-      width: 875px;
-      margin-top: -10px;
-      .card{
-        box-shadow: 0 1px 3px rgba(0,0,0,.2);
-        .nav-tabs{
-          a{
-            border:none;
-          }
-          .active{
-            border-bottom: 2px solid #03A9F4; 
-          }
-        }
-        .tab-content{
-          padding: 10px 20px;
-          background-color:#FFF;
-        }
-      }
-      .content-heading{
-        background-color:#FFF;
-        -webkit-box-shadow: 0 1px 3px rgba(0,0,0,.2);
-        box-shadow: 0 1px 3px rgba(0,0,0,.2);
-        padding: 10px 25px;
-        .cover-time{
-          .date-time{
-            vertical-align: baseline;
-            .time-css{
-              margin-right: 10px!important;
-              small {
-                font-size: 14px;
-                line-height: 20px;
-                display: inline-block;
-              }
-            }
-            .button.button-sm {
-              font-size: 12px;
-              height: 28px;
-              line-height: 28px;
-              padding: 0 20px;
-              border-radius: 5px;
-              color: #f6f6f6;
-              background-color: #00BCD4;
-            }
-          }
-          .button-nex-time{
-            vertical-align: baseline;
-            .button-next-day {
-              background-color: #00BCD4;
-              color: #f6f6f6;
-              font-size: 8px;
-              height: 28px;
-              line-height: 28px;
-              padding: 0 14px;
-              border-radius: 5px;
-            }
-          }
-        }
-      }
-      .content-behind{
-        padding: 0 25px 25px;
-        max-width: 875px;
-        background-color:#FFF;
-        -webkit-box-shadow: 0 1px 3px rgba(0,0,0,.2);
-        box-shadow: 0 1px 3px rgba(0,0,0,.2);
-        .box-tools{
-          float: right;
-        }
-      }
-    }
-    #bottom-wrapper-bar {
-      left: 220px;
-    }
-    #bottom-wrapper-bar {
-      position: fixed;
-      bottom: 0;
-      right: 0;
-      z-index: 0;
-      background-color: #ebebeb;
-      height: 30px;
-      line-height: 30px;
-      padding: 0 15px;
-    }
-  }
-
   // menu left
   #left-navbar{
     width: 220px;
     left: 0px;
     top: 0px;
     transform: translateX(0px);
+
     p{
       margin: 0;
       padding: 0;
@@ -180,10 +27,16 @@
         font-size: 14px;
         line-height: 20px;
       }
+      .logged-user{
+        border: 2px solid #333333;
+        padding: 20px;
+        border-radius: 25px;
+
+      }
     }
     .navbar-links{
 
-      margin-top: 60px;
+      margin-top: 100px;
       padding: 0;
       border: 0;
       font-size: 100%;
