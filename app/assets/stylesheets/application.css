@@ -19,3 +19,5 @@
  *= require font-awesome
   *= require sweetalert2
  */
+@import 'bootstrap-sprockets';
+@import 'bootstrap';

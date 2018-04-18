@@ -4,9 +4,10 @@ class Admin::LocationsController < Admin::BaseController
   # GET /locations
   # GET /locations.json
   def index
-    store = Store.find_by(user_id: current_user.id)
-    @locations = Location.joins(:store).where("stores.id" => 1)
-    @openinghours =  OpeningHour.joins(:location).joins(:store).where("stores.id=?",store.id)
+    @locations = current_store.locations.all
+    # store = Store.find_by(user_id: current_user.id)
+    # @locations = Location.joins(:store).where("stores.id" => 1)
+    # @openinghours =  OpeningHour.joins(:location).joins(:store).where("stores.id=?",store.id)
   end
   # GET /locations/1
   # GET /locations/1.json
@@ -15,7 +16,7 @@ class Admin::LocationsController < Admin::BaseController
 
   # GET /locations/new
   def new
-    @location = Location.new
+    @location = current_store.locations.new
   end
 
   # GET /locations/1/edit
@@ -25,11 +26,11 @@ class Admin::LocationsController < Admin::BaseController
   # POST /locations
   # POST /locations.json
   def create
-    @location = Location.new(location_params)
+    @location = current_store.locations.new(location_params)
 
     respond_to do |format|
       if @location.save
-        format.html { redirect_to @location, notice: 'Location was successfully created.' }
+        format.html { redirect_to [current_store,@location], notice: 'Location was successfully created.' }
         format.json { render :show, status: :created, location: @location }
       else
         format.html { render :new }
@@ -43,7 +44,7 @@ class Admin::LocationsController < Admin::BaseController
   def update
     respond_to do |format|
       if @location.update(location_params)
-        format.html { redirect_to @location, notice: 'Location was successfully updated.' }
+        format.html { redirect_to [current_store,@location], notice: 'Location was successfully updated.' }
         format.json { render :show, status: :ok, location: @location }
       else
         format.html { render :edit }
@@ -65,7 +66,7 @@ class Admin::LocationsController < Admin::BaseController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_location
-      @location = Location.find(params[:id])
+      @location = current_store.location.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

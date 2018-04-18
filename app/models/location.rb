@@ -1,4 +1,4 @@
 class Location < ApplicationRecord
-  has_many :openinghours
   belongs_to :store
+  has_many :openinghours
 end

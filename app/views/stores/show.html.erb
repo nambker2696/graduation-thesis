@@ -1,14 +1,12 @@
-<p id="notice"><%= notice %></p>
+<h1><%= @store.name %></h1>
 
 <p>
-  <strong>Subdomain:</strong>
-  <%= @store.subdomain %>
+  <% current_store.locations.each do |location| %>
+    <h2><%= link_to location.name, [current_store, location] %></h2>
+    <p><%= location.address %></p>
+  <% end %>
 </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @store.user_id %>
-</p>
-
-<%= link_to 'Edit', edit_store_path(@store) %> |
-<%= link_to 'Back', stores_path %>
+<%= link_to 'Edit', edit_store_path(@store), class: 'btn btn-primary' %>
+<%= link_to 'Blog Home', root_path, class: 'btn btn-info' %>
+<%= link_to 'Site Home', root_url(subdomain: nil), class: 'btn btn-info' %>

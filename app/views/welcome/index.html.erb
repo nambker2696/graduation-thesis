@@ -1,0 +1,12 @@
+<h1>Welcome#index</h1>
+<p>Find me in app/views/welcome/index.html.erb</p>
+<%= link_to 'New Blog', new_store_path, class: 'btn btn-primary' %>
+
+<% @stores.each do |store| %>
+  <ul>
+    <li>
+      <%= store.name %> - 
+      <%= link_to "#{store.subdomain}.example.dev", root_url(subdomain: store.subdomain) %>
+    </li>
+  </ul>
+<% end %>
