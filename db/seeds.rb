@@ -36,14 +36,7 @@ puts "Faker 5 staff(admin:5)"
 end
 
 
-puts "Faker 10 Store"
-users =  User.all
-users.each do |user|
-  Store.create(
-    subdomain: Faker::Company.buzzword,
-    user_id: user.id
-    )
-end
+
 
 puts "Faker 10 Category"
 10.times do
@@ -91,17 +84,39 @@ puts "Faker 10 Booking"
     action: Faker::Number.between(1, 3)
     )
 end
+
+puts "Faker 10 Store"
 puts "Faker 10 Location"
-stores = Store.all
-stores.each do |store|
-  Location.create(
-    store_id: store.id,
-    name: Faker::Name.name,
-    address: Faker::Address.city,
-    phone: Faker::PhoneNumber.cell_phone,
-    status: true
+users =  User.all
+users.each do |user|
+  company_name = Faker::Company.name
+  store = Store.create(
+    name: "#{company_name}'s Blog",
+    subdomain: company_name,
+    user_id: user.id
     )
+  2.times do
+    store.locations.create(
+      store_id: store.id,
+      name: Faker::Name.name,
+      address: Faker::Address.city,
+      phone: Faker::PhoneNumber.cell_phone,
+      status: Faker::Boolean.boolean(0.2)
+      )    
+  end
 end
+
+# puts "Faker 10 Location"
+# stores = Store.all
+# stores.each do |store|
+#   Location.create(
+#     store_id: store.id,
+#     name: Faker::Name.name,
+#     address: Faker::Address.city,
+#     phone: Faker::PhoneNumber.cell_phone,
+#     status: true
+#     )
+# end
 puts "Faker 7 OpeningHours for each location"
 locats = Location.all
 locats.each do |locat|
