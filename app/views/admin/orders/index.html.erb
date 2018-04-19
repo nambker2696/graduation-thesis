@@ -1,75 +1,165 @@
 <div class="card">
   <ul class="nav nav-tabs" role="tablist">
-    <li class="tab-head active" role="presentation"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
-    <li class="tab-head" role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
-    <li class="tab-head" role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
-    <li class="tab-head" role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
+    <li class="tab-head active" role="presentation"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Orders</a></li>
+    <li class="tab-head" role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">List</a></li>
+    <li class="tab-head" role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">History</a></li>
   </ul>
   <!-- Tab panes -->
   <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="home">
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="box">
-            <div class="box-header">
-              <h5 class="box-title">Search order</h5>
-              <div class="box-tools">
-                <div class="input-group input-group-sm" style="width: 150px;">
-                  <input type="text" name="table_search" class="form-control pull-right" placeholder="Search" id="search">
-
-                  <div class="input-group-btn">
-                    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-                  </div>
-                </div>
+      <div >
+        <div class="row">
+          <div class="col-md-10" id="fitter-col" style="padding-right:0px;">
+            <a class="view" id="fitter-view">
+              <div class="toggle-title">
+                <i class="fa fa-filter"><span>Filters</span></i>
               </div>
+            </a>
+            <div class="detail">
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="toggle-wrapper">
+                   <ul class="nav nav-list">
+                     <li>Adrress: </li>
+                     <li>Phone: </li>
+                     <li>Status: </li>
+                   </ul>
+                 </div>
+               </div>
+             </div>
+           </div>
+         </div>
+         <div class="col-md-2" id="fitter-col" style="padding-left:0px; border-left: 1px solid rgba(255,255,255,0.12);">
+          <div class="dropdown view" id="fitter-view">
+            <div class="toggle-title dropdown-toggle" type="button" data-toggle="dropdown"><i class="fa fa-list"><span>Result</span></i>
+              <span class="caret"></span>
             </div>
-            <table class="table table-hover" id="table">
-              <tbody>
-                <tr>
-                  <th>User_id</th>
-                  <th>Total price</th>
-                  <th>Status</th>
-                  <th>Date order</th>
-                  <th>Date receipt</th>
-                  <th>Edit</th>
-                  <th>Delete</th>
-                </tr>
-                <% @orders.each do |order| %>
-
-                <tr>
-                  <td><%= order.user_id %></td>
-                  <td><%= order.total_price %></td>
-                  <td><%= order.status %></td>
-                  <td><%= order.date_order %></td>
-                  <td><%= order.date_receipt %></td>
-                  <td><%= link_to 'Edit', edit_admin_order_path(order) %></td>
-                  <td><%= link_to 'Destroy', admin_order_url(order.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-                </tr>
-                <% end %>
-
-              </tbody>
-            </table>
+            <ul class="dropdown-menu">
+              <li><a href="#">10 Result</a></li>
+              <li><a href="#">20 Result</a></li>
+              <li><a href="#">30 Result</a></li>
+            </ul>
           </div>
         </div>
       </div>
     </div>
-    <div role="tabpanel" class="tab-pane" id="profile"></div>
-    <div role="tabpanel" class="tab-pane" id="messages"></div>
-    <div role="tabpanel" class="tab-pane" id="settings"></div>
-  </div>
+
+    <div class="protable">
+      <table class="">
+        <thead class="">
+          <tr>
+            <th class="">No.</th>
+            <th class="">Name</th>
+            <th class="">Placed</th>
+            <th class="">Status</th>
+            <th class="">Store</th>
+            <th class="">Date</th>
+            <th class="">Time</th>
+            <th class="">Action</th>
+          </tr>
+        </thead>
+      </table>
+    </div>
+    <div class="st-rows">
+      <ul class="my-toggle">
+       <% @orders.each do |order| %>
+       <li>
+        <a class="view">
+          <div class="row">
+            <div class="col-sm-12">
+              <h5 class="toggle-title">
+                <%= order.user_id %>
+                Name Youre | <%= order.status %> | <%= order.total_price %> | <%= order.date_order %> | <%= order.date_receipt %>
+              </h5>
+            </div>
+          </div>
+        </a>
+        <div class="detail">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="toggle-wrapper">
+               <ul class="nav nav-list">
+                <li><%= order.user_id %></li>
+                <li><%= order.total_price %></li>
+                <li><%= order.status %></li>
+                <li><%= order.date_order %></li>
+                <li><%= order.date_receipt %></li>
+
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </li>
+    <% end %>
+  </ul>
 </div>
 </div>
 
-<div class="box-body table-responsive no-padding">
-  <script type="text/javascript">
-   $("#search").keyup(function(){
-    _this = this;
-        // Show only matching TR, hide rest of them
-        $.each($("#table tbody tr"), function() {
-          if($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) === -1)
-           $(this).hide();
-         else
-           $(this).show();                
-       });
-      }); 
-    </script>
+
+<div role="tabpanel" class="tab-pane" id="profile">
+  <div role="tabpanel" class="tab-pane active" id="home">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="box">
+          <div class="box-header">
+            <h5 class="box-title">Search order</h5>
+            <div class="box-tools">
+              <div class="input-group input-group-sm" style="width: 150px;">
+                <input type="text" name="table_search" class="form-control pull-right" placeholder="Search" id="search">
+
+                <div class="input-group-btn">
+                  <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <table class="table table-hover" id="table">
+            <tbody>
+              <tr>
+                <th>User_id</th>
+                <th>Total price</th>
+                <th>Status</th>
+                <th>Date order</th>
+                <th>Date receipt</th>
+                <th>Edit</th>
+                <th>Delete</th>
+              </tr>
+              <% @orders.each do |order| %>
+
+              <tr>
+                <td><%= order.user_id %></td>
+                <td><%= order.total_price %></td>
+                <td><%= order.status %></td>
+                <td><%= order.date_order %></td>
+                <td><%= order.date_receipt %></td>
+                <td><%= link_to 'Edit', edit_admin_order_path(order) %></td>
+                <td><%= link_to 'Destroy', admin_order_url(order.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              </tr>
+              <% end %>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div role="tabpanel" class="tab-pane" id="messages"></div>
+</div>
+</div>
+</div>
+
+<script type="text/javascript">
+  $(function() {
+    $(".view").on( "click", function() {
+      $(this).next().slideToggle(250);
+      $fexpand = $(this).find(">:first-child");
+      if ($(this).hasClass('opened')) {
+        $(this).removeClass('opened');
+      } else {
+        $(this).addClass('opened');
+      };
+    });
+  });
+</script>

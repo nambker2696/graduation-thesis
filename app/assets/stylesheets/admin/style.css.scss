@@ -4,13 +4,16 @@
 .my-toggle > li {
   display: block;
   list-style: outside none none;
-  margin-bottom: 15px;
 }
 .toggle-title {
   font-weight: 400;
   font-size: 18px;
   color: #304351;
-  padding-top: 7px;
+  i{
+    span{
+      margin-left: 8px;
+    }
+  }
 }
 .view {
   background-color: #f4f8f8;
@@ -48,12 +51,42 @@
 .view:hover {
   text-decoration: none;
   background: #eeeeee;
+  border-left: 3px solid #00BCD4;
 }
 .view.opened {
   background-color: #eeeeee;
   border: 0 none;
+  border-left: 3px solid #00BCD4;
 }
 .view.opened .toggle-title,
 .view:hover .toggle-title {
   color:#5d5d5d;
+}
+
+#fitter-view{
+  background:#d3e7ed;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+}
+.protable thead {
+    border-top: 1px solid #d0d0d0;
+    border-bottom: 1px solid #d0d0d0;
+}
+
+.protable thead tr {
+    height: 40px;
+}
+.protable thead tr th:first-child {
+    padding-left: 15px;
+}
+
+.protable thead tr th {
+    padding: 0 10px;
+    vertical-align: middle;
+    text-align: left;
+    font-weight: bold;
 }
