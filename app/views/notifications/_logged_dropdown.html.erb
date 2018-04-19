@@ -3,11 +3,11 @@
     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Store</a>
     <ul class="dropdown-menu">
       <li><%= link_to "Admin store", admin_admin_url %></li>
-      <li class="divider"></li>
+      
       <li><%= link_to "Store", store_store_url %></li>
-      <li class="divider"></li>
+      
       <li><%= link_to "New Store", new_store_url %></li>
-      <li class="divider"></li>
+      
       <li><%= link_to "Update Server", root_url %></li>
     </li>
   </ul>
@@ -17,20 +17,20 @@
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.email %><span class="glyphicon glyphicon-user pull-right"></span></a>
-  <ul class="dropdown-menu">
+  <ul class="dropdown-menu" style="min-width: 200px">
     <li>
       <%= link_to  edit_user_registration_url do %>
       <%= t(".account_settings") %>
       <span class="glyphicon glyphicon-cog pull-right"></span>
       <% end %>      
     </li>
-    <li class="divider"></li>
+    
     <li><a href="#"><%= t(".user_stats") %><span class="glyphicon glyphicon-stats pull-right"></span></a></li>
-    <li class="divider"></li>
+    
     <li><a href="#"><%= t(".messages") %> <span class="badge pull-right"> 42 </span></a></li>
-    <li class="divider"></li>
-    <li><a href="#"><%= t(".favourites_snippets") %> <span class="glyphicon glyphicon-heart pull-right"></span></a></li>
-    <li class="divider"></li>
+    
+    <li><a href="#"><%= t(".favourites") %> <span class="glyphicon glyphicon-heart pull-right"></span></a></li>
+    
     <li><%= link_to destroy_user_session_path, method: :delete do %>
       <%= t(".sign_out") %> <span class="glyphicon glyphicon-log-out pull-right"></span>
       <% end %>

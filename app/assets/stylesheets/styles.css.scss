@@ -14,6 +14,21 @@ $outside-ground: rgba(168, 129, 110, 0.82);
 $caribbean-green: #05bba5;
 $blue-zodiac :#404453;
 
+
+
+.dropdown-menu{
+  padding: 0px 0 !important;
+  li>a{
+    height:50px;
+  }
+}
+.navbar-right li > a {
+    padding-top: 15px !important;
+    padding-bottom: 15px !important;
+    span{
+      margin-left: 10px;
+    }
+}
 .navbar-top{
   position: fixed;
   z-index: 1;
@@ -24,10 +39,11 @@ $blue-zodiac :#404453;
       height: 60px; 
       li > a{
         text-align: center;
+        padding-top:10px;
         .open > a{
           height:60px !important;
         }
-        
+
         .dropdown{
           height:60px !important;
 
@@ -54,6 +70,10 @@ $blue-zodiac :#404453;
       .navbar-right{
         li>a{
           text-align:center;
+          height:50px;
+        }
+        li> a:hover{
+          border-bottom: 2px solid #03A9F4;
         }
 
       }

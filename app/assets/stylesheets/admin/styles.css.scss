@@ -63,8 +63,12 @@
         .navbar-nav{
           .navbar-nav{
             .navbar-right{
+              li a{
+                padding-top:10px;
+              }
               li a:hover{
-                height:52px;
+                height:50px;
+                padding-top:10px;
               }
             }
           }

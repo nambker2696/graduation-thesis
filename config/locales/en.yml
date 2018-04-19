@@ -220,7 +220,7 @@ en:
       account_settings: Account settings
       user_stats: User stats
       messages: Messages
-      favourites_snippets: Favourites Snippets
+      favourites: Favourites
       sign_out: Sign Out
     resources_dropdown:
       resources: Resources
