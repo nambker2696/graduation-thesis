@@ -25,12 +25,6 @@
         font-size: 14px;
         line-height: 20px;
       }
-      .logged-user{
-        border: 2px solid #333333;
-        padding: 20px;
-        border-radius: 25px;
-
-      }
     }
     .navbar-links{
       padding: 0;
@@ -38,7 +32,25 @@
       font-size: 100%;
       font: inherit;
       vertical-align: baseline;
+      .box-login-store{
+        padding:22px 50px;
+        overflow: hidden!important;
+        display: -webkit-box;
+        .text-center {
+          text-align: center !important;
+        }
+        .box-status-user{
+          margin-left: 15px !important;
+          .username{
+            margin-top: 0px !important;  
+          }
+          i{
+            color: #34d61e;
+          }
+        }
+      }
 
+      
       ul{
         margin: 0;
         padding: 0;

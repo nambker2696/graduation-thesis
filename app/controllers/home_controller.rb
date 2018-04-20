@@ -1,6 +1,8 @@
 # :nodoc:
 class HomeController < ApplicationController
-  def index; end
+  def index; 
+      @dish = Dish.all
+  end
 
   def locations; end
 

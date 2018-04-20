@@ -12,16 +12,15 @@
 </head>
 
 <body >
+  <!-- Thanh menu ben trai -->
   <div id="store-panel">
     <%= render "layouts/store/left_menu" %>
   </div>
-  <div id="main-store" style="margin-left: 250px">
+  <div id="main-store">
     <div class="container">
-    <div class="main-content">
+      <%= render "layouts/store/head_store" %>
       <%= yield %>
     </div>
-    <%= render "layouts/store/footer" %>
-  </div>
   </div>
 </body>
 </html>
