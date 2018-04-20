@@ -1,8 +1,10 @@
 #logged-user{
-  border: 2px solid #333333;
   padding: 5px;
   border-radius: 20px;
   margin-left:30px;
+  button{
+    margin-top: -20px;
+  }
 }
 #store-panel{
   // menu left
@@ -11,7 +13,7 @@
     left: 0px;
     top: 0px;
     transform: translateX(0px);
-
+    margin-top: 60px;
     p{
       margin: 0;
       padding: 0;
@@ -26,7 +28,6 @@
       cursor: default;
       font-size: 14px;
       font-weight: 300;
-      padding: 20px 18px;
       line-height: 14px;
       letter-spacing: 1px;
       p{

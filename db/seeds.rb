@@ -7,33 +7,6 @@ User.create!(name:  "Admin",
  password_confirmation: "admin1",
  avatar: Faker::Avatar.image("my-own-slug", "50x50", "jpg"),
  admin: 100)
-User.create!(name:  "NambKer",
- email: "nam@gmail.com",
- password:              "123456",
- password_confirmation: "123456",
- avatar: Faker::Avatar.image("my-own-slug", "50x50", "jpg"),
- admin: 0)
-15.times do
-  User.create(
-    name: Faker::Name.name,
-    email: Faker::Internet.email,
-    password:              "123456",
-    password_confirmation: "123456",
-    avatar: Faker::Avatar.image("my-own-slug", "50x50", "jpg"),
-    admin: 0
-    )
-end
-10.times do
-  User.create(
-    name: Faker::Name.name,
-    email: Faker::Internet.email,
-    password:              "123456",
-    password_confirmation: "123456",
-    avatar: Faker::Avatar.image("my-own-slug", "50x50", "jpg"),
-    admin: 5
-    )
-end
-
 puts "Faker 10 Order"
 10.times do
   Order.create(
@@ -66,7 +39,7 @@ users.each do |user|
   company_name = Faker::Company.name
   store = Store.create(
     name: "#{company_name}'s Blog",
-    subdomain: company_name,
+    logo: company_name,
     user_id: user.id
     )
 
@@ -94,7 +67,7 @@ users.each do |user|
       display_name: Faker::Name.name, 
       subtitle: Faker::Food.measurement,
       price: Faker::Number.decimal(2),
-      description: Faker::Food.description,
+      description: Faker::Food.ingredient,
       category_id: category.id,
       tags: dish_food
       )
@@ -115,4 +88,31 @@ locats.each do |locat|
       status: true
       )
   end
+end
+
+User.create!(name:  "NambKer",
+ email: "nam@gmail.com",
+ password:              "123456",
+ password_confirmation: "123456",
+ avatar: Faker::Avatar.image("my-own-slug", "50x50", "jpg"),
+ admin: 0)
+15.times do
+  User.create(
+    name: Faker::Name.name,
+    email: Faker::Internet.email,
+    password:              "123456",
+    password_confirmation: "123456",
+    avatar: Faker::Avatar.image("my-own-slug", "50x50", "jpg"),
+    admin: 0
+    )
+end
+10.times do
+  User.create(
+    name: Faker::Name.name,
+    email: Faker::Internet.email,
+    password:              "123456",
+    password_confirmation: "123456",
+    avatar: Faker::Avatar.image("my-own-slug", "50x50", "jpg"),
+    admin: 5
+    )
 end

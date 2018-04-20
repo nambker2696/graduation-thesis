@@ -62,27 +62,4 @@
         </div>
       </div>
     </div>
-    <div class="container">
-      <ul class="nav navbar-nav navbar-right header-mobile-menu">
-        <li><a href=""><i class="fa fa-home"></i></a></li>
-        <li><%= link_to "Locations", store_store_url  %></li>
-        <li><%= link_to "Informations", store_store_url  %></li>
-        <li><%= link_to "Contacts Us", store_store_url  %></li>
-        <li>
-          <%= render "notifications/language_dropdown" %>
-        </li>
-      </ul>
-      <div  class="main-content">
-        <%= render "layouts/store/slider_store" %>
-        <%= render "layouts/store/content_store" %>
-        <div class="main-content">
-          <% flash.each do |message_type, message| %>
-          <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
-          <% end %>
-          <%= yield %>
-        </div>
-      </div>
-      <a href="/posts/1" data-method="delete" data-confirm="Are you sure?" style="color:red">Delete</a>
-      <%= render "layouts/store/footer" %>
-    </div>
   </div>

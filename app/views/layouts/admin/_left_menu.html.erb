@@ -36,29 +36,30 @@
         <% end %>
       </li>
       <li>
-        <%= link_to admin_admin_url,:class => "menu-dropdown" do %>
-        <i class="fa fa-cutlery"></i>
-        <span>Menu</span>
-        <i class="dropdown-arrow fa fa-chevron-left"></i>
-        <% end %>
-        <ul class="dropdown-food">
-          <li><%= link_to admin_admin_url,:class => "" do %>
-          <span>Menu</span>
-            <% end %>
-          </li>
-          <li><%= link_to admin_admin_url,:class => "" do %>
-          <span>Categories</span>
-            <% end %>
-          </li>
-          <li><%= link_to admin_admin_url,:class => "" do %>
-          <span>Dishs</span>
-            <% end %>
-          </li>
-          <li><%= link_to admin_admin_url,:class => "" do %>
-          <span>Order</span>
-            <% end %>
-          </li>
-        </ul>
+        
+        <a data-toggle="collapse" data-target="#toggleDemo3" data-parent="#sidenav01" class="collapsed">
+          <i class="fa fa-cutlery"></i> Menu <span class="caret pull-right"></span>
+        </a>
+        <div class="collapse" id="toggleDemo3" style="height: 0px;">
+          <ul class="nav nav-list">
+            <li><%= link_to admin_admin_url,:class => "" do %>
+              <span>Menu</span>
+              <% end %>
+            </li>
+            <li><%= link_to admin_admin_url,:class => "" do %>
+              <span>Categories</span>
+              <% end %>
+            </li>
+            <li><%= link_to admin_admin_url,:class => "" do %>
+              <span>Dishs</span>
+              <% end %>
+            </li>
+            <li><%= link_to admin_admin_url,:class => "" do %>
+              <span>Order</span>
+              <% end %>
+            </li>
+          </ul>
+        </div>
       </li>
       <li>
         <%= link_to admin_users_url,:class => "" do %>
@@ -102,7 +103,7 @@
 
     <div class="tab-menu"></div>
     <div class="check-store">
-      <a id="yourstore" class="button-store" href="store" target="_blank">
+      <a id="yourstore" class="button-store" href="<%= root_url %>" target="_blank">
         <i class="fa fa-shopping-basket"></i>Your Store
       </a>
     </div>
