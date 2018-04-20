@@ -8,6 +8,7 @@ class CreateDishes < ActiveRecord::Migration[5.1]
       t.string :description
       t.integer :category_id
       t.string :tags
+      t.string :image, default: ""
 
       t.timestamps
     end

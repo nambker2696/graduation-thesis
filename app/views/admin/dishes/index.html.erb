@@ -3,6 +3,7 @@
     <li class="tab-head active" role="presentation"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Show</a></li>
     <li class="tab-head" role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Create</a></li>
     <li class="tab-head" role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Edit</a></li>
+    <li class="tab-head" role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Tags</a></li>
   </ul>
   <!-- Tab panes -->
   <div class="tab-content">
@@ -25,13 +26,18 @@
             <table class="table table-hover" id="table">
               <tbody>
                 <tr>
-                  <th class="table-name">Name</th>
-                  <th class="table-action">Action</th>
-
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Phone</th>
+                  <th>Edit</th>
+                  <th>Delete</th>
                 </tr>
-                <% @categories.each do |category| %>
+                <% @dishes.each do |dish| %>
                 <tr>
-                  <td><%= category.name %></td>
+                  <td><%= dish.name %></td>
+                  <td><%= dish.display_name %></td>
+                  <td><%= link_to 'Edit', edit_admin_dish_path(dish) %></td>
+                  <td><%= link_to 'Destroy', admin_dish_url(dish.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
                 </tr>
                 <% end %>
 

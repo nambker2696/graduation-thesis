@@ -61,15 +61,13 @@ users.each do |user|
     )
 
   10.times do
-    dish_food = Faker::Food.dish
     Dish.create(
-      name: dish_food, 
+      name: Faker::Food.dish, 
       display_name: Faker::Name.name, 
       subtitle: Faker::Food.measurement,
       price: Faker::Number.decimal(2),
       description: Faker::Food.ingredient,
-      category_id: category.id,
-      tags: dish_food
+      category_id: category.id
       )
   end
 end

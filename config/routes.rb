@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     resources :locations
     resources :booking_details
     resources :categories
+    resources :dishes
     devise_for :users, skip: :omniauth_callbacks
     { omniauth_callbacks: 'users/omniauth_callbacks',
       registrations: 'registrations' }

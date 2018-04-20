@@ -36,7 +36,6 @@
         <% end %>
       </li>
       <li>
-        
         <a data-toggle="collapse" data-target="#toggleDemo3" data-parent="#sidenav01" class="collapsed">
           <i class="fa fa-cutlery"></i> Menu <span class="caret pull-right"></span>
         </a>
@@ -46,12 +45,12 @@
               <span>Menu</span>
               <% end %>
             </li>
-            <li><%= link_to admin_admin_url,:class => "" do %>
+            <li><%= link_to admin_categories_url,:class => "" do %>
               <span>Categories</span>
               <% end %>
             </li>
-            <li><%= link_to admin_admin_url,:class => "" do %>
-              <span>Dishs</span>
+            <li><%= link_to admin_dishes_url,:class => "" do %>
+              <span>Dishes</span>
               <% end %>
             </li>
             <li><%= link_to admin_admin_url,:class => "" do %>
@@ -81,17 +80,29 @@
       </li>
 
       <li>
-        <%= link_to admin_admin_url,:class => "" do %>
-        <i class="fa fa-gear"></i>
-        <span>Bassic Setting</span>
-        
-        <% end %>
-      </li>
-      <li>
-        <%= link_to admin_admin_url,:class => "" do %>
-        <i class="fa fa-plug"></i>
-        <span>Advanced Setting</span>
-        <% end %>
+      <a data-toggle="collapse" data-target="#toggleDemo4" data-parent="#sidenav01" class="collapsed">
+          <i class="fa fa-gear"></i> Setting <span class="caret pull-right"></span>
+        </a>
+        <div class="collapse" id="toggleDemo4" style="height: 0px;">
+          <ul class="nav nav-list">
+            <li><%= link_to admin_admin_url,:class => "" do %>
+              <span>Menu</span>
+              <% end %>
+            </li>
+            <li><%= link_to admin_admin_url,:class => "" do %>
+              <span>Categories</span>
+              <% end %>
+            </li>
+            <li><%= link_to admin_dishes_url,:class => "" do %>
+              <span>Dishes</span>
+              <% end %>
+            </li>
+            <li><%= link_to admin_admin_url,:class => "" do %>
+              <span>Order</span>
+              <% end %>
+            </li>
+          </ul>
+        </div>
       </li>
       <li>
         <%= link_to admin_admin_url,:class => "" do %>
