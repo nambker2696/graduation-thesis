@@ -37,12 +37,13 @@ Rails.application.routes.draw do
   resources :bookings
 
     devise_for :users, skip: :omniauth_callbacks
-    root to: 'home#index'
     get 'features' => 'home#features'
     get 'resources' => 'home#resources'
     get 'about' => 'home#about'
     get 'faq' => 'home#faq'
     get 'contact' => 'home#contact'
+    # root to: 'home#index'
+    root to:  'store/dashboard#index'
   end
   root to: redirect('/#{I18n.default_locale}', status: 302),
   as: :redirected_root
