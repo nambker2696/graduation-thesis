@@ -28,7 +28,7 @@ Rails.application.routes.draw do
     devise_for :users, skip: :omniauth_callbacks
     get 'about' => 'home#about'
     get 'contact' => 'home#contact'
-    get 'locations' => 'home#contact'
+    get 'locations' => 'home#locations'
     root to: 'home#index'
   end
   root to: redirect('/#{I18n.default_locale}', status: 302),

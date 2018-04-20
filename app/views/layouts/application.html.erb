@@ -15,11 +15,13 @@
   <div id="store-panel">
     <%= render "layouts/store/left_menu" %>
   </div>
-  <div class="container">
+  <div id="main-store" style="margin-left: 250px">
+    <div class="container">
     <div class="main-content">
       <%= yield %>
     </div>
     <%= render "layouts/store/footer" %>
+  </div>
   </div>
 </body>
 </html>

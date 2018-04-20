@@ -1,19 +1,10 @@
-#logged-user{
-  padding: 5px;
-  border-radius: 20px;
-  margin-left:30px;
-  button{
-    margin-top: -20px;
-  }
-}
 #store-panel{
   // menu left
   #left-navbar{
-    width: 220px;
+    width: 250px;
     left: 0px;
     top: 0px;
     transform: translateX(0px);
-    margin-top: 60px;
     p{
       margin: 0;
       padding: 0;
@@ -42,7 +33,6 @@
       }
     }
     .navbar-links{
-      margin-top: 80px;
       padding: 0;
       border: 0;
       font-size: 100%;
