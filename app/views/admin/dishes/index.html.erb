@@ -1,9 +1,9 @@
 <div class="card">
   <ul class="nav nav-tabs" role="tablist">
     <li class="tab-head active" role="presentation"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Show</a></li>
-    <li class="tab-head" role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Create</a></li>
-    <li class="tab-head" role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Edit</a></li>
-    <li class="tab-head" role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Tags</a></li>
+    <li class="tab-head" role="presentation"><a href="#create-dish" aria-controls="create-dish" role="tab" data-toggle="tab">Create</a></li>
+    <li class="tab-head" role="presentation"><a href="#edit-dish" aria-controls="edit-dish" role="tab" data-toggle="tab">Edit</a></li>
+    <li class="tab-head" role="presentation"><a href="#tags-dish" aria-controls="tags-dish" role="tab" data-toggle="tab">Tags</a></li>
   </ul>
   <!-- Tab panes -->
   <div class="tab-content">
@@ -32,7 +32,7 @@
                   <th>Edit</th>
                   <th>Delete</th>
                 </tr>
-                <% @dishes.each do |dish| %>
+                <% @admin_dishes.each do |dish| %>
                 <tr>
                   <td><%= dish.name %></td>
                   <td><%= dish.display_name %></td>
@@ -47,9 +47,15 @@
         </div>
       </div>
     </div>
-    <div role="tabpanel" class="tab-pane" id="profile"></div>
-    <div role="tabpanel" class="tab-pane" id="messages"></div>
-    <div role="tabpanel" class="tab-pane" id="settings"></div>
+    <div role="tabpanel" class="tab-pane" id="create-dish">
+      
+
+
+    </div>
+    <div role="tabpanel" class="tab-pane" id="edit-dish">
+      
+    </div>
+    <div role="tabpanel" class="tab-pane" id="tags-dish"></div>
   </div>
 </div>
 </div>

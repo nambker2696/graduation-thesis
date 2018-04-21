@@ -1,60 +1,60 @@
 class Admin::DishesController < Admin::BaseController
-  before_action :set_dish, only: [:show, :edit, :update, :destroy]
+  before_action :set_admin_dish, only: [:show, :edit, :update, :destroy]
 
-  # GET /dishes
-  # GET /dishes.json
+  # GET /admin_dishes
+  # GET /admin_dishes.json
   def index
-    @dishes = Dish.all
+    @admin_dishes = Dish.all
   end
 
-  # GET /dishes/1
-  # GET /dishes/1.json
+  # GET /admin_dishes/1
+  # GET /admin_dishes/1.json
   def show
   end
 
-  # GET /dishes/new
+  # GET /admin_dishes/new
   def new
-    @dish = Dish.new
+    @admin_dish = Dish.new
   end
 
-  # GET /dishes/1/edit
+  # GET /admin_dishes/1/edit
   def edit
   end
 
-  # POST /dishes
-  # POST /dishes.json
+  # POST /admin_dishes
+  # POST /admin_dishes.json
   def create
-    @dish = Dish.new(dish_params)
+    @admin_dish = Dish.new(admin_dish_params)
 
     respond_to do |format|
-      if @dish.save
-        format.html { redirect_to @dish, notice: 'Dish was successfully created.' }
-        format.json { render :show, status: :created, location: @dish }
+      if @admin_dish.save
+        format.html { redirect_to @admin_dish, notice: 'Dish was successfully created.' }
+        format.json { render :show, status: :created, location: @admin_dish }
       else
         format.html { render :new }
-        format.json { render json: @dish.errors, status: :unprocessable_entity }
+        format.json { render json: @admin_dish.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # PATCH/PUT /dishes/1
-  # PATCH/PUT /dishes/1.json
+  # PATCH/PUT /admin_dishes/1
+  # PATCH/PUT /admin_dishes/1.json
   def update
     respond_to do |format|
-      if @dish.update(dish_params)
-        format.html { redirect_to @dish, notice: 'Dish was successfully updated.' }
-        format.json { render :show, status: :ok, location: @dish }
+      if @admin_dish.update(admin_dish_params)
+        format.html { redirect_to admin_dishes_path, notice: 'Dish was successfully updated.' }
+        format.json { render :show, status: :ok, location: admin_dishes_path }
       else
         format.html { render :edit }
-        format.json { render json: @dish.errors, status: :unprocessable_entity }
+        format.json { render json: @admin_dish.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # DELETE /dishes/1
-  # DELETE /dishes/1.json
+  # DELETE /admin_dishes/1
+  # DELETE /admin_dishes/1.json
   def destroy
-    @dish.destroy
+    @admin_dish.destroy
     respond_to do |format|
       format.html { redirect_to admin_dishes_url, notice: 'Dish was successfully destroyed.' }
       format.json { head :no_content }
@@ -63,12 +63,12 @@ class Admin::DishesController < Admin::BaseController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_dish
-      @dish = Dish.find(params[:id])
+    def set_admin_dish
+      @admin_dish = Dish.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def dish_params
-      params.require(:dish).permit(:name, :display_name, :subtitle,:price,:description,:category_id,:tags, {image: []})
+    def admin_dish_params
+      params.require(:dish).permit(:name, :display_name, :subtitle,:price,:description,:category_id,:tags,:image)
     end
 end
