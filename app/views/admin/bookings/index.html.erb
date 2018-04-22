@@ -103,108 +103,112 @@
     <div class="st-headings">
       <div class="row">
         <div class="col-md-2">Name</div>
-        <div class="col-md-2">Placed</div>
+        <div class="col-md-2">Place</div>
         <div class="col-md-2">Status</div>
-        <div class="col-md-2">Date</div>
-        <div class="col-md-2">Time</div>
+        <div class="col-md-2">Time booked</div>
+        <div class="col-md-2">TIme receipt</div>
         <div class="col-md-2">Action</div>
       </div>
     </div>
     <div class="st-rows">
       <ul class="my-toggle">
-       <% @bookings.each do |booking| %>
-       <li>
-        <a class="view">
-          <div class="row">
-            <div class="col-sm-12">
-              <h5 class="toggle-title">
-                <%= booking.user_id %>
-                Name Youre | <%= booking.status %> | <%= booking.place %> | <%= booking.date_booked %> | <%= booking.date_receipt %>
-              </h5>
+        <% @bookings.each do |booking| %>
+        <li>
+          <a class="view">
+            <div class="protable">
+              <table class="">
+                <thead class="">
+                  <tr>
+                    <th class=""><%= booking.id %></th>
+                    <th class=""><%= booking.user_id %></th>
+                    <th class=""><%= booking.place %></th>
+                    <th class=""><%= booking.status %></th>
+                    <th class=""><%= booking.date_booked %></th>
+                    <th class=""><%= booking.date_receipt %></th>
+                    <th class=""><i class="fa fa-ellipsis-v"></i></th>
+                  </tr>
+                </thead>
+              </table>
             </div>
-          </div>
-        </a>
-        <div class="detail">
-          <div class="row">
+          </a>
+          <div class="detail">
+           <div class="row">
             <div class="col-sm-12">
               <div class="toggle-wrapper">
                <ul class="nav nav-list">
-                <li><%= booking.user_id %></li>
-                <li><%= booking.place %></li>
-                <li><%= booking.status %></li>
-                <li><%= booking.date_booked %></li>
-                <li><%= booking.date_receipt %></li>
+                <form class="form-horizontal">
+                  <fieldset>
+                    <div class="form-group">
+                      <div class="col-md-3">
+                        Address
+                      </div>
+                      <div class="col-md-9">
+                        <%= booking.user_id %>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="col-md-3">
+                        Phone (Optional)
+                      </div>
+                      <div class="col-md-9">
+                        <%= booking.place %>
+                      </div>
+                    </div>
 
+                    <div class="form-group">
+                      <div class="col-md-3">
+                        Enable Automatic Opening
+                      </div>
+                      <div class="col-md-9">
+                        <%= booking.date_booked %>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="col-md-3">
+                        Opening Times
+                      </div>
+                      <div class="col-md-9">
+                        <%= booking.status %>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="col-md-3">
+                        Delivery Provider
+                      </div>
+                      <div class="col-md-9">
+                        <%= booking.date_receipt %>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="col-md-3">
+                        Date order
+                      </div>
+                      <div class="col-md-9">
+                        <%= booking.date_receipt %>
+                      </div>
+                    </div>
+                  </fieldset>
+                </form>
               </ul>
             </div>
           </div>
-        </div>
-      </div>
-    </li>
-    <% end %>
-  </ul>
-</div>
-</div>
-
-
-<div role="tabpanel" class="tab-pane" id="profile">
-  <div role="tabpanel" class="tab-pane active" id="home">
-    <div class="row">
-      <div class="col-xs-12">
-        <div class="box">
-          <div class="box-header">
-            <h5 class="box-title">Search booking</h5>
-            <div class="box-tools">
-              <div class="input-group input-group-sm" style="width: 150px;">
-                <input type="text" name="table_search" class="form-control pull-right" placeholder="Search" id="search">
-
-                <div class="input-group-btn">
-                  <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <table class="table table-hover" id="table">
-            <tbody>
-              <tr>
-                <th>User_id</th>
-                <th>Place</th>
-                <th>Status</th>
-                <th>Date booking</th>
-                <th>Date receipt</th>
-                <th>Edit</th>
-                <th>Delete</th>
-              </tr>
-              <% @bookings.each do |booking| %>
-
-              <tr>
-                <td><%= booking.user_id %></td>
-                <td><%= booking.place %></td>
-                <td><%= booking.status %></td>
-                <td><%= booking.date_booked %></td>
-                <td><%= booking.date_receipt %></td>
-                <td><%= link_to 'Edit', edit_admin_booking_path(booking) %></td>
-                <td><%= link_to 'Destroy', admin_booking_url(booking.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-              </tr>
-              <% end %>
-            </tbody>
-          </table>
-        </div>
-      </div>
+        </li>
+        <% end %>
+      </ul>
     </div>
   </div>
 </div>
 
-<script type="text/javascript">
-  $(function() {
-    $(".view").on( "click", function() {
-      $(this).next().slideToggle(250);
-      $fexpand = $(this).find(">:first-child");
-      if ($(this).hasClass('opened')) {
-        $(this).removeClass('opened');
-      } else {
-        $(this).addClass('opened');
-      };
-    });
-  });
-</script>
+    <script type="text/javascript">
+      $(function() {
+        $(".view").on( "click", function() {
+          $(this).next().slideToggle(250);
+          $fexpand = $(this).find(">:first-child");
+          if ($(this).hasClass('opened')) {
+            $(this).removeClass('opened');
+          } else {
+            $(this).addClass('opened');
+          };
+        });
+      });
+    </script>
