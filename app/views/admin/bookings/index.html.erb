@@ -1,10 +1,4 @@
 <div class="card">
-  <ul class="nav nav-tabs" role="tablist">
-    <li class="tab-head active" role="presentation"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Orders</a></li>
-    <li class="tab-head" role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">List</a></li>
-    <li class="tab-head" role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">History</a></li>
-  </ul>
-  <!-- Tab panes -->
   <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="home">
       <div >
@@ -19,21 +13,84 @@
               <div class="row">
                 <div class="col-sm-12">
                   <div class="toggle-wrapper">
-                   <ul class="nav nav-list">
-                     <li>Adrress: </li>
-                     <li>Phone: </li>
-                     <li>Status: </li>
-                   </ul>
-                 </div>
-               </div>
-             </div>
-           </div>
-         </div>
-         <div class="col-md-2" id="fitter-col" style="padding-left:0px; border-left: 1px solid rgba(255,255,255,0.12);">
-            <div class="dropdown view" id="fitter-view">
-              <div class="toggle-title dropdown-toggle" type="button" data-toggle="dropdown"><i class="fa fa-list"><span>Result</span></i>
-                <span class="caret"></span>
+                    <ul class="nav nav-list">
+                     <form class="form-horizontal">
+                      <fieldset>
+                        <!-- Text input-->
+                        <div class="form-group">
+                          <label class="col-md-3 control-label" for="location">Search</label>  
+                          <div class="col-md-9">
+                            <input id="location" name="location" type="text" placeholder="No,Name,Phone,Email" class="form-control input-md">
+                            <!-- <span class="help-block">help</span>   -->
+                          </div>
+                        </div>
+
+                        <!-- Select Basic -->
+                        <div class="form-group">
+                          <label class="col-md-3 control-label" for="radius">Location</label>
+                          <div class="col-md-9">
+                            <select id="radius" name="radius" class="form-control">
+                              <option value="1">Option one</option>
+                              <option value="2">Option two</option>
+                            </select>
+                          </div>
+                        </div>
+
+                        <!-- Select Basic -->
+                        <div class="form-group">
+                          <label class="col-md-3 control-label" for="property_type">Property type</label>
+                          <div class="col-md-9">
+                            <select id="property_type" name="property_type" class="form-control">
+                              <option value="1">Option one</option>
+                              <option value="2">Option two</option>
+                            </select>
+                          </div>
+                        </div>
+
+                        <!-- Select Basic -->
+                        <div class="form-group">
+                          <label class="col-md-3 control-label" for="price_min">Price range</label>
+                          <div class="col-md-9">
+                            <select id="price_min" name="price_min" class="form-control">
+                              <option value="1">Option one</option>
+                              <option value="2">Option two</option>
+                            </select>
+                          </div>
+                        </div>
+
+                        <!-- Select Basic -->
+                        <div class="form-group">
+                          <label class="col-md-3 control-label" for="selectbasic"></label>
+                          <div class="col-md-9">
+                            <select id="selectbasic" name="selectbasic" class="form-control">
+                              <option value="1">Option one</option>
+                              <option value="2">Option two</option>
+                            </select>
+                          </div>
+                        </div>
+
+                        <!-- Button -->
+                        <div class="form-group">
+                          <label class="col-md-3 control-label" for="submit"></label>
+                          <div class="col-md-9">
+                            <button id="submit" name="submit" class="btn btn-primary">Search</button>
+                          </div>
+                        </div>
+
+                      </fieldset>
+                    </form>
+
+                  </ul>
+                </div>
               </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2" id="fitter-col" style="padding-left:0px; border-left: 1px solid rgba(255,255,255,0.12);">
+          <div class="dropdown view" id="fitter-view">
+            <div class="toggle-title dropdown-toggle" type="button" data-toggle="dropdown"><i class="fa fa-list"><span>Result</span></i>
+              <span class="caret"></span>
+            </div>
             <ul class="dropdown-menu">
               <li><a href="#">10 Result</a></li>
               <li><a href="#">20 Result</a></li>
@@ -43,50 +100,49 @@
         </div>
       </div>
     </div>
-
     <div class="st-headings">
-    <div class="row">
-      <div class="col-md-2">Name</div>
-      <div class="col-md-2">Placed</div>
-      <div class="col-md-2">Status</div>
-      <div class="col-md-2">Date</div>
-      <div class="col-md-2">Time</div>
-      <div class="col-md-2">Action</div>
+      <div class="row">
+        <div class="col-md-2">Name</div>
+        <div class="col-md-2">Placed</div>
+        <div class="col-md-2">Status</div>
+        <div class="col-md-2">Date</div>
+        <div class="col-md-2">Time</div>
+        <div class="col-md-2">Action</div>
+      </div>
     </div>
-   </div>
-   <div class="st-rows">
-    <ul class="my-toggle">
-     <% @bookings.each do |booking| %>
-     <li>
-      <a class="view">
-        <div class="row">
-          <div class="col-sm-12">
-            <h5 class="toggle-title">
-              <%= booking.user_id %>
-              Name Youre | <%= booking.status %> | <%= booking.place %> | <%= booking.date_booked %> | <%= booking.date_receipt %>
-            </h5>
+    <div class="st-rows">
+      <ul class="my-toggle">
+       <% @bookings.each do |booking| %>
+       <li>
+        <a class="view">
+          <div class="row">
+            <div class="col-sm-12">
+              <h5 class="toggle-title">
+                <%= booking.user_id %>
+                Name Youre | <%= booking.status %> | <%= booking.place %> | <%= booking.date_booked %> | <%= booking.date_receipt %>
+              </h5>
+            </div>
           </div>
-        </div>
-      </a>
-      <div class="detail">
-        <div class="row">
-          <div class="col-sm-12">
-            <div class="toggle-wrapper">
-             <ul class="nav nav-list">
-              <li><%= booking.user_id %></li>
-              <li><%= booking.place %></li>
-              <li><%= booking.status %></li>
-              <li><%= booking.date_booked %></li>
-              <li><%= booking.date_receipt %></li>
+        </a>
+        <div class="detail">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="toggle-wrapper">
+               <ul class="nav nav-list">
+                <li><%= booking.user_id %></li>
+                <li><%= booking.place %></li>
+                <li><%= booking.status %></li>
+                <li><%= booking.date_booked %></li>
+                <li><%= booking.date_receipt %></li>
 
-            </ul>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </li>
-  <% end %>
-</ul>
+    </li>
+    <% end %>
+  </ul>
 </div>
 </div>
 
@@ -131,17 +187,12 @@
                 <td><%= link_to 'Destroy', admin_booking_url(booking.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
               </tr>
               <% end %>
-
             </tbody>
           </table>
         </div>
       </div>
     </div>
   </div>
-</div>
-<div role="tabpanel" class="tab-pane" id="messages"></div>
-</div>
-</div>
 </div>
 
 <script type="text/javascript">

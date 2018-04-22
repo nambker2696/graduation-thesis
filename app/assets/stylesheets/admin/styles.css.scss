@@ -135,6 +135,9 @@
             font-weight:bold;
             color:#777777;
           }
+          .table{
+            margin:20px;
+          }
           .st-rows{
             .status-store{
               display: inline-block;
@@ -147,6 +150,16 @@
               background-color: #bd362f!important;
               color: #f6f6f6!important;
             }
+          }
+        }
+        .box-header{
+          padding:20px;
+        }
+        .box-body{
+          .form-group{
+            border-bottom: 1px dashed #cecece;
+            margin-bottom: 20px;
+            padding: 20px;
           }
         }
       }

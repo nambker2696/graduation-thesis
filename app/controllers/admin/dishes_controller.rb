@@ -28,7 +28,7 @@ class Admin::DishesController < Admin::BaseController
 
     respond_to do |format|
       if @admin_dish.save
-        format.html { redirect_to @admin_dish, notice: 'Dish was successfully created.' }
+        format.html { redirect_to admin_dishes_path, notice: 'Dish was successfully created.' }
         format.json { render :show, status: :created, location: @admin_dish }
       else
         format.html { render :new }
