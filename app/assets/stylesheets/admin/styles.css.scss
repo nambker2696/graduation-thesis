@@ -134,11 +134,23 @@
             border-top: 1px solid #ccc;
             font-weight:bold;
             color:#777777;
+            height: 52px;
+            .st-heading{ 
+              float:left;
+            }
+            .st-heading-right{
+              float:right;
+            }
           }
           .table{
             margin:20px;
           }
           .st-rows{
+            .toggle-title{
+              i{
+                margin-right: 20px;
+              }
+            }
             .status-store{
               display: inline-block;
               font-size: 10px;
@@ -158,7 +170,6 @@
         .box-body{
           .form-group{
             border-bottom: 1px dashed #cecece;
-            margin-bottom: 20px;
             padding: 20px;
           }
         }

@@ -47,54 +47,53 @@
       </div>
     </div>
     <div role="tabpanel" class="tab-pane" id="create-dish">
-          <div class="box box-primary">
-            <div class="box-header with-border">
-              <h3 class="box-title">New Dish</h3>
-            </div>
+      <div class="box box-primary">
+        <div class="box-header with-border">
+          <h3 class="box-title">New Dish</h3>
+        </div>
 
-            <%= form_for [:admin, Dish.new] do |f| %>
-            <div class="box-body">
-              <div class="form-group">
-                <%= f.label :category_id %>
-                <%= f.select :category_id, options_for_select(Category.all.map{|e| [e.name, e.id]}) %>
-              </div>
-              <div class="form-group">
-                <%= f.label :name %>
-                <%= f.text_field :name, class: "form-control" %>
-              </div>
-              <div class="form-group">
-                <%= f.label :display_name %>
-                <%= f.text_field :display_name, class: "form-control" %>
-              </div>
-              <div class="form-group">
-                <%= f.label :subtitle %>
-                <%= f.text_field :subtitle, class: "form-control" %>
-              </div>
+        <%= form_for [:admin, Dish.new] do |f| %>
+        <div class="box-body">
+          <div class="form-group">
+            <%= f.label :category_id <%></%>
+            <%= f.select :category_id, options_for_select(Category.all.map{|e| [e.name, e.id]}) %>
+          </div>
+          <div class="form-group">
+            <%= f.label :name %>
+            <%= f.text_field :name, class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :display_name %>
+            <%= f.text_field :display_name, class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :subtitle %>
+            <%= f.text_field :subtitle, class: "form-control" %>
+          </div>
 
-              <div class="form-group">
-                <%= f.label :price %>
-                <%= f.number_field :price, class: "form-control" %>
-              </div>
-              <div class="form-group">
-                <%= f.label :description %>
-                <%= f.text_field :description, class: "form-control" %>
-              </div>
+          <div class="form-group">
+            <%= f.label :price %>
+            <%= f.number_field :price, class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :description %>
+            <%= f.text_field :description, class: "form-control" %>
+          </div>
 
-              <div class="form-group">
-                <%= f.label :tags %>
-                <%= f.text_field :tags, class: "form-control" %>
-              </div>
-              <div class="form-group">
-                <%= f.label :image %>
-                <%= f.file_field :image %>
-              </div>
-              <div class="form-group">
-                <%= f.submit "Create", class: "btn btn-info" %>
-              </div>            
-            </div>
-            <% end %>
+          <div class="form-group">
+            <%= f.label :tags %>
+            <%= f.text_field :tags, class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :image %>
+            <%= f.file_field :image %>
+          </div>
+          <div class="form-group">
+            <%= f.submit "Create", class: "btn btn-info" %>
+          </div>            
+        </div>
+        <% end %>
       </div>
-
     </div>
     <div role="tabpanel" class="tab-pane" id="edit-dish">
       <h3>Choose To edit</h3>

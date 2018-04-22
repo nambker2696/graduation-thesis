@@ -7,60 +7,134 @@
   <!-- Tab panes -->
   <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="home">
-        <div class="st-headings">
-          Name
-        </div>
-        <div class="st-rows">
-          <ul class="my-toggle">
-            <% @locations.each do |location| %>
-            <li>
-              <a class="view">
-                <div class="row">
-                  <div class="col-sm-12">
-                    <h5 class="toggle-title"><%= location.name %> <div class="status-store"><%= location.status %></div> </h5>
-                  </div>
+      <div class="st-headings">
+        <div class="st-heading">Name</div>
+        <div class="st-heading-right">Action</div>
+      </div>
+      <div class="st-rows">
+        <ul class="my-toggle">
+          <% @admin_locations.each do |location| %>
+          <li>
+            <a class="view">
+              <div class="row">
+                <div class="col-sm-12">
+                  <h5 class="toggle-title">
+                    <i class="fa fa-caret-right"></i><%= location.name %> 
+                    <div class="status-store"><%= location.status %>
+                    </div>
+                  </h5>
                 </div>
-              </a>
-              <div class="detail">
-                <div class="row">
-                  <div class="col-sm-12">
-                    <div class="toggle-wrapper">
-                     <ul class="nav nav-list">
-                       <li>Adrress: <%= location.address %></li>
-                       <li>Phone: <%= location.phone %></li>
-                       <li>Status: <%= location.status %></li>
-                       <% @openinghours.each do |openinghour| %>
-                       <li><%= openinghour.day %>: <%if openinghour.status == true %> Open <% else %> Close <% end %> | <%= openinghour.open.strftime("%I:%M %P") %> | <%= openinghour.close.strftime("%I:%M %P")  %>  </li>
-                       <% end %>
+              </div>
+            </a>
+            <div class="detail">
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="toggle-wrapper">
+                   <ul class="nav nav-list">
+                    <form class="form-horizontal">
+                      <fieldset>
+                        <div class="form-group">
+                          <div class="col-md-3">Address</div>
+                          <div class="col-md-9"><%= location.address %></div>
+                        </div>
+                        <div class="form-group">
+                          <div class="col-md-3">Phone:</div>
+                          <div class="col-md-9"><%= location.phone %></div>
+                        </div>
 
-                     </ul>
-                   </div>
-                 </div>
-               </div>
-             </div>
-           </li>
-           <% end %>
-         </ul>
-       </div>
-     </div>
-   <div role="tabpanel" class="tab-pane" id="profile"></div>
-   <div role="tabpanel" class="tab-pane" id="messages"></div>
- </div>
+                        <div class="form-group">
+                          <div class="col-md-3">Status:</div>
+                          <div class="col-md-9"><%= location.status %></div>
+                        </div>
+                        
+                        <div class="form-group">
+                          <div class="col-md-3">Opening Times:</div>
+                          <div class="col-md-9">
+                            <% @openinghours.each do |openinghour| %>
+                            <% if openinghour.location_id == location.id %>
+                            <% if openinghour.day == "1" %>
+                            Monday:
+                            <% elsif openinghour.day == "2" %>
+                            Tuesday:
+                            <% elsif openinghour.day == "3" %>
+                            Wednesday:
+                            <% elsif openinghour.day == "4" %>
+                            Thursday:
+                            <% elsif openinghour.day == "5" %>
+                            Friday:
+                            <% elsif openinghour.day == "6" %>
+                            saturday:
+                            <% elsif openinghour.day == "7" %>
+                            Sunday:
+                            <% end %>
+                            <%if openinghour.status == true %> Open <% else %> Close 
+                            <% end %> | <%= openinghour.open.strftime("%I:%M %P") %> | <%= openinghour.close.strftime("%I:%M %P")  %>
+                            <br><br>
+                            <% end %>
+                            <% end %>
+                          </div>
+                        </div>
+
+                      </fieldset>
+                    </form>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+
+    <div role="tabpanel" class="tab-pane" id="profile">
+     <div class="box box-primary">
+      <div class="box-header with-border">
+        <h3 class="box-title">New Location</h3>
+      </div>
+      <%= form_for [:admin, Location.new] do |f| %>
+      <div class="box-body">
+        <div class="form-group">
+          <%= f.label :store_id %>
+          <%= f.select :store_id, options_for_select(Store.all.map{|e| [e.name, e.id]}) %>
+        </div>
+        <div class="form-group">
+          <%= f.label :name %>
+          <%= f.text_field :name, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :address %>
+          <%= f.text_field :address, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :phone %>
+          <%= f.text_field :phone, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :status %>
+          <%= f.text_field :status, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.submit "Create", class: "btn btn-info" %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+  <div role="tabpanel" class="tab-pane" id="messages"></div>
 </div>
 </div>
 
-
-<div class="box-body table-responsive no-padding">
-  <script type="text/javascript">
-    $(function() {
-      $(".view").on( "click", function() {
-        $(this).next().slideToggle(250);
-        $fexpand = $(this).find(">:first-child");
-        if ($(this).hasClass('opened')) {
-          $(this).removeClass('opened');
-        } else {
-          $(this).addClass('opened');
-        };
-      });
+<script type="text/javascript">
+  $(function() {
+    $(".view").on( "click", function() {
+      $(this).next().slideToggle(250);
+      $fexpand = $(this).find(">:first-child");
+      if ($(this).hasClass('opened')) {
+        $(this).removeClass('opened');
+      } else {
+        $(this).addClass('opened');
+      };
     });
-  </script>
+  });
+</script>
