@@ -3,8 +3,6 @@ class CreateStores < ActiveRecord::Migration[5.1]
     create_table :stores do |t|
       t.string :name
       t.string :logo
-      t.integer :user_id
-
       t.timestamps
     end
   end

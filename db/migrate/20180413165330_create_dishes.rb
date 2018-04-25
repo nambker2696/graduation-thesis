@@ -5,7 +5,7 @@ class CreateDishes < ActiveRecord::Migration[5.1]
       t.string :display_name
       t.string :subtitle
       t.float :price
-      t.string :description
+      t.text :description
       t.integer :category_id
       t.string :tags
       t.string :image, default: ""

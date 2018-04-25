@@ -1,3 +1,4 @@
+
 puts "Faker admin@gmail.com admin1"
 puts "Faker 15 Users(admin:0)"
 puts "Faker 5 staff(admin:5)"
@@ -30,46 +31,62 @@ puts "Faker 10 Booking"
     )
 end
 
-puts "Faker 10 Store"
+
+puts "Faker 23 Category for 1 Store"
+
+namae_cat = "Non-Veg" Category.create(name: namae_cat,display_name: namae_cat.parameterize)
+namae_cat = "Vegetarian" Category.create(name: namae_cat,display_name: namae_cat.parameterize)
+
+namae_cat = "Northern VietNam" Category.create(name: namae_cat,display_name: namae_cat.parameterize)
+namae_cat = "South VietNam" Category.create(name: namae_cat,display_name: namae_cat.parameterize)
+namae_cat = "Central Vietnam" Category.create(name: namae_cat,display_name: namae_cat.parameterize)
+
+namae_cat = "Desserts" Category.create(name: namae_cat,display_name: namae_cat.parameterize)
+namae_cat = "Tea & Snacks" Category.create(name: namae_cat,display_name: namae_cat.parameterize)
+namae_cat = "Cakes" Category.create(name: namae_cat,display_name: namae_cat.parameterize)
+namae_cat = "Pickles" Category.create(name: namae_cat,display_name: namae_cat.parameterize)
+
+namae_cat = "Bottled water" Category.create(name: namae_cat,display_name: namae_cat.parameterize)
+namae_cat = "Soft drink" Category.create(name: namae_cat,display_name: namae_cat.parameterize)
+namae_cat = "Soda" Category.create(name: namae_cat,display_name: namae_cat.parameterize)
+namae_cat = "Water" Category.create(name: namae_cat,display_name: namae_cat.parameterize)
+
+namae_cat = "Party Food" Category.create(name: namae_cat,display_name: namae_cat.parameterize)
+namae_cat = "Party Birthday" Category.create(name: namae_cat,display_name: namae_cat.parameterize)
+namae_cat = "Party Wedding" Category.create(name: namae_cat,display_name: namae_cat.parameterize)
+namae_cat = "Family party" Category.create(name: namae_cat,display_name: namae_cat.parameterize)
+
+namae_cat = "Healthy" Category.create(name: namae_cat,display_name: namae_cat.parameterize)
+namae_cat = "Traditional" Category.create(name: namae_cat,display_name: namae_cat.parameterize)
+namae_cat = "International" Category.create(name: namae_cat,display_name: namae_cat.parameterize)
+namae_cat = "Fastfood" Category.create(name: namae_cat,display_name: namae_cat.parameterize)
+namae_cat = "Hotpot" Category.create(name: namae_cat,display_name: namae_cat.parameterize)
+namae_cat = "Buffet" Category.create(name: namae_cat,display_name: namae_cat.parameterize)
+
+
+
+
+
 puts "Faker 2 Location for Store"
-puts "Faker 1 Category for 1 Store"
-puts "Faker 10 Dish for 1 Category"
-users =  User.all
-users.each do |user|
-  company_name = Faker::Company.name
-  store = Store.create(
-    name: "#{company_name}'s Blog",
-    logo: company_name,
-    user_id: user.id
+20.times do
+  Locations.create(
+    name: Faker::Name.name,
+    address: Faker::Address.city,
+    phone: Faker::PhoneNumber.cell_phone,
+    status: Faker::Boolean.boolean(0.2)
+    )    
+end
+
+puts "Faker 100 Dish"
+100.times do
+  Dish.create(
+    name: Faker::Food.dish, 
+    display_name: Faker::Name.name, 
+    subtitle: Faker::Food.measurement,
+    price: Faker::Number.decimal(2),
+    description: Faker::Food.ingredient,
+    category_id: Faker::Number.between(1, 23)
     )
-
-  2.times do
-    store.locations.create(
-      store_id: store.id,
-      name: Faker::Name.name,
-      address: Faker::Address.city,
-      phone: Faker::PhoneNumber.cell_phone,
-      status: Faker::Boolean.boolean(0.2)
-      )    
-  end
-
-  name_cat = Faker::Name.name
-  category = store.categories.create(
-    store_id: store.id,
-    name: name_cat,
-    display_name: name_cat
-    )
-
-  10.times do
-    Dish.create(
-      name: Faker::Food.dish, 
-      display_name: Faker::Name.name, 
-      subtitle: Faker::Food.measurement,
-      price: Faker::Number.decimal(2),
-      description: Faker::Food.ingredient,
-      category_id: category.id
-      )
-  end
 end
 
 puts "Faker 7 OpeningHours for each location"

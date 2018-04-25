@@ -26,10 +26,11 @@ Rails.application.routes.draw do
   resources :guesses
   resources :order_details
   resources :bookings
-    devise_for :users, skip: :omniauth_callbacks
+  devise_for :users, skip: :omniauth_callbacks
     get 'about' => 'home#about'
     get 'contact' => 'home#contact'
     get 'locations' => 'home#locations'
+    get 'search' => "search#index"
     root to: 'home#index'
   end
   root to: redirect('/#{I18n.default_locale}', status: 302),

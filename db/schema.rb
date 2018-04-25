@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 20180420172924) do
     t.string "display_name"
     t.string "subtitle"
     t.float "price"
-    t.string "description"
+    t.text "description"
     t.integer "category_id"
     t.string "tags"
     t.string "image", default: ""

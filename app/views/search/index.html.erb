@@ -1,0 +1,16 @@
+<h1>Posts</h1>
+
+<% if @posts %>
+  <ul>
+    <% @posts.each do |post| %>
+      <li>
+        <h3>
+          <%= link_to post.name, "#" %>
+        </h3>
+        <p><%= post.display_name %></p>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>Your search did not match any documents.</p>
+<% end %>

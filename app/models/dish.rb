@@ -1,3 +1,4 @@
-class Dish < ApplicationRecord
-    mount_uploader :image, ImageUploader
+class Dish < ActiveRecord::Base
+  mount_uploader :image, ImageUploader
+  include Searchable
 end

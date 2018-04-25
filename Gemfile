@@ -24,7 +24,8 @@ gem 'puma', '~> 3.7'
 gem 'rails', '~> 5.1.4'
 gem 'rails-assets-sweetalert2', '~> 5.1.1', source: 'https://rails-assets.org'
 gem 'rails-jquery-autocomplete'
-gem 'ransack'
+
+
 gem 'sass-rails', '~> 5.0'
 gem 'simple_form'
 gem 'social-share-button'
@@ -34,6 +35,11 @@ gem 'uglifier', '>= 1.3.0'
 gem 'will_paginate'
 gem 'rails-assets-sweetalert2', '~> 5.1.1', source: 'https://rails-assets.org'
 gem 'sweet-alert2-rails'
+
+gem 'elasticsearch', git: 'git://github.com/elasticsearch/elasticsearch-ruby.git'
+gem 'elasticsearch-model', git: 'git://github.com/elasticsearch/elasticsearch-rails.git'
+gem 'elasticsearch-rails', git: 'git://github.com/elasticsearch/elasticsearch-rails.git'
+
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'capybara', '~> 2.13'
