@@ -1,6 +1,19 @@
-<%= form_for :term, url: search_path, method: :get do |form| %>
-  <p>
-    <%= text_field_tag :term, params[:term] %>
-    <%= submit_tag "Search", name: nil %>
-  </p>
-<% end %>
+<div class="search-food">
+  <div class="search-con">
+    <div id="seach-form">
+      <%= form_for :term, url: search_path, method: :get do |form| %>
+      <ul>
+        <li class="location">
+            <%= text_field_tag :term, params[:term],placeholder: "Type your delivery location or area..." %>
+        </li>
+        <li class="loction_bkg">
+          <i class="fa fa-tasks location_get_icon"></i>
+        </li>
+        <li>
+            <%= submit_tag "Search", name: nil %>
+        </li>
+      </ul>
+      <% end %>
+    </div>
+  </div>
+</div>

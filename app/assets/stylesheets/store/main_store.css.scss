@@ -119,4 +119,96 @@
       }
     }
   }
+  .search-food{
+    width:100%;
+    text-align:center;
+    margin-top: 50px;
+    margin-bottom: 100px;
+    .search-con {
+      border: 10px solid #f2f2f2;
+      border-radius: 0 5px 5px 0;
+      margin: 0 auto;
+      position: relative;
+      width: 800px;
+      height:78px;
+      #seach-form{
+        ul{
+          position:relative;
+          list-style-type: none;
+          margin:0 auto;
+          padding:0 auto;
+          li:first-child {
+            border: medium none;
+            margin-bottom: 0;
+            padding-right: 215px;
+            width: 100%;
+          }
+          li.location{
+            position: relative;
+            input[type="text"] {
+              font-family: arial;
+              height: 57px;
+              display: block;
+              font-size: 19px;
+              font-weight: 700;
+              height: 54px;
+              padding-left: 25px!important;
+              width: 100%;
+              border:none;
+            }
+            input:focus{
+              outline: none;
+            }
+          }
+          li {
+            border-bottom: 1px solid #e6e6e6;
+            border-top: 1px solid #e6e6e6;
+            float: left;
+            height: 57px;
+            vertical-align: top;
+          }
+          .loction_bkg {
+            background: #f2f2f2;
+            position: absolute;
+            top: -10px;
+            left: 0%;
+            width: 50px;
+            height: 77px !important;
+            border-radius: 5px 0 0 5px;
+            border: none !important;
+            .location_get_icon{
+              width: 23px;
+              height: 23px;
+              position: absolute;
+              top: 35%;
+              left: 30%;
+            }
+          }
+          li:last-child {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 209px;
+            border: medium none;
+          }
+          li:last-child input[type="submit"] {
+            background: #3cbaf5 none repeat scroll 0 0;
+            color: #fff;
+            font-size: 19px;
+            font-weight: 600;
+            margin-left: 0;
+            text-transform: none;
+            width: 210px;
+            height: 57px;
+            border:none;
+
+          }
+
+
+
+        }
+      }
+    }
+
+  }
 }

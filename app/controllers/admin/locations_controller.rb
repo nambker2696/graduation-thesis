@@ -4,9 +4,10 @@ class Admin::LocationsController < Admin::BaseController
   # GET /admin_locations
   # GET /admin_locations.json
   def index
-    store = Store.find_by(user_id: current_user.id)
-    @admin_locations = Location.joins(:store).where("stores.id" => 1)
-    @openinghours =  OpeningHour.joins(:location).joins(:store).where("stores.id=?",store.id)
+    @admin_locations = Location.all
+    @openinghours = OpeningHour.all
+    # @admin_locations = Location.joins(:store).where("stores.id" => 1)
+    # @openinghours =  OpeningHour.joins(:location).joins(:store).where("stores.id=?",store.id)
   end
   # GET /admin_locations/1
   # GET /admin_locations/1.json
