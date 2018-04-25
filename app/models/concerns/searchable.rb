@@ -3,6 +3,45 @@ module Searchable
 
   included do
     include Elasticsearch::Model
+
+    after_commit on: [:create, :update] do
+      create_or_update_index
+    end
+
+    after_commit on: :destroy do
+      if Elasticsearch.elasticsearch_enable? && __elasticsearch__.client.transport.connections.present?
+        __elasticsearch__.delete_document rescue nil
+      end
+    end
+
+    def create_or_update_index(reindex = false)
+      if Elasticsearch.elasticsearch_enable? &&
+         __elasticsearch__.client.transport.connections.present? &&
+         after_publish?
+        if (status_previously_changed? && available?) || (viewable_previously_changed? && viewable)
+          __elasticsearch__.index_document
+        elsif viewable_previously_changed? && !viewable
+          __elasticsearch__.delete_document rescue nil
+        else
+          begin
+            if organizer_id_previously_changed? || staff_id_previously_changed? || manager_id_previously_changed? || area_id_previously_changed? || start_at_previously_changed?
+              __elasticsearch__.index_document
+            elsif reindex
+              __elasticsearch__.index_document
+            else
+              __elasticsearch__.update_document
+            end
+          rescue
+            __elasticsearch__.index_document
+          end
+        end
+      end
+    rescue => e
+      logger.error(e)
+    end
+
+
+
     index_name "dishes"
     mapping do
       indexes :id, type: 'integer', index: true

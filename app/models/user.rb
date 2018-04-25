@@ -11,10 +11,6 @@ class User < ApplicationRecord
           :omniauthable,
           omniauth_providers: %i[facebook]
   mount_uploader :avatar, AvatarUploader
-  has_many :store
-
-
-
 
 
   def self.from_omniauth(auth)
