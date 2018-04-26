@@ -17,67 +17,159 @@
   </div>
   <ul>
     <li>
-      <%= link_to locations_url,:class => "" do %>
+      <%= link_to locations_url,:class => "collapsed-primary" do %>
       <i class="fa fa-map-marker"></i>
       <span>Locations</span>
       <% end %>
     </li>
     <li>
-     <a data-toggle="collapse" data-target="#toggleDemo3" data-parent="#sidenav01" class="collapsed">
-      <i class="fa fa-cutlery"></i> Menu <span class="caret pull-right"></span>
-    </a>
-    <div class="collapse" id="toggleDemo3" style="height: 0px;">
-      <ul class="nav nav-list">
-        <li><%= link_to admin_admin_url,:class => "" do %>
-          <span>Menu</span>
-          <% end %>
-        </li>
-        <li><%= link_to admin_admin_url,:class => "" do %>
-          <span>Categories</span>
-          <% end %>
-        </li>
-        <li><%= link_to admin_admin_url,:class => "" do %>
-          <span>Dishs</span>
-          <% end %>
-        </li>
-        <li><%= link_to admin_admin_url,:class => "" do %>
-          <span>Order</span>
-          <% end %>
-        </li>
-      </ul>
-    </div>
-  </li>
-  <li>
-    <%= link_to admin_users_url,:class => "" do %>
-    <i class="fa fa-vcard"></i>
-    <span>Sales</span>
-    <% end %>
-  </li>  
-  <li>
-    <%= link_to admin_admin_url,:class => "" do %>
-    <i class="glyphicon glyphicon-gift"></i>
-    <span>Events</span>
-    <% end %>
-  </li>
-  <li>
-    <%= link_to admin_admin_url,:class => "" do %>
-    <i class="glyphicon glyphicon-usd"></i>
-    <span>Total money</span>
-    <% end %>
-  </li>
-</ul>
+    <a data-toggle="collapse" data-target="#toggleDemo0" data-parent="#sidenav01" class="collapsed collapsed-primary">
+      <i class="fa fa-cutlery"></i>Menu filter search
+      </a>
+      
+    </li>
+    <!-- Show list menu fitter -->
 
-<div class="tab-menu"></div>
-<div class="check-store">
-  <a id="yourstore" class="button-store" href="#" target="_blank">
-    <i class="fa fa-shopping-basket"></i> Cart
-  </a>
-</div>
-<div class="support-store">
-  <a id="supportstore" class="button-store" href="#" target="_blank">
-    <i class="fa fa-life-ring"></i> Call: 091231312
-  </a>
-</div>
+    <li>
+      <a data-toggle="collapse" data-target="#toggleDemo1" data-parent="#sidenav01" class="collapsed">
+        Delivery Area <span class="caret pull-right"></span>
+      </a>
+      <div class="collapse sub-category" id="toggleDemo1" style="height: 0px;">
+        <ul class="nav nav-list">
+          <li>
+            <div class="checkbox">
+              <input id="checkbox1" type="checkbox">
+              <label for="checkbox1">
+                  Default
+              </label>
+          </div>
+          </li>
+          <% if @categories %>
+          <% @categories.each do |category| %>
+            <% if category.sub_category == 1 %>
+            <li><%= link_to admin_admin_url,:class => "" do %>
+              <span><input type="radio" class="" name="order_before"><%= category.name %></span>
+              <% end %>
+            </li>
+            <% end %>
+            <% end %>
+          <% end %>
+        </ul>
+      </div>
+    </li>
+
+    <li>
+      <a data-toggle="collapse" data-target="#toggleDemo2" data-parent="#sidenav01" class="collapsed">
+        Chef Style <span class="caret pull-right"></span>
+      </a>
+      <div class="collapse sub-category" id="toggleDemo2" style="height: 0px;">
+        <ul class="nav nav-list">
+          <% if @categories %>
+          <% @categories.each do |category| %>
+          <% if category.sub_category == 2 %>
+          <li><%= link_to admin_admin_url,:class => "" do %>
+            <span><input type="radio" class="" name="order_before"><%= category.name %></span>
+            <% end %>
+          </li>
+          <% end %>
+          <% end %>
+          <% end %>
+        </ul>
+      </div>
+    </li>
+
+    <li>
+      <a data-toggle="collapse" data-target="#toggleDemo3" data-parent="#sidenav01" class="collapsed">
+        Veg/Non-Veg <span class="caret pull-right"></span>
+      </a>
+      <div class="collapse sub-category" id="toggleDemo3" style="height: 0px;">
+        <ul class="nav nav-list">
+          <% if @categories %>
+          <% @categories.each do |category| %>
+          <% if category.sub_category == 3 %>
+          <li><%= link_to admin_admin_url,:class => "" do %>
+            <span><input type="radio" class="" name="order_before"><%= category.name %></span>
+            <% end %>
+          </li>
+          <% end %>
+          <% end %>
+          <% end %>
+        </ul>
+      </div>
+    </li>
+
+    <li>
+      <a data-toggle="collapse" data-target="#toggleDemo4" data-parent="#sidenav01" class="collapsed">
+        Cuisines <span class="caret pull-right"></span>
+      </a>
+      <div class="collapse sub-category" id="toggleDemo4" style="height: 0px;">
+        <ul class="nav nav-list">
+          <% if @categories %>
+          <% @categories.each do |category| %>
+          <% if category.sub_category == 4 %>
+          <li><%= link_to admin_admin_url,:class => "" do %>
+            <span><input type="radio" class="" name="order_before"><%= category.name %></span>
+            <% end %>
+          </li>
+          <% end %>
+          <% end %>
+          <% end %>
+        </ul>
+      </div>
+    </li>
+
+        <li>
+      <a data-toggle="collapse" data-target="#toggleDemo5" data-parent="#sidenav01" class="collapsed">
+        Drinks <span class="caret pull-right"></span>
+      </a>
+      <div class="collapse sub-category" id="toggleDemo5" style="height: 0px;">
+        <ul class="nav nav-list">
+          <% if @categories %>
+          <% @categories.each do |category| %>
+          <% if category.sub_category == 5 %>
+          <li><%= link_to admin_admin_url,:class => "" do %>
+            <span><input type="radio" class="" name="order_before"><%= category.name %></span>
+            <% end %>
+          </li>
+          <% end %>
+          <% end %>
+          <% end %>
+        </ul>
+      </div>
+    </li>
+
+
+    <li>
+      <%= link_to admin_users_url,:class => "collapsed-primary" do %>
+      <i class="fa fa-vcard"></i>
+      <span>Sales</span>
+      <% end %>
+    </li>  
+    <li>
+      <%= link_to admin_admin_url,:class => "collapsed-primary" do %>
+      <i class="glyphicon glyphicon-gift"></i>
+      <span>Events</span>
+      <% end %>
+    </li>
+    <li>
+      <%= link_to admin_admin_url,:class => "collapsed-primary" do %>
+      <i class="glyphicon glyphicon-usd"></i>
+      <span>Total money</span>
+      <% end %>
+    </li>
+  </ul>
+
+  <div class="tab-menu"></div>
+  <div class="check-store">
+    <a id="yourstore" class="button-store" href="#" target="_blank">
+      <i class="fa fa-shopping-basket"></i> Cart
+    </a>
+  </div>
+  <div class="support-store">
+    <a id="supportstore" class="button-store" href="#" target="_blank">
+      <i class="fa fa-life-ring"></i> Call: 091231312
+    </a>
+  </div>
 </div>
 </div>
 

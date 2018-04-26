@@ -34,57 +34,63 @@ end
 
 puts "Faker 23 Category for 1 Store"
 
-namae_cat = "Non-Veg" 
-Category.create(name: namae_cat,display_name: namae_cat.parameterize)
-namae_cat = "Vegetarian" 
-Category.create(name: namae_cat,display_name: namae_cat.parameterize)
-
 namae_cat = "Northern VietNam" 
-Category.create(name: namae_cat,display_name: namae_cat.parameterize)
+Category.create(name: namae_cat,display_name: namae_cat.parameterize,sub_category: 1)
 namae_cat = "South VietNam" 
-Category.create(name: namae_cat,display_name: namae_cat.parameterize)
+Category.create(name: namae_cat,display_name: namae_cat.parameterize,sub_category: 1)
 namae_cat = "Central Vietnam" 
-Category.create(name: namae_cat,display_name: namae_cat.parameterize)
+Category.create(name: namae_cat,display_name: namae_cat.parameterize,sub_category: 1)
 
-namae_cat = "Desserts" 
-Category.create(name: namae_cat,display_name: namae_cat.parameterize)
-namae_cat = "Tea & Snacks" 
-Category.create(name: namae_cat,display_name: namae_cat.parameterize)
-namae_cat = "Cakes" 
-Category.create(name: namae_cat,display_name: namae_cat.parameterize)
-namae_cat = "Pickles" 
-Category.create(name: namae_cat,display_name: namae_cat.parameterize)
-
-namae_cat = "Bottled water" 
-Category.create(name: namae_cat,display_name: namae_cat.parameterize)
-namae_cat = "Soft drink" 
-Category.create(name: namae_cat,display_name: namae_cat.parameterize)
-namae_cat = "Soda" 
-Category.create(name: namae_cat,display_name: namae_cat.parameterize)
-namae_cat = "Water" 
-Category.create(name: namae_cat,display_name: namae_cat.parameterize)
 
 namae_cat = "Party Food" 
-Category.create(name: namae_cat,display_name: namae_cat.parameterize)
+Category.create(name: namae_cat,display_name: namae_cat.parameterize,sub_category: 2)
 namae_cat = "Party Birthday" 
-Category.create(name: namae_cat,display_name: namae_cat.parameterize)
+Category.create(name: namae_cat,display_name: namae_cat.parameterize,sub_category: 2)
 namae_cat = "Party Wedding" 
-Category.create(name: namae_cat,display_name: namae_cat.parameterize)
+Category.create(name: namae_cat,display_name: namae_cat.parameterize,sub_category: 2)
 namae_cat = "Family party" 
-Category.create(name: namae_cat,display_name: namae_cat.parameterize)
+Category.create(name: namae_cat,display_name: namae_cat.parameterize,sub_category: 2)
+
+
+namae_cat = "Non-Veg" 
+Category.create(name: namae_cat,display_name: namae_cat.parameterize,sub_category: 3)
+namae_cat = "Vegetarian" 
+Category.create(name: namae_cat,display_name: namae_cat.parameterize,sub_category: 3)
+
 
 namae_cat = "Healthy" 
-Category.create(name: namae_cat,display_name: namae_cat.parameterize)
+Category.create(name: namae_cat,display_name: namae_cat.parameterize,sub_category: 4)
 namae_cat = "Traditional" 
-Category.create(name: namae_cat,display_name: namae_cat.parameterize)
+Category.create(name: namae_cat,display_name: namae_cat.parameterize,sub_category: 4)
 namae_cat = "International" 
-Category.create(name: namae_cat,display_name: namae_cat.parameterize)
+Category.create(name: namae_cat,display_name: namae_cat.parameterize,sub_category: 4)
 namae_cat = "Fastfood" 
-Category.create(name: namae_cat,display_name: namae_cat.parameterize)
+Category.create(name: namae_cat,display_name: namae_cat.parameterize,sub_category: 4)
 namae_cat = "Hotpot" 
-Category.create(name: namae_cat,display_name: namae_cat.parameterize)
+Category.create(name: namae_cat,display_name: namae_cat.parameterize,sub_category: 4)
 namae_cat = "Buffet" 
-Category.create(name: namae_cat,display_name: namae_cat.parameterize)
+Category.create(name: namae_cat,display_name: namae_cat.parameterize,sub_category: 4)
+
+
+namae_cat = "Desserts" 
+Category.create(name: namae_cat,display_name: namae_cat.parameterize,sub_category: 5)
+namae_cat = "Tea & Snacks" 
+Category.create(name: namae_cat,display_name: namae_cat.parameterize,sub_category: 5)
+namae_cat = "Cakes" 
+Category.create(name: namae_cat,display_name: namae_cat.parameterize,sub_category: 5)
+namae_cat = "Pickles" 
+Category.create(name: namae_cat,display_name: namae_cat.parameterize,sub_category: 5)
+
+namae_cat = "Bottled water" 
+Category.create(name: namae_cat,display_name: namae_cat.parameterize,sub_category: 6)
+namae_cat = "Soft drink" 
+Category.create(name: namae_cat,display_name: namae_cat.parameterize,sub_category: 6)
+namae_cat = "Soda" 
+Category.create(name: namae_cat,display_name: namae_cat.parameterize,sub_category: 6)
+namae_cat = "Water" 
+Category.create(name: namae_cat,display_name: namae_cat.parameterize,sub_category: 6)
+
+
 
 
 puts "Faker 20 Location for Store"
@@ -93,7 +99,8 @@ puts "Faker 20 Location for Store"
     name: Faker::Name.name,
     address: Faker::Address.city,
     phone: Faker::PhoneNumber.cell_phone,
-    status: Faker::Boolean.boolean(0.2)
+    status: Faker::Boolean.boolean(0.2),
+    radius: Faker::Number.between(1, 5)
     )    
 end
 
