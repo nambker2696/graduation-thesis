@@ -21,7 +21,7 @@
           <span class="glyphicon glyphicon-star"></span>
         </p>
       </div>
-       <%= button_to 'Add to Cart ',cart_items_path(dish_id: dish, locale: I18n.locale),remote: true %>
+       <%= button_to 'Add to Cart ',cart_items_path(dish_id: dish, locale: I18n.locale),remote: true,class: "btn btn-info btn-md" %>
     </div>
   </div>
   <% end %>

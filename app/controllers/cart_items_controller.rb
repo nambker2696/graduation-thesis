@@ -1,15 +1,17 @@
 class CartItemsController < ApplicationController
   before_action :set_cart, only: [:create, :destroy]
+  before_action :set_cart_item,only: [:show, :edit, :update, :destroy,:decrement]
 
   def create
-    
-    @cart.add_product(params)
+    dish = Dish.find(params[:dish_id])
+    @cart_item =  @cart.add_product(dish)
+    session[:counter] = 0
 
     if @cart.save
-      redirect_to cart_path
+      redirect_to root_url
     else
       flash[:error] = 'There was a problem adding this item to your cart'
-      redirect_to @dish
+      redirect_to @cart_item.errors
     end
   end
 

@@ -1,6 +1,7 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_cart,only: [:new, :create]
+  before_action :ensure_cart_isnot_empty,only: [:new]
   # GET /bookings
   # GET /bookings.json
   def index
@@ -25,9 +26,12 @@ class BookingsController < ApplicationController
   # POST /bookings.json
   def create
     @booking = Booking.new(booking_params)
+    @booking.add_line_items_from_cart(@cart)
 
     respond_to do |format|
       if @booking.save
+        Cart.destroy(session[:cart_id])
+        session[:cart_id]  = nil
         format.html { redirect_to @booking, notice: 'Booking was successfully created.' }
         format.json { render :show, status: :created, location: @booking }
       else
@@ -70,5 +74,11 @@ class BookingsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def booking_params
       params.require(:booking).permit(:user_id, :guess_id, :location_id, :seat_id, :timeslot_id, :day_to_eat, :reservation_place, :status, :action)
+    end
+
+    def ensure_cart_isnot_empty
+      if @cart.line_items.empty?
+        redirect_to root_url,notice: 'Your cart is empty'
+      end
     end
 end

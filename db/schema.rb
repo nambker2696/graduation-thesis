@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20180428122324) do
     t.integer "user_id"
     t.integer "booking_id"
     t.integer "dish_id"
-    t.float "price"
+    t.decimal "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 20180428122324) do
   create_table "cart_items", force: :cascade do |t|
     t.integer "dish_id"
     t.integer "cart_id"
+    t.decimal "price"
     t.integer "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -65,11 +66,12 @@ ActiveRecord::Schema.define(version: 20180428122324) do
     t.string "name"
     t.string "display_name"
     t.string "subtitle"
-    t.float "price"
+    t.decimal "price"
     t.text "description"
     t.integer "category_id"
     t.string "tags"
     t.string "image", default: ""
+    t.boolean "active"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -107,7 +109,7 @@ ActiveRecord::Schema.define(version: 20180428122324) do
     t.integer "user_id"
     t.integer "order_id"
     t.integer "dish_id"
-    t.float "price"
+    t.decimal "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -115,7 +117,7 @@ ActiveRecord::Schema.define(version: 20180428122324) do
   create_table "orders", force: :cascade do |t|
     t.integer "user_id"
     t.integer "guess_id"
-    t.float "total_price"
+    t.decimal "total_price"
     t.boolean "status"
     t.date "date_order"
     t.date "date_receipt"

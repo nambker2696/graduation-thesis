@@ -90,7 +90,8 @@ puts "Faker 200 Dish"
     subtitle: Faker::Food.measurement,
     price: Faker::Number.decimal(2),
     description: Faker::Food.ingredient,
-    category_id: Faker::Number.between(1, 23)
+    category_id: Faker::Number.between(1, 23),
+    active: true
     )
 end
 
