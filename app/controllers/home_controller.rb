@@ -1,7 +1,7 @@
-# :nodoc:
 class HomeController < ApplicationController
+  before_action :set_cart
   def index; 
-      @dish = Dish.all
+      @dishs = Dish.all
       @categories = Category.all
   end
 

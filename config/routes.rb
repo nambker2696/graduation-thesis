@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :cart_items
+  resources :carts
    devise_for :users, only: :omniauth_callbacks, controllers:
   { omniauth_callbacks: 'users/omniauth_callbacks',
     registrations: 'registrations' }

@@ -11,9 +11,9 @@
 <% end %>
 
 <%= f.label :delivery_type %>
-<%= f.select :delivery_type, Order::DELIVERY_TYPES, prompt: 'Select a delivery method', class: 'form-control' %>
+<%= f.select :delivery_type, Dish.all, prompt: 'Select a delivery method', class: 'form-control' %>
 <%= f.label :payment_type %>
-<%= f.select :payment_type, Order::PAYMENT_TYPES, prompt: 'Select a payment method', class: 'form-control' %>
+<%= f.select :payment_type, Dish.all, prompt: 'Select a payment method', class: 'form-control' %>
 <%= f.hidden_field :user_id, value: current_user.id %>
 <%= f.hidden_field :cart_id, value: current_cart.id %>
 <%= f.submit yield(:button_text), class: "btn btn-primary" %>
