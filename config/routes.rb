@@ -7,12 +7,15 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :stores
     resources :users
-    resources :orders
-    resources :bookings
-    resources :order_details
+    resources :orders, only: [:index, :show]
+    resources :bookings, only: [:index, :show]
+    resources :order_details, only: [:index, :show]
+    resources :booking_details, only: [:index, :show]
+
+    resources :seatings
+    resources :timeslots
     resources :openinghours
     resources :locations
-    resources :booking_details
     resources :categories
     resources :dishes
     devise_for :users, skip: :omniauth_callbacks
@@ -21,11 +24,15 @@ Rails.application.routes.draw do
     get '', to: 'dashboard#index', as: '/admin' 
   end 
 
-
   resources :booking_details
   resources :guesses
   resources :order_details
   resources :bookings
+  resources :carts,only:[:show]
+  resources :seatings,only:[:show]
+  resources :locations,only:[:show]
+  resources :categories,only:[:show]
+  resources :dishes, only:[:show]
   devise_for :users, skip: :omniauth_callbacks
     get 'about' => 'home#about'
     get 'contact' => 'home#contact'

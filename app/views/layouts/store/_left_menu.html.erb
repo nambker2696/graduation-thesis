@@ -23,36 +23,32 @@
       <% end %>
     </li>
     <li>
-    <a data-toggle="collapse" data-target="#toggleDemo0" data-parent="#sidenav01" class="collapsed collapsed-primary">
+      <%= link_to root_url,:class => "collapsed-primary" do %>
       <i class="fa fa-cutlery"></i>Menu filter search
-      </a>
-      
+      <% end %>      
     </li>
-    <!-- Show list menu fitter -->
 
+    <!-- Show list menu fitter -->
     <li>
       <a data-toggle="collapse" data-target="#toggleDemo1" data-parent="#sidenav01" class="collapsed">
         Delivery Area <span class="caret pull-right"></span>
       </a>
       <div class="collapse sub-category" id="toggleDemo1" style="height: 0px;">
         <ul class="nav nav-list">
-          <li>
-            <div class="checkbox">
-              <input id="checkbox1" type="checkbox">
-              <label for="checkbox1">
-                  Default
-              </label>
-          </div>
-          </li>
           <% if @categories %>
           <% @categories.each do |category| %>
-            <% if category.sub_category == 1 %>
-            <li><%= link_to admin_admin_url,:class => "" do %>
-              <span><input type="radio" class="" name="order_before"><%= category.name %></span>
-              <% end %>
-            </li>
-            <% end %>
-            <% end %>
+          <% if category.sub_category == 1 %>
+          <li>
+            <div class="checkbox">
+
+              <label for="" class="checkbox1">
+                <input id="checkbox1" type="checkbox">
+                <%= category.name %>
+              </label>
+            </div>
+          </li>
+          <% end %>
+          <% end %>
           <% end %>
         </ul>
       </div>
@@ -67,9 +63,14 @@
           <% if @categories %>
           <% @categories.each do |category| %>
           <% if category.sub_category == 2 %>
-          <li><%= link_to admin_admin_url,:class => "" do %>
-            <span><input type="radio" class="" name="order_before"><%= category.name %></span>
-            <% end %>
+          <li>
+            <div class="checkbox">
+
+              <label for="" class="checkbox1">
+                <input id="checkbox1" type="checkbox">
+                <%= category.name %>
+              </label>
+            </div>
           </li>
           <% end %>
           <% end %>
@@ -87,9 +88,14 @@
           <% if @categories %>
           <% @categories.each do |category| %>
           <% if category.sub_category == 3 %>
-          <li><%= link_to admin_admin_url,:class => "" do %>
-            <span><input type="radio" class="" name="order_before"><%= category.name %></span>
-            <% end %>
+          <li>
+            <div class="checkbox">
+
+              <label for="" class="checkbox1">
+                <input type="radio" class="" name="meal_type">
+                <%= category.name %>
+              </label>
+            </div>
           </li>
           <% end %>
           <% end %>
@@ -107,29 +113,14 @@
           <% if @categories %>
           <% @categories.each do |category| %>
           <% if category.sub_category == 4 %>
-          <li><%= link_to admin_admin_url,:class => "" do %>
-            <span><input type="radio" class="" name="order_before"><%= category.name %></span>
-            <% end %>
-          </li>
-          <% end %>
-          <% end %>
-          <% end %>
-        </ul>
-      </div>
-    </li>
+          <li>
+            <div class="checkbox">
 
-        <li>
-      <a data-toggle="collapse" data-target="#toggleDemo5" data-parent="#sidenav01" class="collapsed">
-        Drinks <span class="caret pull-right"></span>
-      </a>
-      <div class="collapse sub-category" id="toggleDemo5" style="height: 0px;">
-        <ul class="nav nav-list">
-          <% if @categories %>
-          <% @categories.each do |category| %>
-          <% if category.sub_category == 5 %>
-          <li><%= link_to admin_admin_url,:class => "" do %>
-            <span><input type="radio" class="" name="order_before"><%= category.name %></span>
-            <% end %>
+              <label for="" class="checkbox1">
+                <input id="checkbox1" type="checkbox">
+                <%= category.name %>
+              </label>
+            </div>
           </li>
           <% end %>
           <% end %>
@@ -231,5 +222,20 @@
       show: true
     });
   });
-  
+
+  $(function(){
+    $('#selectall').click(function(i, v){
+      $('.css-checkbox').prop('checked', this.checked).trigger("change");
+    });
+
+    var checkCount = $('.css-checkbox').length;
+    $('.css-checkbox').click(function(i, v){
+      $('#selectall').prop('checked',$('.css-checkbox:checked').length  == checkCount)
+    });
+
+    $('.css-checkbox').change(function(){
+      $.post('user_exports/update_user_export_session', { object_id:  $(this).val(), checked: this.checked});
+    });
+  });
+
 </script>

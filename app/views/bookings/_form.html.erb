@@ -1,18 +1,20 @@
+<%= form_for(@booking) do |f| %>
+<% if @booking.errors.any? %>
+<div id="error_explanation">
+  <div class="alert alert-danger">The form contains <%= pluralize(@booking.errors.count, "error") %>.</div>
+  <ul>
+    <% @booking.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
 
-<%= simple_form_for(@booking) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :user_id %>
-    <%= f.input :guess_id %>
-    <%= f.input :place %>
-    <%= f.input :status %>
-    <%= f.input :date_booked %>
-    <%= f.input :date_receipt %>
-    <%= f.input :action %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
+<%= f.label :delivery_type %>
+<%= f.select :delivery_type, Booking::DELIVERY_TYPES, prompt: 'Select a delivery method', class: 'form-control' %>
+<%= f.label :payment_type %>
+<%= f.select :payment_type, Booking::PAYMENT_TYPES, prompt: 'Select a payment method', class: 'form-control' %>
+<%= f.hidden_field :user_id, value: current_user.id %>
+<%= f.hidden_field :cart_id, value: current_cart.id %>
+<%= f.submit yield(:button_text), class: "btn btn-primary" %>
 <% end %>

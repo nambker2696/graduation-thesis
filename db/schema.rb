@@ -10,12 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180420172924) do
-
-  create_table "admin_dishes", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+ActiveRecord::Schema.define(version: 20180428092837) do
 
   create_table "booking_details", force: :cascade do |t|
     t.integer "user_id"
@@ -27,15 +22,22 @@ ActiveRecord::Schema.define(version: 20180420172924) do
   end
 
   create_table "bookings", force: :cascade do |t|
-    t.integer "user_id"
     t.integer "guess_id"
-    t.string "place"
+    t.integer "location_id"
+    t.integer "seat_id"
+    t.integer "timeslot_id"
+    t.date "day_to_eat"
+    t.boolean "reservation_place"
     t.boolean "status"
-    t.date "date_booked"
-    t.date "date_receipt"
     t.integer "action"
+    t.string "delivery_type"
+    t.string "payment_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.integer "cart_id"
+    t.index ["cart_id"], name: "index_bookings_on_cart_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -108,9 +110,27 @@ ActiveRecord::Schema.define(version: 20180420172924) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "seatings", force: :cascade do |t|
+    t.string "seat_name"
+    t.integer "location_id"
+    t.integer "floor"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "stores", force: :cascade do |t|
     t.string "name"
     t.string "logo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "timeslots", force: :cascade do |t|
+    t.integer "location_id"
+    t.string "name"
+    t.string "start"
+    t.string "end"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -8,29 +8,6 @@ User.create!(name:  "Admin",
  password_confirmation: "admin1",
  avatar: Faker::Avatar.image("my-own-slug", "50x50", "jpg"),
  admin: 100)
-puts "Faker 10 Order"
-10.times do
-  Order.create(
-    user_id: Faker::Number.between(1, 10),
-    total_price: Faker::Number.decimal(2),
-    status: Faker::Boolean.boolean,
-    date_order: Faker::Date.between(2.days.ago, Date.today),
-    date_receipt: Faker::Date.between(2.days.ago, Date.today)
-    )
-end
-
-puts "Faker 10 Booking"
-10.times do
-  Booking.create(
-    user_id: Faker::Number.between(1, 10),
-    place: Faker::Address.street_address,
-    status: Faker::Boolean.boolean,
-    date_booked: Faker::Date.between(2.days.ago, Date.today),
-    date_receipt: Faker::Date.between(2.days.ago, Date.today),
-    action: Faker::Number.between(1, 3)
-    )
-end
-
 
 puts "Faker 23 Category for 1 Store"
 
@@ -94,7 +71,7 @@ Category.create(name: namae_cat,display_name: namae_cat.parameterize,sub_categor
 
 
 puts "Faker 20 Location for Store"
-20.times do
+10.times do
   Location.create(
     name: Faker::Name.name,
     address: Faker::Address.city,
@@ -103,6 +80,7 @@ puts "Faker 20 Location for Store"
     radius: Faker::Number.between(1, 5)
     )    
 end
+
 
 puts "Faker 200 Dish"
 200.times do
@@ -130,7 +108,54 @@ locats.each do |locat|
       status: true
       )
   end
+
+  Timeslot.create(
+    location_id: locat.id,
+    name: "morning",
+    start: "8:00",
+    end: "10:00"
+    )
+  Timeslot.create(
+    location_id: locat.id,
+    name: "morning",
+    start: "10:00",
+    end: "12:00"
+    )
+  Timeslot.create(
+    location_id: locat.id,
+    name: "afternoon",
+    start: "14:00",
+    end: "16:00"
+    )
+  Timeslot.create(
+    location_id: locat.id,
+    name: "afternoon",
+    start: "16:00",
+    end: "18:00"
+    )
+
+  Timeslot.create(
+    location_id: locat.id,
+    name: "night",
+    start: "18:00",
+    end: "20:00"
+    )
+
+  3.times do
+    seat = 0
+    floor = 0
+    10.times do
+      seat+=1
+      Seating.create(
+        seat_name: floor.to_s+seat.to_s,
+        location_id: locat.id,
+        floor: seat,
+        description: Faker::ChuckNorris.fact
+        )
+    end
+  end
 end
+
 
 User.create!(name:  "NambKer",
  email: "nam@gmail.com",
@@ -156,5 +181,31 @@ end
     password_confirmation: "123456",
     avatar: Faker::Avatar.image("my-own-slug", "50x50", "jpg"),
     admin: 5
+    )
+end
+
+
+puts "Faker 10 Order"
+10.times do
+  Order.create(
+    user_id: Faker::Number.between(1, 10),
+    total_price: Faker::Number.decimal(2),
+    status: Faker::Boolean.boolean,
+    date_order: Faker::Date.between(2.days.ago, Date.today),
+    date_receipt: Faker::Date.between(2.days.ago, Date.today)
+    )
+end
+
+puts "Faker 500 Booking"
+500.times do
+  Booking.create(
+    user_id: Faker::Number.between(1, 10),
+    location_id: Faker::Number.between(1, 10),
+    seat_id: Faker::Number.between(1, 300),
+    timeslot_id: Faker::Number.between(1, 50),
+    day_to_eat: Faker::Date.between(2.days.ago, Date.today),
+    reservation_place: false,
+    status: true,
+    action: Faker::Number.between(1, 3)
     )
 end

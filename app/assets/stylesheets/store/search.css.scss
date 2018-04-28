@@ -13,9 +13,13 @@
     box-sizing: border-box;
     display: block;
     height: 49px;
-    padding: .5rem;
+    padding: 2rem;
     transition: box-shadow 0.45s ease 0s, border-color 0.45s ease-in-out 0s;
     width: 100%;
+  }
+  input[type=text]:focus, textarea:focus {
+    box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+    border: 1px solid rgba(81, 203, 238, 1);
   }
 }
 

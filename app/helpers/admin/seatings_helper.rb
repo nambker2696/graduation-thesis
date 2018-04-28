@@ -1,0 +1,2 @@
+module Admin::SeatingsHelper
+end
