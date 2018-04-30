@@ -11,11 +11,39 @@
     <div class="collapse navbar-collapse header-nav">
       <ul class="nav navbar-nav navbar-right header-mobile-menu">
         <ul class="nav navbar-nav">
-          <li><a href=""><i class="fa fa-home"></i></a></li>
-          <li><%= link_to "Informations", about_url  %></li>
-          <li><%= link_to "Contacts Us", contact_url  %></li>
+          <li><a href=""><i class="fa fa-home fa-2x"></i></a></li>
           <li>
-            <%= render "notifications/language_dropdown" %>
+            <ul class="nav navbar-nav nav-narrow">
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell fa-2x"></i></a>
+                <ul class="dropdown-menu">
+                  <li>3</li>      
+                  
+                  <li>2</li>
+                  
+                  <li>1</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <%= link_to carts_url,:class => "" do %>
+            <i class="fa fa-shopping-cart fa-2x"></i>
+            <% end %>
+          </li>
+          <li>
+            <ul class="nav navbar-nav nav-narrow">
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-language fa-2x"></i></a>
+                <ul class="dropdown-menu">
+                  <li><%= link_to t(".english"), locale:"en" %></li>      
+
+                  <li><%= link_to t(".vietnamese"), locale: "vi" %></li>
+
+                  <li><%= link_to t(".japanese"), locale: "ja" %></li>
+                </ul>
+              </li>
+            </ul>
           </li>
         </ul>
       </ul>

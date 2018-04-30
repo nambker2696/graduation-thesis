@@ -1,28 +1,23 @@
 #main-store{
   margin-left: 250px;
   position: relative;
+  min-height: 1000px;
   #top-navbar{
     background: #fff;
-    height: 52px;
+    height: 60px;
     box-shadow: 0 1px 3px rgba(0,0,0,.2);
     .topbar-inner{
       margin-right: 0px;
       padding: 0 22px;
-      .navbar-header{
-        .navbar-nav{
-          .navbar-nav{
-            .navbar-right{
-              li a{
-                padding-top:10px;
-              }
-              li a:hover{
-                height:50px;
-                padding-top:10px;
-              }
-            }
-          }
-        }
+      a{
+        padding-top:10px;
+        color:#a7a1a1
       }
+      a:hover{
+        color:#23527c;
+        padding-top:10px;
+      }
+
     }
     #admin-ac{
       height:52px;

@@ -17,12 +17,6 @@
   </div>
   <ul>
     <li>
-      <%= link_to locations_url,:class => "collapsed-primary" do %>
-      <i class="fa fa-map-marker"></i>
-      <span>Locations</span>
-      <% end %>
-    </li>
-    <li>
       <%= link_to root_url,:class => "collapsed-primary" do %>
       <i class="fa fa-cutlery"></i>Menu filter search
       <% end %>      
@@ -128,8 +122,12 @@
         </ul>
       </div>
     </li>
-
-
+    <li>
+      <%= link_to locations_url,:class => "collapsed-primary" do %>
+      <i class="fa fa-map-marker"></i>
+      <span>Locations</span>
+      <% end %>
+    </li>
     <li>
       <%= link_to admin_users_url,:class => "collapsed-primary" do %>
       <i class="fa fa-vcard"></i>
@@ -143,9 +141,15 @@
       <% end %>
     </li>
     <li>
-      <%= link_to admin_admin_url,:class => "collapsed-primary" do %>
-      <i class="glyphicon glyphicon-usd"></i>
-      <span>Total money</span>
+      <%= link_to about_url,:class => "collapsed-primary" do %>
+      <i class="fa fa-info"></i>
+      <span>Informations</span>
+      <% end %>
+    </li>
+    <li>
+      <%= link_to contact_url,:class => "collapsed-primary" do %>
+      <i class="fa fa-flag"></i>
+      <span>Contacts Us</span>
       <% end %>
     </li>
   </ul>

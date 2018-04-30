@@ -4,7 +4,6 @@ class Cart < ApplicationRecord
 
   def add_product(dish)
     current_item = cart_items.find_by(dish_id: dish.id)
-
     if (current_item)
       current_item.quantity += 1
     else

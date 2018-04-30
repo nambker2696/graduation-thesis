@@ -4,7 +4,7 @@ class CartsController < ApplicationController
   # GET /carts
   # GET /carts.json
   def index
-    @carts = Cart.all
+    @carts = Cart.find(session[:cart_id])
   end
 
   # GET /carts/1

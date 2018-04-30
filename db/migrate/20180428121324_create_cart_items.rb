@@ -4,7 +4,7 @@ class CreateCartItems < ActiveRecord::Migration[5.1]
       t.integer :dish_id
       t.integer :cart_id
       t.decimal :price
-      t.integer :quantity
+      t.integer :quantity,   default: 1
 
       t.timestamps
     end

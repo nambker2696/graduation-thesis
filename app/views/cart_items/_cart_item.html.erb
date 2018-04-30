@@ -1,0 +1,17 @@
+<% if cart_item == @current_item %>
+  <tr id="current_item">
+<% else %>
+  <tr>
+<% end %>
+    <!--  对象的名称要与模板名称一致-->
+    <td><%=cart_item.quantity %> &times;</td>
+    <!-- #console 如果只想当对象不为 nil 时在其上调用方法 try -->
+    <td><%=cart_item.dish.name %></td>
+    <td class="item_price"><%= number_to_currency(cart_item.total_price) 
+    %></td>
+    <td><%=button_to 'Decrease',decrement_cart_item_url(id: cart_item),method: :put,remote: true,class: 'btn btn-default'%>
+    </td>
+
+    <td><%=button_to 'Del',cart_item_url(id: cart_item),method: :delete,data: { confirm: 'Are you sure?' } ,remote: true,class: 'btn btn-default'%>
+    </td>
+  </tr>

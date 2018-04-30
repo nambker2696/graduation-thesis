@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  resources :cart_items
-  resources :carts
    devise_for :users, only: :omniauth_callbacks, controllers:
   { omniauth_callbacks: 'users/omniauth_callbacks',
     registrations: 'registrations' }
@@ -30,11 +28,15 @@ Rails.application.routes.draw do
   resources :guesses
   resources :order_details
   resources :bookings
-  resources :carts,only:[:show]
+  resources :cart_items do  
+    put 'decrement', on: :member
+  end
+  resources :carts
   resources :seatings,only:[:show]
   resources :locations,only:[:show]
   resources :categories,only:[:show]
   resources :dishes, only:[:show]
+  resources :locations, only:[:show]
   devise_for :users, skip: :omniauth_callbacks
     get 'about' => 'home#about'
     get 'contact' => 'home#contact'

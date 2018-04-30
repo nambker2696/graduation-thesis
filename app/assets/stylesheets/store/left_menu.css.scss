@@ -43,6 +43,7 @@
           margin-left: 15px !important;
           .username{
             margin-top: 0px !important;  
+            font-size:16px;
           }
           i{
             color: #34d61e;
@@ -136,6 +137,9 @@
         margin-bottom: 20px!important;
       }
       .check-store, .support-store{
+        a{
+          text-decoration:none;
+        }
         margin-bottom: 20px!important;
         padding-left: 20px!important;
         padding-right: 20px!important;

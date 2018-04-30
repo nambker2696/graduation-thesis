@@ -1,2 +1,3 @@
-<div class="total-price"><%= link_to 'Next', 
-new_dish_path, class: "btn btn-success" %></div>
+<% if @carts %>
+<%= render(@carts) %>
+<%end%>

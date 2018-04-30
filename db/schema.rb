@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 20180428122324) do
     t.integer "dish_id"
     t.integer "cart_id"
     t.decimal "price"
-    t.integer "quantity"
+    t.integer "quantity", default: 1
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

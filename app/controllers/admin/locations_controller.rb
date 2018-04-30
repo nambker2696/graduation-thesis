@@ -1,5 +1,5 @@
 class Admin::LocationsController < Admin::BaseController
-  before_action :set_admin_ocation, only: [:show, :edit, :update, :destroy]
+  before_action :set_admin_location, only: [:show, :edit, :update, :destroy]
 
   # GET /admin_locations
   # GET /admin_locations.json

@@ -77,7 +77,7 @@ class BookingsController < ApplicationController
     end
 
     def ensure_cart_isnot_empty
-      if @cart.line_items.empty?
+      if @cart.cart_items.empty?
         redirect_to root_url,notice: 'Your cart is empty'
       end
     end

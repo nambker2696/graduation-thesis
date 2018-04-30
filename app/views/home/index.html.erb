@@ -7,9 +7,9 @@
     <div class="thumbnail">
       <%= image_tag("food/1.jpg", :alt => "rss feed") %>
       <div class="caption">
-        <h4 class="pull-right">$24.99</h4>
+        <h4 class="pull-right">$<%= dish.price %></h4>
         <h4><a href="#"><%= dish.name %></a></h4>
-        <p><%= dish.subtitle %><a target="_blank" href="http://www.bootsnipp.com">Bootsnipp - http://bootsnipp.com</a>.</p>
+        <p><%= dish.subtitle %>.</p>
       </div>
       <div class="ratings">
         <p class="pull-right">15 reviews</p>

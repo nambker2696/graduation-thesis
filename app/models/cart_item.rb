@@ -7,7 +7,11 @@ class CartItem < ApplicationRecord
   belongs_to :cart
 
   def total_price
+    if !quantity.nil?
     price * quantity
+    else
+      price
+    end
   end
 
   def decrement

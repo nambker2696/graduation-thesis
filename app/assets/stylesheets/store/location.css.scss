@@ -1,4 +1,47 @@
-.address-location{
-  margin-top: 50px;
-  width: 100%;
+.main-location{
+  margin-top: 30px;
+  .address-location{
+    margin-top: 50px;
+    width: 100%;
+  }
+  .content-heading{
+    background-color:#FFF;
+    -webkit-box-shadow: 0 1px 3px rgba(0,0,0,.2);
+    box-shadow: 0 1px 3px rgba(0,0,0,.2);
+    padding: 10px 25px;
+    .cover-time{
+      .date-time{
+        vertical-align: baseline;
+        .time-css{
+          margin-right: 10px!important;
+          small {
+            font-size: 14px;
+            line-height: 20px;
+            display: inline-block;
+          }
+        }
+        .button.button-sm {
+          font-size: 12px;
+          height: 28px;
+          line-height: 28px;
+          padding: 0 20px;
+          border-radius: 5px;
+          color: #f6f6f6;
+          background-color: #00BCD4;
+        }
+      }
+      .button-nex-time{
+        vertical-align: baseline;
+        .button-next-day {
+          background-color: #00BCD4;
+          color: #f6f6f6;
+          font-size: 8px;
+          height: 28px;
+          line-height: 28px;
+          padding: 0 14px;
+          border-radius: 5px;
+        }
+      }
+    }
+  }
 }
