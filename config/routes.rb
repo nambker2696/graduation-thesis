@@ -37,7 +37,6 @@ Rails.application.routes.draw do
   resources :categories,only:[:show]
   resources :dishes, only:[:show]
   resources :locations, only:[:show]
-  resources :users
   devise_for :users, skip: :omniauth_callbacks
     get 'about' => 'home#about'
     get 'contact' => 'home#contact'

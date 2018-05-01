@@ -11,41 +11,7 @@
   <% if user_signed_in? and current_user.admin == 100 %>
   <%= render 'layouts/admin/index' %>
   <% else %>
-  <div class="container">
-    <div class="main-content">
-      <div class="box center">
-        <div id="form-login-admin" class="box-header">
-          <h2><%= t(".sign_in") %></h2>
-        </div>
-        <div class="box-content">
-          <%= form_for :user, url: user_session_path do |f|%>
-          <div id="form-login-user">
-            <div class="form-group float-label-control">
-              <%= f.label :Email %>
-              <%= f.email_field :email, class: 'form-control', :required => true %>
-            </div>
-            <div class="form-group float-label-control">
-              <%= f.label :Password %>
-              <%= f.password_field :password, class: 'form-control', :required => true %>
-            </div>
-            <div class="form-group">
-              <div class="checkbox"> 
-                <%= f.label :remember_me do %> 
-                <%= f.check_box :remember_me %> Remember me 
-                <% end %> 
-              </div> 
-            </div>
-          </div>
-          <div class="form-actions">
-            <%= f.button :submit,:class =>"formButton",:id => "btn-login-admin",:name => t(".sign_in"),:value => t(".sign_in") %>
-          </div>
-          <% end %>
-          <a href="#">I forgot my password</a><br>
-          <a href="#" class="text-center">Register a new membership</a>
-        </div>
-      </div>
-    </div>
-  </div>
+  <%= yield %>
   <% end %>
 </body>
 </html>

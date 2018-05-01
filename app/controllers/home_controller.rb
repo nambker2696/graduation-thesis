@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-  skip_before_action :authorize
+  skip_before_action :authenticate_user!
   before_action :set_cart
   def index; 
       @dishs = Dish.all
