@@ -1,7 +1,6 @@
 class CreateBookings < ActiveRecord::Migration[5.1]
   def change
     create_table :bookings do |t|
-      t.integer :guess_id
       t.integer :location_id
       t.integer :seat_id
       t.integer :timeslot_id

@@ -1,58 +1,145 @@
+$white: #fff;
+$jelly-blue: #2d97a7;
+$bermuda: rgba(137, 222, 200, .76);
+$pelorous: rgba(54, 178, 194, .71);
+$pelorous-opacity: rgba(54, 178, 194, .91);
+$black-light: rgba(0, 0, 0, .25);
+$grey-opacity: rgba(119, 119, 119, .58);
+$admin-background: rgba(185, 176, 176, .2);
+$slide-link: #07a6f5;
+$form-background: rgba(253, 255, 255, .7);
+$btn-color1: #41deb6;
+$form-control-color: #23ffd0;
+$outside-ground: rgba(168, 129, 110, 0.82);
+$caribbean-green: #05bba5;
+$blue-zodiac :#404453;
+
 #form-login-user{
-    .float-label-control { position: relative; margin-bottom: 1.2em; }
-    .float-label-control ::-webkit-input-placeholder { color: transparent; }
-    .float-label-control :-moz-placeholder { color: transparent; }
-    .float-label-control ::-moz-placeholder { color: transparent; }
-    .float-label-control :-ms-input-placeholder { color: transparent; }
-    .float-label-control input:-webkit-autofill,
-    .float-label-control textarea:-webkit-autofill { background-color: transparent !important; -webkit-box-shadow: 0 0 0 1000px white inset !important; -moz-box-shadow: 0 0 0 1000px white inset !important; box-shadow: 0 0 0 1000px white inset !important; }
-    .float-label-control input, .float-label-control textarea, .float-label-control label { font-size: 1.3em; box-shadow: none; -webkit-box-shadow: none; }
-    .float-label-control input:focus,
-    .float-label-control textarea:focus { box-shadow: none; -webkit-box-shadow: none; border-bottom-width: 2px; padding-bottom: 0; }
-    .float-label-control textarea:focus { padding-bottom: 4px; }
-    .float-label-control input, .float-label-control textarea { display: block; width: 100%; padding: 0.1em 0em 1px 0em; border: none; border-radius: 0px; border-bottom: 1px solid #5ee4d1; outline: none; margin: 0px; background: none; }
-    .float-label-control textarea { padding: 0.1em 0em 5px 0em; }
-    .float-label-control label { font-weight: normal; top: -1.0em; left: 0.08em; color: #aaaaaa; z-index: -1; font-size: 1em; -moz-animation: float-labels 300ms none ease-out; -webkit-animation: float-labels 300ms none ease-out; -o-animation: float-labels 300ms none ease-out; -ms-animation: float-labels 300ms none ease-out; -khtml-animation: float-labels 300ms none ease-out; animation: float-labels 300ms none ease-out; color:#777; /* There is a bug sometimes pausing the animation. This avoids that.*/ animation-play-state: running !important; -webkit-animation-play-state: running !important; }
-    .float-label-control input.empty + label,
-    .float-label-control textarea.empty + label { top: 0.1em; font-size: 1.5em; animation: none; -webkit-animation: none; }
-    .float-label-control input:not(.empty) + label,
-    .float-label-control textarea:not(.empty) + label { z-index: 1; }
-    .float-label-control input:not(.empty):focus + label,
-    .float-label-control textarea:not(.empty):focus + label { color: #aaaaaa; }
-    .float-label-control.label-bottom label { -moz-animation: float-labels-bottom 300ms none ease-out; -webkit-animation: float-labels-bottom 300ms none ease-out; -o-animation: float-labels-bottom 300ms none ease-out; -ms-animation: float-labels-bottom 300ms none ease-out; -khtml-animation: float-labels-bottom 300ms none ease-out; animation: float-labels-bottom 300ms none ease-out; }
-    .float-label-control.label-bottom input:not(.empty) + label,
-    .float-label-control.label-bottom textarea:not(.empty) + label { top: 3em; }
+  .float-label-control { position: relative; margin-bottom: 1.2em; }
+  .float-label-control ::-webkit-input-placeholder { color: transparent; }
+  .float-label-control :-moz-placeholder { color: transparent; }
+  .float-label-control ::-moz-placeholder { color: transparent; }
+  .float-label-control :-ms-input-placeholder { color: transparent; }
+  .float-label-control input:-webkit-autofill,
+  .float-label-control textarea:-webkit-autofill { background-color: transparent !important; -webkit-box-shadow: 0 0 0 1000px white inset !important; -moz-box-shadow: 0 0 0 1000px white inset !important; box-shadow: 0 0 0 1000px white inset !important; }
+  .float-label-control input, .float-label-control textarea, .float-label-control label { font-size: 1.3em; box-shadow: none; -webkit-box-shadow: none; }
+  .float-label-control input:focus,
+  .float-label-control textarea:focus { box-shadow: none; -webkit-box-shadow: none; border-bottom-width: 2px; padding-bottom: 0; }
+  .float-label-control textarea:focus { padding-bottom: 4px; }
+  .float-label-control input, .float-label-control textarea { display: block; width: 100%; padding: 0.1em 0em 1px 0em; border: none; border-radius: 0px; border-bottom: 1px solid #5ee4d1; outline: none; margin: 0px; background: none; }
+  .float-label-control textarea { padding: 0.1em 0em 5px 0em; }
+  .float-label-control label { font-weight: normal; top: -1.0em; left: 0.08em; color: #aaaaaa; z-index: -1; font-size: 1em; -moz-animation: float-labels 300ms none ease-out; -webkit-animation: float-labels 300ms none ease-out; -o-animation: float-labels 300ms none ease-out; -ms-animation: float-labels 300ms none ease-out; -khtml-animation: float-labels 300ms none ease-out; animation: float-labels 300ms none ease-out; color:#777; /* There is a bug sometimes pausing the animation. This avoids that.*/ animation-play-state: running !important; -webkit-animation-play-state: running !important; }
+  .float-label-control input.empty + label,
+  .float-label-control textarea.empty + label { top: 0.1em; font-size: 1.5em; animation: none; -webkit-animation: none; }
+  .float-label-control input:not(.empty) + label,
+  .float-label-control textarea:not(.empty) + label { z-index: 1; }
+  .float-label-control input:not(.empty):focus + label,
+  .float-label-control textarea:not(.empty):focus + label { color: #aaaaaa; }
+  .float-label-control.label-bottom label { -moz-animation: float-labels-bottom 300ms none ease-out; -webkit-animation: float-labels-bottom 300ms none ease-out; -o-animation: float-labels-bottom 300ms none ease-out; -ms-animation: float-labels-bottom 300ms none ease-out; -khtml-animation: float-labels-bottom 300ms none ease-out; animation: float-labels-bottom 300ms none ease-out; }
+  .float-label-control.label-bottom input:not(.empty) + label,
+  .float-label-control.label-bottom textarea:not(.empty) + label { top: 3em; }
 
 
-    @keyframes float-labels {
-        0% { opacity: 1; color: #5ee4d1; top: 0.1em; font-size: 1.5em; }
-        20% { font-size: 1.5em; opacity: 0; }
-        30% { top: 0.1em; }
-        50% { opacity: 0; font-size: 0.85em; }
-        100% { top: -1em; opacity: 1; }
+  @keyframes float-labels {
+    0% { opacity: 1; color: #5ee4d1; top: 0.1em; font-size: 1.5em; }
+    20% { font-size: 1.5em; opacity: 0; }
+    30% { top: 0.1em; }
+    50% { opacity: 0; font-size: 0.85em; }
+    100% { top: -1em; opacity: 1; }
+  }
+
+  @-webkit-keyframes float-labels {
+    0% { opacity: 1; color: #5ee4d1; top: 0.1em; font-size: 1.5em; }
+    20% { font-size: 1.5em; opacity: 0; }
+    30% { top: 0.1em; }
+    50% { opacity: 0; font-size: 0.85em; }
+    100% { top: -1em; opacity: 1; }
+  }
+
+  @keyframes float-labels-bottom {
+    0% { opacity: 1; color: #5ee4d1; top: 0.1em; font-size: 1.5em; }
+    20% { font-size: 1.5em; opacity: 0; }
+    30% { top: 0.1em; }
+    50% { opacity: 0; font-size: 0.85em; }
+    100% { top: 3em; opacity: 1; }
+  }
+
+  @-webkit-keyframes float-labels-bottom {
+    0% { opacity: 1; color: #5ee4d1; top: 0.1em; font-size: 1.5em; }
+    20% { font-size: 1.5em; opacity: 0; }
+    30% { top: 0.1em; }
+    50% { opacity: 0; font-size: 0.85em; }
+    100% { top: 3em; opacity: 1; }
+  }
+}
+
+.field input {
+  width:20px;
+}
+.box{
+  margin: 0 auto;
+  margin-top: 80px;
+  margin-bottom:50px;
+  max-width: 450px;
+  box-shadow: 0 6px 12px rgba(0,0,0,.23), 0 10px 40px rgba(0,0,0,.19);
+  background: $white;
+  width: 100%;
+  .box-header{
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    text-align: center!important;
+    background-color: $pelorous-opacity;
+    height: 80px;
+    padding-top: 0px;
+    color: $white;
+  }
+
+  .box-content{
+    padding-top: 20px!important;
+    padding-bottom: 20px!important;
+    padding-left: 15px!important;
+    padding-right: 15px!important;
+
+    .formButton{
+      width:100%;
+      background-color:$jelly-blue;
+      border: none;
+      font-size: 14px;
+      height: 38px;
+      line-height: 38px;
+      color:$white;
+      border-radius: 5px;
+      padding:0px;
     }
-
-    @-webkit-keyframes float-labels {
-        0% { opacity: 1; color: #5ee4d1; top: 0.1em; font-size: 1.5em; }
-        20% { font-size: 1.5em; opacity: 0; }
-        30% { top: 0.1em; }
-        50% { opacity: 0; font-size: 0.85em; }
-        100% { top: -1em; opacity: 1; }
+    .formButton:hover{
+      background-color:$btn-color1;
     }
-
-    @keyframes float-labels-bottom {
-        0% { opacity: 1; color: #5ee4d1; top: 0.1em; font-size: 1.5em; }
-        20% { font-size: 1.5em; opacity: 0; }
-        30% { top: 0.1em; }
-        50% { opacity: 0; font-size: 0.85em; }
-        100% { top: 3em; opacity: 1; }
+    .checkbox{
+      margin-left: 18px;
     }
-
-    @-webkit-keyframes float-labels-bottom {
-        0% { opacity: 1; color: #5ee4d1; top: 0.1em; font-size: 1.5em; }
-        20% { font-size: 1.5em; opacity: 0; }
-        30% { top: 0.1em; }
-        50% { opacity: 0; font-size: 0.85em; }
-        100% { top: 3em; opacity: 1; }
+  }
+  .form-actions{
+    text-align:center;
+    .sign-in-facebook{
+      color: #404453;
     }
+    a:hover{
+      color: $form-control-color;
+    }
+  }
+
+
+  .box-footer{
+    text-align: center!important;
+    margin-top:30px;
+    p>span>a{
+      color:$form-control-color;
+    }
+    .for-get>span>a{
+      color: $jelly-blue;
+    }
+    .for-get a:hover{
+      color: $form-control-color;
+    }
+  }
 }

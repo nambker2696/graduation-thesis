@@ -22,7 +22,6 @@ ActiveRecord::Schema.define(version: 20180428122324) do
   end
 
   create_table "bookings", force: :cascade do |t|
-    t.integer "guess_id"
     t.integer "location_id"
     t.integer "seat_id"
     t.integer "timeslot_id"
@@ -76,15 +75,6 @@ ActiveRecord::Schema.define(version: 20180428122324) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "guesses", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
-    t.string "phone"
-    t.string "address"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "locations", force: :cascade do |t|
     t.string "name"
     t.integer "user_id"
@@ -117,7 +107,6 @@ ActiveRecord::Schema.define(version: 20180428122324) do
 
   create_table "orders", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "guess_id"
     t.decimal "total_price"
     t.boolean "status"
     t.date "date_order"

@@ -26,8 +26,7 @@ class BookingsController < ApplicationController
   # POST /bookings.json
   def create
     @booking = Booking.new(booking_params)
-    @booking.add_line_items_from_cart(@cart)
-
+    @booking.add_cart_items_from_cart(@cart)
     respond_to do |format|
       if @booking.save
         Cart.destroy(session[:cart_id])
@@ -73,7 +72,7 @@ class BookingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def booking_params
-      params.require(:booking).permit(:user_id, :location_id, :seat_id, :timeslot_id, :day_to_eat, :reservation_place, :status, :action)
+      params.require(:booking).permit(:user_id, :location_id, :seat_id, :timeslot_id, :day_to_eat, :reservation_place, :status, :action,:delivery_type,:payment_type)
     end
 
     def ensure_cart_isnot_empty
