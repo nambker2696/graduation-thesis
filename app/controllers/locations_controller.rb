@@ -12,55 +12,9 @@ class LocationsController < ApplicationController
   # GET /locations/1
   # GET /locations/1.json
   def show
-  end
-
-  # GET /locations/new
-  def new
-    @location = Location.new
-  end
-
-  # GET /locations/1/edit
-  def edit
-  end
-
-  # POST /locations
-  # POST /locations.json
-  def create
-    @location = Location.new(location_params)
-
-    respond_to do |format|
-      if @location.save
-        format.html { redirect_to locations_url, notice: 'Location was successfully created.' }
-        format.json { render :show, status: :created, location: @location }
-      else
-        format.html { render :new }
-        format.json { render json: @location.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PATCH/PUT /locations/1
-  # PATCH/PUT /locations/1.json
-  def update
-    respond_to do |format|
-      if @location.update(location_params)
-        format.html { redirect_to locations_url, notice: 'Location was successfully updated.' }
-        format.json { render :show, status: :ok, location: @location }
-      else
-        format.html { render :edit }
-        format.json { render json: @location.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /locations/1
-  # DELETE /locations/1.json
-  def destroy
-    @location.destroy
-    respond_to do |format|
-      format.html { redirect_to locations_url, notice: 'Location was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    @location = Location.find(params[:id])
+    @store_owner = User.find(@location.id)
+    @dishs = Dish.joins(:location).where("locations.id" => params[:id])
   end
 
   private
@@ -71,6 +25,6 @@ class LocationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def location_params
-      params.require(:location).permit(:store_id, :name, :address, :phone, :status, :radius)
+      params.require(:location).permit(:store_id, :name,:user_id, :address, :phone, :status, :radius)
     end
 end

@@ -3,12 +3,12 @@
  <div class="navbar-links">
   <div class="box-login-store">
     <span class="text-center">
-      <i class="fa fa-user fa-3x"></i>
+      <i class="fa fa-user fa-3x"></i> 
     </span>
     <div class="box-status-user">
       <% if user_signed_in? %>
       <h3 class="username"><%= current_user.name %></h3>
-      <i class="fa fa-circle"></i>
+      <i class="fa fa-circle"></i> online
       <% else %>
       <h3 class="username">Guest</h3>
       <button type="button" class="btn launchConfirm">Login</button>
@@ -171,8 +171,8 @@
 
 <!-- // modal-login -->
 <div class="modal fade" id="confirm">
-  <div class="modal-dialog">
-    <div class="modal-content">
+  <div class="modal-dialog" style="width: 450px">
+    <div class="modal-content" style="padding: 10px">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
         </button>
@@ -213,7 +213,7 @@
         </div>
       </div>
       <div class="modal-footer">
-        some random buttons
+      @NAMBKER
       </div>
     </div>
   </div>

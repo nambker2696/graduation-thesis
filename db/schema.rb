@@ -87,6 +87,7 @@ ActiveRecord::Schema.define(version: 20180428122324) do
 
   create_table "locations", force: :cascade do |t|
     t.string "name"
+    t.integer "user_id"
     t.string "address"
     t.string "phone"
     t.boolean "status"
@@ -157,7 +158,7 @@ ActiveRecord::Schema.define(version: 20180428122324) do
     t.string "provider"
     t.string "uid"
     t.integer "admin"
-    t.string "avatar", default: "/assets/images/ava-default-male.jpg"
+    t.string "avatar", default: "ava-default-male.jpg"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

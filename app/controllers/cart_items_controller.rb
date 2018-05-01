@@ -9,7 +9,8 @@ class CartItemsController < ApplicationController
 
     respond_to do |format|
       if @cart_item.save
-        format.html { redirect_to root_url}
+        flash[:success] = "Add to cart success!"
+        format.html { redirect_to "home#index" }
         format.js { @current_item = @cart_item}
         format.json { render :show, status: :created, location: @cart_item }
       else

@@ -1,8 +1,8 @@
 class HomeController < ApplicationController
+  skip_before_action :authorize
   before_action :set_cart
   def index; 
       @dishs = Dish.all
-      @categories = Category.all
   end
 
   def locations; end

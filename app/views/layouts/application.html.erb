@@ -17,8 +17,13 @@
     <%= render "layouts/store/left_menu" %>
   </div>
   <div id="main-store">
-    <div class="container">
+    <div class="container">  
       <%= render "layouts/store/head_store" %>
+      <div class="" id="">
+        <% flash.each do |message_type, message| %>
+        <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+        <% end %>
+      </div>
       <%= yield %>
     </div>
   </div>

@@ -71,6 +71,6 @@ class Admin::LocationsController < Admin::BaseController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_location_params
-      params.require(:location).permit(:store_id, :name, :address, :phone, :status, :radius)
+      params.require(:location).permit(:store_id, :name,:user_id, :address, :phone, :status, :radius)
     end
 end

@@ -68,12 +68,11 @@ namae_cat = "Water"
 Category.create(name: namae_cat,display_name: namae_cat.parameterize,sub_category: 6)
 
 
-
-
 puts "Faker 20 Location for Store"
 10.times do
   Location.create(
     name: Faker::Name.name,
+    user_id: 1,
     address: Faker::Address.city,
     phone: Faker::PhoneNumber.cell_phone,
     status: Faker::Boolean.boolean(0.2),
