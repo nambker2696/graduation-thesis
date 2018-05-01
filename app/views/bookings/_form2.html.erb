@@ -15,5 +15,21 @@
 <%= f.label :payment_type %>
 <%= f.select :payment_type, Booking::PAYMENT_TYPES, prompt: 'Select a payment method', class: 'form-control' %>
 <%= f.hidden_field :user_id, value: current_user.id %>
+<%= f.label :location_id %>
+<%= f.input :location_id %>
+
+<%= f.label :seat_id %>
+<%= f.input :seat_id %>
+
+<%= f.ilabel :timeslot_id %>
+<%= f.input :timeslot_id %>
+
+<%= f.label :day_to_eat %>
+<%= f.input :day_to_eat %>
+
+<%= f.label :reservation_place %>
+<%= f.input :reservation_place %>
+
+<%= f.input :status %>
 <%= f.submit yield(:button_text), class: "btn btn-primary" %>
 <% end %>
