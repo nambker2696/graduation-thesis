@@ -1,7 +1,6 @@
 class Booking < ApplicationRecord
-  has_many :booking_details
   belongs_to :user
-  has_many :dishs, through: :booking_details
+  has_many :dishs, through: :cart_items
 
   has_many :cart_items, dependent: :destroy
   

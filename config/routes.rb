@@ -32,6 +32,7 @@ Rails.application.routes.draw do
     put 'decrement', on: :member
   end
   resources :carts
+  resources :timeslots,only:[:show]
   resources :seatings,only:[:show]
   resources :locations,only:[:show]
   resources :categories,only:[:show]

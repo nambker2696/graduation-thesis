@@ -1,4 +1,3 @@
-
 puts "Faker admin@gmail.com admin1"
 puts "Faker 15 Users(admin:0)"
 puts "Faker 5 staff(admin:5)"
@@ -76,22 +75,21 @@ puts "Faker 20 Location for Store"
     address: Faker::Address.city,
     phone: Faker::PhoneNumber.cell_phone,
     status: Faker::Boolean.boolean(0.2),
-    radius: Faker::Number.between(1, 5)
-    )    
+    radius: Faker::Number.between(1, 5))    
 end
 
 
 puts "Faker 200 Dish"
 200.times do
   Dish.create(
+    location_id:Faker::Number.between(1, 10),
+    category_id: Faker::Number.between(1, 23),
     name: Faker::Food.dish, 
     display_name: Faker::Name.name, 
     subtitle: Faker::Food.measurement,
     price: Faker::Number.decimal(2),
     description: Faker::Food.ingredient,
-    category_id: Faker::Number.between(1, 23),
-    active: true
-    )
+    active: true)
 end
 
 puts "Faker 7 OpeningHours for each location"
@@ -105,41 +103,14 @@ locats.each do |locat|
       location_id: locat.id,
       open: Faker::Time.forward(23, :morning),
       close: Faker::Time.backward(14, :evening),
-      status: true
-      )
+      status: true)
   end
 
-  Timeslot.create(
-    location_id: locat.id,
-    name: "morning",
-    start: "8:00",
-    end: "10:00"
-    )
-  Timeslot.create(
-    location_id: locat.id,
-    name: "morning",
-    start: "10:00",
-    end: "12:00"
-    )
-  Timeslot.create(
-    location_id: locat.id,
-    name: "afternoon",
-    start: "14:00",
-    end: "16:00"
-    )
-  Timeslot.create(
-    location_id: locat.id,
-    name: "afternoon",
-    start: "16:00",
-    end: "18:00"
-    )
-
-  Timeslot.create(
-    location_id: locat.id,
-    name: "night",
-    start: "18:00",
-    end: "20:00"
-    )
+  Timeslot.create(location_id: locat.id,name: "morning",start: "8:00",end: "10:00")
+  Timeslot.create(location_id: locat.id,name: "morning",start: "10:00",end: "12:00")
+  Timeslot.create(location_id: locat.id,name: "afternoon",start: "14:00",end: "16:00")
+  Timeslot.create(location_id: locat.id,name: "afternoon",start: "16:00",end: "18:00")
+  Timeslot.create(location_id: locat.id,name: "night",start: "18:00",end: "20:00")
 
   3.times do
     seat = 0

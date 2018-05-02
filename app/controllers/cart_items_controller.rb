@@ -10,8 +10,8 @@ class CartItemsController < ApplicationController
 
     respond_to do |format|
       if @cart_item.save
-        flash[:success] = "Add to cart success!"
-        format.html { redirect_to "home#index" }
+        sweetalert_success('Your resource is created and available.', 'Successfully created', persistent: 'Awesome!')
+        format.html { redirect_to carts_url }
         format.js { @current_item = @cart_item}
         format.json { render :show, status: :created, location: @cart_item }
       else
@@ -21,10 +21,25 @@ class CartItemsController < ApplicationController
     end
   end
 
+  def update
+    respond_to do |format|
+      # byebug
+      if @cart_item.update(cart_item_params)
+        format.html { redirect_to @cart_item, notice: 'Line item was successfully updated.' }
+        format.json { render :show, status: :ok, location: @cart_item }
+      else
+        format.html { render :edit }
+        format.json { render json: @cart_item.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+
   def destroy
     @cart_item.destroy
       respond_to do |format|
-      format.html { redirect_to root_url}#, notice: 'Line item was successfully destroyed.' }
+      sweetalert_success('Cart is delete', 'Successfully delete', persistent: 'Awesome!')
+      format.html { redirect_to current_page_url }#, notice: 'Line item was successfully destroyed.' }
       format.js {@current_item = @cart_item}
       format.json { head :no_content }
     end
@@ -34,8 +49,8 @@ class CartItemsController < ApplicationController
     @cart_item.decrement #see model
     respond_to do |format|
       if(@cart_item.save)
-        # byebug
-        format.html {redirect_to root_url}
+        sweetalert_success('CartItem is update', 'Successfully update', persistent: 'Awesome!')
+        format.html {redirect_to current_page_url}
         format.js { @current_item = @cart_item}  #
         format.json {head:ok}
       else

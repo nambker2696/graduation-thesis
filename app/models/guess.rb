@@ -1,2 +1,0 @@
-class Guess < ApplicationRecord
-end

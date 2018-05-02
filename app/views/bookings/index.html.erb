@@ -20,11 +20,6 @@
     <% @bookings.each do |booking| %>
       <tr>
         <td><%= booking.user_id %></td>
-        <td><%= booking.guess_id %></td>
-        <td><%= booking.place %></td>
-        <td><%= booking.status %></td>
-        <td><%= booking.date_booked %></td>
-        <td><%= booking.date_receipt %></td>
         <td><%= booking.action %></td>
         <td><%= link_to 'Show', booking %></td>
         <td><%= link_to 'Edit', edit_booking_path(booking) %></td>

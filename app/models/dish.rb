@@ -1,6 +1,7 @@
 class Dish < ActiveRecord::Base
   mount_uploader :image, ImageUploader
-  has_many :booking_details
-  has_many :bookings, through: :booking_details
+  belongs_to :location
+  belongs_to :category
+  has_many :bookings, through: :cart_items
   include Searchable
 end

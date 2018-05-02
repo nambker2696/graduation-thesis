@@ -10,16 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180501182150) do
-
-  create_table "booking_details", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "booking_id"
-    t.integer "dish_id"
-    t.decimal "price"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+ActiveRecord::Schema.define(version: 20180502184731) do
 
   create_table "bookings", force: :cascade do |t|
     t.integer "location_id"
@@ -67,12 +58,15 @@ ActiveRecord::Schema.define(version: 20180501182150) do
     t.string "subtitle"
     t.decimal "price"
     t.text "description"
-    t.integer "category_id"
     t.string "tags"
     t.string "image", default: ""
     t.boolean "active"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "location_id"
+    t.integer "category_id"
+    t.index ["category_id"], name: "index_dishes_on_category_id"
+    t.index ["location_id"], name: "index_dishes_on_location_id"
   end
 
   create_table "locations", force: :cascade do |t|
@@ -92,15 +86,6 @@ ActiveRecord::Schema.define(version: 20180501182150) do
     t.time "open"
     t.time "close"
     t.boolean "status"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "order_details", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "order_id"
-    t.integer "dish_id"
-    t.decimal "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

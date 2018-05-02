@@ -32,6 +32,7 @@ class CartsController < ApplicationController
 
     respond_to do |format|
       if @cart.save
+        sweetalert_success('Add cart success.', 'Successfully created', persistent: 'Awesome!')
         format.html { redirect_to @cart, notice: 'Cart was successfully created.' }
         format.json { render :show, status: :created, location: @cart }
       else
@@ -61,7 +62,8 @@ class CartsController < ApplicationController
     @cart.destroy if @cart.id == session[:cart_id]
     session[:cart_id] =nil
     respond_to do |format|
-      format.html { redirect_to carts_url, notice: 'Cart was successfully destroyed.' }
+      sweetalert_success('Cart is delete', 'Successfully delete', persistent: 'Awesome!')
+      format.html { redirect_to @cart, notice: 'Cart was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -79,6 +81,6 @@ class CartsController < ApplicationController
     
     def invalid_cart
       logger.error "Attempt to access invalid cart #{params[:id]}"
-      redirect_to store_index_url,notice: 'Invalid card'
+      redirect_to home_index_url,notice: 'Invalid card'
     end
 end

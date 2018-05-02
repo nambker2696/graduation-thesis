@@ -23,8 +23,4 @@ class CartItem < ApplicationRecord
     end
     self
   end
-
-
-
-
 end
