@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180428122324) do
+ActiveRecord::Schema.define(version: 20180501182150) do
 
   create_table "booking_details", force: :cascade do |t|
     t.integer "user_id"
@@ -34,8 +34,6 @@ ActiveRecord::Schema.define(version: 20180428122324) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
-    t.integer "cart_id"
-    t.index ["cart_id"], name: "index_bookings_on_cart_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
@@ -46,6 +44,8 @@ ActiveRecord::Schema.define(version: 20180428122324) do
     t.integer "quantity", default: 1
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "booking_id"
+    t.index ["booking_id"], name: "index_cart_items_on_booking_id"
   end
 
   create_table "carts", force: :cascade do |t|

@@ -27,6 +27,7 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     @booking.add_cart_items_from_cart(@cart)
+    
     respond_to do |format|
       if @booking.save
         Cart.destroy(session[:cart_id])

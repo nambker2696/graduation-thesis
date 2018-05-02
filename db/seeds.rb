@@ -197,7 +197,7 @@ puts "Faker 10 Order"
 end
 
 puts "Faker 500 Booking"
-500.times do
+200.times do
   Booking.create(
     user_id: Faker::Number.between(1, 10),
     location_id: Faker::Number.between(1, 10),
@@ -207,5 +207,14 @@ puts "Faker 500 Booking"
     reservation_place: false,
     status: true,
     action: Faker::Number.between(1, 3)
+    )
+end
+500.times do
+  CartItem.create(
+    booking_id: Faker::Number.between(1, 200),
+    cart_id: Faker::Number.between(1, 200),
+    dish_id: Faker::Number.between(1, 200),
+    price: Faker::Number.decimal(2),
+    quantity:Faker::Number.between(1, 3)
     )
 end

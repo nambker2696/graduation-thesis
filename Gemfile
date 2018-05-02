@@ -24,7 +24,7 @@ gem 'puma', '~> 3.7'
 gem 'rails', '~> 5.1.4'
 gem 'rails-assets-sweetalert2', '~> 5.1.1', source: 'https://rails-assets.org'
 gem 'rails-jquery-autocomplete'
-
+gem 'ransack' 
 
 
 gem 'sass-rails', '~> 5.0'
