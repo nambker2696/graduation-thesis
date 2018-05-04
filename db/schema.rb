@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180504102144) do
+ActiveRecord::Schema.define(version: 20180504195356) do
 
   create_table "bookings", force: :cascade do |t|
     t.integer "location_id"
@@ -64,6 +64,9 @@ ActiveRecord::Schema.define(version: 20180504102144) do
     t.string "subtitle"
     t.decimal "price"
     t.text "description"
+    t.integer "portion"
+    t.integer "serves"
+    t.integer "min_qty"
     t.string "tags"
     t.string "image", default: ""
     t.boolean "active"
@@ -81,6 +84,15 @@ ActiveRecord::Schema.define(version: 20180504102144) do
     t.datetime "updated_at", null: false
     t.integer "city_id"
     t.index ["city_id"], name: "index_districts_on_city_id"
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "target_type"
+    t.integer "target_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["target_type", "target_id"], name: "index_likes_on_target_type_and_target_id"
   end
 
   create_table "locations", force: :cascade do |t|

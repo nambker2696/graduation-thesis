@@ -16,6 +16,12 @@ class LocationsController < ApplicationController
     @location = Location.find(params[:id])
     @store_owner = User.find(@location.id)
     @dishs = Dish.joins(:location).where("locations.id" => params[:id])
+    if user_signed_in?
+      @like = Like.find_by(user_id: current_user.id, target: location)
+    else
+      @like = Like.find_by(target: location)
+    end
+      
   end
 
   private

@@ -31,7 +31,19 @@
           <li class="bookmark-icon"><a href="#" id="bookmark_new"><i class="fa fa-bookmark"></i>Bookmark</a></li>
           <li class="tab-review"><a href="#" onclick="showHideTab('chef-review-add');"><i class="fa fa-comment"></i>Add a review</a></li>
           <li class="bookmark-icon"><a href="#" id="bookmark_new"><i class="fa fa-envelope"></i>Contact chef</a></li>
-          <li class="bookmark-icon"><a href="#" id="bookmark_new"><i class="fa fa-heart"></i>13</a></li>
+          <li class="bookmark-icon">
+            <% if @like %>
+            <div id="like-btn">
+              <%= render "likes/unlike" %>
+            </div>
+            <% else %>
+            <div id="like-btn">
+              <%= render "likes/like" %>
+            </div>
+            <% end %>
+
+          </li>
+          <li><strong id="like-count"><%= pluralize @location.likes.count, "Like" %></strong></li>
         </ul>
       </div>
     </div>
@@ -104,11 +116,11 @@
           </div>
           <div role="tabpanel" class="tab-pane" id="photos">
             <div class="row">
-            <% @dishs.each do |dish| %>
+              <% @dishs.each do |dish| %>
               <div class="col-md-3">
                 <%= image_tag("food/1.jpg", :alt => "rss feed") %>
               </div>
-            <% end %>
+              <% end %>
             </div>
 
           </div>
