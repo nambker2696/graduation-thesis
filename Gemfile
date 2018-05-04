@@ -25,7 +25,7 @@ gem 'rails', '~> 5.1.4'
 gem 'rails-assets-sweetalert2', '~> 5.1.1', source: 'https://rails-assets.org'
 gem 'rails-jquery-autocomplete'
 gem 'ransack' 
-
+gem "recaptcha", require: "recaptcha/rails"
 
 gem 'sass-rails', '~> 5.0'
 gem 'simple_form'
