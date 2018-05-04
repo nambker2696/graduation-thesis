@@ -141,9 +141,64 @@
       .table{
         margin:20px;
       }
+      .dish-box{
+        height:150px;
+        .dish-image{
+          float:left;
+          img{
+            width:150px;
+            height:100px;
+            margin:25px;
+          }
+        }
+        .dish-detail-box{
+          float:left;
+          h2{
+            margin-top:20px;
+            color: #202020;
+            font-size: 14px;
+            font-weight: 400;
+          }
+          p{
+            color: #989fa6;
+          }
+        }
+      }
+      .botborder {
+        border-bottom: 1px dashed #e6e6fa;
+        clear: both;
+        padding-top: 12px;
+      }
+      .recomd_detail{
+        ul{
+          list-style-type: none;
+          li {
+            color: #989fa6;
+            display: inline-block;
+            list-style-type: none;
+            margin-right: 30px;
+            i,.dv2,.dv3{
+              float:left;
+              margin-left:10px;
+            }
+            .dv3{
+              color:#000;
+            }
+          }
+        }
+      }
+
+
     }
     .box-header{
       padding:20px;
     }
+  }
+}
+#photos{
+  img{
+    margin: 10px;
+    width:130px;
+    height:90px;
   }
 }

@@ -39,7 +39,8 @@ class CartItemsController < ApplicationController
     @cart_item.destroy
       respond_to do |format|
       sweetalert_success('Cart is delete', 'Successfully delete', persistent: 'Awesome!')
-      format.html { redirect_to current_page_url }#, notice: 'Line item was successfully destroyed.' }
+      redirect_to current_page_url
+      format.html {  }#, notice: 'Line item was successfully destroyed.' }
       format.js {@current_item = @cart_item}
       format.json { head :no_content }
     end

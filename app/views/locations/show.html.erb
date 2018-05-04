@@ -7,6 +7,11 @@
       <div class="chef-pro-wparrer">
         <span class="chef-pro-con">
           <%= image_tag(@store_owner.avatar, alt: 'money') %>
+          <ul>            
+            <li class="bookmark-icon">
+              <a href="#" id="bookmark_new"><i class="fa fa-bookmark"></i>Bookmark</a>
+            </li>
+          </ul>
         </span>
       </div>
       <div class="chef-detail-wrapper">
@@ -22,14 +27,12 @@
             <div class="result-rate">4&nbsp;&nbsp;|&nbsp;&nbsp;1 Review</div>
           </span>
         </div>
-
         <ul>            
           <li class="bookmark-icon"><a href="#" id="bookmark_new"><i class="fa fa-bookmark"></i>Bookmark</a></li>
           <li class="tab-review"><a href="#" onclick="showHideTab('chef-review-add');"><i class="fa fa-comment"></i>Add a review</a></li>
           <li class="bookmark-icon"><a href="#" id="bookmark_new"><i class="fa fa-envelope"></i>Contact chef</a></li>
           <li class="bookmark-icon"><a href="#" id="bookmark_new"><i class="fa fa-heart"></i>13</a></li>
         </ul>
-
       </div>
     </div>
   </div>
@@ -41,46 +44,96 @@
       <i class="fa fa fa-clock-o"></i></i>Opening Hours: Closed
     </div>
   </div>
-
-
-  <div class="card">
-    <ul class="nav nav-tabs" role="tablist">
-      <li class="tab-head active" role="presentation"><a href="#menu" aria-controls="home" role="tab" data-toggle="tab">Menu</a></li>
-      <li class="tab-head" role="presentation"><a href="#reviews" aria-controls="profile" role="tab" data-toggle="tab">Reviews</a></li>
-      <li class="tab-head" role="presentation"><a href="#photos" aria-controls="profile" role="tab" data-toggle="tab">Photos</a></li>
-      <li class="tab-head" role="presentation"><a href="#overview" aria-controls="profile" role="tab" data-toggle="tab">Overview</a></li>
-    </ul>
-    <!-- Tab panes -->
-    <div class="tab-content">
-      <div role="tabpanel" class="tab-pane active" id="menu">
-        <div class="row">
-          <div class="col-xs-12">
-            <div class="box">
-              <div class="box-header">
-
-
+  <div class="row">
+    <div class="col-md-8">
+      <div class="card">
+        <ul class="nav nav-tabs" role="tablist">
+          <li class="tab-head active" role="presentation"><a href="#menu" aria-controls="home" role="tab" data-toggle="tab">Menu</a></li>
+          <li class="tab-head" role="presentation"><a href="#reviews" aria-controls="profile" role="tab" data-toggle="tab">Reviews</a></li>
+          <li class="tab-head" role="presentation"><a href="#photos" aria-controls="profile" role="tab" data-toggle="tab">Photos</a></li>
+          <li class="tab-head" role="presentation"><a href="#overview" aria-controls="profile" role="tab" data-toggle="tab">Overview</a></li>
+        </ul>
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane active" id="menu">
+            <div class="row ">
+              <% @dishs.each do |dish| %>
+              <div class="dish-box">
+                <div class="col-md-3 dish-image">
+                  <%= image_tag("food/1.jpg", :alt => "rss feed") %>
+                </div>
+                <div class="col-md-6 dish-detail-box">
+                  <h2><%= dish.name %></h2>
+                  <p><%= dish.description %></p>
+                </div>
+                <div class="col-md-3 dish-btn-box">
+                </div>
               </div>
+              <div class="recomd_detail">
+                <div class="list">
+                  <ul>
+                    <li class="bg1">
+                      <i class="fa fa-cutlery"></i>
+                      <div class="dv2">Portion:</div>
+                      <div class="dv3"><span>1 platter</span></div>
+                      <div class="clear"></div>
+                    </li>
+                    <li class="bg2">
+                      <i class="fa fa-user"></i>
+                      <div class="dv2">Serves:</div>
+                      <div class="dv3"><span>2</span></div>
+                      <div class="clear"></div>
+                    </li>
+                    <li class="bg3">
+                      <i class="fa fa-shopping-bag"></i>
+                      <div class="dv2">Min. Qty:</div>
+                      <div class="dv3"><span>1</span></div>
+                      <div class="clear"></div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="botborder"></div>
+              <% end %>
+            </div>
+          </div>
+          <div role="tabpanel" class="tab-pane" id="reviews">
+            <div class="row">
+
+            </div>
+
+          </div>
+          <div role="tabpanel" class="tab-pane" id="photos">
+            <div class="row">
+            <% @dishs.each do |dish| %>
+              <div class="col-md-3">
+                <%= image_tag("food/1.jpg", :alt => "rss feed") %>
+              </div>
+            <% end %>
+            </div>
+
+          </div>
+          <div role="tabpanel" class="tab-pane" id="overview">
+            <div class="row">
+
             </div>
           </div>
         </div>
       </div>
-      <div role="tabpanel" class="tab-pane" id="reviews">
-        <div class="row">
-
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <ul class="nav nav-tabs" role="tablist">
+          <li class="tab-head" role="presentation"><a aria-controls="home" role="tab" data-toggle="tab">Cart</a></li>
+        </ul>
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane active" id="menu">
+            <div class="row">
+              <div class="col-xs-12">
+                <div class="box"></div>
+              </div>
+            </div>
+          </div>
         </div>
-
-      </div>
-      <div role="tabpanel" class="tab-pane" id="photos">
-        <div class="row">
-
-        </div>
-
-      </div>
-      <div role="tabpanel" class="tab-pane" id="overview">
-        <div class="row">
-
-        </div>
-
       </div>
     </div>
   </div>

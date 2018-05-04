@@ -21,6 +21,13 @@ GIT
       faraday
       multi_json
 
+GIT
+  remote: git@github.com:stympy/faker.git
+  revision: f8e1b81f8da82ea9eb88c4939a3a6801f97e5ac1
+  specs:
+    faker (1.8.7)
+      i18n (>= 0.7)
+
 GEM
   remote: https://rubygems.org/
   remote: https://rails-assets.org/
@@ -145,8 +152,6 @@ GEM
       dry-types (~> 0.12.0)
     erubi (1.7.1)
     execjs (2.7.0)
-    faker (1.8.7)
-      i18n (>= 0.7)
     faraday (0.12.2)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.23)
@@ -405,7 +410,7 @@ DEPENDENCIES
   elasticsearch!
   elasticsearch-model!
   elasticsearch-rails!
-  faker
+  faker!
   font-awesome-rails (~> 4.7.0.3)
   gravatar_image_tag
   i18n-js (~> 3.0.4)

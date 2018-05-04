@@ -5,8 +5,6 @@ class HomeController < ApplicationController
     @dishs =  Dish.all.page params[:page]
   end
 
-  def locations; end
-
   def about; end
 
   def contact; end
