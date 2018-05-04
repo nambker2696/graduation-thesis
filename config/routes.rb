@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :cities
+  resources :likes
    devise_for :users, only: :omniauth_callbacks, controllers:
   { omniauth_callbacks: 'users/omniauth_callbacks',
     registrations: 'registrations' }
@@ -32,6 +32,8 @@ Rails.application.routes.draw do
   resources :cart_items do  
     put 'decrement', on: :member
   end
+  resources :districts,only:[:show]
+  resources :cities,only:[:show]
   resources :carts
   resources :timeslots,only:[:show]
   resources :seatings,only:[:show]
@@ -42,7 +44,6 @@ Rails.application.routes.draw do
   devise_for :users, skip: :omniauth_callbacks
     get 'about' => 'home#about'
     get 'contact' => 'home#contact'
-    get 'locations' => 'home#locations'
     get 'search' => "search#index"
     root to: 'home#index'
   end

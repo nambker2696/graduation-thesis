@@ -4,5 +4,6 @@ class Location < ApplicationRecord
   has_many :timeslots
   has_many :dishs
   belongs_to :user
+  has_many :likes, dependent: :destroy
 end
   

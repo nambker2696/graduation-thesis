@@ -6,6 +6,9 @@ class CreateDishes < ActiveRecord::Migration[5.1]
       t.string :subtitle
       t.decimal :price
       t.text :description
+      t.integer :portion
+      t.integer :serves
+      t.integer :min_qty
       t.string :tags
       t.string :image, default: ""
       t.boolean :active

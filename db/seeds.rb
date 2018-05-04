@@ -1,3 +1,6 @@
+require 'json'
+require "faker"
+
 puts "Faker admin@gmail.com admin1"
 puts "Faker 15 Users(admin:0)"
 puts "Faker 5 staff(admin:5)"
@@ -9,63 +12,15 @@ User.create!(name:  "Admin",
  admin: 100)
 
 puts "Faker 23 Category for 1 Store"
-
-namae_cat = "Northern VietNam" 
-Category.create(name: namae_cat,display_name: namae_cat.parameterize,sub_category: 1)
-namae_cat = "South VietNam" 
-Category.create(name: namae_cat,display_name: namae_cat.parameterize,sub_category: 1)
-namae_cat = "Central Vietnam" 
-Category.create(name: namae_cat,display_name: namae_cat.parameterize,sub_category: 1)
-
-
-namae_cat = "Party Food" 
-Category.create(name: namae_cat,display_name: namae_cat.parameterize,sub_category: 2)
-namae_cat = "Party Birthday" 
-Category.create(name: namae_cat,display_name: namae_cat.parameterize,sub_category: 2)
-namae_cat = "Party Wedding" 
-Category.create(name: namae_cat,display_name: namae_cat.parameterize,sub_category: 2)
-namae_cat = "Family party" 
-Category.create(name: namae_cat,display_name: namae_cat.parameterize,sub_category: 2)
-
-
-namae_cat = "Non-Veg" 
-Category.create(name: namae_cat,display_name: namae_cat.parameterize,sub_category: 3)
-namae_cat = "Vegetarian" 
-Category.create(name: namae_cat,display_name: namae_cat.parameterize,sub_category: 3)
-
-
-namae_cat = "Healthy" 
-Category.create(name: namae_cat,display_name: namae_cat.parameterize,sub_category: 4)
-namae_cat = "Traditional" 
-Category.create(name: namae_cat,display_name: namae_cat.parameterize,sub_category: 4)
-namae_cat = "International" 
-Category.create(name: namae_cat,display_name: namae_cat.parameterize,sub_category: 4)
-namae_cat = "Fastfood" 
-Category.create(name: namae_cat,display_name: namae_cat.parameterize,sub_category: 4)
-namae_cat = "Hotpot" 
-Category.create(name: namae_cat,display_name: namae_cat.parameterize,sub_category: 4)
-namae_cat = "Buffet" 
-Category.create(name: namae_cat,display_name: namae_cat.parameterize,sub_category: 4)
-
-
-namae_cat = "Desserts" 
-Category.create(name: namae_cat,display_name: namae_cat.parameterize,sub_category: 5)
-namae_cat = "Tea & Snacks" 
-Category.create(name: namae_cat,display_name: namae_cat.parameterize,sub_category: 5)
-namae_cat = "Cakes" 
-Category.create(name: namae_cat,display_name: namae_cat.parameterize,sub_category: 5)
-namae_cat = "Pickles" 
-Category.create(name: namae_cat,display_name: namae_cat.parameterize,sub_category: 5)
-
-namae_cat = "Bottled water" 
-Category.create(name: namae_cat,display_name: namae_cat.parameterize,sub_category: 6)
-namae_cat = "Soft drink" 
-Category.create(name: namae_cat,display_name: namae_cat.parameterize,sub_category: 6)
-namae_cat = "Soda" 
-Category.create(name: namae_cat,display_name: namae_cat.parameterize,sub_category: 6)
-namae_cat = "Water" 
-Category.create(name: namae_cat,display_name: namae_cat.parameterize,sub_category: 6)
-
+file = File.read('lib/assets/category.json')
+data_hash = JSON.parse(file)
+data_hash.each do |cate|
+  Category.create(
+    name: cate['category'],
+    display_name: cate['category'].parameterize,
+    sub_category: cate['sub_category']
+    )
+end
 
 puts "Faker 20 Location for Store"
 10.times do
@@ -88,7 +43,10 @@ puts "Faker 200 Dish"
     display_name: Faker::Name.name, 
     subtitle: Faker::Food.measurement,
     price: Faker::Number.decimal(2),
-    description: Faker::Food.ingredient,
+    description: Faker::Food.description,
+    portion: 1,
+    serves: 1,
+    min_qty: 1,
     active: true)
 end
 
@@ -187,5 +145,30 @@ end
     dish_id: Faker::Number.between(1, 200),
     price: Faker::Number.decimal(2),
     quantity:Faker::Number.between(1, 3)
+    )
+end
+
+file = File.read('lib/assets/city_vietnam.json')
+data_hash = JSON.parse(file)
+data_hash.each do |city|
+  City.create(
+    city: city['city'],
+    )
+end
+# load db hanoi
+file = File.read('lib/assets/district_hanoi.json')
+data_hash = JSON.parse(file)
+data_hash.each do |district|
+  District.create(
+    city_id: 1,
+    district: district['district']
+    )
+end
+file = File.read('lib/assets/district_HCM.json')
+data_hash = JSON.parse(file)
+data_hash.each do |district|
+  District.create(
+    city_id: 1,
+    district: district['district'],
     )
 end

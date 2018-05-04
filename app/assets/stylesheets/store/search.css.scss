@@ -5,6 +5,7 @@
   margin-right: 0px;
   margin-top: 30px;
   margin-bottom: 40px;
+  background:#fff;
   input{
     padding: 10px 10px 10px 40px;
     color: #797979;
@@ -22,30 +23,30 @@
     border: 1px solid rgba(81, 203, 238, 1);
   }
   .autocomplete {
-  /*the container must be positioned relative:*/
-  position: relative;
-  display: inline-block;
-}
-input {
-  border: 1px solid transparent;
-  background-color: #f1f1f1;
-  padding: 10px;
-  font-size: 16px;
-}
-input[type=text] {
-  background-color: #f1f1f1;
-  width: 100%;
-}
-input[type=submit] {
-  background-color: DodgerBlue;
-  color: #fff;
-}
-.autocomplete-items {
-  position: absolute;
-  border: 1px solid #d4d4d4;
-  border-bottom: none;
-  border-top: none;
-  z-index: 99;
+    position: relative;
+    display: inline-block;
+  }
+  input {
+    border: 1px solid transparent;
+    background-color: #fff;
+    padding: 10px;
+    font-size: 16px;
+  }
+  input[type=text] {
+    border: 1px solid #dde1e7;
+    background-color: #fff;
+    width: 100%;
+  }
+  input[type=submit] {
+    background-color: DodgerBlue;
+    color: #fff;
+  }
+  .autocomplete-items {
+    position: absolute;
+    border: 1px solid #d4d4d4;
+    border-bottom: none;
+    border-top: none;
+    z-index: 99;
   /*position the autocomplete items to be the same width as the container:*/
   top: 100%;
   left: 0;
@@ -89,4 +90,16 @@ input[type=submit] {
 
 #main-store{
   background: #f2f2f2;
+}
+
+.someclass i {
+  display: inline;
+}
+.someclass .form-control {
+  display: inline;
+  width: 95%;
+}
+.location-put input[type=text]{
+  background: asset-url("search-chef-icon.png") no-repeat 8px 12px #fff;
+  padding: 10px 10px 10px 40px;
 }

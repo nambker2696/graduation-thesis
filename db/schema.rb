@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180502184731) do
+ActiveRecord::Schema.define(version: 20180504102144) do
 
   create_table "bookings", force: :cascade do |t|
     t.integer "location_id"
@@ -52,6 +52,12 @@ ActiveRecord::Schema.define(version: 20180502184731) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "cities", force: :cascade do |t|
+    t.string "city"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "dishes", force: :cascade do |t|
     t.string "name"
     t.string "display_name"
@@ -69,6 +75,14 @@ ActiveRecord::Schema.define(version: 20180502184731) do
     t.index ["location_id"], name: "index_dishes_on_location_id"
   end
 
+  create_table "districts", force: :cascade do |t|
+    t.string "district"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "city_id"
+    t.index ["city_id"], name: "index_districts_on_city_id"
+  end
+
   create_table "locations", force: :cascade do |t|
     t.string "name"
     t.integer "user_id"
@@ -82,12 +96,13 @@ ActiveRecord::Schema.define(version: 20180502184731) do
 
   create_table "opening_hours", force: :cascade do |t|
     t.string "day"
-    t.integer "location_id"
     t.time "open"
     t.time "close"
     t.boolean "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "location_id"
+    t.index ["location_id"], name: "index_opening_hours_on_location_id"
   end
 
   create_table "orders", force: :cascade do |t|

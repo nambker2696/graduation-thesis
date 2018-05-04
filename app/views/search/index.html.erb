@@ -1,6 +1,6 @@
 <div class="location-put">
   <%= form_for :term, url: search_path, method: :get do |form| %>
-  <%= text_field_tag :term, params[:term],class: "ais-search-box--input",placeholder: "Search for chef by name or dish..." %>
+  <%= text_field_tag :term, params[:term],class: "search-box-input",placeholder: "Search for chef by name or dish..." %>
   <% end %>
 </div>
 <div class="show-search">
@@ -33,4 +33,4 @@
   <p>Your search did not match any documents.</p>
   <% end %>
 </div>
-
+</div>

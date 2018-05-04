@@ -125,17 +125,25 @@
       <a data-toggle="collapse" data-target="#toggleDemo5" data-parent="#sidenav01" class="collapsed-primary">
         <i class="fa fa-map-marker"></i> Location<span class="caret pull-right"></span>
       </a>
-      <div class="collapse sub-category" id="toggleDemo5" style="height: 0px;">
+      <div class="collapse sub-category" id="toggleDemo5">
         <ul class="nav nav-list">
-          <% if @categories %>
-          <% @categories.each do |category| %>
-          <% if category.sub_category == 3 %>
+          <% if @cities %>
+          <% @cities.each do |city| %>
+          <% if city.id == 1 %>
           <li>
             <div class="checkbox">
-
+              <label for="" class="checkbox1">
+              <input type="radio" class="" name="meal_type" checked>
+                <%= city.city %>
+              </label>
+            </div>
+          </li>
+          <% elsif %> 
+          <li>
+            <div class="checkbox">
               <label for="" class="checkbox1">
                 <input type="radio" class="" name="meal_type">
-                <%= category.name %>
+                <%= city.city %>
               </label>
             </div>
           </li>
@@ -201,38 +209,38 @@
       </div>
       <div class="modal-body">
 
-          <div class="box-content">
-            <%= form_for :user, url: user_session_path do |f|%>
-            <div id="form-login-user">
-              <div class="form-group float-label-control">
-                <%= f.label :Email %>
-                <%= f.email_field :email, class: 'form-control', :required => true %>
-              </div>
-              <div class="form-group float-label-control">
-                <%= f.label :Password %>
-                <%= f.password_field :password, class: 'form-control', :required => true %>
-              </div>
-              <div class="form-group">
-                <div class="checkbox"> 
-                  <%= f.label :remember_me do %> 
-                  <%= f.check_box :remember_me %> Remember me 
-                  <% end %> 
-                </div> 
-              </div>
+        <div class="box-content">
+          <%= form_for :user, url: user_session_path do |f|%>
+          <div id="form-login-user">
+            <div class="form-group float-label-control">
+              <%= f.label :Email %>
+              <%= f.email_field :email, class: 'form-control', :required => true %>
             </div>
-            <div class="form-actions">
-              <%= f.button :submit,:class =>"formButton",:id => "btn-login-admin",:name => t(".sign_in"),:value => t(".sign_in") %>
+            <div class="form-group float-label-control">
+              <%= f.label :Password %>
+              <%= f.password_field :password, class: 'form-control', :required => true %>
             </div>
-            <% end %>
-            <p class="for-get"><span>Forgot Your Password - <%= link_to "Reset Password", user_password_path%></span></p>
-            <p class="for-get"><span>Don't Have An Account - <%= link_to "Sign Up",new_user_registration_url %></span></p>
-            
+            <div class="form-group">
+              <div class="checkbox"> 
+                <%= f.label :remember_me do %> 
+                <%= f.check_box :remember_me %> Remember me 
+                <% end %> 
+              </div> 
+            </div>
           </div>
+          <div class="form-actions">
+            <%= f.button :submit,:class =>"formButton",:id => "btn-login-admin",:name => t(".sign_in"),:value => t(".sign_in") %>
+          </div>
+          <% end %>
+          <p class="for-get"><span>Forgot Your Password - <%= link_to "Reset Password", user_password_path%></span></p>
+          <p class="for-get"><span>Don't Have An Account - <%= link_to "Sign Up",new_user_registration_url %></span></p>
+
         </div>
       </div>
-      <div class="modal-footer">
+    </div>
+    <div class="modal-footer">
       @NAMBKER
-      </div>
+    </div>
   </div>
 </div>
 

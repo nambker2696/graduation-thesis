@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   before_action :set_locale
   before_action :set_cart
   before_action :set_category
+  before_action :set_city_district
 
   def set_locale
     I18n.locale = params[:locale] || I18n.default_locale
@@ -20,7 +21,10 @@ class ApplicationController < ActionController::Base
     @cart= Cart.create
     session[:cart_id]=@cart.id
   end
-
+  def set_city_district
+    @cities = City.all
+    @districts = District.all
+  end
   def set_category
     @categories = Category.all
   end
