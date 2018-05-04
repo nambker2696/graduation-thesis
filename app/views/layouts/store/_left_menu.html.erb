@@ -122,10 +122,29 @@
       </div>
     </li>
     <li>
-      <%= link_to locations_url,:class => "collapsed-primary" do %>
-      <i class="fa fa-map-marker"></i>
-      <span>Locations</span>
-      <% end %>
+      <a data-toggle="collapse" data-target="#toggleDemo5" data-parent="#sidenav01" class="collapsed-primary">
+        <i class="fa fa-map-marker"></i> Location<span class="caret pull-right"></span>
+      </a>
+      <div class="collapse sub-category" id="toggleDemo5" style="height: 0px;">
+        <ul class="nav nav-list">
+          <% if @categories %>
+          <% @categories.each do |category| %>
+          <% if category.sub_category == 3 %>
+          <li>
+            <div class="checkbox">
+
+              <label for="" class="checkbox1">
+                <input type="radio" class="" name="meal_type">
+                <%= category.name %>
+              </label>
+            </div>
+          </li>
+          <% end %>
+          <% end %>
+          <% end %>
+        </ul>
+      </div>
+
     </li>
     <li>
       <%= link_to admin_users_url,:class => "collapsed-primary" do %>

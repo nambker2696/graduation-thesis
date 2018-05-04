@@ -1,7 +1,7 @@
 $('#notice').hide()
 
 <!--  替换id为cart的元素的内容-->
-$('#cart').html("<%=j(render(cart))%>");
+$('#cart').html("<%=j(render(@cart))%>");
 $('#cart').css({'display':'inline'});
 $('#current_item').css({'background-color':'#88ff88'}).animate({'background-color':'#114411'},1000)
 ;

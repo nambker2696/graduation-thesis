@@ -17,132 +17,120 @@
       </div>
     </div>
   </div>
-  <form role="form" action="" method="post">
-    <div class="row setup-content" id="step-1">
-      <div class="col-xs-6">
-        <div class="col-md-12">
-          <h3> Step 1</h3>
-          <div class="form-group">
-            <label class="control-label">First Name</label>
-            <input  maxlength="100" type="text" required="required" class="form-control" placeholder="Enter First Name"  />
-          </div>
-          <div class="form-group">
-            <label class="control-label">Last Name</label>
-            <input maxlength="100" type="text" required="required" class="form-control" placeholder="Enter Last Name" />
-          </div>
-          <div class="form-group">
-            <label class="control-label">Address</label>
-            <textarea required="required" class="form-control" placeholder="Enter your address" ></textarea>
-          </div>
-          <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button>
+  <%= form_for(@booking) do |f| %>
+  <% if @booking.errors.any? %>
+  <div id="error_explanation">
+    <div class="alert alert-danger">The form contains <%= pluralize(@booking.errors.count, "error") %>.</div>
+    <ul>
+      <% @booking.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+  <div class="row setup-content" id="step-1">
+    <div class="col-xs-6">
+      <div class="col-md-12">
+        <h3>Choose Timeslote</h3>
+        <div class="form-group">        
+          <%= f.label :timeslot_id,class: "control-label" %>
+          <%= f.text_field :timeslot_id, class: 'form-control' %>
         </div>
+        <div class="form-group">        
+          <%= f.label :day_to_eat,class: "control-label" %>
+          <%= f.text_field :day_to_eat, class: 'form-control' %>
+        </div>
+        <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button>
       </div>
     </div>
-    <div class="row setup-content" id="step-2">
-      <div class="col-xs-6">
-        <div class="col-md-12">
-          <h3> Step 2</h3>
-          <div class="form-group">
-            <label class="control-label">Company Name</label>
-            <input maxlength="200" type="text" required="required" class="form-control" placeholder="Enter Company Name" />
-          </div>
-          <div class="form-group">
-            <label class="control-label">Company Address</label>
-            <input maxlength="200" type="text" required="required" class="form-control" placeholder="Enter Company Address"  />
-          </div>
-          <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button>
+  </div>
+
+  <div class="row setup-content" id="step-2">
+    <div class="col-xs-6">
+      <div class="col-md-12">
+        <h3> Chooe Seat</h3>
+        <div class="form-group">
+          <%= f.label :seat_id,class: "control-label" %>
+          <%= f.text_field :seat_id,class: "form-control" %>
         </div>
+        <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button>
       </div>
     </div>
-    <div class="row setup-content" id="step-3">
-      <div class="col-xs-6 col-md-offset-3">
-        <div class="col-md-12">
-          <h3> Step 3</h3>
-          <button class="btn btn-success btn-lg pull-right" type="submit">Submit</button>
+  </div>
+  <div class="row setup-content" id="step-3">
+    <div class="col-xs-6 col-md-offset-3">
+      <div class="col-md-12">
+        <h3> Checkout </h3>
+        <div class="form-group">
+          <%= f.label :delivery_type,class: "control-label" %>
+          <%= f.select :delivery_type,Booking::DELIVERY_TYPES, prompt: 'Select a delivery method', class: 'form-control' %>
         </div>
+        <div class="form-group">
+          <%= f.label :payment_type,class: "control-label" %>
+          <%= f.select :payment_type, Booking::PAYMENT_TYPES, prompt: 'Select a payment method', class: 'form-control' %>
+        </div>
+        <%= f.hidden_field :user_id, value: current_user.id %>
+
+        <div class="form-group">
+          <%= f.label :location_id,class: "control-label" %>
+          <%= f.text_field :location_id, class: 'form-control' %>
+        </div>
+        
+        <div class="form-group">
+        <%= f.label :reservation_place,class: "control-label" %>
+        <%= f.text_field :reservation_place, class: 'form-control' %>
+        </div>
+        <%= f.submit yield(:button_text), class: "btn btn-success btn-lg pull-right" %>
       </div>
     </div>
-  </form>
+  </div>
+  <% end %>
 </div>
 </div>
 
-<%= form_for(@booking) do |f| %>
-<% if @booking.errors.any? %>
-<div id="error_explanation">
-  <div class="alert alert-danger">The form contains <%= pluralize(@booking.errors.count, "error") %>.</div>
-  <ul>
-    <% @booking.errors.full_messages.each do |msg| %>
-    <li><%= msg %></li>
-    <% end %>
-  </ul>
-</div>
-<% end %>
-
-<%= f.label :delivery_type %>
-<%= f.select :delivery_type,Booking::DELIVERY_TYPES, prompt: 'Select a delivery method', class: 'form-control' %>
-<%= f.label :payment_type %>
-<%= f.select :payment_type, Booking::PAYMENT_TYPES, prompt: 'Select a payment method', class: 'form-control' %>
-<%= f.hidden_field :user_id, value: current_user.id %>
-<%= f.label :location_id %>
-<%= f.text_field :location_id %>
-
-<%= f.label :seat_id %>
-<%= f.text_field :seat_id %>
-
-<%= f.label :timeslot_id %>
-<%= f.text_field :timeslot_id %>
-
-<%= f.label :day_to_eat %>
-<%= f.text_field :day_to_eat %>
-
-<%= f.label :reservation_place %>
-<%= f.text_field :reservation_place %>
-
-<%= f.text_field :status %>
-<%= f.submit yield(:button_text), class: "btn btn-primary" %>
-<% end %>
 
 <script>
   $(document).ready(function () {
-  var navListItems = $('div.setup-panel div a'),
-          allWells = $('.setup-content'),
-          allNextBtn = $('.nextBtn');
+    var navListItems = $('div.setup-panel div a'),
+    allWells = $('.setup-content'),
+    allNextBtn = $('.nextBtn');
 
-  allWells.hide();
+    allWells.hide();
 
-  navListItems.click(function (e) {
+    navListItems.click(function (e) {
       e.preventDefault();
       var $target = $($(this).attr('href')),
-              $item = $(this);
+      $item = $(this);
 
       if (!$item.hasClass('disabled')) {
-          navListItems.removeClass('btn-primary').addClass('btn-default');
-          $item.addClass('btn-primary');
-          allWells.hide();
-          $target.show();
-          $target.find('input:eq(0)').focus();
+        navListItems.removeClass('btn-primary').addClass('btn-default');
+        $item.addClass('btn-primary');
+        allWells.hide();
+        $target.show();
+        $target.find('input:eq(0)').focus();
       }
-  });
+    });
 
-  allNextBtn.click(function(){
+    allNextBtn.click(function(){
       var curStep = $(this).closest(".setup-content"),
-          curStepBtn = curStep.attr("id"),
-          nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
-          curInputs = curStep.find("input[type='text'],input[type='url']"),
-          isValid = true;
+      curStepBtn = curStep.attr("id"),
+      nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
+      curInputs = curStep.find("input[type='text'],input[type='url']"),
+      isValid = true;
 
       $(".form-group").removeClass("has-error");
       for(var i=0; i<curInputs.length; i++){
-          if (!curInputs[i].validity.valid){
-              isValid = false;
-              $(curInputs[i]).closest(".form-group").addClass("has-error");
-          }
+        if (!curInputs[i].validity.valid){
+          isValid = false;
+          $(curInputs[i]).closest(".form-group").addClass("has-error");
+        }
       }
 
       if (isValid)
-          nextStepWizard.removeAttr('disabled').trigger('click');
-  });
+        nextStepWizard.removeAttr('disabled').trigger('click');
+    });
 
-  $('div.setup-panel div a.btn-primary').trigger('click');
-});
+    $('div.setup-panel div a.btn-primary').trigger('click');
+  });
 </script>

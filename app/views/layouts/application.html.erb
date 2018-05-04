@@ -12,7 +12,6 @@
 </head>
 
 <body >
-  <!-- Thanh menu ben trai -->
   <div id="store-panel">
     <%= render "layouts/store/left_menu" %>
   </div>
@@ -20,12 +19,9 @@
     <div class="container">  
       <%= render "layouts/store/head_store" %>
       <%= render 'sweetify/alert' %>
-<!--       <div class="message-content" id="">
-        <% flash.each do |message_type, message| %>
-        <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
-        <% end %>
-      </div> -->
       <%= yield %>
+      </div>
+      </div>
     </div>
   </div>
 </body>

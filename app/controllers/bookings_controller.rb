@@ -15,7 +15,10 @@ class BookingsController < ApplicationController
 
   # GET /bookings/new
   def new
+    @timeslot = Timeslot.all
+    @seating = Seating.all
     @booking = Booking.new
+
 
   end
 
@@ -79,6 +82,7 @@ class BookingsController < ApplicationController
 
     def ensure_cart_isnot_empty
       if @cart.cart_items.empty?
+        sweetalert_error('Your cart is empty', 'Error', persistent: 'Awesome!')
         redirect_to root_url,notice: 'Your cart is empty'
       end
     end
