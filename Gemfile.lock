@@ -1,27 +1,4 @@
 GIT
-  remote: git://github.com/elasticsearch/elasticsearch-rails.git
-  revision: 7815039c0f78ed0b9b896936875ee4d01855390e
-  specs:
-    elasticsearch-model (6.0.0.alpha1)
-      activesupport (> 3)
-      elasticsearch (> 1)
-      hashie
-    elasticsearch-rails (6.0.0.alpha1)
-
-GIT
-  remote: git://github.com/elasticsearch/elasticsearch-ruby.git
-  revision: 5eef0720817a993c74902e94e343930aa44fbace
-  specs:
-    elasticsearch (7.0.0.pre)
-      elasticsearch-api (= 7.0.0.pre)
-      elasticsearch-transport (= 7.0.0.pre)
-    elasticsearch-api (7.0.0.pre)
-      multi_json
-    elasticsearch-transport (7.0.0.pre)
-      faraday
-      multi_json
-
-GIT
   remote: git@github.com:stympy/faker.git
   revision: f8e1b81f8da82ea9eb88c4939a3a6801f97e5ac1
   specs:
@@ -410,9 +387,6 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   config
   devise
-  elasticsearch!
-  elasticsearch-model!
-  elasticsearch-rails!
   faker!
   font-awesome-rails (~> 4.7.0.3)
   gravatar_image_tag
