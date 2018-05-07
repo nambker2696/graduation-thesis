@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180504195356) do
+ActiveRecord::Schema.define(version: 20180507134505) do
 
   create_table "bookings", force: :cascade do |t|
     t.integer "location_id"
@@ -102,6 +102,8 @@ ActiveRecord::Schema.define(version: 20180504195356) do
     t.string "phone"
     t.boolean "status"
     t.string "radius"
+    t.integer "sum_rate"
+    t.float "rate_avg"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -125,6 +127,18 @@ ActiveRecord::Schema.define(version: 20180504195356) do
     t.date "date_receipt"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.string "title"
+    t.text "content"
+    t.integer "rate_score"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "location_id"
+    t.integer "user_id"
+    t.index ["location_id"], name: "index_reviews_on_location_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "seatings", force: :cascade do |t|

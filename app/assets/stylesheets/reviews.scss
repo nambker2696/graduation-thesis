@@ -1,0 +1,48 @@
+// Place all the styles related to the Reviews controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.review-component{
+  padding: 20px;
+  margin: 15px;
+  border-bottom: 2px dashed #7d7d82;
+  a{
+    text-decoration: none;
+  }
+  .review_detail{
+    .review_author{
+      .author-name{
+        color: #000;
+      }
+      .rating{
+        .rate_avg{
+          ul{
+            list-style-type: none;
+            li{
+              float: left;
+              i{
+                color: yellow;
+              }
+            }
+          }
+
+        }
+      }
+    }
+      
+    .review_articles{
+      margin-top: 35px;
+      #review_title{
+        color: #777;
+      }
+      .review-content{
+        color: #777;
+      }
+    }
+
+
+  }
+
+
+
+
+}

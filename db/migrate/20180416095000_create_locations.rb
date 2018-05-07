@@ -7,6 +7,8 @@ class CreateLocations < ActiveRecord::Migration[5.1]
       t.string :phone
       t.boolean :status
       t.string :radius
+      t.integer :sum_rate
+      t.float :rate_avg
       
       t.timestamps
     end

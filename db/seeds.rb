@@ -1,6 +1,7 @@
 require 'json'
 require "faker"
 
+random = Random.new
 puts "Faker admin@gmail.com admin1"
 puts "Faker 15 Users(admin:0)"
 puts "Faker 5 staff(admin:5)"
@@ -10,6 +11,33 @@ User.create!(name:  "Admin",
  password_confirmation: "admin1",
  avatar: Faker::Avatar.image("my-own-slug", "50x50", "jpg"),
  admin: 100)
+
+User.create!(name:  "NambKer",
+ email: "nam@gmail.com",
+ password:              "123456",
+ password_confirmation: "123456",
+ avatar: Faker::Avatar.image("my-own-slug", "50x50", "jpg"),
+ admin: 0)
+15.times do
+  User.create(
+    name: Faker::Name.name,
+    email: Faker::Internet.email,
+    password:              "123456",
+    password_confirmation: "123456",
+    avatar: Faker::Avatar.image("my-own-slug", "50x50", "jpg"),
+    admin: 0
+    )
+end
+10.times do
+  User.create(
+    name: Faker::Name.name,
+    email: Faker::Internet.email,
+    password:              "123456",
+    password_confirmation: "123456",
+    avatar: Faker::Avatar.image("my-own-slug", "50x50", "jpg"),
+    admin: 5
+    )
+end
 
 puts "Faker 23 Category for 1 Store"
 file = File.read('lib/assets/category.json')
@@ -30,9 +58,28 @@ puts "Faker 20 Location for Store"
     address: Faker::Address.city,
     phone: Faker::PhoneNumber.cell_phone,
     status: Faker::Boolean.boolean(0.2),
-    radius: Faker::Number.between(1, 5))    
+    radius: Faker::Number.between(1, 5),
+    sum_rate: 0,
+    rate_avg: 0
+    )    
 end
 
+Location.all.each do |locat|
+  5.times do |x|
+    title = Faker::Book.title
+    content = Faker::HarryPotter.quote + Faker::HarryPotter.quote
+    user_id = random.rand(1..25)
+    rate_rv = random.rand(0..5)
+    Review.create!( title: title,
+      content: content,
+      user_id: user_id,
+      location_id: locat.id,
+      rate_score: rate_rv
+      )
+    locat.update_attributes( :rate_avg => ((locat.sum_rate*locat.rate_avg + rate_rv)/(locat.sum_rate + 1)), :sum_rate => (locat.sum_rate + 1))
+  end
+end
+puts "Create 5 Review for each Songs"
 
 puts "Faker 200 Dish"
 200.times do
@@ -85,33 +132,6 @@ locats.each do |locat|
   end
 end
 
-
-User.create!(name:  "NambKer",
- email: "nam@gmail.com",
- password:              "123456",
- password_confirmation: "123456",
- avatar: Faker::Avatar.image("my-own-slug", "50x50", "jpg"),
- admin: 0)
-15.times do
-  User.create(
-    name: Faker::Name.name,
-    email: Faker::Internet.email,
-    password:              "123456",
-    password_confirmation: "123456",
-    avatar: Faker::Avatar.image("my-own-slug", "50x50", "jpg"),
-    admin: 0
-    )
-end
-10.times do
-  User.create(
-    name: Faker::Name.name,
-    email: Faker::Internet.email,
-    password:              "123456",
-    password_confirmation: "123456",
-    avatar: Faker::Avatar.image("my-own-slug", "50x50", "jpg"),
-    admin: 5
-    )
-end
 
 
 puts "Faker 10 Order"

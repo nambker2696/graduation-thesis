@@ -1,0 +1,55 @@
+
+<div class="review-component">  
+  <%= link_to location_review_path(location_id: review.location.id,
+  id: review.id), class: "review-link" do %>
+  <div class="review_detail">
+    <div class="review_author">
+      <div id="review_author">
+        <% if review.user.avatar? %>
+        <%= image_tag review.user.avatar.url,
+        size: "50x50", class: "img_author" %>
+        <% else %>
+        <% end %>
+        <div class="author_details">
+          <div class="left-block">
+            <div class="author-name">
+              <%= review.user.name %>
+            </div>
+            <div class="rating">
+              <%= render "shared/location_avg_rate", rate_avg: review.rate_score %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="review_articles">
+      <strong>
+        <p id="review_title">
+          <%= review.title %>
+        </p>
+      </strong>
+      <p class="review-content"><%= review.content.html_safe %></p>
+    </div>
+  </div>
+  <% end %>
+  <div class="config">
+    <% if user_signed_in? %>
+    <% @bookmark = current_user.bookmark_of_this review %>
+    <% if @bookmark %>
+    <div id="bm-btn-<%= review.id %>">
+      <%= render "bookmarks/unbookmark",
+      review: review %>
+    </div>
+    <% else %>
+    <div id="bm-btn-<%= review.id %>">
+      <%= render "bookmarks/bookmark",review: review %>
+    </div>
+    <% end %>
+    <% if current_user.is_owner_of? review %>
+    <%= link_to location_review_path(location, review), method: :delete do %>
+    <%= fa_icon "trash" %>
+    <% end %>
+    <% end %>
+    <% end %>
+  </div>
+</div>

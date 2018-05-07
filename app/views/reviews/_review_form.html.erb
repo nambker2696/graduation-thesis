@@ -1,0 +1,26 @@
+
+<div class="review_content review_section">
+  <%= form_for [location, review] do |f| %>
+  <div class="input-section">
+    <%= f.text_field :title, placeholder: t("app.review.title"),
+    class: "form-control" %>
+  </div>
+  <div class="rate-section">
+    <h4><%= t "app.review.rate" %> 
+      <% if review.persisted? %>
+      <%= render "shared/new_review_rate",
+      default_value: review.rate_score %>
+      <% else %>
+      <%= render "shared/new_review_rate",
+      default_value: 0 %>
+      <% end %>
+    </h4>
+  </div>
+  <%= f.text_area :content, id: "froala-editor" %>
+
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.hidden_field :location_id, value: @location.id %>
+  <%= f.hidden_field :rate_score, value: 0, id: "rate_value" %>
+  <%= f.submit "Submit", class: "btn" %>
+  <% end %>
+</div>

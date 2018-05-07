@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :reviews
    devise_for :users, only: :omniauth_callbacks, controllers:
   { omniauth_callbacks: 'users/omniauth_callbacks',
     registrations: 'registrations',passwords: "passwords" }
@@ -37,6 +38,9 @@ Rails.application.routes.draw do
   resources :timeslots,only:[:show]
   resources :seatings,only:[:show]
   resources :locations,only:[:show] do
+    resources :reviews do
+      resources :like, only: %i(create destroy)
+    end
     resources :dishes
     resources :likes, only: %i(create destroy)
   end
