@@ -1,0 +1,40 @@
+<div class="row ">
+  <% @dishes.each do |dish| %>
+  <div class="dish-box">
+    <div class="col-md-3 dish-image">
+      <%= image_tag("food/1.jpg", :alt => "rss feed") %>
+    </div>
+    <div class="col-md-6 dish-detail-box">
+      <h2><%= dish.name %></h2>
+      <p><%= dish.description %></p>
+    </div>
+    <div class="col-md-3 dish-btn-box">
+    </div>
+  </div>
+  <div class="recomd_detail">
+    <div class="list">
+      <ul>
+        <li class="bg1">
+          <i class="fa fa-cutlery"></i>
+          <div class="dv2">Portion:</div>
+          <div class="dv3"><span>1 platter</span></div>
+          <div class="clear"></div>
+        </li>
+        <li class="bg2">
+          <i class="fa fa-user"></i>
+          <div class="dv2">Serves:</div>
+          <div class="dv3"><span>2</span></div>
+          <div class="clear"></div>
+        </li>
+        <li class="bg3">
+          <i class="fa fa-shopping-bag"></i>
+          <div class="dv2">Min. Qty:</div>
+          <div class="dv3"><span>1</span></div>
+          <div class="clear"></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="botborder"></div>
+  <% end %>
+</div>

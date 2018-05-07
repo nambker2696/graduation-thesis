@@ -179,14 +179,14 @@
               left: 30%;
             }
           }
-          li:last-child {
+          li.submit-search-btn{
             position: absolute;
             right: 0;
             top: 0;
             width: 209px;
             border: medium none;
           }
-          li:last-child input[type="submit"] {
+          li:last-child button[type="submit"] {
             background: #3cbaf5 none repeat scroll 0 0;
             color: #fff;
             font-size: 19px;

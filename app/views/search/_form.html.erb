@@ -1,19 +1,20 @@
 <div class="search-food">
   <div class="search-con">
     <div id="seach-form">
-      <%= form_for :term, url: search_path, method: :get do |form| %>
+      <%= form_with url: search_path, local: true, method: :get  do |form| %>
       <ul>
         <li class="location">
-            <%= text_field_tag :term, params[:term],placeholder: "Type your delivery location or dish..." %>
+          <%= form.text_field :q, placeholder: "Type your delivery location or dish...", data: { behavior: "autocomplete" }, class: "form-control mr-sm-2" %>
         </li>
         <li class="loction_bkg">
           <i class="fa fa-tasks location_get_icon"></i>
         </li>
-        <li>
-            <%= submit_tag "Search", name: nil %>
-        </li>
+        <li class="submit-search-btn">
+          <%= form.button "Search" %>
+          </li>
       </ul>
       <% end %>
+
     </div>
   </div>
 </div>

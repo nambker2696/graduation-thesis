@@ -1,7 +1,8 @@
 class LocationsController < ApplicationController
   skip_before_action :authenticate_user!
-  before_action :set_location, only: [:show, :edit, :update, :destroy]
+  before_action :set_location, only: [:show]
 
+  attr_reader :location, :dish
   # GET /locations
   # GET /locations.json
   def index
@@ -13,14 +14,25 @@ class LocationsController < ApplicationController
   # GET /locations/1
   # GET /locations/1.json
   def show
-    @location = Location.find(params[:id])
-    @store_owner = User.find(@location.id)
-    @dishs = Dish.joins(:location).where("locations.id" => params[:id])
-    if user_signed_in?
-      @like = Like.find_by(user_id: current_user.id, target: location)
-    else
-      @like = Like.find_by(target: location)
+
+    @location = Location.find_by id: params[:id]
+
+    @store_owner = User.find(@location.user_id)
+
+    @dishes= location.dishes.order(created_at: :desc).to_a
+
+    index_of_dish = @dishes.index @dish
+    if index_of_dish && index_of_dish != 0
+      @dishes.delete_at index_of_dish
+      @dishes.unshift @dish
     end
+
+    # @dishs = Dish.joins(:location).where("locations.id" => params[:id])
+    # if user_signed_in?
+    #   @like = Like.find_by(user_id: current_user.id, target: location)
+    # else
+    #   @like = Like.find_by(target: location)
+    # end
       
   end
 

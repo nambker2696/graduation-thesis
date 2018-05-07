@@ -37,15 +37,15 @@ Rails.application.routes.draw do
   resources :timeslots,only:[:show]
   resources :seatings,only:[:show]
   resources :locations,only:[:show] do
+    resources :dishes
     resources :likes, only: %i(create destroy)
   end
   resources :categories,only:[:show]
-  resources :dishes, only:[:show]
-  resources :locations, only:[:show]
+  get :search, controller: :home
+
   devise_for :users, skip: :omniauth_callbacks
     get 'about' => 'home#about'
     get 'contact' => 'home#contact'
-    get 'search' => "search#index"
     root to: 'home#index'
   end
   root to: redirect('/#{I18n.default_locale}', status: 302),
