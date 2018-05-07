@@ -413,7 +413,7 @@ DEPENDENCIES
   rails-assets-sweetalert2 (~> 5.1.1)!
   rails-jquery-autocomplete
   rails_12factor
-  ransack
+  ransack (~> 1.8, >= 1.8.2)
   recaptcha
   rspec-rails
   rubocop (~> 0.52.1)

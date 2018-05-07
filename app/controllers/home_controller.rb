@@ -6,8 +6,8 @@ class HomeController < ApplicationController
   end
 
   def search
-    @dishes = Dish.ransack(params[:a]).result(distinct: true)
-    @locations = Location.ransack(params[:a]).result(distinct: true) 
+    @dishes = Dish.ransack(name_cont: params[:q]).result(distinct: true)
+    @locations = Location.ransack(name_cont: params[:q]).result(distinct: true) 
     respond_to do |format| 
     format.html {}
     format.json {

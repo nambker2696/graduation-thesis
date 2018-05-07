@@ -25,7 +25,7 @@ gem 'rails', '~> 5.1.4'
 gem 'rails-assets-sweetalert2', '~> 5.1.1', source: 'https://rails-assets.org'
 gem 'sweet-alert2-rails'
 gem 'rails-jquery-autocomplete'
-gem 'ransack' 
+gem 'ransack', '~> 1.8', '>= 1.8.2' 
 gem "recaptcha", require: "recaptcha/rails"
 
 gem 'sass-rails', '~> 5.0'
@@ -60,5 +60,6 @@ group :production do
   gem 'pg'
   gem 'rails_12factor'
 end
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'gravatar_image_tag'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
