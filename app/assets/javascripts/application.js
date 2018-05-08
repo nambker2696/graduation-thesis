@@ -24,3 +24,6 @@
 //= require turbolinks
 //= require_tree .
 
+function getRating(el) {
+  $('#rate_value').val(el.value);
+}

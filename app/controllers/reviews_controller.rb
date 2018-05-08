@@ -24,7 +24,7 @@ class ReviewsController < ApplicationController
       location = Location.find(review_params[:location_id])
       location.update_attributes(rate_avg: 
         ((location.sum_rate * location.rate_avg + @review.rate_score)/(location.sum_rate + 1)),
-          sum_rate: (location.sum_rate + 1))
+        sum_rate: (location.sum_rate + 1))
       redirect_to location
       sweetalert_success('Create success.', 'Successfully created', persistent: 'Awesome!')
     else
@@ -64,5 +64,9 @@ class ReviewsController < ApplicationController
 
   def find_review
     @review = Review.find_by id: params[:id]
+  end
+
+  def review_params
+    params.require(:review).permit(Review::CREATE_PARAMS)
   end
 end

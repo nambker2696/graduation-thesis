@@ -62,13 +62,17 @@
         </ul>
         <div class="tab-content">
           <div role="tabpanel" class="tab-pane active" id="menu">
-          <%= render @dishes, location: @location %>
+            <%= render @dishes, location: @location %>
 
 
           </div>
           <div role="tabpanel" class="tab-pane" id="reviews">
             <div class="row">
-            <%= render @reviews, location: @location %>
+              <%= render @reviews, location: @location %>
+              <% if user_signed_in? %>
+                <%= render "reviews/review_form", location: @location, review: @review %>
+                <% end %>
+
             </div>
 
           </div>

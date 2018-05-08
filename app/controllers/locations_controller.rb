@@ -18,6 +18,10 @@ class LocationsController < ApplicationController
     @store_owner = User.find(@location.user_id)
     @dishes= location.dishes.order(created_at: :desc).to_a
     @reviews = location.reviews.order(created_at: :desc).to_a
+
+    if user_signed_in?
+      @review = Review.new
+    end
     
     index_of_dish = @dishes.index @dish
     if index_of_dish && index_of_dish != 0

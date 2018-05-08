@@ -17,13 +17,52 @@
         color:#23527c;
         padding-top:10px;
       }
+      .hdrcart {
+        position: relative;
+        .hdrcart-icons {
 
+          display: inline-block;
+          background-position: -10px -646px;
+        }
+        .num-cart {
+          position: absolute;
+          top: 6px;
+          background-color: #03A9F4;
+          border-radius: 4px;
+          color: #fff;
+          font-size: 11px;
+          left: 37px;
+          line-height: 11px;
+          padding: 4px;
+        }
+      }
+
+    }
+    #num-notfiy{
+      position: absolute;
+      top: 6px;
+      background-color: #03A9F4;
+      border-radius: 4px;
+      color: #fff;
+      font-size: 11px;
+      left: 35px;
+      line-height: 11px;
+      padding: 4px;
     }
     #admin-ac{
       height:52px;
     }
     span{
       color: black;
+    }
+    #logo-store{
+      img{
+        width:60px;
+        height:60px;
+      }
+      a{
+        float:right;
+      }
     }
   }
   .page-section:first-child {

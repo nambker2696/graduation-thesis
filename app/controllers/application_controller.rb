@@ -3,8 +3,9 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :set_locale
   before_action :set_cart
-  before_action :set_category
-  before_action :set_city_district
+  before_action :get_category
+  before_action :get_city_district
+  before_action :get_num_cart_item
 
   def set_locale
     I18n.locale = params[:locale] || I18n.default_locale
@@ -21,11 +22,14 @@ class ApplicationController < ActionController::Base
     @cart= Cart.create
     session[:cart_id]=@cart.id
   end
-  def set_city_district
+  def get_city_district
     @cities = City.all
     @districts = District.all
   end
-  def set_category
+  def get_category
     @categories = Category.all
+  end
+  def get_num_cart_item
+    @num_cart = CartItem.where(cart_id: session[:cart_id]).count
   end
 end
