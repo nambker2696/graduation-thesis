@@ -7,7 +7,7 @@ class User < ApplicationRecord
           :validatable,
           :omniauthable,
           omniauth_providers: %i[facebook]
-  mount_uploader :avatar, AvatarUploader
+  # mount_uploader :avatar, AvatarUploader
 
   has_many :bookings
   has_many :locations

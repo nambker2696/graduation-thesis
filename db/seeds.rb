@@ -5,40 +5,28 @@ random = Random.new
 puts "Faker admin@gmail.com admin1"
 puts "Faker 15 Users(admin:0)"
 puts "Faker 5 staff(admin:5)"
+# /// Edit
+User.delete_all
+rands = random.rand(1..13)
 User.create!(name:  "Admin",
  email: "admin@gmail.com",
  password:              "admin1",
  password_confirmation: "admin1",
- avatar: Faker::Avatar.image("my-own-slug", "50x50", "jpg"),
- admin: 100)
+ avatar: "logo_restorant/2017"+rands.to_s+".jpg",
+ admin: 100
+ )
 
-User.create!(name:  "NambKer",
- email: "nam@gmail.com",
- password:              "123456",
- password_confirmation: "123456",
- avatar: Faker::Avatar.image("my-own-slug", "50x50", "jpg"),
- admin: 0)
-15.times do
+30.times do
+  rands = random.rand(1..13)
   User.create(
     name: Faker::Name.name,
     email: Faker::Internet.email,
     password:              "123456",
     password_confirmation: "123456",
-    avatar: Faker::Avatar.image("my-own-slug", "50x50", "jpg"),
+    avatar: "logo_restorant/2017"+rands.to_s+".jpg",
     admin: 0
     )
 end
-10.times do
-  User.create(
-    name: Faker::Name.name,
-    email: Faker::Internet.email,
-    password:              "123456",
-    password_confirmation: "123456",
-    avatar: Faker::Avatar.image("my-own-slug", "50x50", "jpg"),
-    admin: 5
-    )
-end
-
 puts "Faker 23 Category for 1 Store"
 file = File.read('lib/assets/category.json')
 data_hash = JSON.parse(file)
@@ -216,3 +204,4 @@ data_hash.each do |district|
     district: district['district'],
     )
 end
+

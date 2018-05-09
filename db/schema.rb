@@ -175,7 +175,7 @@ ActiveRecord::Schema.define(version: 20180507134505) do
     t.string "provider"
     t.string "uid"
     t.integer "admin"
-    t.string "avatar", default: "ava-default-male.jpg"
+    t.string "avatar"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

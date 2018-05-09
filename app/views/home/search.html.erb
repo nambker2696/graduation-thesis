@@ -6,12 +6,11 @@
 <div class="show-search">
   <% if @locations %>
   <% @locations.each do |locat| %>
-  <div class="left-panel" style="width: 625px; margin-left: 0px;">
+  <div class="left-panel" style=" width:800px; margin-left: 0px;">
     <div class="panel panel-default">
       <div class="panel-body">
         <div class="col-md-12">
           <div class="icerik-bilgi">
-            <%= image_tag(@store_owner.avatar, alt: 'money') %>
             <a href="#"><h2> <%= link_to locat.name, "#" %></h2></a>
             <p> <%= locat.address %> </p>
             <div class="btn-group">
