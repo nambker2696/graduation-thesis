@@ -19,7 +19,9 @@
  *= require sweetalert2
  *= require easy-autocomplete
  *= require easy-autocomplete.themes 
+*= require bootstrap-datetimepicker
  *= require_tree .
 */
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
+@import 'bootstrap-datetimepicker';

@@ -50,18 +50,22 @@ data_hash.each do |cate|
     )
 end
 
-puts "Faker 20 Location for Store"
-10.times do
+puts "Faker 900 Location for Store"
+file = File.read('lib/assets/total_store.json')
+data_hash = JSON.parse(file)
+data_hash.each do |store|
   Location.create(
-    name: Faker::Name.name,
+    name: store['storename'],
     user_id: 1,
-    address: Faker::Address.city,
-    phone: Faker::PhoneNumber.cell_phone,
-    status: Faker::Boolean.boolean(0.2),
+    address: store['address'],
+    phone: store['phone'],
+    description: store['des'],
+    status: true,
+    open_time: store['open_time'],
     radius: Faker::Number.between(1, 5),
     sum_rate: 0,
     rate_avg: 0
-    )    
+  )
 end
 
 Location.all.each do |locat|
@@ -100,36 +104,56 @@ end
 puts "Faker 7 OpeningHours for each location"
 locats = Location.all
 locats.each do |locat|
-  i = 0
-  7.times do
-    i+=1
-    OpeningHour.create(
-      day: i,
-      location_id: locat.id,
-      open: Faker::Time.forward(23, :morning),
-      close: Faker::Time.backward(14, :evening),
-      status: true)
-  end
-
-  Timeslot.create(location_id: locat.id,name: "morning",start: "8:00",end: "10:00")
-  Timeslot.create(location_id: locat.id,name: "morning",start: "10:00",end: "12:00")
-  Timeslot.create(location_id: locat.id,name: "afternoon",start: "14:00",end: "16:00")
-  Timeslot.create(location_id: locat.id,name: "afternoon",start: "16:00",end: "18:00")
-  Timeslot.create(location_id: locat.id,name: "night",start: "18:00",end: "20:00")
-
-  3.times do
-    seat = 0
-    floor = 0
-    10.times do
-      seat+=1
-      Seating.create(
+  # i = 0
+  # 7.times do
+  #   i+=1
+  #   OpeningHour.create(
+  #     day: i,
+  #     location_id: locat.id,
+  #     open: Faker::Time.forward(23, :morning),
+  #     close: Faker::Time.backward(14, :evening),
+  #     status: true)
+  # end
+  # Timeslot.create(location_id: locat.id,name: "morning",start: "8:00",end: "10:00")
+  # Timeslot.create(location_id: locat.id,name: "morning",start: "10:00",end: "12:00")
+  # Timeslot.create(location_id: locat.id,name: "afternoon",start: "14:00",end: "16:00")
+  # Timeslot.create(location_id: locat.id,name: "afternoon",start: "16:00",end: "18:00")
+  # Timeslot.create(location_id: locat.id,name: "night",start: "18:00",end: "20:00")
+  # # 3.times do
+  #   seat = 0
+  # #   floor = 0
+  #   10.times do
+  #     seat+=1
+  #     Seating.create(
+  #       seat_name: floor.to_s+seat.to_s,
+  #       location_id: locat.id,
+  #       floor: 1,
+  #       description: Faker::ChuckNorris.fact
+  #       )
+  #   end
+  # end
+  floor = 1
+  seat = 1
+  Seating.create(
         seat_name: floor.to_s+seat.to_s,
         location_id: locat.id,
-        floor: seat,
+        floor: 1,
         description: Faker::ChuckNorris.fact
         )
-    end
-  end
+  seat = 2
+  Seating.create(
+        seat_name: floor.to_s+seat.to_s,
+        location_id: locat.id,
+        floor: 1,
+        description: Faker::ChuckNorris.fact
+        )
+  seat = 3
+  Seating.create(
+        seat_name: floor.to_s+seat.to_s,
+        location_id: locat.id,
+        floor: 1,
+        description: Faker::ChuckNorris.fact
+        )
 end
 
 

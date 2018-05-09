@@ -100,8 +100,10 @@ ActiveRecord::Schema.define(version: 20180507134505) do
     t.integer "user_id"
     t.string "address"
     t.string "phone"
-    t.boolean "status"
+    t.string "open_time"
+    t.text "description"
     t.string "radius"
+    t.boolean "status"
     t.integer "sum_rate"
     t.float "rate_avg"
     t.datetime "created_at", null: false

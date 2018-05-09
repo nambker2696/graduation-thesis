@@ -22,6 +22,7 @@
 //= require sweet-alert2-rails
 //= require jquery.easy-autocomplete
 //= require turbolinks
+//= require bootstrap-datetimepicker
 //= require_tree .
 
 function getRating(el) {

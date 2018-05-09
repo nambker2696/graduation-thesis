@@ -1,18 +1,19 @@
 <div class="location-put">
-  <%= form_for :term, url: search_path, method: :get do |form| %>
-  <%= text_field_tag :term, params[:term],class: "search-box-input",placeholder: "Search for chef by name or dish..." %>
+  <%= form_with url: search_path,local: true, method: :get do |form| %>
+  <%= form.text_field :q,class: "search-box-input",placeholder: "Search for chef by name or dish...", data: { behavior: "autocomplete" } %>
   <% end %>
 </div>
 <div class="show-search">
-  <% if @dishes %>
-  <% @dishes.each do |post| %>
+  <% if @locations %>
+  <% @locations.each do |locat| %>
   <div class="left-panel" style="width: 625px; margin-left: 0px;">
     <div class="panel panel-default">
       <div class="panel-body">
         <div class="col-md-12">
           <div class="icerik-bilgi">
-            <a href="#"><h2> <%= link_to post.name, "#" %></h2></a>
-            <p> <%= post.display_name %> </p>
+            <%= image_tag(@store_owner.avatar, alt: 'money') %>
+            <a href="#"><h2> <%= link_to locat.name, "#" %></h2></a>
+            <p> <%= locat.address %> </p>
             <div class="btn-group">
               <a class="btn btn-social btn-facebook" href="#" data-toggle="tooltip" title="Share Facebook"><i class="fa fa-facebook"></i></a>
               <a class="btn btn-social btn-twitter" href="#" data-toggle="tooltip" title="Share Twitter"><i class="fa fa-twitter"></i></a>

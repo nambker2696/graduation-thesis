@@ -5,8 +5,10 @@ class CreateLocations < ActiveRecord::Migration[5.1]
       t.integer :user_id
       t.string :address
       t.string :phone
-      t.boolean :status
+      t.string :open_time
+      t.text :description
       t.string :radius
+      t.boolean :status
       t.integer :sum_rate
       t.float :rate_avg
       

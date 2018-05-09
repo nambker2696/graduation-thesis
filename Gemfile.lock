@@ -63,6 +63,8 @@ GEM
     bootstrap-sass (3.3.6)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
+    bootstrap3-datetimepicker-rails (4.17.47)
+      momentjs-rails (>= 2.8.1)
     builder (3.2.3)
     byebug (10.0.2)
     capybara (2.18.0)
@@ -79,6 +81,7 @@ GEM
     childprocess (0.9.0)
       ffi (~> 1.0, >= 1.0.11)
     climate_control (0.2.0)
+    coderay (1.1.2)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0)
@@ -187,6 +190,8 @@ GEM
     mini_mime (1.0.0)
     mini_portile2 (2.3.0)
     minitest (5.11.3)
+    momentjs-rails (2.20.1)
+      railties (>= 3.1)
     multi_json (1.13.1)
     multi_xml (0.6.0)
     multipart-post (2.0.0)
@@ -233,6 +238,9 @@ GEM
     polyamorous (1.3.3)
       activerecord (>= 3.0)
     powerpack (0.1.1)
+    pry (0.11.3)
+      coderay (~> 1.1.0)
+      method_source (~> 0.9.0)
     public_suffix (3.0.2)
     puma (3.11.4)
     rack (2.0.5)
@@ -384,6 +392,7 @@ DEPENDENCIES
   acts_as_votable (~> 0.10.0)
   bootstrap-kaminari-views
   bootstrap-sass (= 3.3.6)
+  bootstrap3-datetimepicker-rails (~> 4.17.47)
   byebug
   capybara (~> 2.13)
   carrierwave (~> 1.0)
@@ -408,6 +417,7 @@ DEPENDENCIES
   owlcarousel-rails
   paperclip
   pg
+  pry
   puma (~> 3.7)
   rails (~> 5.1.4)
   rails-assets-sweetalert2 (~> 5.1.1)!

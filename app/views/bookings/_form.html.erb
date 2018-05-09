@@ -33,6 +33,21 @@
     <div class="col-xs-6">
       <div class="col-md-12">
         <h3>Choose Timeslote</h3>
+        <!-- datepicker -->
+        <div class="well">
+          <div id="datetimepicker2" class="input-append">
+            <input data-format="MM/dd/yyyy HH:mm:ss PP" type="text"></input>
+            <span class="add-on">
+              <i data-time-icon="icon-time" data-date-icon="icon-calendar">
+              </i>
+            </span>
+          </div>
+        </div>
+
+
+
+
+
         <div class="form-group">
           <%= f.label :timeslot_id,class: "control-label" %>
           <%= f.text_field :timeslot_id, class: 'form-control' %>
@@ -78,8 +93,8 @@
         </div>
         
         <div class="form-group">
-        <%= f.label :reservation_place,class: "control-label" %>
-        <%= f.text_field :reservation_place, class: 'form-control' %>
+          <%= f.label :reservation_place,class: "control-label" %>
+          <%= f.text_field :reservation_place, class: 'form-control' %>
         </div>
         <%= f.submit yield(:button_text), class: "btn btn-success btn-lg pull-right" %>
       </div>
@@ -132,5 +147,13 @@
     });
 
     $('div.setup-panel div a.btn-primary').trigger('click');
+  });
+
+
+  $(function() {
+    $('#datetimepicker2').datetimepicker({
+      language: 'en',
+      pick12HourFormat: true
+    });
   });
 </script>
