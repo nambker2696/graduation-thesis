@@ -1,18 +1,25 @@
 <div id="left-navbar" class="sidebar-admin">
  <div class="navbar-links">
   <div class="box-login-store">
+    <% if user_signed_in? %>
+    <span class="text-center">
+      <%= image_tag(current_user.avatar) %>
+      
+    </span>
+    <div class="box-status-user">
+      <h3 class="username"><%= current_user.name %></h3>
+      <i class="fa fa-circle"><span>online</span></i> 
+    </div>
+    <% else %>
     <span class="text-center">
       <i class="fa fa-user fa-3x"></i> 
     </span>
     <div class="box-status-user">
-      <% if user_signed_in? %>
-      <h3 class="username"><%= current_user.name %></h3>
-      <i class="fa fa-circle"></i> online
-      <% else %>
       <h3 class="username">Guest</h3>
       <button type="button" class="btn launchConfirm">Login</button>
-      <% end %>
     </div>
+    <% end %>
+
   </div>
   <ul>
     <li>
@@ -133,7 +140,7 @@
           <li>
             <div class="checkbox">
               <label for="" class="checkbox1">
-              <input type="radio" class="" name="meal_type" checked>
+                <input type="radio" class="" name="meal_type" checked>
                 <%= city.city %>
               </label>
             </div>

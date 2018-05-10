@@ -46,15 +46,26 @@
            height: 60px;
            padding-top: 6px;
          }
+         img{
+          width:60px;
+          height:60px;
+          padding-top: 6px;
+          border-radius: 100%;
+          border: 2px solid #3e3e3e;
+         }
        }
        .box-status-user{
         margin-left: 15px !important;
         .username{
           margin-top: 0px !important;  
           font-size:16px;
+          margin-left: 6px;
         }
         i{
           color: #34d61e;
+          span{
+            margin-left:8px;
+          }
         }
       }
     }
@@ -204,3 +215,5 @@
     height:0px;
   }
 }
+
+// checkbox

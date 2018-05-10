@@ -6,31 +6,56 @@
 <div class="show-search">
   <% if @locations %>
   <% @locations.each do |locat| %>
-  <div class="left-panel" style=" width:800px; margin-left: 0px;">
+  <div class="left-panel result-search">
     <div class="panel panel-default">
-      <div class="panel-body">
-        <div class="col-md-12">
-          <div class="icerik-bilgi">
-            <a href="#"><h2> <%= link_to locat.name, "#" %></h2></a>
-            <p> <%= locat.address %> </p>
-            <div class="btn-group">
-              <a class="btn btn-social btn-facebook" href="#" data-toggle="tooltip" title="Share Facebook"><i class="fa fa-facebook"></i></a>
-              <a class="btn btn-social btn-twitter" href="#" data-toggle="tooltip" title="Share Twitter"><i class="fa fa-twitter"></i></a>
-              <a class="btn btn-social btn-google" href="#" data-toggle="tooltip" title="Share Google"><i class="fa fa-google"></i></a>
-            </div>
-            <a href="#">
-              <button type="button" class="btn btn-primary">
-                <span class="btn btn-google">View More </span>
-              </button>
-            </a>
+        <div class="col-md-12 locat-result">
+          <div class="chef-box">
+            <ul>
+              <li>
+                <span class="chef-img">
+                  <%= image_tag(locat.user.avatar, :alt => "rss feed") %>
+                </span>
+                <span class="chef-name">
+                  <h3><%= link_to locat.name, "#" %></h3>
+                  <p><%= locat.address %></p>
+                </span>
+                <!-- <span class="exclusive-con">
+
+                </span> -->
+              </li>
+            </ul>
           </div>
+          <div class="chef-images">
+            <ul>
+              <li>
+                <%= image_tag("food/1.jpg", :alt => "rss feed") %>
+              </li>
+              <li>
+                <%= image_tag("food/1.jpg", :alt => "rss feed") %>
+              </li>
+              <li>
+                <%= image_tag("food/1.jpg", :alt => "rss feed") %>
+              </li>
+              <li>
+                <%= image_tag("food/1.jpg", :alt => "rss feed") %>
+              </li>
+              <li count="25"><a href="#">+25</a></li>
+            </ul>
+          </div>
+          <div class="chef-food-detail">
+            <ul>
+              <li><span class="detail-con">Cuisines:</span> Not Avaliable</li>
+              <li><span class="detail-con">Dish Count:</span> 122+ dishes</li>
+            </ul>
+            <ul>
+              <li><span class="detail-con1 ordercount">No. of Orders: 36 </span></li>
+            </ul>
+            </div>
         </div>
-      </div>
     </div>
   </div>
   <% end %>
   <% else %>
   <p>Your search did not match any documents.</p>
   <% end %>
-</div>
 </div>

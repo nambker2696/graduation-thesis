@@ -221,6 +221,8 @@ en:
       user_stats: User stats
       messages: Messages
       favourites: Favourites
+      bookmarks: Bookmarks
+      your_order: Your orders
       sign_out: Sign Out
     resources_dropdown:
       resources: Resources

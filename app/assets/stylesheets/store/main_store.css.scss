@@ -10,13 +10,40 @@
       margin-right: 0px;
       padding: 0 22px;
       a{
-        padding-top:10px;
-        color:#a7a1a1
+        color:#777 !important;
+        background:#fff;
       }
       a:hover{
-        color:#23527c;
-        padding-top:10px;
+        i{
+          color: #03A9F4;
+        }
       }
+      .dropdown{
+        height:60px !important;
+        .dropdown-menu{
+          width: 80px !important;
+          text-align: center;
+          a{
+            padding-top:10px;
+            color:#777 !important;
+            i{
+              color:#777;
+            }
+          }
+          a:hover{
+            color:#03A9F4;
+            padding-top:10px;
+            border-bottom: 3px solid #03A9F4;
+            span{
+              color:#03A9F4;
+            }
+            i{
+              color:#03A9F4;
+            }
+          }
+        }
+      }
+      
       .hdrcart {
         position: relative;
         .hdrcart-icons {

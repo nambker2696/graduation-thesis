@@ -1,18 +1,92 @@
+$orangered: #ff4500;
+$spectra: #2f4f4f;
+$caribbean-green: #05bba5;
+$light-green: #0ac986;
+$bitter: #8f8f81;
+$alabaster: #f9f9f9;
 $white: #fff;
+$geyser: #c9dadd;
+$dove-gray: #666;
+$meadow: #22be5c;
+$shamrock: #32c6a1;
+$pink: #dd7e89;
+$red: #f00;
+$salem: #0ba73e;
+$jellybean: #2a8797;
+$black: #000;
+$hippie-green: #468847;
+$dark-red: #8b0000;
+$blue: #00f;
+$cerulean: #0a93cc;
+$silver: #bdbdbd;
+$tundora: #4c4a4a;
+$gallery: #eaeaea;
+$alto: #dadada;
+$light-grey: #f0f0f0;
+$grey: #ededed;
+$silver-chalice: #afaeae;
+$light-blue: #98bcdf;
+$gray-dark: #444;
+$mexican-red: #a41f35;
+$scorpion: #5f5b5b;
+$alabaster: #fafafa;
+$mystic: #e1e8ed;
+$abbey: #595a5d;
+$sushi: #82b440;
+$dark-sushi: #6f9a37;
+$green-sushi: #7aa93c;
+$boulder: #787878;
+$emperor: #545454;
+$bondi-blue: #0084b4;
+$dark-salem: #0a6f42;
+$cornflower-blue: #6495ed;
+$wild-sand: #f4f4f4;
+$cucumber: #89b556;
+$gray-light: #eee;
+$mercury: #e3e3e3;
+$light-alabaster: #fcfcfc;
+$gray: #919191;
+$carrot: #f9993e;
+$dark-blue: #24297f;
+$grape: #4a1951;
+$east-bay: #4d508e;
+$cardinal: #d11f25;
 $jelly-blue: #2d97a7;
+$yellow: #ff0;
+$golden: #e6c600;
+$golden-dark: #b89d00;
+$alto: #ddd;
+$dark-silver: #aaa;
+$dark-white: rgba(246, 229, 209, .3);
+$martini: rgba(180, 160, 160, .3);
+$black-opacity: rgba(0, 0, 0, .2);
+$gray-opacity: rgba(84, 84, 84, .89);
+$gray-darked: rgba(100, 96, 99, 0);
+$gray-darked2: rgba(100, 96, 99, 0.85);
+$white-light: rgba(251, 251, 255, .86);
+$blossom: rgba(255, 134, 147, .65);
+$dark-blossom: rgba(188, 114, 113, .66);
+$brick: rgba(155, 34, 45, .93);
+$spring-green: rgba(36, 255, 109, .75);
 $bermuda: rgba(137, 222, 200, .76);
 $pelorous: rgba(54, 178, 194, .71);
 $pelorous-opacity: rgba(54, 178, 194, .91);
 $black-light: rgba(0, 0, 0, .25);
 $grey-opacity: rgba(119, 119, 119, .58);
+$blue-opacity: rgba(44, 76, 134, .68);
+$grey-black: rgba(0, 0, 0, 0);
+$black-like: rgba(0, 0, 0, .6);
+$black-haft: rgba(0, 0, 0, .5);
+$black-dark: rgba(0, 0, 0, .8);
+$fiord: rgba(70, 75, 110, .247059);
 $admin-background: rgba(185, 176, 176, .2);
 $slide-link: #07a6f5;
 $form-background: rgba(253, 255, 255, .7);
 $btn-color1: #41deb6;
 $form-control-color: #23ffd0;
 $outside-ground: rgba(168, 129, 110, 0.82);
-$caribbean-green: #05bba5;
-$blue-zodiac :#404453;
+$inside-ground: rgba(199, 194, 155, 0.93);
+
 
 #form-login-user{
   .float-label-control { position: relative; margin-bottom: 1.2em; }
@@ -92,6 +166,9 @@ $blue-zodiac :#404453;
     height: 80px;
     padding-top: 0px;
     color: $white;
+    h2{
+      padding-top:20px;
+    }
   }
 
   .box-content{
@@ -120,6 +197,7 @@ $blue-zodiac :#404453;
   }
   .form-actions{
     text-align:center;
+    margin-top: 20px;
     .sign-in-facebook{
       color: #404453;
     }
@@ -132,11 +210,19 @@ $blue-zodiac :#404453;
   .box-footer{
     text-align: center!important;
     margin-top:30px;
+    padding-bottom: 30px;
     p>span>a{
       color:$form-control-color;
     }
+
     .for-get>span>a{
-      color: $jelly-blue;
+      color: $cardinal;
+    }
+    .regist>span>a{
+      color: $jelly-blue; 
+    }
+    .login>span>a{
+      color: $jelly-blue; 
     }
     .for-get a:hover{
       color: $form-control-color;

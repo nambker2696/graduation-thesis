@@ -19,8 +19,8 @@
     width: 100%;
   }
   input[type=text]:focus, textarea:focus {
-    box-shadow: 0 0 5px rgba(81, 203, 238, 1);
-    border: 1px solid rgba(81, 203, 238, 1);
+    box-shadow: 0 0 5px #ddd;
+    border: 1px solid #ddd;
   }
   .autocomplete {
     position: relative;
@@ -71,22 +71,22 @@
 
 
 /* PANEL */
-.left-panel .panel-default{border-bottom-left-radius:7px; border-bottom-right-radius:7px; border-bottom:2px #DDD solid;}
-.left-panel .panel-default .panel-body {padding:0; margin:0;}
-.left-panel .panel-default .panel-body .col-md-12{margin:0; padding:0;}
-.left-panel .panel-default .panel-body .thumbnail{border:none; margin:0; padding:0; position:relative;}
-.left-panel .panel:hover img {opacity:.8;}
-.left-panel .panel-default .panel-body .icerik-bilgi{margin:30px;}
-.icerik-bilgi .btn-primary{float:right; margin-bottom:30px;}
-.icerik-bilgi h2{margin-bottom:30px; color:#333;}
-.icerik-bilgi h2:hover{color:#E74C3C; text-decoration:none;}
-.icerik-bilgi a:hover{text-decoration:none;}
-.icerik-bilgi p{margin-bottom:30px; line-height:25px; font-size:16px;}
-.icerik-bilgi .btn-group{float:left;}
-.btn-group a{font-size:26px; color:#CCC;}
-.btn-group .btn-facebook:hover{color:#3B5998;}
-.btn-group .btn-twitter:hover{color:#55ACEE;}
-.btn-group .btn-google:hover{color:#DD4B39;}
+// .left-panel .panel-default{border-bottom-left-radius:7px; border-bottom-right-radius:7px; border-bottom:2px #DDD solid;}
+// .left-panel .panel-default .panel-body {padding:0; margin:0;}
+// .left-panel .panel-default .panel-body .col-md-12{margin:0; padding:0;}
+// .left-panel .panel-default .panel-body .thumbnail{border:none; margin:0; padding:0; position:relative;}
+// .left-panel .panel:hover img {opacity:.8;}
+// .left-panel .panel-default .panel-body .locat-details-search{margin:30px;}
+// .locat-details-search .btn-primary{float:right; margin-bottom:30px;}
+// .locat-details-search h2{margin-bottom:30px; color:#333;}
+// .locat-details-search h2:hover{color:#E74C3C; text-decoration:none;}
+// .locat-details-search a:hover{text-decoration:none;}
+// .locat-details-search p{margin-bottom:30px; line-height:25px; font-size:16px;}
+// .locat-details-search .btn-group{float:left;}
+// .btn-group a{font-size:26px; color:#CCC;}
+// .btn-group .btn-facebook:hover{color:#3B5998;}
+// .btn-group .btn-twitter:hover{color:#55ACEE;}
+// .btn-group .btn-google:hover{color:#DD4B39;}
 
 #main-store{
   background: #f2f2f2;
@@ -102,4 +102,121 @@
 .location-put input[type=text]{
   background: asset-url("search-chef-icon.png") no-repeat 8px 12px #fff;
   padding: 10px 10px 10px 40px;
+}
+
+.search-box-input{
+  width:750px;
+}
+.easy-autocomplete{
+  width:750px;
+}
+.result-search{
+  box-sizing: border-box;
+  width:750px;
+  margin-left:0px;
+  .locat-result{
+    background: #fff none repeat scroll 0 0;
+    margin-bottom: 10px;
+    padding: 25px;
+    position: relative;
+    box-sizing: border-box;
+    .chef-box{
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      ul{
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        li{
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+          span.chef-img{
+            float: left;
+            width: 100px;
+            img{
+              height: 52px;
+              width: 70px;
+            }
+          }
+          span.chef-name{
+            margin-left: 30px;
+            h3{
+              margin-top: 0px;
+              color: #fd463d;
+              font-size: 24px;
+              line-height: 25px;
+              margin: -20px 0 5px;
+
+            }
+            p{
+              color: #000;
+              font-size: 13px;
+              margin: 0;
+            }
+          }
+          
+        }
+      }
+    }
+
+    .chef-images {
+      margin-bottom: 4px;
+      margin-top: 8px;
+      ul{
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        li{
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+          float: left;
+          margin-right: 15px;
+          vertical-align: middle;
+          img{
+            height: 100 px;
+            width: 130px;
+          }
+        }
+        li:last-child{
+          border: 1px solid #ebebeb;
+          a {
+            color: #fd463d;
+            display: block;
+            font-size: 18px;
+            font-weight: 700;
+            padding: 29px 30px 27px;
+          }
+        }
+      }
+    }
+
+    .chef-food-detail{
+      ul{
+        float:left;
+        li{
+          color: #b2b2b3;
+          display: block;
+          font-size: 14px;
+          margin-bottom: 6px;
+          width: 100%;
+          span.detail-con,.detail-con1{
+            color: #000;
+            display: inline-block;
+            font-size: 14px;
+            font-weight: 700;
+            width: 80px;
+          }
+        }
+      }
+      ul:first-child{
+        width:65%;
+      }
+      ul:last-child{
+        width:35%;
+      }
+    }
+  }
 }

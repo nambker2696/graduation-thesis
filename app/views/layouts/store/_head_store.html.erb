@@ -5,7 +5,7 @@
       <span class="icon icon-bar"></span>
       <span class="icon icon-bar"></span>
     </button>
-    <%= image_tag('logo_sfood.jpg', alt: 'money') %>
+    <%= image_tag('logo_sfood.png', alt: 'money') %>
     <a id="brand" class="navbar-brand animated faded" data-wow-delay="0.3s" data-method="get" href="/en">SearchFood</a>
   </div>
   <div class="topbar-inner" >
@@ -13,9 +13,9 @@
       <ul class="nav navbar-nav navbar-right header-mobile-menu">
         <ul class="nav navbar-nav">
           <li>
-          <%= link_to root_url,:class => "" do %>
+            <%= link_to root_url,:class => "" do %>
             <i class="fa fa-home fa-2x"></i>
-          <% end %>
+            <% end %>
           </li>
           <li>
             <ul class="nav navbar-nav nav-narrow">
@@ -25,11 +25,11 @@
                   <div id="num-notfiy">0</div>
                 </a>
                 <ul class="dropdown-menu">
-                  <li>3</li>      
+                  <li><a href="">1</a></li>      
+
+                  <li><a href="">2</a></li>
                   
-                  <li>2</li>
-                  
-                  <li>1</li>
+                  <li><a href="">3</a></li>
                 </ul>
               </li>
             </ul>
@@ -54,8 +54,42 @@
               </li>
             </ul>
           </li>
-        </ul>
-      </ul>
-    </div>
-  </div>
+          <% if user_signed_in? %>
+          <li>
+            <ul class="nav navbar-nav nav-narrow">
+              <li class="dropdown">
+                <a id="admin-ac" href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user fa-2x"></i></a>
+                <ul class="dropdown-menu" style="min-width: 200px">
+                  <li>
+                    <%= link_to  edit_user_registration_url do %>
+                    <%= t(".account_settings") %>
+                    <span class="glyphicon glyphicon-cog pull-right"></span>
+                    <% end %>      
+                  </li>
+                  
+                  <li><a href="#"><%= t("your_order") %><span class="glyphicon glyphicon-stats pull-right"></span></a></li>
+                  
+                  <li><a href="#"><%= t("bookmarks") %><span class="glyphicon glyphicon-bookmark pull-right"></span></a></li>
+
+                  <li><a href="#"><%= t(".favourites") %> <span class="glyphicon glyphicon-heart pull-right"></span></a></li>
+                  
+                  <li><%= link_to destroy_user_session_path, method: :delete do %>
+                    <%= t(".sign_out") %> <span class="glyphicon glyphicon-log-out pull-right"></span>
+                    <% end %>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <% else %>
+          <li>
+           <%= link_to new_user_registration_url,:class => "" do %>
+           <i class="fa fa-sign-in fa-2x"></i>
+           <% end %>
+         </li>
+         <% end %>
+       </ul>
+     </ul>
+   </div>
+ </div>
 </div>

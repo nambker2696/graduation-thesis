@@ -210,6 +210,8 @@ vi:
       user_stats: Thống kê người dùng
       messages: Thông báo
       favourites: Đoạn phim yêu thích
+      bookmarks: Đánh dấu
+      your_order: Đơn đặt hàng
       sign_out: Đăng xuất
     resources_dropdown:
       resources: Tài nguyên

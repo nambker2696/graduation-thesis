@@ -23,11 +23,13 @@
       </div>
       <% end %>
     </div>
+    <div class="form-actions">
+      <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path,:class => "sign-in-facebook" %>
+    </div>
     
     <div class="box-footer text-center">
-      <p class="for-get"><span>Forgot Your Password - <%= link_to "Reset Password", user_password_path%></span></p>
-      <p class="for-get"><span>Don't Have An Account - <%= link_to "Sign In",new_user_session_url %></span></p>
+      <p class="for-get"><span>Forgot Your Password - <%= link_to "Reset Password", new_user_password_url %></span></p>
+      <p class="login"><span>Don't Have An Account - <%= link_to "Sign In",new_user_session_url %></span></p>
     </div>
-    <%= render "devise/shared/links" %>
   </div>
 </div>

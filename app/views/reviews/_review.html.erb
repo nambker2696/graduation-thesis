@@ -6,7 +6,7 @@
     <div class="review_author">
       <div id="review_author">
         <% if review.user.avatar? %>
-        <%= image_tag review.user.avatar.url,
+        <%= image_tag review.user.avatar,
         size: "50x50", class: "img_author" %>
         <% else %>
         <% end %>
