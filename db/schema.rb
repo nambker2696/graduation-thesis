@@ -15,9 +15,7 @@ ActiveRecord::Schema.define(version: 20180507134505) do
   create_table "bookings", force: :cascade do |t|
     t.integer "location_id"
     t.integer "seat_id"
-    t.integer "timeslot_id"
     t.date "day_to_eat"
-    t.boolean "reservation_place"
     t.boolean "status"
     t.integer "action"
     t.string "delivery_type"
@@ -60,7 +58,7 @@ ActiveRecord::Schema.define(version: 20180507134505) do
 
   create_table "dishes", force: :cascade do |t|
     t.string "name"
-    t.string "display_name"
+    t.string "slug_dish"
     t.string "subtitle"
     t.decimal "price"
     t.text "description"
@@ -155,15 +153,6 @@ ActiveRecord::Schema.define(version: 20180507134505) do
   create_table "stores", force: :cascade do |t|
     t.string "name"
     t.string "logo"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "timeslots", force: :cascade do |t|
-    t.integer "location_id"
-    t.string "name"
-    t.string "start"
-    t.string "end"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

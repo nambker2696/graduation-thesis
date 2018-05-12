@@ -11,15 +11,11 @@
       </div>
       <div class="chef-detail-wrapper">
         <div class="leftmove">            
-          <h1>Shilpa</h1>
+          <h1><%= @location.name %></h1>
           <p><%= @location.address %></p>
           <span class="review-con">
-            <span class="glyphicon glyphicon-star active"></span>
-            <span class="glyphicon glyphicon-star active"></span>
-            <span class="glyphicon glyphicon-star active"></span>
-            <span class="glyphicon glyphicon-star active"></span>
-            <span class="glyphicon glyphicon-star"></span>
-            <div class="result-rate">4&nbsp;&nbsp;|&nbsp;&nbsp;1 Review</div>
+            <%= render "shared/location_avg_rate", rate_avg: @location.rate_avg %>
+            <div class="result-rate"><%= @location.rate_avg.round(1) %>&nbsp;&nbsp;|&nbsp;&nbsp;<%= @location.reviews.count %> Review</div>
           </span>
         </div>
         <ul>            
@@ -70,8 +66,8 @@
             <div class="row">
               <%= render @reviews, location: @location %>
               <% if user_signed_in? %>
-                <%= render "reviews/review_form", location: @location, review: @review %>
-                <% end %>
+              <%= render "reviews/review_form", location: @location, review: @review %>
+              <% end %>
 
             </div>
 
@@ -101,14 +97,23 @@
         </ul>
         <div class="tab-content">
           <div role="tabpanel" class="tab-pane active" id="menu">
-            <div class="row">
-              <div class="col-xs-12">
-                <div class="box"></div>
-              </div>
+           <% if @cart %>
+           <%= hidden_div_if(@cart.cart_items.empty?,id: 'cart') do %>
+           <%= render(@cart) %>
+           <%end%>
+           <% else %>
+           <div class="row">
+            <div class="col-xs-12">
+              <div class="box"></div>
             </div>
           </div>
+          
+
+          <% end %> 
+
         </div>
       </div>
     </div>
   </div>
+</div>
 </div>

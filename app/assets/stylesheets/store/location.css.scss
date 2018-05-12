@@ -1,5 +1,6 @@
 .main-location{
   margin-top: 30px;
+  min-height: 700px;
   .address-location{
     margin-top: 50px;
     width: 100%;
@@ -60,17 +61,13 @@
       float: left;
       width:70%;
       .leftmove{
-        margin-bottom: 80px;
+        margin-bottom: 50px;
         span.review-con{
-          span {
-            float: left;
-            margin-right: 2px;
+          .rate_avg{
+            color: yellow;
           }
           .result-rate{
             float:left; margin:0px 0px 0px 10px; cursor:pointer;  
-          }
-          .active{
-            color: yellow;
           }
         } 
       }
@@ -167,6 +164,17 @@
             color: #989fa6;
           }
         }
+        .btn-md{
+          margin-top:30px;
+          border: 1px solid #03A9F4;
+          border-radius: 6px;
+          color: #03A9F4;
+          height: 27px;
+          text-align: center;
+          width: 80px;
+          background: #fff;
+        }
+
       }
       .botborder {
         border-bottom: 1px dashed #e6e6fa;

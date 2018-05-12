@@ -3,7 +3,13 @@
   <div class="box-login-store">
     <% if user_signed_in? %>
     <span class="text-center">
+    <% if current_user.avatar != nil %>
       <%= image_tag(current_user.avatar) %>
+      <% else %>
+      <span class="text-center">
+        <i class="fa fa-user fa-3x"></i> 
+      </span>
+      <% end %>
       
     </span>
     <div class="box-status-user">

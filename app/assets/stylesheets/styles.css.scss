@@ -14,7 +14,11 @@ $outside-ground: rgba(168, 129, 110, 0.82);
 $caribbean-green: #05bba5;
 $blue-zodiac :#404453;
 
-
+body{
+  #store-panel{
+    display:none;
+  }
+}
 
 .dropdown-menu{
   padding: 0px 0 !important;
@@ -244,6 +248,9 @@ $blue-zodiac :#404453;
   .navbar-toggle{
     #brand{
       font-size:20px;
+      span{
+        color:#03A9F4;
+      }
     }
   }
   .navbar-collapse{

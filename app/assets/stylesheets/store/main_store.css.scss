@@ -1,11 +1,14 @@
 #main-store{
-  margin-left: 250px;
+  // margin-left: 250px;
   position: relative;
   min-height: 1000px;
   #top-navbar{
     background: #fff;
-    height: 60px;
+    height: 70px;
     box-shadow: 0 1px 3px rgba(0,0,0,.2);
+    .topbar-inner{
+      margin-top:10px;
+    }
     .topbar-inner{
       margin-right: 0px;
       padding: 0 22px;
@@ -51,19 +54,18 @@
           display: inline-block;
           background-position: -10px -646px;
         }
-        .num-cart {
-          position: absolute;
-          top: 6px;
-          background-color: #03A9F4;
-          border-radius: 4px;
-          color: #fff;
-          font-size: 11px;
-          left: 37px;
-          line-height: 11px;
-          padding: 4px;
-        }
       }
-
+    }
+    .num-cart {
+      position: absolute;
+      top: 6px;
+      background-color: #03A9F4;
+      border-radius: 4px;
+      color: #fff;
+      font-size: 11px;
+      left: 37px;
+      line-height: 11px;
+      padding: 4px;
     }
     #num-notfiy{
       position: absolute;
@@ -79,10 +81,8 @@
     #admin-ac{
       height:52px;
     }
-    span{
-      color: black;
-    }
     #logo-store{
+      margin-top:10px;
       img{
         width:60px;
         height:60px;
@@ -90,13 +90,31 @@
       a{
         float:right;
       }
+      #brand{
+        font-size:30px;
+        span{
+          color:#03A9F4;
+        }  
+        color: #000;
+
+      }
+      
     }
+  }
+  #myCarousel{
+    margin-top: 70px;
   }
   .page-section:first-child {
     padding: 60px 20px;
   }
   .page-section{
-    margin-top: 50px;
+    margin-top: 20px;
+    background-color:#fff;
+    h2{
+      text-align:center;
+    }
+    
+
     .page-section-body {
       max-width: 1260px;
       margin: 0 auto;
@@ -184,9 +202,9 @@
     width:100%;
     text-align:center;
     margin-top: 50px;
-    margin-bottom: 100px;
+    margin-bottom: 20px;
     .search-con {
-      border: 10px solid #dcdcdc;
+      border: 10px solid #f2f2f2;
       border-radius: 0 5px 5px 0;
       margin: 0 auto;
       position: relative;
@@ -229,7 +247,7 @@
             vertical-align: top;
           }
           .loction_bkg {
-            background: #dcdcdc;
+            background: #f2f2f2;
             position: absolute;
             top: -10px;
             left: 0%;
@@ -237,6 +255,9 @@
             height: 77px !important;
             border-radius: 5px 0 0 5px;
             border: none !important;
+            button{
+              background-color:#f2f2f2;
+            }
             .location_get_icon{
               width: 23px;
               height: 23px;
@@ -275,4 +296,18 @@
   .message-content{
     height:50px;
   }
+}
+
+#bottom-wrapper-bar {
+  left: 220px;
+}
+#bottom-wrapper-bar {
+  margin-top:30px;
+  bottom: 0;
+  right: 0;
+  z-index: 0;
+  background-color: #ebebeb;
+  height: 300px;
+  line-height: 30px;
+  padding: 0 15px;
 }

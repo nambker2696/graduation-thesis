@@ -9,11 +9,11 @@ document.addEventListener("turbolinks:load", function() {
     categories: [
       {
         listLocation: "dishes",
-        header: "<strong>Dishes</strong>",
+        header: "<strong><i class='fa fa-utensils'></i>Dishes</strong>",
       },
       {
         listLocation: "locations",
-        header: "<strong>Locations</strong>",
+        header: "<strong><i class='fa fa-map-marker'></i>Locations</strong>",
       }
     ],
     list: {

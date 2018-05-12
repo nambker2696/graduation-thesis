@@ -3,23 +3,24 @@ require 'faker'
 desc 'Read jobs file'
 
 
-task read_store_file: :environment do
-  file = File.read('lib/assets/total_store.json')
+task read_file: :environment do
+  file = File.read('lib/assets/store2.json')
+  file2 = "lib/assets/store1.json"
+
   data_hash = JSON.parse(file)
-  data_hash.each do |store|
+
+  File.open(file2, "w") do |e_json|
+    e_json.puts '['
     data_hash.each do |store|
-      Location.create(
-        name: store['storename'],
-        user_id: 1,
-        address: store['address'],
-        phone: store['phone'],
-        description: store['des'],
-        status: true,
-        radius: Faker::Number.between(1, 5),
-        sum_rate: 0,
-        rate_avg: 0
-        )
+      temp1 = store['address'].gsub("47000", '')
+      e_json.puts '{"storename": "' + store["storename"] + 
+                  '", "address": "' + temp1 + 
+                  '", "dish": "' + store["dish"] + 
+                  '", "des": "' + store["des"] + 
+                  '", "open_time": "' + store["open_time"] + 
+                  '", "phone":"' + store["phone"] + '"},'
     end
-    binding.pry
+    e_json.puts ']'
   end
+
 end

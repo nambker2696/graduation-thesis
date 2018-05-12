@@ -2,7 +2,7 @@ class CreateDishes < ActiveRecord::Migration[5.1]
   def change
     create_table :dishes do |t|
       t.string :name
-      t.string :display_name
+      t.string :slug_dish
       t.string :subtitle
       t.decimal :price
       t.text :description

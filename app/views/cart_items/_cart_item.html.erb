@@ -8,6 +8,7 @@
     <td><%=cart_item.quantity %> &times;</td>
     <!-- #console 如果只想当对象不为 nil 时在其上调用方法 try -->
     <td><%=cart_item.dish.name %></td>
+    <td><%=cart_item.dish.image%></td>
     <td class="item_price"><%= number_to_currency(cart_item.total_price) 
       %></td>
       <td><%=button_to 'Decrease',decrement_cart_item_url(id: cart_item),method: :put,remote: true,class: 'btn btn-default'%>

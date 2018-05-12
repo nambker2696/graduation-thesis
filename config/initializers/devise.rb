@@ -2,8 +2,8 @@
 
 Devise.setup do |config|
   config.omniauth :facebook,
-                  '2007808199502848',
-                  'c4c76490642167cb2b5b20e7d5c8db0a',
+                  '640140566337303',
+                  '663582a5c3b59fa4d6cd523287c640da',
                   scope: 'email'
   config.mailer_sender = 'please-change-me-at-config-initializers-devise
   @example.com'
