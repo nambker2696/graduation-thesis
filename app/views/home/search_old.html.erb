@@ -1,0 +1,63 @@
+<div class="container above-also">
+  <div class="location-put">
+    <%= form_with url: search_path,local: true, method: :get do |form| %>
+    <%= form.text_field :q,class: "search-box-input",placeholder: "Search for chef by name or dish...", data: { behavior: "autocomplete" } %>
+    <% end %>
+  </div>
+  <div class="show-search">
+    <% if @locations %>
+    <% @locations.each do |locat| %>
+    <div class="left-panel result-search">
+      <div class="panel panel-default">
+        <div class="col-md-12 locat-result">
+          <div class="chef-box">
+            <ul>
+              <li>
+                <span class="chef-img">
+                  <%= image_tag(locat.user.avatar, :alt => "rss feed") %>
+                </span>
+                <span class="chef-name">
+                  <h3><%= link_to locat.name, "#" %></h3>
+                  <p><%= locat.address %></p>
+                </span>
+                <!-- <span class="exclusive-con">
+
+              </span> -->
+            </li>
+          </ul>
+        </div>
+        <div class="chef-images">
+          <ul>
+            <li>
+              <%= image_tag("food/1.jpg", :alt => "rss feed") %>
+            </li>
+            <li>
+              <%= image_tag("food/1.jpg", :alt => "rss feed") %>
+            </li>
+            <li>
+              <%= image_tag("food/1.jpg", :alt => "rss feed") %>
+            </li>
+            <li>
+              <%= image_tag("food/1.jpg", :alt => "rss feed") %>
+            </li>
+            <li count="25"><a href="#">+<%= locat.dishes.count - 4 %></a></li>
+          </ul>
+        </div>
+        <div class="chef-food-detail">
+          <ul>
+            <li><span class="detail-con">Cuisines:</span> Not Avaliable</li>
+            <li><span class="detail-con">Dish Count:</span> 122+ dishes</li>
+          </ul>
+          <ul>
+            <li><span class="detail-con1 ordercount">No. of Orders: 36 </span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
+  <% else %>
+  <p>Your search did not match any documents.</p>
+  <% end %>
+  </div>
+</div>

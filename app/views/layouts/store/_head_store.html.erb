@@ -1,97 +1,187 @@
 <div id="top-navbar" class="navbar navbar-default navbar-fixed-top">
-<div class="container">
-  <div id="logo-store" class="navbar-header" style="margin-left: 40px">
-    <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-      <span class="icon icon-bar"></span>
-      <span class="icon icon-bar"></span>
-      <span class="icon icon-bar"></span>
-    </button>
-    <%= image_tag('logo_sfood.png', alt: 'money') %>
-    <a id="brand" class="navbar-brand animated faded" data-wow-delay="0.3s" data-method="get" href="/en"><span>Search</span>Food</a>
-  </div>
-  <div class="topbar-inner" >
-    <div class="collapse navbar-collapse header-nav">
-      <ul class="nav navbar-nav navbar-right header-mobile-menu">
-        <ul class="nav navbar-nav">
-          <li>
-            <%= link_to root_url,:class => "" do %>
-            <i class="fa fa-home fa-2x"></i>
-            <% end %>
-          </li>
-          <li>
-            <ul class="nav navbar-nav nav-narrow">
-              <li class="dropdown">
-                <a href="#" class="hdcart dropdown-toggle" data-toggle="dropdown">
-                  <div class="hdrcart-icons"><i class="fa fa-bell fa-2x"></i></div>
-                  <div id="num-notfiy">0</div>
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a href="">1</a></li>      
+  <div class="container">
+    <div id="logo-store" class="navbar-header" style="margin-left: 40px">
+      <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon icon-bar"></span>
+        <span class="icon icon-bar"></span>
+        <span class="icon icon-bar"></span>
+      </button>
+      <%= image_tag('logo_sfood.png', alt: 'money') %>
+      <a id="brand" class="navbar-brand animated faded" data-wow-delay="0.3s" data-method="get" href="/en"><span>Search</span>Food</a>
+    </div>
+    <div class="topbar-inner" >
+      <div class="collapse navbar-collapse header-nav">
+        <ul class="nav navbar-nav navbar-left header-mobile-menu">
+          <ul class="nav">
+            <li>
+              <%= link_to search_url do %>Search<% end %>
+            </li>
+            <li>
+            <%= link_to chef_signup_url do %>SignUp as a Chef<% end %>
+            </li>
+          </ul>
 
-                  <li><a href="">2</a></li>
-                  
-                  <li><a href="">3</a></li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <%= link_to carts_url,:class => "hdrcart" do %>
-            <div class="hdrcart-icons"><i class="fa fa-shopping-cart fa-2x"></i></div>
-            <div class="num-cart"><%= @num_cart %></div>
-            <% end %>
-          </li>
-          <li>
-            <ul class="nav navbar-nav nav-narrow">
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-language fa-2x"></i></a>
-                <ul class="dropdown-menu">
-                  <li><%= link_to t(".english"), locale:"en" %></li>      
+        </ul>
+        <ul class="nav navbar-nav navbar-right header-mobile-menu">
+          <ul class="nav navbar-nav">
+            <li>
+              <%= link_to root_url,:class => "" do %>
+              <i class="fa fa-home fa-2x"></i>
+              <% end %>
+            </li>
+            <li>
+              <ul class="nav navbar-nav nav-narrow">
+                <li class="dropdown">
+                  <a href="#" class="hdcart dropdown-toggle" data-toggle="dropdown">
+                    <div class="hdrcart-icons"><i class="fa fa-bell fa-2x"></i></div>
+                    <div id="num-notfiy">0</div>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a href="">1</a></li>      
 
-                  <li><%= link_to t(".vietnamese"), locale: "vi" %></li>
+                    <li><a href="">2</a></li>
 
-                  <li><%= link_to t(".japanese"), locale: "ja" %></li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-          <% if user_signed_in? %>
-          <li>
-            <ul class="nav navbar-nav nav-narrow">
-              <li class="dropdown">
-                <a id="admin-ac" href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user fa-2x"></i></a>
-                <ul class="dropdown-menu" style="min-width: 200px">
-                  <li>
-                    <%= link_to  edit_user_registration_url do %>
-                    <%= t(".account_settings") %>
-                    <span class="glyphicon glyphicon-cog pull-right"></span>
-                    <% end %>      
-                  </li>
-                  
-                  <li><a href="#"><%= t("your_order") %><span class="glyphicon glyphicon-stats pull-right"></span></a></li>
-                  
-                  <li><a href="#"><%= t("bookmarks") %><span class="glyphicon glyphicon-bookmark pull-right"></span></a></li>
+                    <li><a href="">3</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <%= link_to carts_url,:class => "hdrcart" do %>
+              <div class="hdrcart-icons"><i class="fa fa-shopping-cart fa-2x"></i></div>
+              <div id="num-cart"><%= @num_cart %></div>
+              <% end %>
+            </li>
+            <li>
+              <ul class="nav navbar-nav nav-narrow">
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-language fa-2x"></i></a>
+                  <ul class="dropdown-menu">
+                    <li><%= link_to t(".english"), locale:"en" %></li>      
 
-                  <li><a href="#"><%= t(".favourites") %> <span class="glyphicon glyphicon-heart pull-right"></span></a></li>
-                  
-                  <li><%= link_to destroy_user_session_path, method: :delete do %>
-                    <%= t(".sign_out") %> <span class="glyphicon glyphicon-log-out pull-right"></span>
-                    <% end %>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-          <% else %>
-          <li>
-           <%= link_to new_user_registration_url,:class => "" do %>
-           <i class="fa fa-sign-in fa-2x"></i>
+                    <li><%= link_to t(".vietnamese"), locale: "vi" %></li>
+
+                    <li><%= link_to t(".japanese"), locale: "ja" %></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <% if user_signed_in? %>
+            <li>
+              <ul class="nav navbar-nav nav-narrow">
+                <li class="dropdown">
+                  <a id="admin-ac" href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user fa-2x"></i></a>
+                  <ul class="dropdown-menu" style="min-width: 200px">
+                    <li>
+                      <%= link_to  edit_user_registration_url do %>
+                      <%= t(".account_settings") %>
+                      <span class="glyphicon glyphicon-cog pull-right"></span>
+                      <% end %>      
+                    </li>
+
+                    <li><a href="#"><%= t("your_order") %><span class="glyphicon glyphicon-stats pull-right"></span></a></li>
+
+                    <li><a href="#"><%= t("bookmarks") %><span class="glyphicon glyphicon-bookmark pull-right"></span></a></li>
+
+                    <li><a href="#"><%= t(".favourites") %> <span class="glyphicon glyphicon-heart pull-right"></span></a></li>
+
+                    <li><%= link_to destroy_user_session_path, method: :delete do %>
+                      <%= t(".sign_out") %> <span class="glyphicon glyphicon-log-out pull-right"></span>
+                      <% end %>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <% else %>
+            <li>
+              <%= link_to new_user_registration_url do %>
+              <i class="fa fa-sign-in fa-2x"></i>
+              <% end %>
+            </li>
+            <li>
+             <button type="button" class="btn launchConfirm">Login</button>
+           </li>
            <% end %>
-         </li>
-         <% end %>
+         </ul>
        </ul>
-     </ul>
+     </div>
    </div>
  </div>
- </div>
 </div>
+
+
+
+<!-- // modal-login -->
+<div class="modal fade" id="confirm">
+  <div class="modal-dialog" style="width: 450px">
+    <div class="modal-content" style="padding: 10px">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+        </button>
+        <div id="form-login-admin" class="box-header">
+          <h2><%= t(".sign_in") %></h2>    
+        </div>
+
+      </div>
+      <div class="modal-body">
+
+        <div class="box-content">
+          <%= form_for :user, url: user_session_path do |f|%>
+          <div id="form-login-user">
+            <div class="form-group float-label-control">
+              <%= f.label :Email %>
+              <%= f.email_field :email, class: 'form-control', :required => true %>
+            </div>
+            <div class="form-group float-label-control">
+              <%= f.label :Password %>
+              <%= f.password_field :password, class: 'form-control', :required => true %>
+            </div>
+            <div class="form-group">
+              <div class="checkbox"> 
+                <%= f.label :remember_me do %> 
+                <%= f.check_box :remember_me %> Remember me 
+                <% end %> 
+              </div> 
+            </div>
+          </div>
+          <div class="form-actions">
+            <%= f.button :submit,:class =>"formButton",:id => "btn-login-admin",:name => t(".sign_in"),:value => t(".sign_in") %>
+          </div>
+          <% end %>
+          <p class="for-get"><span>Forgot Your Password - <%= link_to "Reset Password", user_password_path%></span></p>
+          <p class="for-get"><span>Don't Have An Account - <%= link_to "Sign Up",new_user_registration_url %></span></p>
+
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      @NAMBKER
+    </div>
+  </div>
+</div>
+
+
+<script>  
+  $('.launchConfirm').on('click', function (e) {
+    $('#confirm').modal({
+      show: true
+    });
+  });
+
+  $(function(){
+    $('#selectall').click(function(i, v){
+      $('.css-checkbox').prop('checked', this.checked).trigger("change");
+    });
+
+    var checkCount = $('.css-checkbox').length;
+    $('.css-checkbox').click(function(i, v){
+      $('#selectall').prop('checked',$('.css-checkbox:checked').length  == checkCount)
+    });
+
+    $('.css-checkbox').change(function(){
+      $.post('user_exports/update_user_export_session', { object_id:  $(this).val(), checked: this.checked});
+    });
+  });
+
+</script>

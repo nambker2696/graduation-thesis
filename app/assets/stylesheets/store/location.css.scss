@@ -27,7 +27,6 @@
   }
 
   .store-owner{
-    min-width: 1140px;
     height:260px;
     position: relative;
     background-image:url('/assets/chef-header-banner.png');
@@ -42,14 +41,12 @@
     position:absolute;
     width:100%;
     .chef-pro-wparrer{
-      width:30%;
       float: left;
       position: relative;
       text-align:center;
       .chef-pro-con{
         img{
           margin-top: 10px;
-          margin-left:100px;
           border-radius: 100%;
           height: 150px;
           width: 150px;  
@@ -59,7 +56,7 @@
     .chef-detail-wrapper {
       text-align: left;
       float: left;
-      width:70%;
+      padding-left: 30px;
       .leftmove{
         margin-bottom: 50px;
         span.review-con{
@@ -120,87 +117,102 @@
         }
 
       }
+    }
+    .cart-tabs{
+      border-bottom: 2px solid #03A9F4;
+      margin-top:20px;
+      .item{
+        float:right;
+        p{
+          color: #a7a9ac;
+          padding: 10px 0px;
+        }
+      }
+      .checkout{
+        float:right;
+        a{
+          color: #03A9F4;
+        }
+      }
 
     }
-    .tab-content{
-      background-color:#FFF;
-      margin-top:20px;
-      .st-headings {
-        padding: 12px 30px 12px 40px;
-        border-bottom: 1px solid #ccc;
-        border-top: 1px solid #ccc;
-        font-weight:400;
-        color:#777777;
-        height: 52px;
-        .st-heading{ 
-          float:left;
-        }
-        .st-heading-right{
-          float:right;
+  }
+  .tab-content{
+    background-color:#FFF;
+    margin-top:20px;
+    .st-headings {
+      padding: 12px 30px 12px 40px;
+      border-bottom: 1px solid #ccc;
+      border-top: 1px solid #ccc;
+      font-weight:400;
+      color:#777777;
+      height: 52px;
+      .st-heading{ 
+        float:left;
+      }
+      .st-heading-right{
+        float:right;
+      }
+    }
+    .table{
+      margin:20px;
+    }
+    .dish-box{
+      height:150px;
+      .dish-image{
+        float:left;
+        img{
+          width:150px;
+          height:100px;
+          margin:25px;
         }
       }
-      .table{
-        margin:20px;
+      .dish-detail-box{
+        float:left;
+        h2{
+          margin-top:20px;
+          color: #202020;
+          font-size: 14px;
+          font-weight: 400;
+        }
+        p{
+          color: #989fa6;
+        }
       }
-      .dish-box{
-        height:150px;
-        .dish-image{
-          float:left;
-          img{
-            width:150px;
-            height:100px;
-            margin:25px;
-          }
-        }
-        .dish-detail-box{
-          float:left;
-          h2{
-            margin-top:20px;
-            color: #202020;
-            font-size: 14px;
-            font-weight: 400;
-          }
-          p{
-            color: #989fa6;
-          }
-        }
-        .btn-md{
-          margin-top:30px;
-          border: 1px solid #03A9F4;
-          border-radius: 6px;
-          color: #03A9F4;
-          height: 27px;
-          text-align: center;
-          width: 80px;
-          background: #fff;
-        }
+      .btn-md{
+        margin-top:30px;
+        border: 1px solid #03A9F4;
+        border-radius: 6px;
+        color: #03A9F4;
+        height: 27px;
+        text-align: center;
+        width: 80px;
+        background: #fff;
+      }
 
-      }
-      .botborder {
-        border-bottom: 1px dashed #e6e6fa;
-        clear: both;
-        padding-top: 12px;
-      }
-      .recomd_detail{
-        ul{
+    }
+    .botborder {
+      border-bottom: 1px dashed #e6e6fa;
+      clear: both;
+      padding-top: 12px;
+    }
+    .recomd_detail{
+      ul{
+        list-style-type: none;
+        li {
+          color: #989fa6;
+          display: inline-block;
           list-style-type: none;
-          li {
-            color: #989fa6;
-            display: inline-block;
-            list-style-type: none;
-            margin-right: 30px;
-            i,.dv2,.dv3{
-              float:left;
-              margin-left:10px;
-            }
-            .dv3{
-              color:#000;
-            }
+          margin-right: 30px;
+          i,.dv2,.dv3{
+            float:left;
+            margin-left:10px;
+          }
+          .dv3{
+            color:#000;
           }
         }
       }
-
-
     }
     .box-header{
       padding:20px;

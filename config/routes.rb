@@ -46,10 +46,10 @@ Rails.application.routes.draw do
   end
   resources :categories,only:[:show]
   get :search, controller: :home
-
   devise_for :users, skip: :omniauth_callbacks
     get 'about' => 'home#about'
     get 'contact' => 'home#contact'
+    get 'chef_signup' => 'home#chef_signup'
     root to: 'home#index'
   end
   root to: redirect('/#{I18n.default_locale}', status: 302),

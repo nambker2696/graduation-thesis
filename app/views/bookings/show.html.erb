@@ -1,20 +1,37 @@
-<p id="notice"><%= notice %></p>
+<div class="container above-also">
+  <p id="notice"><%= notice %></p>
 
 <p>
   <strong>User:</strong>
   <%= @booking.user_id %>
 </p>
-
-
 <p>
-  <strong>Status:</strong>
-  <%= @booking.status %>
+  <strong>Location ID:</strong>
+  <%= @booking.location_id %>
+</p>
+<p>
+  <strong>Seat ID:</strong>
+  <%= @booking.seat_id %>
+</p>
+<p>
+  <strong>Date EAT:</strong>
+  <%= @booking.day_to_eat %>
+</p>
+<p>
+  <strong>Action of booking:</strong>
+  <%= @booking.action %>
+</p>
+<p>
+  <strong>delivery_type:</strong>
+  <%= @booking.delivery_type %>
 </p>
 
 <p>
-  <strong>Action:</strong>
-  <%= @booking.action %>
+  <strong>payment_type:</strong>
+  <%= @booking.payment_type %>
 </p>
 
 <%= link_to 'Edit', edit_booking_path(@booking) %> |
 <%= link_to 'Back', bookings_path %>
+
+</div>

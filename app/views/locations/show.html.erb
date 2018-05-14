@@ -4,63 +4,67 @@
   </div>
   <div class="store-owner" style=" ">
     <div class="store-owner-details">
-      <div class="chef-pro-wparrer">
-        <span class="chef-pro-con">
-          <%= image_tag(@store_owner.avatar, alt: 'money') %>
-        </span>
-      </div>
-      <div class="chef-detail-wrapper">
-        <div class="leftmove">            
-          <h1><%= @location.name %></h1>
-          <p><%= @location.address %></p>
-          <span class="review-con">
-            <%= render "shared/location_avg_rate", rate_avg: @location.rate_avg %>
-            <div class="result-rate"><%= @location.rate_avg.round(1) %>&nbsp;&nbsp;|&nbsp;&nbsp;<%= @location.reviews.count %> Review</div>
+      <div class="container">
+        <div class="chef-pro-wparrer">
+          <span class="chef-pro-con">
+            <%= image_tag(@store_owner.avatar, alt: 'money') %>
           </span>
         </div>
-        <ul>            
-          <li class="bookmark-icon"><a href="#" id="bookmark_new"><i class="fa fa-bookmark"></i>Bookmark</a></li>
-          <li class="tab-review"><a href="#" onclick="showHideTab('chef-review-add');"><i class="fa fa-comment"></i>Add a review</a></li>
-          <li class="bookmark-icon"><a href="#" id="bookmark_new"><i class="fa fa-envelope"></i>Contact chef</a></li>
-          <li class="bookmark-icon">
-            <% if @like %>
-            <div id="like-btn">
-              <%= render "likes/unlike" %>
-            </div>
-            <% else %>
-            <div id="like-btn">
-              <%= render "likes/like" %>
-            </div>
-            <% end %>
+        <div class="chef-detail-wrapper">
+          <div class="leftmove">            
+            <h1><%= @location.name %></h1>
+            <p><%= @location.address %></p>
+            <span class="review-con">
+              <%= render "shared/location_avg_rate", rate_avg: @location.rate_avg %>
+              <div class="result-rate"><%= @location.rate_avg.round(1) %>&nbsp;&nbsp;|&nbsp;&nbsp;<%= @location.reviews.count %> Review</div>
+            </span>
+          </div>
+          <ul>            
+            <li class="bookmark-icon"><a href="#" id="bookmark_new"><i class="fa fa-bookmark"></i>Bookmark</a></li>
+            <li class="tab-review"><a href="#reviews" aria-controls="profile" role="tab" data-toggle="tab"><i class="fa fa-comment"></i>Add a review</a></li>
+            <li class="bookmark-icon"><a href="#" id="bookmark_new"><i class="fa fa-envelope"></i>Contact chef</a></li>
+            <li class="bookmark-icon">
+              <% if @like %>
+              <div id="like-btn">
+                <%= render "likes/unlike" %>
+              </div>
+              <% else %>
+              <div id="like-btn">
+                <%= render "likes/like" %>
+              </div>
+              <% end %>
 
-          </li>
-          <li><strong id="like-count"><%= pluralize @location.likes.count, "Like" %></strong></li>
-        </ul>
+            </li>
+            <li><strong id="like-count"><%= pluralize @location.likes.count, "Like" %></strong></li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
-  <div id="delivery-opening" class="content-heading">
-    <div class="item">
-      <i class="fa fa-truck"></i>Delivery Time: 5 hours 
+  <div class="container">
+    <div id="delivery-opening" class="content-heading">
+      <div class="item">
+        <i class="fa fa-truck"></i>Delivery Time: 5 hours 
+      </div>
+      <div class="item">
+        <i class="fa fa fa-clock-o"></i>Opening Hours: Closed
+      </div>
     </div>
-    <div class="item">
-      <i class="fa fa fa-clock-o"></i></i>Opening Hours: Closed
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-8">
-      <div class="card">
-        <ul class="nav nav-tabs" role="tablist">
-          <li class="tab-head active" role="presentation"><a href="#menu" aria-controls="home" role="tab" data-toggle="tab">Menu</a></li>
-          <li class="tab-head" role="presentation"><a href="#reviews" aria-controls="profile" role="tab" data-toggle="tab">Reviews</a></li>
-          <li class="tab-head" role="presentation"><a href="#photos" aria-controls="profile" role="tab" data-toggle="tab">Photos</a></li>
-          <li class="tab-head" role="presentation"><a href="#overview" aria-controls="profile" role="tab" data-toggle="tab">Overview</a></li>
-        </ul>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <ul class="nav nav-tabs" role="tablist">
+            <li class="tab-head active" role="presentation"><a href="#menu" aria-controls="home" role="tab" data-toggle="tab">Menu</a></li>
+            <li class="tab-head" role="presentation"><a href="#reviews" aria-controls="profile" role="tab" data-toggle="tab">Reviews</a></li>
+            <li class="tab-head" role="presentation"><a href="#photos" aria-controls="profile" role="tab" data-toggle="tab">Photos</a></li>
+            <li class="tab-head" role="presentation"><a href="#overview" aria-controls="profile" role="tab" data-toggle="tab">Overview</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-8">
         <div class="tab-content">
           <div role="tabpanel" class="tab-pane active" id="menu">
             <%= render @dishes, location: @location %>
-
-
           </div>
           <div role="tabpanel" class="tab-pane" id="reviews">
             <div class="row">
@@ -89,31 +93,45 @@
           </div>
         </div>
       </div>
-    </div>
-    <div class="col-md-4">
-      <div class="card">
-        <ul class="nav nav-tabs" role="tablist">
-          <li class="tab-head" role="presentation"><a aria-controls="home" role="tab" data-toggle="tab">Cart</a></li>
-        </ul>
-        <div class="tab-content">
-          <div role="tabpanel" class="tab-pane active" id="menu">
-           <% if @cart %>
-           <%= hidden_div_if(@cart.cart_items.empty?,id: 'cart') do %>
-           <%= render(@cart) %>
-           <%end%>
-           <% else %>
-           <div class="row">
-            <div class="col-xs-12">
-              <div class="box"></div>
+      <div class="col-md-4">
+        <div class="card">
+          <ul class="nav nav-tabs cart-tabs" role="tablist">
+            <li class="tab-head" role="presentation"><a aria-controls="home" role="tab" data-toggle="tab">Cart</a></li>
+            <li class="checkout">
+              <a href="">Checkout</a>
+            </li>
+            <li class="item"><p>Item: <%= @num_cart %> |</p></li>
+          </ul>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="menu">
+              <div class="content-heading" style="min-height: 700px;">
+                <div id="cart">
+                  <% unless @cart.cart_items.empty? %>
+                  <table> 
+                    <%= render(@cart.cart_items) %>
+
+                    <tr class="total_line">
+                      <td colspan="2">Total</td>
+                      <td class="total_cell"><%= number_to_currency(@cart.total_price) %></td>
+                    </tr>
+                  </table>
+                  <%  else %>
+                  <div style="text-align:center; margin-top:100px;">
+                    <div style="font-size:20px; color:#666; margin-bottom:20px;">Your shopping cart is empty!</div>
+                  </div>
+                  <% end %>
+                  <div class="button-checkout-cart">
+                    <%= button_to 'CheckOut', new_booking_path, method: :get,class: 'checkout-btn btn btn-default'%>
+                  <%= button_to 'Clear Cart', @cart, :method => :delete,  data: { confirm: 'Are you sure?' },remote: true,class: 'clear-btn btn btn-default'%>
+                  </div>
+                </div>
+            
+              </div>
             </div>
           </div>
-          
-
-          <% end %> 
-
         </div>
       </div>
+
     </div>
   </div>
-</div>
 </div>

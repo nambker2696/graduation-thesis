@@ -1,3 +1,18 @@
-<% if @carts %>
-<%= render(@carts) %>
-<%end%>
+<div class="container above-also">
+  <div class="content-heading">
+    <%= link_to 'Home', root_url %> <i class="fa fa-chevron-right"></i> Cart
+  </div>
+  <div class="row">
+    <div class="col-md-8">
+    <div class="content-heading">
+      
+    </div>
+
+    </div>
+    <div class="col-md-4">
+      <% if @carts %>
+      <%= render 'form', cart: @carts %>
+      <%end%>
+    </div>
+  </div>
+</div>

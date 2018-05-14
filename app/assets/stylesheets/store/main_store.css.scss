@@ -1,7 +1,10 @@
 #main-store{
-  // margin-left: 250px;
   position: relative;
   min-height: 1000px;
+  background: #f2f2f2;
+  /*----------------------------------------------
+  Top navbar
+  ------------------------------------------*/
   #top-navbar{
     background: #fff;
     height: 70px;
@@ -46,17 +49,25 @@
           }
         }
       }
-      
-      .hdrcart {
+      .hdcart {
         position: relative;
+        font-size:13px;
         .hdrcart-icons {
 
           display: inline-block;
           background-position: -10px -646px;
         }
       }
+      .navbar-left{
+        ul{
+          li{
+            float:left;
+          }
+        }
+      }
+
     }
-    .num-cart {
+    #num-cart {
       position: absolute;
       top: 6px;
       background-color: #03A9F4;
@@ -78,6 +89,16 @@
       line-height: 11px;
       padding: 4px;
     }
+    .launchConfirm{
+      border-radius: 3px;
+      color: #fff;
+      display: block;
+      font-size: 12px;
+      padding: 8px 13px;
+      text-transform: uppercase;
+      background: #03A9F4;
+      margin-top: 10px;
+    }
     #admin-ac{
       height:52px;
     }
@@ -98,23 +119,64 @@
         color: #000;
 
       }
-      
     }
   }
+  .above-also{
+    margin-top:70px;
+  }
+  .background-fff{
+    background:#fff;
+  }
+  /*----------------------------------------------
+  Banner-section
+  ------------------------------------------*/
+  .container-fluid{
+    padding:0;
+    margin-top: 70px;
+  }
+  .carousel-caption{
+    right: 15%;
+    left: 49%;
+    bottom: 50px;
+    padding-bottom: 30px;
+    text-align: left;
+    text-shadow: none;
+  }
+  .carousel-caption h1{
+    color:#ffffff;
+    line-height: 1.2;
+    text-transform: uppercase;
+  }
+  .carousel-caption p{
+    color:#ffffff;
+  }
+
+  .carousel-indicators li {
+    width: 4px;
+    height: 4px;
+    background: #ffffff;
+  }
+  .carousel-indicators .active {
+    width: 6px;
+    height: 6px;
+    background: #FDC312;
+    border:1px solid #FDC312;
+  }
+  .carousel-inner{
+    .active,.item{
+      text-decoration:center;
+    }
+  }
+
+
   #myCarousel{
     margin-top: 70px;
   }
   .page-section:first-child {
-    padding: 60px 20px;
+    padding: 60px 0px;
   }
   .page-section{
-    margin-top: 20px;
     background-color:#fff;
-    h2{
-      text-align:center;
-    }
-    
-
     .page-section-body {
       max-width: 1260px;
       margin: 0 auto;
@@ -198,6 +260,28 @@
       }
     }
   }
+  @media(min-width: 768px) and (max-width: 1199px){
+    .carousel-caption{
+      bottom:1em;
+    }
+    .carousel-caption h1 {
+      font-size:1.5rem;
+    }
+    .carousel-caption p {
+      margin:0;
+    }
+    .carousel-caption a {
+      margin-top:7px;
+      padding:0 8px;
+    }
+    .carousel-indicators {
+      bottom: 0px;
+    }
+  }
+  /*----------------------------------------------
+  Search page
+  ------------------------------------------*/
+
   .search-food{
     width:100%;
     text-align:center;
@@ -285,9 +369,6 @@
             border:none;
 
           }
-
-
-
         }
       }
     }
@@ -297,17 +378,50 @@
     height:50px;
   }
 }
-
+/*----------------------------------------------
+Footer
+------------------------------------------*/
 #bottom-wrapper-bar {
   left: 220px;
 }
 #bottom-wrapper-bar {
-  margin-top:30px;
+  margin-top:50px;
+  padding:15px;
   bottom: 0;
   right: 0;
   z-index: 0;
-  background-color: #ebebeb;
-  height: 300px;
   line-height: 30px;
-  padding: 0 15px;
+  background: #333;
+  color: #fff;
+  ul{
+    margin-left: -37px;
+  }
+  a{
+    color: #aaa;
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: 40px;
+    font-weight: 100;
+    text-decoration: none;
+  }
+  a:hover{
+    color: #fff;
+  }
+  .footer-txt2 {
+    font-family: iCielSimplifica;
+    font-size: 40px;
+    color: #fff;
+  }
+  .txt-copyright{
+    text-align: center;
+    font-size: 14px;
+    color: #fff;
+  }
+}
+.content-heading{
+  margin-top:10px;
+  -webkit-box-shadow: 0 1px 3px rgba(0,0,0,.2);
+  box-shadow: 0 1px 3px rgba(0,0,0,.2);
+  padding: 10px 25px;
+  background:#fff;
 }

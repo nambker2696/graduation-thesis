@@ -1,7 +1,6 @@
 <div class="content-heading" style="min-height: 700px;">
-  <%= link_to 'Home', root_url %> <i class="fa fa-chevron-right"></i> Cart
   <% unless cart.cart_items.empty? %>
-  <h2>Dishes wanted</h2>
+  <h3>Dishes wanted</h3>
   <div id="cart">
     <table>
       <!-- 向局部模板传递一个集合  这个自动为集合中的每一项调用一次模板-->
@@ -18,8 +17,14 @@
     <%= button_to 'Clear Cart', cart, :method => :delete,  data: { confirm: 'Are you sure?' },remote: true,class: 'clear-btn btn btn-default'%>
   </div>
   <%  else %>
+  <div style="text-align:center; margin-top:100px;">
 
-  <h2>You did not select dishes</h2>
-  <i class="fa fa-chevron-left"></i> <%= link_to 'Back', :back %>
+        <div style="font-size:20px; color:#666; margin-bottom:20px;">Your shopping cart is empty!</div>
+        <div>
+        <%= link_to root_url do %>
+          Continue Shopping
+        <% end %>
+        </div>
+        </div>
   <% end %>
 </div>

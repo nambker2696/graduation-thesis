@@ -39,7 +39,7 @@ gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
 gem 'will_paginate'
 gem 'jquery-turbolinks'
-
+gem 'gmaps4rails'
 gem 'nexmo'
 # gem 'elasticsearch', git: 'git://github.com/elasticsearch/elasticsearch-ruby.git'
 # gem 'elasticsearch-model', git: 'git://github.com/elasticsearch/elasticsearch-rails.git'

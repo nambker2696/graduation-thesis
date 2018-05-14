@@ -146,6 +146,7 @@ GEM
       railties (>= 3.2, < 6.0)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+    gmaps4rails (2.1.2)
     gravatar_image_tag (1.2.0)
     hashie (3.5.7)
     i18n (1.0.1)
@@ -408,6 +409,7 @@ DEPENDENCIES
   devise
   faker!
   font-awesome-rails (~> 4.7.0.3)
+  gmaps4rails
   gravatar_image_tag
   i18n-js (~> 3.0.4)
   jbuilder (~> 2.5)

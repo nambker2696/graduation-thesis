@@ -1,8 +1,9 @@
 #cart{
-  td{
-    height:50px;
-  }
-  .checkout-btn{
+    td{
+        height:50px;
+    }
+}
+.checkout-btn{
     width: 120px;
     float: left;
     margin-top: 50px;
@@ -20,8 +21,8 @@
     line-height: 38px;
     border-radius: 5px;
     text-align: center!important;
-  }
-  .clear-btn{
+}
+.clear-btn{
     width: 120px;
     float: left;
     margin-top: 50px;
@@ -39,5 +40,16 @@
     line-height: 38px;
     border-radius: 5px;
     text-align: center!important;
-  }
+}
+.btn-back-home{
+    margin: 0 auto;
+    a{
+       position: absolute;
+       background: #fd463d;
+       color: #FFF !important;
+       padding: 10px 15px;
+       float: left;
+       margin: auto !important;
+       vertical-align: middle;
+   }
 }

@@ -9,6 +9,7 @@ class CreateLocations < ActiveRecord::Migration[5.1]
       t.text :description
       t.string :radius
       t.boolean :status
+      t.integer :max_table
       t.integer :sum_rate
       t.float :rate_avg
       

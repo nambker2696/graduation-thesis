@@ -1,11 +1,29 @@
 
-<%= simple_form_for(@cart) do |f| %>
-  <%= f.error_notification %>
+<div class="content-heading background-fff">
+<% unless cart.cart_items.empty? %>
+<h3>Dishes wanted</h3>
+  <div id="cart">
+    <table>
+      <%= render(cart.cart_items) %>
+      <tr class="total_line">
+        <td colspan="2">Total</td>
+        <td class="total_cell"><%= number_to_currency(cart.total_price) %></td>
+      </tr>
 
-  <div class="form-inputs">
+    </table>
+    <%= button_to 'CheckOut', new_booking_path, method: :get,class: 'checkout-btn btn btn-default'%>
+    <%= button_to 'Clear Cart', cart, :method => :delete,  data: { confirm: 'Are you sure?' },remote: true,class: 'clear-btn btn btn-default'%>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit %>
+  <%  else %>
+  <div class="background-fff">
+  <div style="text-align:center;  padding-top: 100px; min-height: 400px">
+      <div style="font-size:20px; color:#666; margin-bottom:20px;">Your shopping cart is empty!</div>
+      <div class="btn-back-home">
+        <%= link_to root_url do %>
+        Continue Shopping
+        <% end %>
+      </div>
+    </div>
   </div>
-<% end %>
+  <% end %>
+</div>

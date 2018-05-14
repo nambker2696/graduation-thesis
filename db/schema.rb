@@ -16,6 +16,8 @@ ActiveRecord::Schema.define(version: 20180507134505) do
     t.integer "location_id"
     t.integer "seat_id"
     t.date "day_to_eat"
+    t.integer "number_people"
+    t.integer "number_child"
     t.boolean "status"
     t.integer "action"
     t.string "delivery_type"
@@ -102,6 +104,7 @@ ActiveRecord::Schema.define(version: 20180507134505) do
     t.text "description"
     t.string "radius"
     t.boolean "status"
+    t.integer "max_table"
     t.integer "sum_rate"
     t.float "rate_avg"
     t.datetime "created_at", null: false
@@ -165,6 +168,7 @@ ActiveRecord::Schema.define(version: 20180507134505) do
     t.string "uid"
     t.integer "admin"
     t.string "avatar"
+    t.integer "point_card", default: 0
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

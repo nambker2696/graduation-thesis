@@ -3,7 +3,10 @@ $('#notice').hide()
 <!--  替换id为cart的元素的内容-->
 $('#cart').html("<%=j(render(@cart))%>");
 $('#cart').css({'display':'inline'});
-$('#current_item').css({'background-color':'#88ff88'}).animate({'background-color':'#114411'},1000)
+$('#current_item').css({'background-color':'#88ff88'}).animate({'background-color':'#b2dffb'},1000)
 ;
 
-if ($('#cart tr').length == 1){$('#cart').show('blind',1000);}
+if ($('#cart tr').length == 1){
+$('#cart').show('blind',1000);
+}
+$('#num-cart').html(<%= CartItem.where(cart_id: session[:cart_id]).count %>);

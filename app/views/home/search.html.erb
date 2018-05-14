@@ -1,61 +1,127 @@
-<div class="location-put">
-  <%= form_with url: search_path,local: true, method: :get do |form| %>
-  <%= form.text_field :q,class: "search-box-input",placeholder: "Search for chef by name or dish...", data: { behavior: "autocomplete" } %>
-  <% end %>
-</div>
-<div class="show-search">
-  <% if @locations %>
-  <% @locations.each do |locat| %>
-  <div class="left-panel result-search">
-    <div class="panel panel-default">
-        <div class="col-md-12 locat-result">
-          <div class="chef-box">
-            <ul>
-              <li>
-                <span class="chef-img">
-                  <%= image_tag(locat.user.avatar, :alt => "rss feed") %>
-                </span>
-                <span class="chef-name">
-                  <h3><%= link_to locat.name, "#" %></h3>
-                  <p><%= locat.address %></p>
-                </span>
+<div class="by aha ahl above-also">
+  <div class="dp">
+    <div class="fj">
+      <div class="location-put">
+        <div class="location_name">
+          <p>Home Chef(s) around: <i></i></p>
+        </div>
+      </div>
+      <div class="top-filter">
+        <div class="clear-all">
+          <a href="">Reset Filter</a>
+        </div>
+        <%= render "home/filter/time" %>
+        
+
+        <%= render "home/filter/minimum" %>
+
+        <%= render "home/filter/area" %>
+
+        <%= render "home/filter/vetge" %>
+        
+        <%= render "home/filter/rating" %>
+        
+      </div>
+    </div>
+    <div class="fm">
+      <div class="location-put">
+        <%= form_with url: search_path,local: true, method: :get do |form| %>
+        <%= form.text_field :q,class: "search-box-input",placeholder: "Search for chef by name or dish...", data: { behavior: "autocomplete" } %>
+        <% end %>
+      </div>
+      <div class="show-search">
+        <% if @locations %>
+        <% @locations.each do |locat| %>
+        <div class="left-panel result-search">
+          <div class="panel-default">
+            <div class="col-md-12 locat-result">
+              <div class="chef-box">
+                <ul>
+                  <li>
+                    <span class="chef-img">
+                      <%= image_tag(locat.user.avatar, :alt => "rss feed") %>
+                    </span>
+                    <span class="chef-name">
+                      <h3>
+                        <%= link_to location_path(locat) do %>
+                        <%= locat.name %>
+                        <% end %>
+                      </h3>
+                      <p><%= locat.address %></p>
+                    </span>
                 <!-- <span class="exclusive-con">
 
-                </span> -->
-              </li>
-            </ul>
-          </div>
-          <div class="chef-images">
-            <ul>
-              <li>
-                <%= image_tag("food/1.jpg", :alt => "rss feed") %>
-              </li>
-              <li>
-                <%= image_tag("food/1.jpg", :alt => "rss feed") %>
-              </li>
-              <li>
-                <%= image_tag("food/1.jpg", :alt => "rss feed") %>
-              </li>
-              <li>
-                <%= image_tag("food/1.jpg", :alt => "rss feed") %>
-              </li>
-              <li count="25"><a href="#">+25</a></li>
-            </ul>
-          </div>
-          <div class="chef-food-detail">
-            <ul>
-              <li><span class="detail-con">Cuisines:</span> Not Avaliable</li>
-              <li><span class="detail-con">Dish Count:</span> 122+ dishes</li>
-            </ul>
-            <ul>
-              <li><span class="detail-con1 ordercount">No. of Orders: 36 </span></li>
-            </ul>
-            </div>
+              </span> -->
+            </li>
+          </ul>
         </div>
+        <div class="chef-images">
+          <ul>
+            <li>
+              <%= image_tag("food/1.jpg", :alt => "rss feed") %>
+            </li>
+            <li>
+              <%= image_tag("food/1.jpg", :alt => "rss feed") %>
+            </li>
+            <li>
+              <%= image_tag("food/1.jpg", :alt => "rss feed") %>
+            </li>
+            <li>
+              <%= image_tag("food/1.jpg", :alt => "rss feed") %>
+            </li>
+            <li count="25"><a href="#">+<%= locat.dishes.count - 4 %></a></li>
+          </ul>
+        </div>
+        <div class="chef-food-detail">
+          <ul>
+            <li><span class="detail-con">Cuisines:</span> Not Avaliable</li>
+            <li><span class="detail-con">Dish Count:</span> 122+ dishes</li>
+          </ul>
+          <ul>
+            <li><span class="detail-con1 ordercount">No. of Orders: 36 </span></li>
+          </ul>
+        </div>
+        <div class="rating-wrap">
+          <span class="rating-con one0">
+            <%= render "shared/location_avg_rate", rate_avg: locat.rate_avg %>
+            <span rate="0"><%= locat.rate_avg.round(1) %>&nbsp;|&nbsp;<%= locat.reviews.count %> Reviews</span>
+          </span> 
+          <span class="experince">Order Experience</span>
+        </div>
+        <div class="box-bottom-con">
+          <ul>
+            <li>Delivers in 2 Hrs</li>
+            <li>Chef's Min. Order Rs. 500</li>
+          </ul>
+          <ul>
+            <li>
+              <span class="wish-list">
+                <a href=""><i class="fa fa-heart"></i></a>
+              </span>
+              <span class="view-more">
+                <%= link_to location_path(locat) do %>
+                View More
+                <% end %>
+              </span>
+
+            </li>
+          </ul>
+        </div>
+
+      </div>
     </div>
   </div>
   <% end %>
+  <%= paginate @locations %>
   <% else %>
   <p>Your search did not match any documents.</p>
   <% end %>
+
 </div>
+</div>
+<div class="fj">
+  History
+</div>
+</div>
+</div>
+

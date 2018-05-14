@@ -24,6 +24,7 @@
 //= require turbolinks
 //= require moment
 //= require bootstrap-datetimepicker
+//= require gmaps/google
 //= require_tree .
 
 function getRating(el) {
