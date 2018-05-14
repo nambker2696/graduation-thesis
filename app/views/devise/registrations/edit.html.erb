@@ -1,28 +1,87 @@
-<h2><%= t(".title", resource: resource_name.to_s.humanize) %></h2>
+<div class="container">
+  <div class="content-heading" style="min-height: 700px; margin-top: 80px;">
+    <div class="acc-detail">
+      <h3><%= t(".title", resource: resource_name.to_s.humanize) %></h3>
+      <div class="account-head">  
+        <ul>
+          <li class="active"><a href="https://www.foodcloud.in/index.php?route=account/account">My Account</a></li>
+          <li><a href="https://www.foodcloud.in/index.php?route=account/order">My Orders</a></li>
+          <li><a href="https://www.foodcloud.in/index.php?route=account/wishlist">My Wishlist Chefs</a></li>
+          <li><a href="https://www.foodcloud.in/index.php?route=account/ratechef">Rate The Chef</a></li>
+          <li><a href="https://www.foodcloud.in/index.php?route=account/referral/coupon">FoodCloud Credit</a></li>
+          <li><a href="https://www.foodcloud.in/index.php?route=account/logout">Logout</a></li>
+        </ul>
+      </div>
+      <div class="account-content">
+        <div class="row">
+          <div class="col-md-4">
+            <ul>
+              <li class="tab-title active"><a href="">Edit your account information</a></li>
+              <li class="tab-title "><a href="">Change Password</a></li>
+              <li class="tab-title "><a href="">Modify your address book entries</a></li>
+            </ul>
+          </div>
+          <div class="col-md-8">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="field-box">
+                  <p>
+                    <label><span class="required">*</span>First Name:</label>
+                    <input type="text" class="field" name="firstname" value="">
+                  </p>
+                  <p>
+                    <label><span class="required">*</span>Last Name:</label>
+                    <input type="text" class="field" name="firstname" value="">
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="field-box">
+                  <p>
+                    <label><span class="required">*</span> E-Mail:</label>
+                    <input type="text" class="field" name="email" disabled="disabled" value="emluonotrongtamtricuaanh@gmail.com">
+                  </p>
+                  <p>
+                    <label><span class="required">*</span> Mobile Number:</label>
+                    <input type="text" class="field" name="email">
+                  </p>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= f.error_notification %>
+                </div>
+              </div>
+            </div>
 
-  <div class="form-inputs">
-    <%= f.input :name, required: true, autofocus: true %>
-    <%= f.input :email, required: true, autofocus: true %>
+            <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+            <%= f.error_notification %>
 
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <p><%= t(".currently_waiting_confirmation_for_email", email: resource.unconfirmed_email) %></p>
-    <% end %>
+            <div class="form-inputs">
+              <%= f.input :name, required: true, autofocus: true %>
+              <%= f.input :email, required: true, autofocus: true %>
 
-    <%= f.input :password, autocomplete: "off", hint: t(".leave_blank_if_you_don_t_want_to_change_it"), required: false %>
-    <%= f.input :password_confirmation, required: false %>
-    <%= f.input :current_password, hint: t(".we_need_your_current_password_to_confirm_your_changes"), required: true %>
+              <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+              <p><%= t(".currently_waiting_confirmation_for_email", email: resource.unconfirmed_email) %></p>
+              <% end %>
+
+              <%= f.input :password, autocomplete: "off", required: false %>
+              <%= f.input :password_confirmation, required: false %>
+              <%= f.input :current_password,required: true %>
+            </div>
+
+            <div class="form-actions">
+              <%= f.button :submit, t(".update") %>
+            </div>
+            <% end %>
+
+            <h3><%= t(".cancel_my_account") %></h3>
+
+            <p><%= t(".unhappy") %> <%= link_to t(".cancel_my_account"), registration_path(resource_name), data: { confirm: t(".are_you_sure") }, method: :delete %></p>
+
+            <%= link_to t("devise.shared.links.back"), :back %>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, t(".update") %>
-  </div>
-<% end %>
-
-<h3><%= t(".cancel_my_account") %></h3>
-
-<p><%= t(".unhappy") %> <%= link_to t(".cancel_my_account"), registration_path(resource_name), data: { confirm: t(".are_you_sure") }, method: :delete %></p>
-
-<%= link_to t("devise.shared.links.back"), :back %>
+</div>

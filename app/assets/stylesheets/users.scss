@@ -229,3 +229,98 @@ $inside-ground: rgba(199, 194, 155, 0.93);
     }
   }
 }
+.acc-detail{
+  margin-top: 30px;
+  h3{
+    color: #1c2c3a;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 40px;
+  }
+}
+.account-head{
+  clear: both;
+  overflow: hidden;
+  ul{
+    -webkit-padding-start: 0px;
+    li{
+      float:left;
+      a{
+        background: #d7e8fa;
+        color:#000;
+        display: block;
+        font-size: 14px;
+        margin: 0 2px 2px 0;
+        padding: 8px 18px;
+        text-align: center;
+        text-decoration: none;
+      }
+      a:hover{
+        background-color: #03A9F4;
+        color: #fff;
+      }
+    }
+    .active{
+      a{
+        background-color: #03A9F4;
+        color: #fff;
+      }
+    }
+  }
+}
+.account-content{
+  padding: 40px 0 0;
+  ul{
+    li{
+      margin: 10px 0;
+      position: relative;
+      width: 100%;
+      a{
+        padding: 8px;
+        text-align: left;
+        text-decoration:none;
+        color: #000;
+      }
+    }
+    .active{
+      background-color: #d7e8fa;
+      padding: 8px;
+      a{
+        color: #000;
+      }
+    }
+  }
+  .field-box {
+    p{
+      float: left;
+      margin: 0;
+      padding: 0 0 12px;
+      width: 100%;
+    }
+    label{
+      color: #929292;
+      float: left;
+      font-size: 14px;
+      margin-bottom: 3px;
+      span{
+        color: #ba1917;
+        display: block;
+        float: left;
+        font-size: 13px;
+        font-weight: 700;
+        padding: 2px 4px 0 0;
+      }
+    }
+    input{
+      margin-bottom:10px;
+      border: 1px solid #dde1e7;
+      border-radius: 5px;
+      box-sizing: border-box;
+      display: block;
+      height: 49px;
+      padding: .5rem;
+      transition: box-shadow 0.45s ease 0s, border-color 0.45s ease-in-out 0s;
+      width: 100%;
+    }
+  }
+}
