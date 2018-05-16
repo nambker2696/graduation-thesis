@@ -14,6 +14,13 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
       t.string :avatar
       t.integer :point_card, default: 0
 
+      t.string :first_name
+      t.string :last_name
+      t.string :display_name
+      t.string :address
+      t.integer :type_chef
+      t.string :phone
+      
       t.string   :reset_password_token
       t.datetime :reset_password_sent_at
       t.datetime :remember_created_at

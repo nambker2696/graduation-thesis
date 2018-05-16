@@ -13,7 +13,7 @@ User.create!(name:  "Admin",
  password:              "admin1",
  password_confirmation: "admin1",
  avatar: "logo_restorant/2017"+rands.to_s+".jpg",
- admin: 100
+ admin: 1
  )
 
 30.times do
@@ -34,8 +34,7 @@ data_hash = JSON.parse(file)
 data_hash.each do |cate|
   Category.create(
     name: cate['category'],
-    display_name: cate['category'].parameterize,
-    sub_category: cate['sub_category']
+    slug_cate: cate['category'].parameterize,
     )
 end
 
@@ -53,6 +52,7 @@ data_hash.each do |store|
     open_time: store['open_time'],
     radius: Faker::Number.between(1, 5),
     max_table: Faker::Number.between(5, 15),
+    category_id: Faker::Number.between(1, 6),
     sum_rate: 0,
     rate_avg: 0
   )
@@ -81,7 +81,6 @@ data_hash = JSON.parse(file)
 data_hash.each do |dishdata|
   Dish.create(
     location_id: dishdata['location_id'],
-    category_id: Faker::Number.between(1, 23),
     name: dishdata['dish'], 
     slug_dish: dishdata['dish'].parameterize, 
     subtitle: Faker::Food.measurement,

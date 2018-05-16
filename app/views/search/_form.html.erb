@@ -4,76 +4,15 @@
       <%= form_with url: search_path, local: true, method: :get  do |form| %>
       <ul>
         <li class="location">
-          <%= form.text_field :q, placeholder: "Type your delivery location or dish...", data: { behavior: "autocomplete" }, class: "form-control mr-sm-2" %>
+          <%= form.text_field :q, placeholder: "Type your location or area...", data: { behavior: "autocomplete" }, class: "form-control mr-sm-2" %>
         </li>
         <li class="loction_bkg">
-
-        <button type="button" class="btn howtosearch"><i class="fa fa-tasks location_get_icon"></i></button>
         </li>
         <li class="submit-search-btn">
           <%= form.button "Search" %>
         </li>
       </ul>
       <% end %>
-
     </div>
   </div>
 </div>
-
-<!-- // modal-login -->
-<div class="modal fade" id="show-alog">
-  <div class="modal-dialog" style="width: 450px">
-    <div class="modal-content" style="padding: 10px">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
-        </button>
-        <div id="form-login-admin" class="box-header">
-          <h2><%= t(".sign_in") %></h2>    
-        </div>
-
-      </div>
-      <div class="modal-body">
-
-        <div class="box-content">
-          <%= form_for :user, url: user_session_path do |f|%>
-          <div id="form-login-user">
-            <div class="form-group float-label-control">
-              <%= f.label :Email %>
-              <%= f.email_field :email, class: 'form-control', :required => true %>
-            </div>
-            <div class="form-group float-label-control">
-              <%= f.label :Password %>
-              <%= f.password_field :password, class: 'form-control', :required => true %>
-            </div>
-            <div class="form-group">
-              <div class="checkbox"> 
-                <%= f.label :remember_me do %> 
-                <%= f.check_box :remember_me %> Remember me 
-                <% end %> 
-              </div> 
-            </div>
-          </div>
-          <div class="form-actions">
-            <%= f.button :submit,:class =>"formButton",:id => "btn-login-admin",:name => t(".sign_in"),:value => t(".sign_in") %>
-          </div>
-          <% end %>
-          <p class="for-get"><span>Forgot Your Password - <%= link_to "Reset Password", user_password_path%></span></p>
-          <p class="for-get"><span>Don't Have An Account - <%= link_to "Sign Up",new_user_registration_url %></span></p>
-
-        </div>
-      </div>
-    </div>
-    <div class="modal-footer">
-      @NAMBKER
-    </div>
-  </div>
-</div>
-
-
-<script>
-  $('.howtosearch').on('click', function (e) {
-    $('#show-alog').modal({
-      show: true
-    });
-  });
-</script>

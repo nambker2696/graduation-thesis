@@ -1,33 +1,215 @@
-<div class="box center">
-  <div class="box-header">
-    <h2><%= t(".sign_in") %></h2>
-  </div>
-
-  <div class="box-content">
-
-    <%= form_for :user, url: user_session_path do |f|%>
-    <div id="form-login-user">
-      <div class="form-group float-label-control">
-        <%= f.text_field :email, required: false, autofocus: true,:input_html =>{:class => "form-control" }%>
-      </div>
-      <div class="form-group float-label-control">
-        <%= f.password_field :password, required: false,:input_html => {:maxlength => 15, :size => 30,:class =>"form-control"} %>
-      </div>
-      <div class="form-group">
-        <%= f.check_box :remember_me %>
+<div id="chef-signup" class="container above-also">
+  <div class="content-heading" style="width: 60%">
+    <div class="row ">
+      <div class="stepwizard col-md-12">
+        <div class="stepwizard-row setup-panel">
+          <div class="stepwizard-step">
+            <a href="#step-1" type="button" class="btn btn-primary btn-circle">1</a>
+            <p>Step 1</p>
+          </div>
+          <div class="stepwizard-step">
+            <a href="#step-2" type="button" class="btn btn-default btn-circle" disabled="disabled">2</a>
+            <p>Step 2</p>
+          </div>
+          <div class="stepwizard-step">
+            <a href="#step-3" type="button" class="btn btn-default btn-circle" disabled="disabled">3</a>
+            <p>Step 3</p>
+          </div>
+        </div>
       </div>
     </div>
+    <%= form_with url: create_chef_path, local: true, method: :get  do |f| %>
+    <div class="setup-content" id="step-1">
+      <div class="col-md-12 centered" >
+        <h3> Step 1</h3>
+        <!-- // form acc chef -->
+        <div class="col-md-6">
+          <div class="form-group">
+            <label><span class="required">*</span>First Name:</label>
+            <%= f.text_field :first_name,class: "form-control",required: "required",placeholder: "Enter First Name" %>
+          </div>  
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="control-label"><span class="required">*</span>Last Name</label>
+            <%= f.text_field :last_name,class: "form-control",required: "required",placeholder: "Enter Last Name" %>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="control-label"><span class="required">*</span>Display Name</label>
+            <%= f.text_field :display_name,class: "form-control",required: "required",placeholder: "Dish play name" %>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="control-label"><span class="required">*</span>Mobile Number</label>
+            <%= f.text_field :phone_number,class: "form-control",required: "required",placeholder: "Enter Phone Number",maxlength: "11", minlength: "10" %>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="control-label"><span class="required">*</span>E-Mail:</label>
+            <%= f.email_field :email,class: "form-control",required: "required",placeholder: "Enter Your Mail" %>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="control-label"><span class="required">*</span>Confirm Email:</label>
+            <%= f.email_field :confirm_email,class: "form-control",required: "required",placeholder: "Enter Again Email" %>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="control-label"><span class="required">*</span>Password</label>
+            <%= f.password_field :password,class: "form-control",required: "required",placeholder: "Enter Your Password" %>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="control-label"><span class="required">*</span>Confirm Password</label>
+            <%= f.password_field :confirm_password,class: "form-control",required: "required",placeholder: "Enter Again Password" %>
+          </div>
+        </div>
+        <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button>
+      </div>
+    </div>
+    <div class="row">
+    <!-- form store/restaurant -->
+      <div class="setup-content" id="step-2">
+        <div class="col-md-12 centered">
+          <h3> Chef Description</h3>
+          <div class="btn-group" role="group">
+            <div class="col-md-4">
+              <label class="btn btn-default btn-checkbox">
+                <span class="glyphicon glyphicon-unchecked" data-icon-on="glyphicon glyphicon-check" data-icon-off="glyphicon glyphicon-unchecked"></span>
+                <input name="radio" type="radio" value="ant" style="display: none" autocomplete="false"/>Home food 
+              </label>
+            </div>
+            <div class="col-md-4">
+              <label class="btn btn-default btn-checkbox">
+                <span class="glyphicon glyphicon-unchecked" data-icon-on="glyphicon glyphicon-check" data-icon-off="glyphicon glyphicon-unchecked"></span>
+                <input name="radio" type="radio" value="bat" style="display: none" autocomplete="false"/> Base Kitchen
+              </label>
+            </div>
+            <div class="col-md-4">
+              <label class="btn btn-default btn-checkbox">
+                <span class="glyphicon glyphicon-unchecked" data-icon-on="glyphicon glyphicon-check" data-icon-off="glyphicon glyphicon-unchecked"></span>
+                <input name="radio" type="radio" value="cat" style="display: none" autocomplete="false"/> Restaurant
+              </label>
+            </div>
+          </div>  
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="control-label">House/StreetNo.</label>
+              <input type="text" required="required" class="form-control" placeholder="Enter Company Name" />
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="control-label">Area/Locality:</label>
+              <input type="text" required="required" class="form-control" placeholder="Enter Company Address"  />
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="control-label">City:</label>
+              <select class="form-control" id="city" required="">
+                <option value="">Choose...</option>
+                <option>Ha Noi</option>
+                <option>Ho Chi Minh</option>
+                <option>Da Nang</option>
+              </select>
 
-    <div class="form-actions">
-      <%= f.button :submit,:class =>"formButton",:name => t(".sign_in"),:value => t(".sign_in") %>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <div class="form-group">
+                <label class="control-label">Type Store</label>
+                <select class="form-control" id="type_store" required="">
+                  <option value="">Barbecue</option>
+                  <option>Buffet</option>
+                  <option>Hotpot</option>
+                  <option>Cakes</option>
+                  <option>Tea&Snacks</option>
+                  <option>Rice</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="form-group">
+              <label class="control-label">Description</label>
+              <textarea  maxlength="200" class="form-control"  placeholder="Enter Company Address"></textarea>
+            </div>
+          </div>
+          <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button>
+        </div>
+      </div>
+
+      <div class="setup-content" id="step-3">
+        <div class="col-md-12">
+          <h3>Chef Description</h3>
+          <div class="row">
+            <div class="col-md-3">Monday</div>
+            <div class="col-md-3">Open</div>
+            <div class="col-md-3">Close</div>
+            <div class="col-md-3">Close</div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">Tuesday</div>
+            <div class="col-md-3">Open</div>
+            <div class="col-md-3">Close</div>
+            <div class="col-md-3">Close</div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">Wednesday</div>
+            <div class="col-md-3">Open</div>
+            <div class="col-md-3">Close</div>
+            <div class="col-md-3">Close</div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">Thursday</div>
+            <div class="col-md-3">Open</div>
+            <div class="col-md-3">Close</div>
+            <div class="col-md-3">Close</div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">Friday</div>
+            <div class="col-md-3">Open</div>
+            <div class="col-md-3">Close</div>
+            <div class="col-md-3">Close</div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">Saturday</div>
+            <div class="col-md-3">Open</div>
+            <div class="col-md-3">Close</div>
+            <div class="col-md-3">Close</div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">Sunday</div>
+            <div class="col-md-3">Open</div>
+            <div class="col-md-3">Close</div>
+            <div class="col-md-3">Close</div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="control-label">Facebook URL:</label>
+              <input type="text" required="required" class="form-control" placeholder="Enter Company Address"  />
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="control-label">Twitter URL:</label>
+              <input type="text" required="required" class="form-control" placeholder="Enter Company Address"  />
+            </div>
+          </div>
+          <%= f.button "Submit",class: "btn btn-success btn-lg pull-right" %>
+        </div>
+      </div>
     </div>
     <% end %>
   </div>
-  <div class="form-actions">
-    <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path,:class => "sign-in-facebook" %>
-  </div>
-  <div class="box-footer text-center">
-    <p class="for-get"><span>Forgot Your Password - <%= link_to "Reset Password", new_user_password_url %></span></p>
-    <p class="regist"><span>Don't Have An Account - <%= link_to "Sign Up",new_user_registration_url %></span></p>
-  </div>
-</div>
+</div>   
+

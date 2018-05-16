@@ -4,12 +4,13 @@
       <h3><%= t(".title", resource: resource_name.to_s.humanize) %></h3>
       <div class="account-head">  
         <ul>
-          <li class="active"><a href="https://www.foodcloud.in/index.php?route=account/account">My Account</a></li>
-          <li><a href="https://www.foodcloud.in/index.php?route=account/order">My Orders</a></li>
-          <li><a href="https://www.foodcloud.in/index.php?route=account/wishlist">My Wishlist Chefs</a></li>
-          <li><a href="https://www.foodcloud.in/index.php?route=account/ratechef">Rate The Chef</a></li>
-          <li><a href="https://www.foodcloud.in/index.php?route=account/referral/coupon">FoodCloud Credit</a></li>
-          <li><a href="https://www.foodcloud.in/index.php?route=account/logout">Logout</a></li>
+          <li class="active"><%= link_to edit_user_registration_url do %>My Account<% end %></li>
+          <li><%= link_to bookings_url do %> My Booking<% end %></li>
+          <li><%= link_to bookings_url do %> My Order<% end %></li>
+          <li><a href="#">My Wishlist Chefs</a></li>
+          <li><a href="#">Rate The Chef</a></li>
+          <li><a href="#">FoodCloud Credit</a></li>
+          <li><%= link_to destroy_user_session_path do %>Logout<% end %></li>
         </ul>
       </div>
       <div class="account-content">
@@ -21,7 +22,7 @@
               <li class="tab-title "><a href="">Modify your address book entries</a></li>
             </ul>
           </div>
-          <div class="col-md-8">
+          <div id="customer-details" class="col-md-8">
             <div class="row">
               <div class="col-md-6">
                 <div class="field-box">

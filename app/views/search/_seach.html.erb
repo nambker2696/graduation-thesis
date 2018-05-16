@@ -3,7 +3,7 @@
     <div class="fj">
       <div class="location-put">
         <div class="location_name">
-          <p>Home Chef(s) around: <%= @ql %><i></i></p>
+          <p>Home Chef(s) around: <%= ql %><i></i></p>
         </div>
       </div>
       <div class="top-filter">
@@ -12,6 +12,7 @@
         </div>
         <%= render "home/filter/time" %>
         
+
         <%= render "home/filter/minimum" %>
 
         <%= render "home/filter/type" %>
@@ -25,11 +26,11 @@
     <div class="fm">
       <div class="location-put">
         <%= form_with url: search_path,local: true, method: :get do |form| %>
-        <%= form.text_field :q,class: "search-box-input",autocomplete: "off", autocapitalize: "off",placeholder: "Search for chef by name or dish...", data: { behavior: "autocomplete" } %>
+        <%= form.text_field :q,class: "search-box-input",placeholder: "Search for chef by name or dish...", data: { behavior: "autocomplete" } %>
         <% end %>
       </div>
       <div class="show-search">
-        <% if @locations %>
+        <% if locations %>
         <% @locations.each do |locat| %>
         <div class="left-panel result-search">
           <div class="panel-default">

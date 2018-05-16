@@ -12,7 +12,6 @@ class CreateDishes < ActiveRecord::Migration[5.1]
       t.string :tags
       t.string :image, default: ""
       t.boolean :active
-      
       t.timestamps
     end
   end

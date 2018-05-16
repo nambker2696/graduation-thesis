@@ -46,8 +46,7 @@ ActiveRecord::Schema.define(version: 20180507134505) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
-    t.string "display_name"
-    t.integer "sub_category"
+    t.string "slug_cate"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -73,8 +72,6 @@ ActiveRecord::Schema.define(version: 20180507134505) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "location_id"
-    t.integer "category_id"
-    t.index ["category_id"], name: "index_dishes_on_category_id"
     t.index ["location_id"], name: "index_dishes_on_location_id"
   end
 
@@ -109,6 +106,8 @@ ActiveRecord::Schema.define(version: 20180507134505) do
     t.float "rate_avg"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "category_id"
+    t.index ["category_id"], name: "index_locations_on_category_id"
   end
 
   create_table "opening_hours", force: :cascade do |t|

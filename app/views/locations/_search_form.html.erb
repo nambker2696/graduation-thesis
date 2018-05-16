@@ -1,0 +1,25 @@
+<div class="search-food">
+  <div class="search-con">
+    <div id="seach-form">
+
+      <ul>
+        <%= form_with url: get_location_path, local: true, method: :get  do |form| %>
+        <li class="location">
+        <%= form.text_field :ql, placeholder: "Type your location or area...", data: { behavior: "autocomplete-locat" }, class: "form-control mr-sm-2" %>
+        </li>
+        <% end %>
+        <li class="submit-search-btn">
+          <%= form_with url: search_path, local: true, method: :get  do |form2| %>
+          <%= form2.hidden_field :ql,id: "locate_params" %>
+          <%= form2.button "Search" %>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<script>
+$('input[name=ql]').change(function() {
+  $('#locate_params').val($(".mr-sm-2").val());
+});
+</script>

@@ -1,3 +1,3 @@
 class Category < ApplicationRecord
-  has_many :dishs
+  has_many :locations
 end

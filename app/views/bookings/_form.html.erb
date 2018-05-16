@@ -13,116 +13,119 @@
   </div>
   <% end %>
   <!-- datepicker -->
-  <h3>Choose Timeslote</h3>
-  <div>
-    <div class="form-group">
-      <div class="row">
-        <div class="col-md-8">
-          <div class="row">
-            <div class="form-group">
-              <div class="col-sm-2 control-label">
-                <label for="startdate" class="control-label">Day eat</label>
-              </div>
-              <div class="col-sm-4">
-                <div class="input-group date" id="startdate">
-                  <input type="text" class="form-control" />
-                  <span class="input-group-addon">
-                    <span class="glyphicon-calendar glyphicon"></span>
-                  </span>
-                </div>
-              </div>
-              <div class="col-sm-2 control-label">
-                <label for="startdate" class="control-label">Time eat</label>
-              </div>
-              <div class="col-sm-4">
-                <select id="inputState" class="form-control">
-                  <option selected>Choose...</option>
-                  <option>10:00</option>
-                  <option>12:00</option>
-                  <option>14:00</option>
-                  <option>16:00</option>
-                  <option>18:00</option>
-                  <option>20:00</option>
-                </select>
-              </div>
-            </div>
-            <div class="form-group">
-              <h3>Choose people</h3>
-              <div class="col-sm-2 control-label">
-                <%= f.label :num_people,class: "control-label" %>
-              </div>
-              <div class="col-sm-4">
-                <select id="inputState" class="form-control">
-                  <option selected>Choose...</option>
-                  <option>1 people</option>
-                  <option>2 people</option>
-                  <option>3 people</option>
-                  <option>4 people</option>
-                  <option>5 people</option>
-                  <option>6 people</option>
-                  <option>7 people</option>
-                  <option>8 people</option>
-                  <option>9 people</option>
-                  <option>10 people</option>
-                </select>
-              </div>
-              <div class="col-sm-2 control-label">
-                <%= f.label :num_child,class: "control-label" %>
-              </div>
-              <div class="col-sm-4">
-                <select id="inputState" class="form-control">
-                  <option selected>Choose...</option>
-                  <option>1 people</option>
-                  <option>2 people</option>
-                  <option>3 people</option>
-                  <option>4 people</option>
-                  <option>5 people</option>
-                  <option>6 people</option>
-                </select>
-              </div>
-            </div>
-            <div class="form-group">
-              <h3>Checkout customer</h3>
-              <div class="form-group">
-                <div class="col-sm-2 control-label">
-                  <%= f.label :seat_id,class: "control-label" %>
-                </div>
-                <div class="col-sm-4">
-                  <%= f.number_field :seat_id,class: "form-control" %>
-                  <p>For each 6seat is 1 table </p>
-                </div>
-
-              </div>
-
-            </div>
-          </div>
-          <!-- end row of col-md-8 -->
-        </div>
-        <!-- end col-md-8 -->
-
-        <div class="col-md-4">
-          <h3> Choose types pay </h3>
-
+  <div class="form-group">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="row">
           <div class="form-group">
-            <%= f.label :delivery_type,class: "control-label" %>
-            <%= f.select :delivery_type,Booking::DELIVERY_TYPES, prompt: 'Select a delivery method', class: 'form-control' %>
+            <h3>Choose Timeslote</h3>
+            <div class="col-sm-2 control-label">
+              <label for="startdate" class="control-label">Day eat</label>
+            </div>
+            <div class="col-sm-4">
+              <div class="input-group date" id="startdate">
+                <input type="text" class="form-control" />
+                <span class="input-group-addon">
+                  <span class="glyphicon-calendar glyphicon"></span>
+                </span>
+              </div>
+            </div>
+            <div class="col-sm-2 control-label">
+              <label for="startdate" class="control-label">Time eat</label>
+            </div>
+            <div class="col-sm-4">
+              <select id="inputState" class="form-control">
+                <option selected>Choose...</option>
+                <option>10:00</option>
+                <option>12:00</option>
+                <option>14:00</option>
+                <option>16:00</option>
+                <option>18:00</option>
+                <option>20:00</option>
+              </select>
+            </div>
           </div>
           <div class="form-group">
-            <%= f.label :payment_type,class: "control-label" %>
-            <%= f.select :payment_type, Booking::PAYMENT_TYPES, prompt: 'Select a payment method', class: 'form-control' %>
+            <h3>Choose people</h3>
+            <div class="col-sm-2 control-label">
+              <%= f.label :num_people,class: "control-label" %>
+            </div>
+            <div class="col-sm-4">
+              <select id="inputState" class="form-control">
+                <option selected>Choose...</option>
+                <option>1 people</option>
+                <option>2 people</option>
+                <option>3 people</option>
+                <option>4 people</option>
+                <option>5 people</option>
+                <option>6 people</option>
+                <option>7 people</option>
+                <option>8 people</option>
+                <option>9 people</option>
+                <option>10 people</option>
+              </select>
+            </div>
+            <div class="col-sm-2 control-label">
+              <%= f.label :num_child,class: "control-label" %>
+            </div>
+            <div class="col-sm-4">
+              <select id="inputState" class="form-control">
+                <option selected>Choose...</option>
+                <option>1 people</option>
+                <option>2 people</option>
+                <option>3 people</option>
+                <option>4 people</option>
+                <option>5 people</option>
+                <option>6 people</option>
+              </select>
+            </div>
           </div>
-          <%= f.hidden_field :user_id, value: current_user.id %>
-          <%= f.hidden_field :location_id, value: "1" %>
+
+          <div class="form-group">
+            <h3> Choose types pay </h3>
+            <div class="col-sm-2 control-label">
+              <%= f.label :delivery_type,class: "control-label" %>
+            </div>
+            <div class="col-sm-4">
+              <%= f.select(:delivery_type,Booking::DELIVERY_TYPES, {prompt: 'Select a delivery method'}, { :class => 'form-control' }) %>
+            </div>
+            <div class="col-sm-2 control-label">
+              <%= f.label :payment_type,class: "control-label" %>
+            </div>
+            <div class="col-sm-4">
+              <%= f.select(:payment_type,Booking::PAYMENT_TYPES, {prompt: 'Select a payment method'}, { :class => 'form-control' }) %>
+            </div>
+          </div>
+          <div class="form-group">
+            <h3>Checkout customer</h3>
+            <div class="col-sm-2 control-label">
+              <%= f.label :seat_id,class: "control-label" %>
+            </div>
+            <div class="col-sm-4">
+              <%= f.number_field :seat_id,class: "form-control" %>
+              <p>For each 6seat is 1 table </p>
+            </div>
+            <%= f.hidden_field :user_id, value: current_user.id %>
+            <%= f.hidden_field :location_id, value: "1" %>
+            <div class="col-sm-6">
+              <%= f.submit "Create", class: "btn btn-success btn-lg pull-right" %>
+            </div>
+          </div>
         </div>
-        <!-- end col-md-4 -->
+        <!-- end row of col-md-8 -->
       </div>
+      <!-- end col-md-8 -->
+      <div class="col-md-4">
+        <div class="row">
+        </div>          
+      </div>
+      <!-- end col-md-4 -->
     </div>
   </div>
-  <div>
-    <%= f.submit yield(:button_text), class: "btn btn-success btn-lg pull-right" %>
-  </div>
-  <% end %>
+  <% end %> 
+  <!-- end form-for booking -->
 </div>
+
 
 <script>
   $(document).ready(function () {

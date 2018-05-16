@@ -30,3 +30,6 @@
 function getRating(el) {
   $('#rate_value').val(el.value);
 }
+function getRating(el) {
+  $('#rate_value').val(el.value);
+}

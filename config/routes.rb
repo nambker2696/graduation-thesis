@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :reviews
    devise_for :users, only: :omniauth_callbacks, controllers:
   { omniauth_callbacks: 'users/omniauth_callbacks',
     registrations: 'registrations',passwords: "passwords" }
@@ -29,6 +28,7 @@ Rails.application.routes.draw do
   resources :guesses
   resources :order_details
   resources :bookings
+  resources :reviews
   resources :cart_items do  
     put 'decrement', on: :member
   end
@@ -46,10 +46,12 @@ Rails.application.routes.draw do
   end
   resources :categories,only:[:show]
   get :search, controller: :home
+  get :get_location, controller: :home
+  get :create_chef, controller: :home
+  get :chef_signup, controller: :home
   devise_for :users, skip: :omniauth_callbacks
     get 'about' => 'home#about'
     get 'contact' => 'home#contact'
-    get 'chef_signup' => 'home#chef_signup'
     root to: 'home#index'
   end
   root to: redirect('/#{I18n.default_locale}', status: 302),

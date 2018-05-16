@@ -4,7 +4,7 @@ desc 'Read jobs file'
 
 
 task read_store_file: :environment do
-  file = File.read('lib/assets/total_store.json')
+  file = File.read('lib/assets/store1.json')
   file2 = "lib/assets/dish_store.json"
   dishname = []
   disheach = []

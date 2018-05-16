@@ -4,6 +4,7 @@ class LocationsController < ApplicationController
 
   attr_reader :location, :dish
   attr_reader :location, :review
+  attr_reader :location, :category
   # GET /locations
   # GET /locations.json
   def index
