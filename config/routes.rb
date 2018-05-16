@@ -1,7 +1,14 @@
 Rails.application.routes.draw do
-   devise_for :users, only: :omniauth_callbacks, controllers:
+  devise_for :admins, path: 'admins', controllers: {
+    registrations: 'registrations',passwords: "passwords" ,sessions: "admins/sessions"}
+
+
+
+  devise_for :users, only: :omniauth_callbacks, controllers:
   { omniauth_callbacks: 'users/omniauth_callbacks',
     registrations: 'registrations',passwords: "passwords" }
+
+
   scope '(:locale)', locale: /en|vi|ja/ do
 
   namespace :admin do
