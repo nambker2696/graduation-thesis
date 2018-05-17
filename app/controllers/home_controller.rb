@@ -19,32 +19,46 @@ class HomeController < ApplicationController
     @locations = Array.new
     if types_cate != nil
       types_ids = types_cate.first.split(',')
-        types_ids.each do |tp|
-          cate_id = Category.find_by slug_cate: tp
-          @location = Location.joins(:category).where("category_id"=> cate_id.id).joins(:dishes).ransack(name_cont: params[:q]).result(distinct: true)
-          @location.each do |lc|
-            @locations << lc
-          end
+      types_ids.each do |tp|
+        cate_id = Category.find_by slug_cate: tp
+        @location = Location.joins(:category).where("category_id"=> cate_id.id).joins(:dishes).ransack(name_cont: params[:q]).result(distinct: true)
+        @location.each do |lc|
+          @locations << lc
         end
-        @locations = Kaminari.paginate_array(@locations).page(params[:page]).per(5)
-    else
-      @locations = Location.joins(:dishes).ransack(name_cont: params[:q]).result(distinct: true).page params[:page]
+      end
 
-                   Location.joins(:dishes).ransack(name_cont: "e").result(distinct: true).count
+        # @locations = Kaminari.paginate_array(@locations).page(params[:page]).per(5)
+      else
+        @locations = Location.joins(:dishes).ransack(name_cont: params[:q]).result(distinct: true)
+      # @locations = Location.joins(:dishes).ransack(name_cont: params[:q]).result(distinct: true).page params[:page]
     end
-    @dishes = Dish.ransack(name_cont: params[:q]).result(distinct: true)
+    # @users = Array.new
+    # @dishes = Array.new
+    # @reviews = Array.new
+    # @locations.each do | lct|
+    #   # @user = User.joins(:location).where("locations.id=?",lct.id)
+    #   @dish = Dish.joins(:location).where("locations.id=?",lct.id)
+    #   @review = Review.joins(:location).where("locations.id=?",lct.id)
+    #   # @users << @user
+    #   @dishes << @dishes
+    #   @reviews << @reviews
+    # end
+
     respond_to do |format| 
       format.html {}
       format.json {
         render json: {
           locations: @locations.as_json,
+          # users: @users.as_json,
+          # dishes: @dishes.as_json,
+          # reviews: @reviews.as_json,
         }
       }
     end
   end
 
   def get_location
-    @locations = Location.ransack(name_cont: params[:q],address_cont: params[:ql]).result(distinct: true)
+    @locations = Location.ransack(name_cont: params[:q]).result(distinct: true)
     respond_to do |format|
       format.html {}
       format.json {

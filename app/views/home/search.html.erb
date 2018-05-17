@@ -25,7 +25,7 @@
     <div class="fm">
       <div class="location-put">
         <%= form_with url: search_path,local: true, method: :get do |form| %>
-        <%= form.text_field :q,class: "search-box-input",autocomplete: "off", autocapitalize: "off",placeholder: "Search for chef by name or dish...", data: { behavior: "autocomplete" } %>
+        <%= form.text_field :q,class: "search-box-input",id: "autosearch-with-ajax",autocomplete: "off", autocapitalize: "off",placeholder: "Search for chef by name or dish...", data: { behavior: "autocomplete" } %>
         <% end %>
       </div>
       <div class="show-search">
@@ -111,7 +111,6 @@
     </div>
   </div>
   <% end %>
-  <%= paginate @locations %>
   <% else %>
   <p>Your search did not match any documents.</p>
   <% end %>
@@ -124,3 +123,9 @@
 </div>
 </div>
 
+<script>
+$('#autosearch-with-ajax').change(function() {
+  handleClickCheckbox();
+  console.log("fuck");
+});
+</script>
