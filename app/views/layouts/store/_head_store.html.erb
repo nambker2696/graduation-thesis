@@ -17,7 +17,7 @@
               <%= link_to search_url do %>Search<% end %>
             </li>
             <li>
-            <%= link_to chef_signup_url do %>SignUp as a Chef<% end %>
+            <%= link_to chef_signup_url,class: "sign_up_chef" do %>SignUp as a Chef<% end %>
             </li>
           </ul>
 
@@ -183,5 +183,10 @@
       $.post('user_exports/update_user_export_session', { object_id:  $(this).val(), checked: this.checked});
     });
   });
+
+  $('a.sign_up_chef').on('click', function(){ 
+  window.location.href = $(this).attr('href');
+  window.location.reload();
+});
 
 </script>
