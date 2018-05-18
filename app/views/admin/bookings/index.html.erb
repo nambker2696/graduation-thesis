@@ -121,10 +121,7 @@
                   <tr>
                     <th class=""><%= booking.id %></th>
                     <th class=""><%= booking.user_id %></th>
-                    <th class=""><%= booking.place %></th>
                     <th class=""><%= booking.status %></th>
-                    <th class=""><%= booking.date_booked %></th>
-                    <th class=""><%= booking.date_receipt %></th>
                     <th class=""><i class="fa fa-ellipsis-v"></i></th>
                   </tr>
                 </thead>
@@ -151,7 +148,6 @@
                         Phone (Optional)
                       </div>
                       <div class="col-md-9">
-                        <%= booking.place %>
                       </div>
                     </div>
 
@@ -160,7 +156,6 @@
                         Enable Automatic Opening
                       </div>
                       <div class="col-md-9">
-                        <%= booking.date_booked %>
                       </div>
                     </div>
                     <div class="form-group">
@@ -176,7 +171,6 @@
                         Delivery Provider
                       </div>
                       <div class="col-md-9">
-                        <%= booking.date_receipt %>
                       </div>
                     </div>
                     <div class="form-group">
@@ -184,7 +178,6 @@
                         Date order
                       </div>
                       <div class="col-md-9">
-                        <%= booking.date_receipt %>
                       </div>
                     </div>
                   </fieldset>

@@ -10,7 +10,7 @@
     <div role="tabpanel" class="tab-pane active" id="home">
       <div class="row">
         <div class="col-xs-12">
-          <div class="box">
+          <div class="">
             <div class="box-header">
               <h5 class="box-title">Search</h5>
               <div class="box-tools">
@@ -34,7 +34,6 @@
                 <% @admin_dishes.each do |dish| %>
                 <tr>
                   <td><%= dish.name %></td>
-                  <td><%= dish.display_name %></td>
                   <td><%= link_to 'Edit', edit_admin_dish_path(dish.id) %></td>
                   <td><%= link_to 'Destroy', admin_dish_url(dish.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
                 </tr>
@@ -55,16 +54,8 @@
         <%= form_for [:admin, Dish.new] do |f| %>
         <div class="box-body">
           <div class="form-group">
-            <%= f.label :category_id %>
-            <%= f.select :category_id, options_for_select(Category.all.map{|e| [e.name, e.id]}) %>
-          </div>
-          <div class="form-group">
             <%= f.label :name %>
             <%= f.text_field :name, class: "form-control" %>
-          </div>
-          <div class="form-group">
-            <%= f.label :display_name %>
-            <%= f.text_field :display_name, class: "form-control" %>
           </div>
           <div class="form-group">
             <%= f.label :subtitle %>
