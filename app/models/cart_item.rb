@@ -1,5 +1,6 @@
 class CartItem < ApplicationRecord
   belongs_to :booking, optional: true
+  belongs_to :order, optional: true
   belongs_to :dish, optional: true, touch: true
 
   validates :dish, presence: true

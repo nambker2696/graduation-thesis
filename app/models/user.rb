@@ -10,6 +10,7 @@ class User < ApplicationRecord
   # mount_uploader :avatar, AvatarUploader
 
   has_many :bookings
+  has_many :orders
   has_many :locations
   has_many :reviews, dependent: :destroy
 

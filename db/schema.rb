@@ -10,17 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180507134505) do
+ActiveRecord::Schema.define(version: 20180518201334) do
 
   create_table "bookings", force: :cascade do |t|
-    t.integer "location_id"
-    t.integer "seat_id"
+    t.integer "table_number"
     t.date "day_to_eat"
     t.integer "number_people"
     t.integer "number_child"
     t.boolean "status"
     t.integer "action"
-    t.string "delivery_type"
     t.string "payment_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -36,7 +34,9 @@ ActiveRecord::Schema.define(version: 20180507134505) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "booking_id"
+    t.integer "order_id"
     t.index ["booking_id"], name: "index_cart_items_on_booking_id"
+    t.index ["order_id"], name: "index_cart_items_on_order_id"
   end
 
   create_table "carts", force: :cascade do |t|
@@ -94,20 +94,25 @@ ActiveRecord::Schema.define(version: 20180507134505) do
 
   create_table "locations", force: :cascade do |t|
     t.string "name"
-    t.integer "user_id"
     t.string "address"
     t.string "phone"
     t.string "open_time"
     t.text "description"
-    t.string "radius"
+    t.float "radius"
     t.boolean "status"
     t.integer "max_table"
     t.integer "sum_rate"
+    t.decimal "min_booking"
+    t.decimal "min_order"
     t.float "rate_avg"
+    t.boolean "status_booking"
+    t.boolean "status_order"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "category_id"
+    t.integer "user_id"
     t.index ["category_id"], name: "index_locations_on_category_id"
+    t.index ["user_id"], name: "index_locations_on_user_id"
   end
 
   create_table "opening_hours", force: :cascade do |t|
@@ -122,13 +127,15 @@ ActiveRecord::Schema.define(version: 20180507134505) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.integer "user_id"
-    t.decimal "total_price"
     t.boolean "status"
-    t.date "date_order"
+    t.integer "action"
+    t.string "delivery_type"
+    t.string "payment_type"
     t.date "date_receipt"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -167,7 +174,14 @@ ActiveRecord::Schema.define(version: 20180507134505) do
     t.string "uid"
     t.integer "admin"
     t.string "avatar"
-    t.integer "point_card", default: 0
+    t.integer "point_level", default: 0
+    t.date "birthday"
+    t.integer "sex"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "address"
+    t.integer "type_chef"
+    t.string "phone"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

@@ -4,9 +4,8 @@ class Booking < ApplicationRecord
 
   has_many :cart_items, dependent: :destroy
   
-  validates :delivery_type, :payment_type, presence: true
+  validates :payment_type, presence: true
 
-  DELIVERY_TYPES = ["Courier(DPD)", "Personal collection", "InPost"]
   PAYMENT_TYPES  = ["Cash On Delivery", "Bank Transfer", "Dotpay"]
 
   def add_cart_items_from_cart(cart)
