@@ -12,11 +12,12 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
       t.integer :admin
       # t.string :avatar, default: 'ava-default-male.jpg'
       t.string :avatar
-      t.integer :point_card, default: 0
+      t.integer :point_level, default: 0
 
+      t.date :birthday
+      t.integer :sex
       t.string :first_name
       t.string :last_name
-      t.string :display_name
       t.string :address
       t.integer :type_chef
       t.string :phone

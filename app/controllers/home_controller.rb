@@ -29,20 +29,20 @@ class HomeController < ApplicationController
 
         # @locations = Kaminari.paginate_array(@locations).page(params[:page]).per(5)
       else
-        @locations = Location.joins(:dishes).ransack(name_cont: params[:q]).result(distinct: true)
-      # @locations = Location.joins(:dishes).ransack(name_cont: params[:q]).result(distinct: true).page params[:page]
+        # @locations = Location.joins(:dishes).ransack(name_cont: params[:q]).result(distinct: true)
+      @locations = Location.joins(:dishes).ransack(name_cont: params[:q]).result(distinct: true).page params[:page]
     end
     # @users = Array.new
-    # @dishes = Array.new
-    # @reviews = Array.new
-    # @locations.each do | lct|
+    @dishes = Array.new
+    @reviews = Array.new
+    @locations.each do | lct|
     #   # @user = User.joins(:location).where("locations.id=?",lct.id)
-    #   @dish = Dish.joins(:location).where("locations.id=?",lct.id)
-    #   @review = Review.joins(:location).where("locations.id=?",lct.id)
+    @dish = Dish.where(location_id: lct.id).count
+    @review = Review.where(location_id: lct.id).count
     #   # @users << @user
-    #   @dishes << @dishes
-    #   @reviews << @reviews
-    # end
+    @dishes << @dish
+    @reviews << @review
+    end
 
     respond_to do |format| 
       format.html {}
@@ -50,8 +50,8 @@ class HomeController < ApplicationController
         render json: {
           locations: @locations.as_json,
           # users: @users.as_json,
-          # dishes: @dishes.as_json,
-          # reviews: @reviews.as_json,
+          dishes: @dishes.as_json,
+          reviews: @reviews.as_json,
         }
       }
     end
