@@ -32,11 +32,11 @@ ul{
   }
 }
 .navbar-right li > a {
-    padding-top: 15px !important;
-    padding-bottom: 15px !important;
-    span{
-      margin-left: 10px;
-    }
+  padding-top: 15px !important;
+  padding-bottom: 15px !important;
+  span{
+    margin-left: 10px;
+  }
 }
 .navbar-top{
   position: fixed;
@@ -265,6 +265,7 @@ ul{
     }
   }
 }
+
 
 @media (min-width: 992px) and (max-width: 1199.98px) {
   h1 {

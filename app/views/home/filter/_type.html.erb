@@ -1,16 +1,14 @@
  <div class="filter-heading">
   Type Restaurant
 </div>
-<ul class="nav nav-list">
+<ul id="filter-checkbox" class="nav nav-list">
   <% if @categories %>
   <% @categories.each do | cate| %>
   <li>
-    <div class="checkbox">
-      <label for="" class="checkbox1">
-        <input id="checkbox1" type="checkbox" value="<%= cate.slug_cate%>" class="common-type" onclick="handleClickCheckbox(this)">
-        <%= cate.name%>
-      </label>
-    </div>
+    <label class="container"><%= cate.name%>
+      <input type="checkbox" onclick="handleClickCheckbox(this)">
+      <span class="checkmark"></span>
+    </label>
   </li>
   <% end %>
   <% end %>
