@@ -12,6 +12,15 @@ GIT
     faker (1.8.7)
       i18n (>= 0.7)
 
+GIT
+  remote: git@github.com:zquestz/omniauth-google-oauth2.git
+  revision: 5587cdb256274f37405fd8d2c2df2437bd34aff5
+  specs:
+    omniauth-google-oauth2 (0.5.3)
+      jwt (>= 1.5)
+      omniauth (>= 1.1.1)
+      omniauth-oauth2 (>= 1.5)
+
 GEM
   remote: https://rubygems.org/
   remote: https://rails-assets.org/
@@ -422,6 +431,7 @@ DEPENDENCIES
   nexmo
   omniauth
   omniauth-facebook
+  omniauth-google-oauth2!
   omniauth-instagram
   omniauth-twitter
   owlcarousel-rails

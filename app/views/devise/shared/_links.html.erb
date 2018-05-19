@@ -23,3 +23,20 @@
     <%= link_to t('.sign_in_with_provider', provider: OmniAuth::Utils.camelize(provider)), omniauth_authorize_path(resource_name, provider) %><br />
   <% end -%>
 <% end -%>
+<% if devise_mapping.omniauthable? %>
+  <% resource_class.omniauth_providers.each do |provider| %>
+    <% if provider == :facebook %>
+      <%= link_to omniauth_authorize_path(resource_name, provider),
+        class: "omni-btn face-btn" do %>
+          <%= fa_icon "facebook-square" %>
+          <%= t "app.home.login_face" %>
+      <% end %>
+    <% elsif provider == :google_oauth2 %>
+      <%= link_to omniauth_authorize_path(resource_name, provider),
+        class: "omni-btn google-btn" do %>
+          <%= fa_icon "google-plus-square" %>
+          <%= t "app.home.login_google" %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>

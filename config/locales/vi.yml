@@ -267,3 +267,7 @@ vi:
     sessions:
       new:
         title: Login
+  app:
+    home:
+      login_face: "Đăng nhập bằng facebook"
+      login_google: "Đăng nhập bằng google"

@@ -1,35 +1,44 @@
 class User < ApplicationRecord
   devise  :database_authenticatable,
-          :registerable,
-          :recoverable,
-          :rememberable,
-          :trackable,
-          :validatable,
-          :omniauthable,
-          omniauth_providers: %i[facebook]
-  # mount_uploader :avatar, AvatarUploader
+  :registerable,
+  :recoverable,
+  :rememberable,
+  :trackable,
+  :omniauthable, omniauth_providers: [:google_oauth2]
+  mount_uploader :avatar, AvatarUploader
 
   has_many :bookings
   has_many :orders
   has_many :locations
   has_many :reviews, dependent: :destroy
+  has_many :identities
 
-  def self.from_omniauth(auth)
-    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-      user.email = auth.info.email
-      user.password = Devise.friendly_token[0, 20]
-      user.name = auth.info.name
-      # assuming the user model has a name
-      user.avatar = auth.info.avatar # assuming the user model has an image
 
-    end
+  def is_owner_of? review
+    self.id == review.user_id
   end
 
-  def self.new_with_session(params, session)
-    super.tap do |user|
-      if data = session['devise.facebook_data'] && session['devise.facebook_data']['extra']['raw_info']
-        user.email = data['email'] if user.email.blank?
-      end
+  def bookmark_of_this review
+    review.bookmarks.find_by user_id: self.id
+  end
+
+  def facebook
+    identities.where( :provider => "facebook" ).first
+  end
+
+  def facebook_client
+    @facebook_client ||= Facebook.client( access_token: facebook.accesstoken )
+  end
+
+  def google_oauth2
+    identities.where( :provider => "google_oauth2" ).first
+  end
+
+  def google_oauth2_client
+    if !@google_oauth2_client
+      @google_oauth2_client = Google::APIClient.new(:application_name => 'HappySeed App', :application_version => "1.0.0" )
+      @google_oauth2_client.authorization.update_token!({:access_token => google_oauth2.accesstoken, :refresh_token => google_oauth2.refreshtoken})
     end
+    @google_oauth2_client
   end
 end

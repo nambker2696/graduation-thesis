@@ -5,6 +5,11 @@ Devise.setup do |config|
                   '640140566337303',
                   '663582a5c3b59fa4d6cd523287c640da',
                   scope: 'email'
+  config.omniauth :google_oauth2, 
+                  '763838365991-oc5b5s5jsrhndpu45qjv2b4qo8cp997p.apps.googleusercontent.com', 
+                  'XNe9wn39_RZmhCZj_8qhqLuN',
+                  scope: "email,profile,offline", 
+                  prompt: "consent"
   config.mailer_sender = 'please-change-me-at-config-initializers-devise
   @example.com'
   require 'devise/orm/active_record'

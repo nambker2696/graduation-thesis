@@ -270,3 +270,7 @@ ja:
     sessions:
       new:
         title: Login
+  app:
+    home:
+      login_face: "フェースブックでログインする"
+      login_google: "グーグルでログインする"

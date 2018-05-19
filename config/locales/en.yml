@@ -277,4 +277,7 @@ en:
     sessions:
       new:
         title: Login
-  
+  app:
+    home:
+      login_face: "Login with facebook"
+      login_google: "Login with google"
