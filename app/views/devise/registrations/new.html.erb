@@ -26,6 +26,8 @@
       <div class="redirect-to-link">
         <%= render "devise/shared/links" %>
       </div>
+
+      <%= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path %>
   
     <div class="box-footer text-center">
       <p class="for-get"><span>Forgot Your Password - <%= link_to "Reset Password", new_user_password_url %></span></p>
