@@ -1,0 +1,1 @@
+MyApp::Application.config.secret_key_base = '4eeb94afaa9d26fc6af1fe81a4648e3b59ed55b30a5b3cc3b7aae848411d0975a8562a1fd0fa3988b3767a8613038518688350f26a1eeff7ad7ec2b7e36bd752'
