@@ -6,6 +6,7 @@ class User < ApplicationRecord
   :trackable,
   :validatable,
   :omniauthable,
+  :confirmable,
   :omniauthable, omniauth_providers: [:google_oauth2, :facebook]
   # mount_uploader :avatar, AvatarUploader
 

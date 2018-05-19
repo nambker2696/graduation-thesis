@@ -5,7 +5,6 @@ Devise.setup do |config|
                   '640140566337303',
                   '663582a5c3b59fa4d6cd523287c640da',
                   scope: 'email'
-                  callback_url: "http://localhost:3000/users/auth/facebook/callback"
   config.omniauth :google_oauth2, 
                   '763838365991-oc5b5s5jsrhndpu45qjv2b4qo8cp997p.apps.googleusercontent.com', 
                   'XNe9wn39_RZmhCZj_8qhqLuN',
