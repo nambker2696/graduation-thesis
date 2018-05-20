@@ -10,6 +10,7 @@ class CreateLocations < ActiveRecord::Migration[5.1]
       t.boolean :status
       t.integer :max_table
       t.integer :sum_rate
+      t.date :delivery_time
       t.decimal :min_booking
       t.decimal :min_order
       t.float :rate_avg

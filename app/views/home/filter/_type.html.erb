@@ -6,7 +6,7 @@
   <% @categories.each do | cate| %>
   <li>
     <label class="container"><%= cate.name%>
-      <input type="checkbox" onclick="handleClickCheckbox(this)">
+      <input type="checkbox" value="<%= cate.slug_cate%>" class="common-type" onclick="handleClickCheckbox(this)">
       <span class="checkmark"></span>
     </label>
   </li>

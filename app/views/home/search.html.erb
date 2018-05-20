@@ -8,8 +8,10 @@
       </div>
       <div class="top-filter">
         <div class="clear-all">
-          <a href="">Reset Filter</a>
+          <%= link_to search_url do %>Reset Filter<% end %>
         </div>
+        <%= render "home/filter/booking_order" %>
+
         <%= render "home/filter/time" %>
         
         <%= render "home/filter/minimum" %>
@@ -24,11 +26,11 @@
     </div>
     <div class="fm">
       <div class="location-put">
-        <!-- <%= form_with url: search_path,local: true, method: :get do |form| %> -->
-        <!-- <input type="text" name="q" class="earch-box-input" id="autosearch-with-ajax" autocomplete="off" placeholder="Search for chef by name or dish..."> -->
+        <%= form_with url: search_path,local: true, method: :get do |form| %>
+        <input type="text" name="q" class="search-box-input" id="autosearch-with-ajax" autocomplete="off" placeholder="Search for chef by name or dish...">
         <!-- <%= form.text_field :q,class: "search-box-input",id: "autosearch-with-ajax",autocomplete: "off", autocapitalize: "off",placeholder: "Search for chef by name or dish...", data: { behavior: "autocomplete" } %> -->
-        <!-- <% end %> -->
-        <input type="text" id="autosearch-with-ajax" class="earch-box-input" placeholder="Search for chef by name or dish..." autocapitalize="off" autocomplete="off" autocorrect="off" role="textbox" spellcheck="false" value="egg">
+        <% end %>
+        <!-- <input type="text" id="autosearch-with-ajax" class="earch-box-input" name="q" placeholder="Search for chef by name or dish..." autocapitalize="off" autocomplete="off" autocorrect="off" role="textbox" spellcheck="false" value="egg"> -->
       </div>
       <div class="show-search">
         <% if @locations %>
@@ -128,6 +130,5 @@
 <script>
 $('#autosearch-with-ajax').change(function() {
   handleClickCheckbox();
-  console.log("You did edit input search");
 });
 </script>

@@ -18,7 +18,7 @@ class LocationsController < ApplicationController
   def show
     @store_owner = User.find(@location.user_id)
     @dishes= location.dishes.order(created_at: :desc).to_a
-    @reviews = location.reviews.order(created_at: :desc).to_a
+    @reviews = location.reviews.order(rate_score: :desc).to_a
 
     if user_signed_in?
       @review = Review.new

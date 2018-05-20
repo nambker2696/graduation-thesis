@@ -1,28 +1,28 @@
 <div class="filter-heading">
   Veg/Non-Veg
 </div>
-<ul class="nav nav-list">
+<ul id="filter-radio" class="nav nav-list">
   <li>
-    <div class="checkbox">
-      <label for="" class="checkbox1">
-        <input type="radio" class="" name="meal_type">
-        Vegetarian
+    <div class="checkbox" name="">
+      <label class="container">Vegetarian
+        <input type="radio" name="meal_type" class="meal_type" value="veget" onclick="handleClickCheckbox(this)">
+        <span class="checkmark"></span>
       </label>
     </div>
   </li>
   <li>
-    <div class="checkbox">
-      <label for="" class="checkbox1">
-        <input type="radio" class="" name="meal_type">
-        Non-Vegetarian
+    <div class="checkbox" name="">
+      <label class="container">Non-Vegetarian
+        <input type="radio" name="meal_type" class="meal_type" value="non-veget" onclick="handleClickCheckbox(this)">
+        <span class="checkmark"></span>
       </label>
     </div>
   </li>
   <li>
-    <div class="checkbox">
-      <label for="" class="checkbox1">
-        <input type="radio" class="" name="meal_type" checked>
-        Both
+    <div class="checkbox" name="">
+      <label class="container">Both
+        <input type="radio" name="meal_type" class="meal_type" checked="checked"  value="both" onclick="handleClickCheckbox(this)">
+        <span class="checkmark"></span>
       </label>
     </div>
   </li>

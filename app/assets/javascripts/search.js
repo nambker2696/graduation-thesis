@@ -60,6 +60,23 @@ function getListTypeChecked() {
   });
   return type;
 }
+function getBookingOrderChecked() {
+  var type = []
+  $('.booking-order-type:checked').each(function() {
+    type.push($(this).val());
+  });
+  return type;
+}
+function getVegetChecked() {
+  var type = []
+  $('.meal_type:checked').each(function() {
+    if($(this).val() != "both"){
+      type.push($(this).val());  
+    }
+  });
+  return type;
+}
+
 function getRateAvg(rate_avg){
   var rating_star = []
   switch(rate_avg) {
@@ -205,19 +222,35 @@ function getDish(num_dish){
 
 function handleClickCheckbox(event) {
   var text_search = $('.search-box-input').val();
-  var types = getListTypeChecked()
+  var types = getListTypeChecked();
+  var booking_order = getBookingOrderChecked();
+  var veget = getVegetChecked();
+
+  var booking_order_params = '&booking_order%5B%5D=' + booking_order
   var types_params = '&types%5B%5D=' + types
+  var veget_params = '&veget%5B%5D=' + veget
+
+
   var path = '/search?utf8=✓&q=' + text_search
-  if (types_params.length > 0) {
+  console.log(veget_params);
+  if(booking_order.length > 0){
+    path += booking_order_params
+  }
+  if(types.length > 0) {
     path += types_params
   }
+  if(veget.length > 0){
+    path += veget_params
+  }
+
   window.history.pushState('a', 'a', path);
   $.ajax({
     url: '/search',
     type: 'GET',
     dataType: 'json',
     data: {q: text_search,
-      types: getListTypeChecked()
+      types: getListTypeChecked(),
+      booking_order: getBookingOrderChecked()
     },
     success: function(data){
       $(".show-search").empty();

@@ -81,8 +81,9 @@ data_hash.each do |store|
     open_time: store['open_time'],
     radius: Faker::Number.between(1, 5),
     max_table: Faker::Number.between(5, 15),
-
     category_id: Faker::Number.between(1, 6),
+    min_booking: Faker::Number.decimal(2),
+    min_order:Faker::Number.decimal(2),
     sum_rate: 0,
     rate_avg: 0
   )
