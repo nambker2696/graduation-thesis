@@ -193,7 +193,7 @@ ActiveRecord::Schema.define(version: 20180519034347) do
     t.string "avatar"
     t.integer "point_level", default: 0
     t.date "birthday"
-    t.integer "sex"
+    t.string "sex"
     t.string "first_name"
     t.string "last_name"
     t.string "address"

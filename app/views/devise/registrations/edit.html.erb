@@ -5,11 +5,10 @@
       <div class="account-head">  
         <ul>
           <li class="active"><%= link_to edit_user_registration_url do %>My Account<% end %></li>
-          <li><%= link_to bookings_url do %> My Booking<% end %></li>
-          <li><%= link_to bookings_url do %> My Order<% end %></li>
-          <li><a href="#">My Wishlist Chefs</a></li>
-          <li><a href="#">Rate The Chef</a></li>
-          <li><a href="#">FoodCloud Credit</a></li>
+          <li><%= link_to users_bookings_url do %> My Booking<% end %></li>
+          <li><%= link_to users_orders_url do %> My Order<% end %></li>
+          <li><%= link_to users_wishlist_chefs_url do %>My Wishlist Chefs<% end %></li>
+          <li><%= link_to users_rate_chefs_url do %>Rate The Chef<% end %></li>
           <li><%= link_to destroy_user_session_path do %>Logout<% end %></li>
         </ul>
       </div>
@@ -17,9 +16,10 @@
         <div class="row">
           <div class="col-md-4">
             <ul>
-              <li class="tab-title active"><a href="">Edit your account information</a></li>
-              <li class="tab-title "><a href="">Change Password</a></li>
-              <li class="tab-title "><a href="">Modify your address book entries</a></li>
+              <li class="tab-title active"><%= link_to edit_user_registration_url do %>Edit your account information<% end %></li>
+              <li class="tab-title "><%= link_to users_password_url do %>Change Password<% end %></li>
+              <li class="tab-title "><a href="#address" aria-controls="address" role="tab" data-toggle="tab">Change your address</a></li>
+              <li class="tab-title account-delete"><%= link_to t(".cancel_my_account"), registration_path(resource_name), data: { confirm: t(".are_you_sure") }, method: :delete %></li>
             </ul>
           </div>
           <div id="customer-details" class="col-md-8">
@@ -29,11 +29,9 @@
               <div class="col-md-6">
                 <div class="field-box">
                   <p>
-                    <label><span class="required">*</span>First Name:</label>
                     <%= f.input :first_name,class: "field", required: true, autofocus: true %>
                   </p>
                   <p>
-                    <label><span class="required">*</span>Last Name:</label>
                     <%= f.input :last_name,class: "field", required: true, autofocus: true %>
                   </p>
                 </div>
@@ -41,11 +39,9 @@
               <div class="col-md-6">
                 <div class="field-box">
                   <p>
-                    <label><span class="required">*</span> Mobile Number:</label>
                     <%= f.input :name,class: "field", required: true, autofocus: true %>
                   </p>
                   <p>
-                    <label><span class="required">*</span> E-Mail:</label>
                     <%= f.input :email,input_html: {class: "field",disabled: "disabled"}, required: true, autofocus: true %>
                   </p>
                 </div>
@@ -54,32 +50,44 @@
               <div class="col-md-6">
                 <div class="field-box">
                   <p>
-                    <label><span class="required">*</span> Password:</label>
-                    <%= f.input :current_password,class: "field",required: true %>
+                    <%= f.input :phone,class: "field",required: true %>
+                  </p>
+                  <p>
+                    <%= f.input :current_password,class: "field",required: true %>                    
                   </p>
                   <p>
                     <%= f.button :submit, t(".update") %>
                   </p>
                 </div>
               </div>
-            </div>
 
-            <div class="form-actions">
+              <div class="col-md-6">
+                <div class="field-box">
+                  <p>
+                    <label class="sex required" for="user_sex"><abbr title="required">*</abbr> Gender</label>
+                    <%= f.select(:sex,User::SEX, {prompt: 'Select a gender'},html_options = {class: 'field'}) %>
+                  </p>
+                  <p>
+                    <%= f.input :birthday,class: "field",required: true %>
+                  </p>
 
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="field-box">
+                  <p>
+                    
+                  </p>
+                </div>
+              </div>
             </div>
             <% end %>
-
-            <h3><%= t(".cancel_my_account") %></h3>
-
-            <p><%= t(".unhappy") %> <%= link_to t(".cancel_my_account"), registration_path(resource_name), data: { confirm: t(".are_you_sure") }, method: :delete %></p>
-
-            <%= link_to t("devise.shared.links.back"), :back %>
           </div>
         </div>
       </div>
-
-
     </div>
 
   </div>
 </div>
+
+

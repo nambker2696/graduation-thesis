@@ -15,7 +15,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
       t.integer :point_level, default: 0
 
       t.date :birthday
-      t.integer :sex
+      t.string :sex
       t.string :first_name
       t.string :last_name
       t.string :address

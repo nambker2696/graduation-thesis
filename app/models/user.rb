@@ -14,6 +14,10 @@ class User < ApplicationRecord
   has_many :locations
   has_many :reviews, dependent: :destroy
 
+  validates :sex, presence: false
+
+  SEX = ["Male","Female"]
+
   def self.from_omniauth_facebook(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email

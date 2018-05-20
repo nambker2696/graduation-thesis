@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
    devise_for :users, only: :omniauth_callbacks, controllers:
   { omniauth_callbacks: 'users/omniauth_callbacks',
-    registrations: 'registrations',passwords: "passwords" }
+    registrations: 'registrations',passwords: "passwords"}
   scope '(:locale)', locale: /en|vi|ja/ do
 
   namespace :admin do
@@ -49,6 +49,12 @@ Rails.application.routes.draw do
   get :get_location, controller: :home
   get :create_chef, controller: :home
   get :chef_signup, controller: :home
+  get "users/bookings" => "users#bookings"
+  get "users/orders" => "users#orders"
+  get "users/wishlist_chefs" => "users#wishlist_chefs"
+  get "users/rate_chefs" => "users#rate_chefs"
+  get "users/password" => "users#password"
+  get "users/address" => "users#address"
   devise_for :users, skip: :omniauth_callbacks
     get 'about' => 'home#about'
     get 'contact' => 'home#contact'

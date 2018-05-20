@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   before_action :get_category
   before_action :get_city_district
   before_action :get_num_cart_item
+  before_action :configure_permitted_parameters, if: :devise_controller?
 
   def set_locale
     I18n.locale = params[:locale] || I18n.default_locale
@@ -31,5 +32,9 @@ class ApplicationController < ActionController::Base
   end
   def get_num_cart_item
     @num_cart = CartItem.where(cart_id: session[:cart_id]).count
+  end
+  protected
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :name,:birthday,:sex,:phone,:address,:current_password,:password,:password_confirmation])
   end
 end
