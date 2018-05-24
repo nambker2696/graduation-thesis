@@ -27,6 +27,7 @@
 
 //   $input.easyAutocomplete(options)
 // });
+
 document.addEventListener("turbolinks:load", function() {
   $input = $("[data-behavior='autocomplete-locat']")
   var options = {
@@ -52,31 +53,6 @@ document.addEventListener("turbolinks:load", function() {
 
   $input.easyAutocomplete(options)
 });
-
-function getListTypeChecked() {
-  var type = []
-  $('.common-type:checked').each(function() {
-    type.push($(this).val());
-  });
-  return type;
-}
-function getBookingOrderChecked() {
-  var type = []
-  $('.booking-order-type:checked').each(function() {
-    type.push($(this).val());
-  });
-  return type;
-}
-function getVegetChecked() {
-  var type = []
-  $('.meal_type:checked').each(function() {
-    if($(this).val() != "both"){
-      type.push($(this).val());  
-    }
-  });
-  return type;
-}
-
 function getRateAvg(rate_avg){
   var rating_star = []
   switch(rate_avg) {
@@ -219,29 +195,137 @@ function getDish(num_dish){
   }
   return img_dish;
 }
+// Type Restauran
+function getListTypeChecked() {
+  var type = []
+  $('.common-type:checked').each(function() {
+    type.push($(this).val());
+  });
+  return type;
+}
+// Type Booking-order
+function getBookingOrderChecked() {
+  var type = []
+  $('.booking-order-type:checked').each(function() {
+    if($(this).val() == "order"){
+     $('.minmum_order').show();
+     $('.time_delivery').show();
+    }
+    if($(this).val() == "booking"){
+     $('.minmum_booking').show();
+     $('.time_booking').show();
+    }
+
+    type.push($(this).val());
+  });
+  $('.booking-order-type:not(:checked)').each(function() {
+    if($(this).val() == "order"){
+     $('.minmum_order').hide();
+     $('.time_delivery').hide();
+    }
+    if($(this).val() == "booking"){
+     $('.time_booking').hide();
+     $('.time_booking').hide();
+    }
+  });
+  return type;
+}
+// Checkbox- Veget 
+function getVegetChecked() {
+  var type = []
+  $('.meal_type:checked').each(function() {
+    if($(this).val() != "both"){
+      type.push($(this).val());  
+    }
+  });
+  return type;
+}
+function getTimeOrder(){
+  var time = $('input[name=order_before]:checked').val();
+  return time;
+}
+function getTimeBooking(){
+  var time = $('input[name=booking_before]:checked').val();
+  return time;
+}
+function getMinOrder(){
+  var min = $('input[name=min_order]:checked').val();
+  return min;
+}
+function getMinBooking(){
+  var min = $('input[name=min_booking]:checked').val();
+  return min;
+}
+function activeStar1(){ 
+  $('ul').removeClass("active");
+  $('ul[id=1]').addClass('active');
+  handleClickCheckbox(1);
+}
+function activeStar2(){ 
+  $('ul').removeClass("active");
+  $('ul[id=2]').addClass('active');
+  handleClickCheckbox(2);
+}
+function activeStar3(){ 
+  $('ul').removeClass("active");
+  $('ul[id=3]').addClass('active');
+  handleClickCheckbox(3);
+}
+function activeStar4(){ 
+  $('ul').removeClass("active");
+  $('ul[id=4]').addClass('active');
+  handleClickCheckbox(4);
+}
+function activeStar5(){ 
+  $('ul').removeClass("active");
+  $('ul[id=5]').addClass('active');
+  handleClickCheckbox(5)
+}
+
+function getStar(){
+  var star = $("ul").filter(".active").attr("id");
+  return star;
+}
 
 function handleClickCheckbox(event) {
   var text_search = $('.search-box-input').val();
   var types = getListTypeChecked();
   var booking_order = getBookingOrderChecked();
   var veget = getVegetChecked();
-
-  var booking_order_params = '&booking_order%5B%5D=' + booking_order
-  var types_params = '&types%5B%5D=' + types
-  var veget_params = '&veget%5B%5D=' + veget
-
+  
+  var time_order = getTimeOrder();
+  var time_booking = getTimeBooking();
+  var min_order = getMinOrder();
+  var min_booking = getMinBooking();
+  var star = getStar();
 
   var path = '/search?utf8=✓&q=' + text_search
-  console.log(veget_params);
   if(booking_order.length > 0){
-    path += booking_order_params
+    path += '&booking_order%5B%5D=' + booking_order
   }
   if(types.length > 0) {
-    path += types_params
+    path += '&types%5B%5D=' + types
   }
   if(veget.length > 0){
-    path += veget_params
+    path += '&veget%5B%5D=' + veget
   }
+  if(time_order != "on"){
+    path += '&order_before=' + time_order
+  }
+    if(time_booking != "on"){
+    path += '&time_to_eat=' + time_booking
+  }
+    if(min_order != "on"){
+    path += '&min_order=' + min_order
+  }
+    if(min_booking != "on"){
+    path += '&min_booking=' + min_booking
+  }
+  if(star == "1" || star == "2" || star == "3" || star == "4" || star == "5"){
+    path += '&star=' + star
+  }
+
+
 
   window.history.pushState('a', 'a', path);
   $.ajax({
@@ -250,7 +334,13 @@ function handleClickCheckbox(event) {
     dataType: 'json',
     data: {q: text_search,
       types: getListTypeChecked(),
-      booking_order: getBookingOrderChecked()
+      booking_order: getBookingOrderChecked(),
+      veget: getVegetChecked(),
+      time_order: getTimeOrder(),
+      time_booking: getTimeBooking(),
+      min_order: getMinOrder(),
+      min_booking: getMinBooking(),
+      star: getStar()
     },
     success: function(data){
       $(".show-search").empty();
@@ -287,6 +377,7 @@ function handleClickCheckbox(event) {
           });
         
       }
+      
     }
   })
   .done(function() {

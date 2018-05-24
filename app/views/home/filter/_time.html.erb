@@ -1,53 +1,96 @@
-<div class="filter-heading">
-  Delivery Time
+<div class="time_delivery" style="display: none">
+  <div class="filter-heading">
+    Delivery Time
+  </div>
+  <ul id="filter-radio" class="nav nav-list">
+    <li>
+      <div class="checkbox" name="">
+        <label class="container">All
+          <input type="radio" checked="checked" name="order_before" onclick="handleClickCheckbox(this)">
+          <span class="checkmark"></span>
+        </label>
+      </div>
+    </li>
+    <li>
+      <div class="checkbox" name="">
+        <label class="container">Within 2 hours
+          <input type="radio" value="2" name="order_before" onclick="handleClickCheckbox(this)">
+          <span class="checkmark"></span>
+        </label>
+      </div>
+    </li>
+    <li>
+      <div class="checkbox" name="">
+        <label class="container">Less Than 6 hours
+          <input type="radio" value="6" name="order_before" onclick="handleClickCheckbox(this)">
+          <span class="checkmark"></span>
+        </label>
+      </div>
+    </li>
+    <li>
+      <div class="checkbox" name="">
+        <label class="container">Less Than 12 hours
+          <input type="radio" value="12" name="order_before" onclick="handleClickCheckbox(this)">
+          <span class="checkmark"></span>
+        </label>
+      </div>
+    </li>
+    <li>
+      <div class="checkbox" name="">
+        <label class="container">Less Than 24 hours
+          <input type="radio" value="24" name="order_before" onclick="handleClickCheckbox(this)">
+          <span class="checkmark"></span>
+        </label>
+      </div>
+    </li>
+    <li>
+      <div class="checkbox" name="">
+        <label class="container">More Than 1 days
+          <input type="radio" value="25" name="order_before" onclick="handleClickCheckbox(this)">
+          <span class="checkmark"></span>
+        </label>
+      </div>
+    </li>
+  </ul>
 </div>
-<ul class="nav nav-list">
-  <li>
-    <div class="checkbox" name="">
-      <label for="" class="checkbox1">
-        <input type="radio" class="" name="order_before" checked>
-        All
-      </label>
-    </div>
-  </li>
-  <li>
-    <div class="checkbox" name="">
-      <label for="" class="checkbox1">
-        <input type="radio" class="" name="order_before">
-        Within 2 hours
-      </label>
-    </div>
-  </li>
-  <li>
-    <div class="checkbox" name="">
-      <label for="" class="checkbox1">
-        <input type="radio" class="" name="order_before">
-        Less Than 6 hours
-      </label>
-    </div>
-  </li>
-  <li>
-    <div class="checkbox" name="">
-      <label for="" class="checkbox1">
-        <input type="radio" class="" name="order_before">
-        Less Than 12 hours
-      </label>
-    </div>
-  </li>
-  <li>
-    <div class="checkbox" name="">
-      <label for="" class="checkbox1">
-        <input type="radio" class="" name="order_before">
-        Less Than 24 hours
-      </label>
-    </div>
-  </li>
-  <li>
-    <div class="checkbox" name="">
-      <label for="" class="checkbox1">
-        <input type="radio" class="" name="order_before">
-        More Than 1 days
-      </label>
-    </div>
-  </li>
-</ul>
+
+<div class="time_booking" style="display: none">
+  <div class="filter-heading">
+    Time Eat in Day
+  </div>
+  <ul id="filter-radio" class="nav nav-list">
+    <li>
+      <div class="checkbox" name="">
+        <label class="container">All
+          <input type="radio" checked="checked" name="booking_before" onclick="handleClickCheckbox(this)">
+          <span class="checkmark"></span>
+        </label>
+      </div>
+    </li>
+    <li>
+      <div class="checkbox" name="">
+        <label class="container">8h-12hAM
+          <input type="radio" value="8h-12h" name="booking_before" onclick="handleClickCheckbox(this)">
+          <span class="checkmark"></span>
+        </label>
+      </div>
+    </li>
+    <li>
+      <div class="checkbox" name="">
+        <label class="container">12h-16hPM
+          <input type="radio" value="12h-16h" name="booking_before" onclick="handleClickCheckbox(this)">
+          <span class="checkmark"></span>
+        </label>
+      </div>
+    </li>
+    <li>
+      <div class="checkbox" name="">
+        <label class="container">16h-20hPM
+          <input type="radio" value="16h-20h" name="booking_before" onclick="handleClickCheckbox(this)">
+          <span class="checkmark"></span>
+        </label>
+      </div>
+    </li>
+
+  </ul>
+</div>

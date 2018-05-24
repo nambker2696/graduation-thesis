@@ -13,6 +13,7 @@ class HomeController < ApplicationController
   end
 
   def search
+    byebug
     # str = escape_characters_in_string(params[:q])
     types_cate = params[:types].present? ? params[:types] : nil
     @ql = params[:ql].present? ? params[:ql] : nil

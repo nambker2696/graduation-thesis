@@ -206,13 +206,25 @@
 .top-filter{
   margin-top: 88px;
   .nav{
-    background:#ededed;
+    background:#fff;
     padding:10px 20px;
+  }
+  .search_star{
+    li .star-filter li i{
+      color: #000;
+    }
+    li:hover .star-filter li i{
+      color:#9c9a8e;
+    }
+    .active .fill_star i{
+      color: #FD4 !important;
+    }
+
   }
 }
 .filter-heading{
-  background:#fff;
-  color: #242626;
+  background:#9bc5e0;
+  color: #fff;
   font-weight: 700;
   padding: 0 20px;
   min-height:50px;

@@ -1,37 +1,78 @@
-<div class="filter-heading">
-  <span class="shide">Chef's </span>Minimum Order</a>
+<div class="minmum_order" style="display: none">
+  <div class="filter-heading ">
+    <span class="shide">Chef's </span>Minimum Order</a>
+  </div>
+  <ul id="filter-radio" class="nav nav-list">
+    <li>
+      <div class="checkbox" name="">
+        <label class="container">All
+          <input type="radio" checked="checked" name="min_order" onclick="handleClickCheckbox(this)">
+          <span class="checkmark"></span>
+        </label>
+      </div>
+    </li>
+    <li>
+      <div class="checkbox" name="">
+        <label class="container">Less than 200k
+          <input type="radio" value="8.78" name="min_order" onclick="handleClickCheckbox(this)">
+          <span class="checkmark"></span>
+        </label>
+      </div>
+    </li>
+    <li>
+      <div class="checkbox" name="">
+        <label class="container">Less than 500k
+          <input type="radio" value="21.96" name="min_order" onclick="handleClickCheckbox(this)">
+          <span class="checkmark"></span>
+        </label>
+      </div>
+    </li>
+    <li>
+      <div class="checkbox" name="">
+        <label class="container">Less than 1tr
+          <input type="radio" value="43.91" name="min_order" onclick="handleClickCheckbox(this)">
+          <span class="checkmark"></span>
+        </label>
+      </div>
+    </li>
+  </ul>
 </div>
-<ul id="filter-radio" class="nav nav-list">
-  <li>
-    <div class="checkbox" name="">
-      <label class="container">All
-        <input type="radio" checked="checked" name="min_amount">
-        <span class="checkmark"></span>
-      </label>
-    </div>
-  </li>
-  <li>
-    <div class="checkbox" name="">
-      <label class="container">Less than 200k
-        <input type="radio" name="min_amount">
-        <span class="checkmark"></span>
-      </label>
-    </div>
-  </li>
-  <li>
-    <div class="checkbox" name="">
-      <label class="container">Less than 500k
-        <input type="radio" name="min_amount">
-        <span class="checkmark"></span>
-      </label>
-    </div>
-  </li>
-  <li>
-    <div class="checkbox" name="">
-      <label class="container">Less than 1tr
-        <input type="radio" name="min_amount">
-        <span class="checkmark"></span>
-      </label>
-    </div>
-  </li>
-</ul>
+<div class="minmum_booking" style="display: none">
+  <div class="filter-heading ">
+    <span class="shide">Chef's </span>Minimum Booking</a>
+  </div>
+  <ul id="filter-radio" class="nav nav-list">
+    <li>
+      <div class="checkbox" name="">
+        <label class="container">All
+          <input type="radio" checked="checked" name="min_booking" onclick="handleClickCheckbox(this)">
+          <span class="checkmark"></span>
+        </label>
+      </div>
+    </li>
+    <li>
+      <div class="checkbox" name="">
+        <label class="container">Less than 200k
+          <input type="radio" value="8.78" name="min_booking" onclick="handleClickCheckbox(this)">
+          <span class="checkmark"></span>
+        </label>
+      </div>
+    </li>
+    <li>
+      <div class="checkbox" name="">
+        <label class="container">Less than 500k
+          <input type="radio" value="21.96" name="min_booking" onclick="handleClickCheckbox(this)">
+          <span class="checkmark"></span>
+        </label>
+      </div>
+    </li>
+    <li>
+      <div class="checkbox" name="">
+        <label class="container">Less than 1tr
+          <input type="radio" value="43.91" name="min_booking" onclick="handleClickCheckbox(this)">
+          <span class="checkmark"></span>
+        </label>
+      </div>
+    </li>
+  </ul>
+</div>

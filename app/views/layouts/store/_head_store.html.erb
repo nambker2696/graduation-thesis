@@ -79,7 +79,8 @@
                       <% end %>      
                     </li>
 
-                    <li><a href="#"><%= t("your_order") %><span class="glyphicon glyphicon-stats pull-right"></span></a></li>
+                    <li><%= link_to users_orders_url do %><%= t("your_order") %><span class="glyphicon glyphicon-stats pull-right"></span><% end %></li>
+                    <li><%= link_to users_bookings_url do %><%= t("your_booking") %><span class="glyphicon glyphicon-stats pull-right"></span><% end %></li>
 
                     <li><a href="#"><%= t("bookmarks") %><span class="glyphicon glyphicon-bookmark pull-right"></span></a></li>
 
