@@ -106,7 +106,9 @@
             float: left;
             width: 100px;
             img{
-              height: 52px;
+              border-radius: 100%;
+              border: 2px solid #bbbbbb;
+              height: 70px;
               width: 70px;
             }
           }
@@ -158,7 +160,7 @@
           }
         }
         li:last-child{
-          border: 1px solid #ebebeb;
+          border: 1px solid #c1c1c1;
           a {
             color: #03A9F4;
             display: block;

@@ -6,7 +6,7 @@ random = Random.new
 # puts "Faker 15 Users(admin:0)"
 # puts "Faker 5 staff(admin:5)"
 # # /// Edit
-User.delete_all
+# User.delete_all
 rands = random.rand(1..13)
 User.create!(name:  "Admin",
  name: Faker::Name.name,
@@ -79,6 +79,8 @@ data_hash.each do |store|
     description: store['des'],
     status: true,
     open_time: store['open_time'],
+    open_at: Faker::Time.forward(23, :morning),
+    close_at: Faker::Time.backward(14, :evening),
     radius: Faker::Number.between(1, 5),
     max_table: Faker::Number.between(5, 15),
     category_id: Faker::Number.between(1, 6),
@@ -123,6 +125,7 @@ data_hash.each do |dishdata|
     min_qty: 1,
     image: "food/"+rands.to_s+".jpg",
     active: true)
+
 end
 
 puts "Faker 7 OpeningHours for each location"

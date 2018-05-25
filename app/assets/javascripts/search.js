@@ -230,16 +230,7 @@ function getBookingOrderChecked() {
   });
   return type;
 }
-// Checkbox- Veget 
-function getVegetChecked() {
-  var type = []
-  $('.meal_type:checked').each(function() {
-    if($(this).val() != "both"){
-      type.push($(this).val());  
-    }
-  });
-  return type;
-}
+
 function getTimeOrder(){
   var time = $('input[name=order_before]:checked').val();
   return time;
@@ -284,6 +275,8 @@ function activeStar5(){
 
 function getStar(){
   var star = $("ul").filter(".active").attr("id");
+  if(star == undefined)
+    return 0;
   return star;
 }
 
@@ -291,7 +284,6 @@ function handleClickCheckbox(event) {
   var text_search = $('.search-box-input').val();
   var types = getListTypeChecked();
   var booking_order = getBookingOrderChecked();
-  var veget = getVegetChecked();
   
   var time_order = getTimeOrder();
   var time_booking = getTimeBooking();
@@ -305,9 +297,6 @@ function handleClickCheckbox(event) {
   }
   if(types.length > 0) {
     path += '&types%5B%5D=' + types
-  }
-  if(veget.length > 0){
-    path += '&veget%5B%5D=' + veget
   }
   if(time_order != "on"){
     path += '&order_before=' + time_order
@@ -335,7 +324,6 @@ function handleClickCheckbox(event) {
     data: {q: text_search,
       types: getListTypeChecked(),
       booking_order: getBookingOrderChecked(),
-      veget: getVegetChecked(),
       time_order: getTimeOrder(),
       time_booking: getTimeBooking(),
       min_order: getMinOrder(),

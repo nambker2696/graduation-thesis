@@ -85,6 +85,7 @@
                     <li><a href="#"><%= t("bookmarks") %><span class="glyphicon glyphicon-bookmark pull-right"></span></a></li>
 
                     <li><a href="#"><%= t(".favourites") %> <span class="glyphicon glyphicon-heart pull-right"></span></a></li>
+                    <li><%= link_to admin_admin_url do %><%= t(".admin") %> <span class="glyphicon glyphicon-user pull-right"></span><% end %></li>
 
                     <li><%= link_to destroy_user_session_path, method: :delete do %>
                       <%= t(".sign_out") %> <span class="glyphicon glyphicon-log-out pull-right"></span>

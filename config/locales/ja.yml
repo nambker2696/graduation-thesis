@@ -1,4 +1,4 @@
-ja:
+favouritesja:
   activerecord:
     errors:
       messages:
@@ -213,6 +213,7 @@ ja:
       user_stats: ユーザー統計
       messages: メッセージ
       favourites: お気に入りスニペット
+      admin: 管理者
       bookmarks: ブックマーク
       your_order: 注文
       your_booking: セットテーブル

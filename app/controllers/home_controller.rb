@@ -13,25 +13,64 @@ class HomeController < ApplicationController
   end
 
   def search
-    byebug
     # str = escape_characters_in_string(params[:q])
-    types_cate = params[:types].present? ? params[:types] : nil
+
+    
+    types = params[:types].present? ? params[:types] : nil
+    booking_order = params[:booking_order].present? ? params[:booking_order] : nil
+    time_order = params[:time_order] != "on" ? params[:time_order] : nil 
+    time_booking = params[:time_booking] != "on" ? params[:time_booking] : nil 
+    min_order = params[:min_order] != "on" ? params[:min_order] : nil 
+    min_booking = params[:min_booking] != "on" ? params[:min_booking] : nil 
+    star = params[:star] != 0 ? params[:star] : nil 
+
     @ql = params[:ql].present? ? params[:ql] : nil
     @locations = Array.new
-    if types_cate != nil
-      types_ids = types_cate.first.split(',')
+
+    # Loai bo dieu kien
+    locat = Location.all
+    # if booking_order != nil
+    #   booking_order_ids = booking_order.first.split(',')
+    #   if booking_order_ids.length == 1
+    #     locat = bo == "booking" ? locat.where(status_booking: true) : locat
+    #     locat = bo == "order" ? locat.where(status_order: true) : locat
+    #   else
+    #     locat.where(status_booking: true).where(status_order: true)
+    #   end
+    # end
+
+    # if time_order != nil
+    # end
+    # if time_booking != nil
+    # end
+    if min_order != nil
+      locat = locat.where("min_order < ? ",min_order.to_i)
+    end
+    if min_booking != nil
+      locat = locat.where("min_booking < ? ",min_booking)
+    end
+    if star != nil
+      if star == 1  
+        locat = locat.where("rate_avg <= ? ",1)
+      else
+        locat = locat.where("rate_avg >= ? AND rate_avg <= ?",star.to_i-0.5,star.to_i+0.5)
+      end
+    end
+  
+    if types != nil
+      types_ids = types.first.split(',')
       types_ids.each do |tp|
         cate_id = Category.find_by slug_cate: tp
-        @location = Location.joins(:category).where("category_id"=> cate_id.id).joins(:dishes).ransack(name_cont: params[:q]).result(distinct: true)
+        @location = locat.joins(:category).where(category_id: cate_id.id).joins(:dishes).ransack(name_cont: params[:q]).result(distinct: true)
         @location.each do |lc|
           @locations << lc
         end
       end
 
         # @locations = Kaminari.paginate_array(@locations).page(params[:page]).per(5)
-      else
+    else
         # @locations = Location.joins(:dishes).ransack(name_cont: params[:q]).result(distinct: true)
-      @locations = Location.joins(:dishes).ransack(name_cont: params[:q]).result(distinct: true).page params[:page]
+      @locations = locat.joins(:dishes).ransack(name_cont: params[:q]).result(distinct: true).page params[:page]
     end
     # @users = Array.new
     @dishes = Array.new
