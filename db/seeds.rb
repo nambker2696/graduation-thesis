@@ -19,6 +19,7 @@ User.create!(name:  "Admin",
  address: Faker::Address.street_address,
  password:              "admin1",
  password_confirmation: "admin1",
+ type_chef: 4,
  admin: 1
  )
 10.times do

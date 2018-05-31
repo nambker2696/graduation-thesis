@@ -44,7 +44,6 @@
 .view:hover {
   text-decoration: none;
   background: #eeeeee;
-  border-left: 3px solid #00BCD4;
 }
 .view.opened {
   background-color: #eeeeee;
@@ -76,9 +75,8 @@ table {
 .protable thead tr th:first-child {
     padding-left: 15px;
 }
-
+  
 .protable thead tr th {
-    padding: 0 10px;
     vertical-align: middle;
     text-align: left;
     font-weight: bold;

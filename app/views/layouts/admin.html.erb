@@ -8,10 +8,6 @@
   <%= javascript_include_tag 'admin' %>
 </head>
 <body id="admin-panel">
-  <% if user_signed_in? && current_user.admin == 1 %>
   <%= render 'layouts/admin/index' %>
-  <% else %>
-  <%= yield %>
-  <% end %>
 </body>
 </html>

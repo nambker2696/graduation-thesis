@@ -1,51 +1,21 @@
-// document.addEventListener("turbolinks:load", function() {
-//   $input = $("[data-behavior='autocomplete']")
-
-//   var options = {
-//     getValue: "name",
-//     url: function(phrase) {
-//       return "/search.json?q=" + phrase;
-//     },
-//     categories: [
-//       {
-//         listLocation: "dishes",
-//         header: "<strong><i class='fa fa-utensils'></i>Dishes</strong>",
-//       },
-//       {
-//         listLocation: "locations",
-//         header: "<strong><i class='fa fa-map-marker'></i>Locations</strong>",
-//       }
-//     ],
-//     list: {
-//       onChooseEvent: function() {
-//         var url = $input.getSelectedItemData().url
-//         $input.val("")
-//         Turbolinks.visit(url)
-//       }
-//     }
-//   }
-
-//   $input.easyAutocomplete(options)
-// });
-
 document.addEventListener("turbolinks:load", function() {
-  $input = $("[data-behavior='autocomplete-locat']")
+  $input = $("[data-behavior='autocomplete']")
+
   var options = {
     getValue: "name",
     url: function(phrase) {
       return "/search.json?q=" + phrase;
     },
     categories: [
-    {
-      listLocation: "locations",
-      header: "<strong><i class='fa fa-map-marker'></i>Locations</strong>",
-    }
+      {
+        listLocation: "locations",
+        header: "<strong><i class='fa fa-map-marker'></i>Locations</strong>",
+      }
     ],
     list: {
       onChooseEvent: function() {
         var url = $input.getSelectedItemData().url
         $input.val("")
-
         Turbolinks.visit(url)
       }
     }
@@ -53,6 +23,32 @@ document.addEventListener("turbolinks:load", function() {
 
   $input.easyAutocomplete(options)
 });
+
+// document.addEventListener("turbolinks:load", function() {
+//   $input = $("[data-behavior='autocomplete-locat']")
+//   var options = {
+//     getValue: "name",
+//     url: function(phrase) {
+//       return "/search.json?q=" + phrase;
+//     },
+//     categories: [
+//     {
+//       listLocation: "locations",
+//       header: "<strong><i class='fa fa-map-marker'></i>Locations</strong>",
+//     }
+//     ],
+//     list: {
+//       onChooseEvent: function() {
+//         var url = $input.getSelectedItemData().url
+//         $input.val("")
+
+//         Turbolinks.visit(url)
+//       }
+//     }
+//   }
+
+//   $input.easyAutocomplete(options)
+// });
 function getRateAvg(rate_avg){
   var rating_star = []
   switch(rate_avg) {

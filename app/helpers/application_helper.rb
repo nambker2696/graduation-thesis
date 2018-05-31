@@ -18,5 +18,9 @@ module ApplicationHelper
     end
     content_tag("div",attributes,&block)
   end
+
+  def current_class?(test_path)
+    return 'active' if request.path == test_path
+    ''
+  end
 end
-  

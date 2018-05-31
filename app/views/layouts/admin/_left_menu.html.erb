@@ -6,31 +6,31 @@
   <div class="navbar-links">
     <ul>
       <li>
-        <%= link_to admin_admin_url,:class => "active" do %>
+        <%= link_to admin_admin_url,:class => current_class?(admin_admin_path) do %>
         <i class="fa fa-star"></i>
         <span>Dashboard</span>
         <% end %>
       </li>
       <li>
-        <%= link_to admin_orders_url,:class => "" do %>
+        <%= link_to admin_orders_url,:class => current_class?(admin_orders_path) do %>
         <i class="fa fa-cubes"></i>
         <span>Order</span>
         <% end %>
       </li>
       <li>
-        <%= link_to admin_bookings_url,:class => "" do %>
+        <%= link_to admin_bookings_url,:class => current_class?(admin_bookings_path) do %>
         <i class="fa fa-calendar"></i>
         <span>Bookings</span>
         <% end %>
       </li>
       <li>
-        <%= link_to admin_users_url,:class => "" do %>
+        <%= link_to admin_users_url,:class => current_class?(admin_users_path) do %>
         <i class="fa fa-users"></i>
         <span>Custommers</span>
         <% end %>
       </li>
       <li>
-        <%= link_to admin_locations_url,:class => "" do %>
+        <%= link_to admin_locations_url,:class => current_class?(admin_locations_path)  do %>
         <i class="fa fa-map-marker"></i>
         <span>Locations</span>
         <% end %>
@@ -55,26 +55,7 @@
             </li>
           </ul>
         </div>
-      </li>
-      <li>
-        <%= link_to admin_users_url,:class => "" do %>
-        <i class="fa fa-vcard"></i>
-        <span>Staff</span>
-        <% end %>
-      </li>  
-      <li>
-        <%= link_to admin_admin_url,:class => "" do %>
-        <i class="glyphicon glyphicon-gift"></i>
-        <span>Events</span>
-        <% end %>
-      </li>
-      <li>
-        <%= link_to admin_admin_url,:class => "" do %>
-        <i class="glyphicon glyphicon-tint"></i>
-        <span>Layout</span>
-        <% end %>
-      </li>
-
+      </li> 
       <li>
       <a data-toggle="collapse" data-target="#toggleDemo4" data-parent="#sidenav01" class="collapsed">
           <i class="fa fa-gear"></i> Setting <span class="caret pull-right"></span>

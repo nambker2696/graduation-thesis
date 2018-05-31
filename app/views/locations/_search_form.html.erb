@@ -5,7 +5,7 @@
       <ul>
         <%= form_with url: get_location_path, local: true, method: :get  do |form| %>
         <li class="location" style="width: 520px; margin-left: 35px;">
-        <%= form.text_field :ql, placeholder: "Type your location or area...", data: { behavior: "autocomplete-locat" }, class: "form-control mr-sm-2" %>
+        <%= form.text_field :ql, placeholder: "Type your location or area...", data: { behavior: "autocomplete" }, class: "form-control mr-sm-2" %>
         </li>
         <% end %>
         <li class="loction_bkg">
@@ -24,4 +24,5 @@
 $('input[name=ql]').change(function() {
   $('#locate_params').val($(".mr-sm-2").val());
 });
+
 </script>

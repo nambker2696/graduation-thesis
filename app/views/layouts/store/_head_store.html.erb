@@ -16,9 +16,17 @@
             <li>
               <%= link_to search_url do %>Search<% end %>
             </li>
+            <% unless user_signed_in? %>
             <li>
             <%= link_to chef_signup_url,class: "sign_up_chef" do %>SignUp as a Chef<% end %>
             </li>
+            <% else %>
+              <% if current_user.admin == 1 %>
+              <li> 
+              <%= link_to admin_admin_url do%>Management page <% end %>
+              </li>
+              <% end %>
+            <% end %>
           </ul>
 
         </ul>
