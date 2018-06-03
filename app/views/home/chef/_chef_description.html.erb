@@ -1,81 +1,91 @@
-<div class="btn-group" role="group">
-  <div class="col-md-4">
-    <label class="btn btn-default btn-checkbox">
-      <span class="glyphicon glyphicon-unchecked" data-icon-on="glyphicon glyphicon-check" data-icon-off="glyphicon glyphicon-unchecked"></span>
-      <input name="radio" type="radio" value="ant" style="display: none" autocomplete="false"/>Home food 
-    </label>
-  </div>
-  <div class="col-md-4">
-    <label class="btn btn-default btn-checkbox">
-      <span class="glyphicon glyphicon-unchecked" data-icon-on="glyphicon glyphicon-check" data-icon-off="glyphicon glyphicon-unchecked"></span>
-      <input name="radio" type="radio" value="bat" style="display: none" autocomplete="false"/> Base Kitchen
-    </label>
-  </div>
-  <div class="col-md-4">
-    <label class="btn btn-default btn-checkbox">
-      <span class="glyphicon glyphicon-unchecked" data-icon-on="glyphicon glyphicon-check" data-icon-off="glyphicon glyphicon-unchecked"></span>
-      <input name="radio" type="radio" value="cat" style="display: none" autocomplete="false"/> Restaurant
-    </label>
-  </div>
-</div>  
-<div class="col-md-6">
-  <div class="form-group">
-    <label class="control-label">House/StreetNo.</label>
-    <input type="text" required="required" class="form-control" placeholder="Enter Company Name" />
-  </div>
-</div>
-<div class="col-md-6">
-  <div class="form-group">
-    <label class="control-label">Area/Locality:</label>
-    <input type="text" required="required" class="form-control" placeholder="Enter Company Address"  />
-  </div>
-</div>
-<div class="col-md-6">
-  <div class="form-group">
-    <label class="control-label">City:</label>
-    <select class="form-control" id="city" required="">
-      <option value="">Choose...</option>
-      <option>Ha Noi</option>
-      <option>Ho Chi Minh</option>
-      <option>Da Nang</option>
-    </select>
-
-  </div>
-</div>
-<div class="col-md-6">
-  <div class="form-group">
-    <div class="form-group">
-      <label class="control-label">Type Store</label>
-      <select class="form-control" id="type_store" required="">
-        <option value="">Barbecue</option>
-        <option>Buffet</option>
-        <option>Hotpot</option>
-        <option>Cakes</option>
-        <option>Tea&Snacks</option>
-        <option>Rice</option>
-      </select>
-    </div>
-  </div>
-</div>
-<div class="col-md-6">
-  <div class="funkyradio">
-    <div class="funkyradio-warning">
-      <input type="checkbox" name="checkbox" id="checkbox5" checked/>
-      <label for="checkbox5">Order(*dish)</label>
-    </div>
-  </div>
-</div>
-<div class="col-md-6">
-  <div class="funkyradio">
-    <div class="funkyradio-info">
-      <input type="checkbox" name="checkbox" id="checkbox6" checked/>
-      <label for="checkbox6">Booking(*seat)</label>
-    </div>
-  </div>
-</div>
 <div class="col-md-12">
   <div class="form-group">
-    <label class="control-label">Description</label>
-    <textarea  maxlength="200" class="form-control"  placeholder="Enter Company Address"></textarea>
+    <label class="control-label">Type of restaurant</label>
+    <div class="row">
+    </div>
   </div>
+</div>
+<div class="col-md-4">
+  <div class="funkyradio">
+    <div class="funkyradio-info">
+      <%= f.radio_button :type_chef,"home-food",id: "radio1",name: "radio",:checked => true %>
+      <label for="radio1" class="type_restaurant">Home food </label>
+    </div>
+  </div>
+</div>    
+<div class="col-md-4">
+  <div class="funkyradio">
+    <div class="funkyradio-info">
+      <%= f.radio_button :type_chef,"base-food",id: "radio2",name: "radio" %>
+      <label for="radio2" class="type_restaurant">Base Kitchen</label>
+    </div>
+  </div>
+</div>    
+<div class="col-md-4">
+  <div class="funkyradio">
+    <div class="funkyradio-info">
+      <%= f.radio_button :type_chef,"restaurant-food",id: "radio3",name: "radio" %>
+      <label for="radio3" class="type_restaurant">Restaurant</label>
+    </div>
+  </div>
+</div>  
+
+<div class="col-md-6">
+  <div class="form-group">
+  <label class="control-label"><span class="required">*</span>Main dishes</label>
+    <%= f.select :category_id, options_for_select(Category.all.map{|e| [e.name, e.id]}), {:id => "type_store"}, { :class => 'form-control' } %>
+  </div>
+</div>
+
+<div class="col-md-6">
+  <div class="form-group">
+    <label class="control-label"><span class="required">*</span>Phone number restaurant:</label>
+    <%= f.text_field :phone_res,class: "form-control",required: "required",placeholder: "Enter Phone Number",maxlength: "11", minlength: "10" %>
+  </div>
+</div>
+<div class="col-md-6">
+  <div class="form-group">
+    <label class="control-label"><span class="required">*</span>Name restaurant.</label>
+    <%= f.text_field :name_res,class: "form-control",required: "required",placeholder: "Enter restaurant name" %>
+  </div>
+</div>
+
+<div class="col-md-6">
+  <div class="form-group">
+    <label class="control-label"><span class="required">*</span>Address.</label>
+    <%= f.text_field :address_res,class: "form-control",required: "required",placeholder: "Enter restaurant address" %>
+  </div>
+</div>
+
+<div class="col-md-12">
+  <div class="form-group">
+    <label class="control-label"><span class="required">*</span>Service restaurant</label>
+    <div class="row">
+      <div class="col-md-6">
+      <label class="control-label">Would you like service to deliver the food?</label>
+        <div class="funkyradio">
+          <div class="funkyradio-info">
+            <%= f.check_box :status_order,id: "checkbox1",name: "checkbox",:checked => true %>
+            <label class="checkbox" for="checkbox1">Order</label>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+      <label class="control-label">Would you like service to booking table the food?</label>
+        <div class="funkyradio">
+          <div class="funkyradio-info">
+            <%= f.check_box :status_booking,id: "checkbox2",name: "checkbox",:checked => true %>
+            <label class="checkbox" for="checkbox2">Booking</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-12">
+  <div class="form-group">
+    <label class="control-label"><span class="required">*</span>Description:</label>
+    <%= f.text_area :description,max_length: 200,:rows => 5,class: "form-control",placeholder: "Enter restaurant description" %>
+  </div>  
 </div>

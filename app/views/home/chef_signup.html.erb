@@ -1,5 +1,5 @@
 <div id="chef-signup" class="container above-also">
-  <div class="content-heading" style="width: 60%">
+  <div class="content-heading" style="width: 70%;min-height: 700px;min-height: ">
     <div class="row ">
       <div class="stepwizard col-md-12">
         <div class="stepwizard-row setup-panel">
@@ -36,18 +36,7 @@
         <div class="col-md-12">
           <h3>Chef Description</h3>
           <%= render "home/chef/opening_time",f: f %>
-          <div class="col-md-6">
-            <div class="form-group">
-              <label class="control-label">Facebook URL:</label>
-              <input type="text" required="required" class="form-control" placeholder="Enter Company Address"  />
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="form-group">
-              <label class="control-label">Twitter URL:</label>
-              <input type="text" required="required" class="form-control" placeholder="Enter Company Address"  />
-            </div>
-          </div>
+          
           <%= f.button "Submit",class: "btn btn-success btn-lg pull-right" %>
         </div>
       </div>

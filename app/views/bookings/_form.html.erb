@@ -84,12 +84,6 @@
           <div class="form-group">
             <h3> Choose types pay </h3>
             <div class="col-sm-2 control-label">
-              <%= f.label :delivery_type,class: "control-label" %>
-            </div>
-            <div class="col-sm-4">
-              <%= f.select(:delivery_type,Booking::DELIVERY_TYPES, {prompt: 'Select a delivery method'}, { :class => 'form-control' }) %>
-            </div>
-            <div class="col-sm-2 control-label">
               <%= f.label :payment_type,class: "control-label" %>
             </div>
             <div class="col-sm-4">
@@ -99,10 +93,10 @@
           <div class="form-group">
             <h3>Checkout customer</h3>
             <div class="col-sm-2 control-label">
-              <%= f.label :seat_id,class: "control-label" %>
+              <%= f.label :table_number,class: "control-label" %>
             </div>
             <div class="col-sm-4">
-              <%= f.number_field :seat_id,class: "form-control" %>
+              <%= f.number_field :table_number,class: "form-control" %>
               <p>For each 6seat is 1 table </p>
             </div>
             <%= f.hidden_field :user_id, value: current_user.id %>

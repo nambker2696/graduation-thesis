@@ -27,6 +27,7 @@
     display: table-cell;
     text-align: center;
     position: relative;
+    width:33%;
   }
   .btn-circle {
     width: 30px;
@@ -73,7 +74,7 @@
           position: relative;
           line-height: 2.5em;
           text-indent: 3.25em;
-          margin-top: 2em;
+          margin-top: 0.5em;
           cursor: pointer;
           user-select: none;
           &:before {
@@ -126,46 +127,6 @@
       }
     }
 
-    &-primary {
-      input[type="radio"],
-      input[type="checkbox"] {
-        &:checked ~ label:before {
-          color: #fff;
-          background-color: #337ab7;
-        }
-      }
-    }
-
-    &-success {
-      input[type="radio"],
-      input[type="checkbox"] {
-        &:checked ~ label:before {
-          color: #fff;
-          background-color: #5cb85c;
-        }
-      }
-    }
-
-    &-danger {
-      input[type="radio"],
-      input[type="checkbox"] {
-        &:checked ~ label:before {
-          color: #fff;
-          background-color: #d9534f;
-        }
-      }
-    }
-
-    &-warning {
-      input[type="radio"],
-      input[type="checkbox"] {
-        &:checked ~ label:before {
-          color: #fff;
-          background-color: #f0ad4e;
-        }
-      }
-    }
-
     &-info {
       input[type="radio"],
       input[type="checkbox"] {
@@ -175,5 +136,26 @@
         }
       }
     }
+  }
+  input,select,.btn-checkbox,.checkbox,.type_restaurant{
+    border: 1px solid #dde1e7;
+    border-radius: 5px;
+    font-size: 14px;
+    height: 49px;
+    padding: 5px 16px;
+    option{
+      border: 1px solid #dde1e7;
+      border-radius: 5px;
+      font-size: 14px;
+      height: 49px;
+      padding: 5px 16px;
+    }
+  }
+  .form-group{
+    margin-top: 25px;
+  }
+  .centered-clock{
+    text-align:center;
+    margin-top: 35px; 
   }
 }

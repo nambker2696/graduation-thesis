@@ -3,7 +3,6 @@ class HomeController < ApplicationController
   before_action :set_cart
   # before_action :force_json, only: :search 
   before_action :set_locale
-
   # skip_before_action :set_cart
   # skip_before_action :get_category
   # skip_before_action :get_city_district
@@ -56,7 +55,7 @@ class HomeController < ApplicationController
         locat = locat.where("rate_avg >= ? AND rate_avg <= ?",star.to_i-0.5,star.to_i+0.5)
       end
     end
-  
+
     if types != nil
       types_ids = types.first.split(',')
       types_ids.each do |tp|
@@ -68,10 +67,10 @@ class HomeController < ApplicationController
       end
 
         # @locations = Kaminari.paginate_array(@locations).page(params[:page]).per(5)
-    else
+      else
         # @locations = Location.joins(:dishes).ransack(name_cont: params[:q]).result(distinct: true)
-      @locations = locat.joins(:dishes).ransack(name_cont: params[:q]).result(distinct: true).page params[:page]
-    end
+        @locations = locat.joins(:dishes).ransack(name_cont: params[:q]).result(distinct: true).page params[:page]
+      end
     # @users = Array.new
     @dishes = Array.new
     @reviews = Array.new
@@ -82,13 +81,13 @@ class HomeController < ApplicationController
     #   # @users << @user
     @dishes << @dish
     @reviews << @review
-    end
+  end
 
-    respond_to do |format| 
-      format.html {}
-      format.json {
-        render json: {
-          locations: @locations.as_json,
+  respond_to do |format| 
+    format.html {}
+    format.json {
+      render json: {
+        locations: @locations.as_json,
           # users: @users.as_json,
           dishes: @dishes.as_json,
           reviews: @reviews.as_json,
@@ -111,16 +110,53 @@ class HomeController < ApplicationController
   end
 
   def create_chef
-    User.create(:email => params[:email],:password =>params[:password],:admin => true)
-    redirect_to admin_admin_url
+    if params[:type_chef] == "home-food"
+      types_chef = 1
+    elsif params[:type_chef] == "base-food"
+      type_chef = 2
+    elsif params[:type_chef] == "restaurant-food"
+      type_chef = 3
+    else
+      type_chef = nil
+    end
 
+    description = params[:description].present? ? params[:description] : nil
+    facebook = params[:facebook].present? ? params[:facebook] : nil
+    twitter = params[:twitter].present? ? params[:twitter] : nil
+
+    @user = User.new(
+      :first_name => params[:first_name],
+      :last_name => params[:last_name],
+      :email => params[:email],
+      :password => params[:password],
+      :name => params[:name],
+      :phone => params[:phone],
+      :type_chef => type_chef,
+      :admin => true
+      )
+
+    if verify_recaptcha(model: @user) && @user.save
+      Location.create(
+      :name => params[:name_res],
+      :address => params[:address],
+      :phone => params[:phone],
+      :open_at => params[:open_at],
+      :close_at => params[:close_at],
+      :description => description,
+      :facebook => facebook,
+      :twitter => twitter,
+      :user_id => @user.id,
+      :category_id => params[:category_id]
+      )
+      redirect_to admin_admin_url
+    end
   end
 
   def about; end
 
   def contact; end 
 
-  private
+  # private
    # def force_json 
    #      request.format = :json 
    #  end 

@@ -125,6 +125,8 @@ ActiveRecord::Schema.define(version: 20180519034347) do
     t.decimal "min_booking"
     t.decimal "min_order"
     t.float "rate_avg"
+    t.string "facebook"
+    t.string "twitter"
     t.boolean "status_booking"
     t.boolean "status_order"
     t.datetime "created_at", null: false

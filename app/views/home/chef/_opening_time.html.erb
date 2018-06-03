@@ -1,38 +1,63 @@
 <div class="row">
-  <div class="col-md-3">Open</div>
+  <div class="col-md-3 centered-clock">Open</div>
   <div class="col-md-3">
     <div class="form-group">
-      <div class='input-group date' id='datetimepicker1'>
-        <input type='text' class="form-control" />
+      <div class='input-group date' id='startdate'>
+        <%= f.text_field :open_at,class: "form-control"%>
         <span class="input-group-addon">
           <span class="glyphicon glyphicon-time"></span>
         </span>
       </div>
     </div>
-    <script type="text/javascript">
-      $(function () {
-        $('#datetimepicker1').datetimepicker({
-          format: 'LT'
-        });
-      });
-    </script>
   </div>
-  <div class="col-md-3">Monday</div>
+  <div class="col-md-3 centered-clock">Close</div>
   <div class="col-md-3">
     <div class="form-group">
-      <div class='input-group date' id='datetimepicker2'>
-        <input type='text' class="form-control" />
+      <div class='input-group date' id='enddate'>
+        <%= f.text_field :close_at,class: "form-control"%>
         <span class="input-group-addon">
           <span class="glyphicon glyphicon-time"></span>
         </span>
       </div>  
     </div>
-    <script type="text/javascript">
-      $(function () {
-        $('#datetimepicker2').datetimepicker({
-          format: 'LT'
-        });
-      });
-    </script>
   </div>
 </div>
+<div class="col-md-6">
+  <div class="form-group">
+    <label class="control-label">Facebook URL:</label>
+    <%= f.text_field :facebook,class: "form-control",placeholder: "Enter your restaurant facebook " %>
+  </div>
+</div>
+<div class="col-md-6">
+  <div class="form-group">
+    <label class="control-label">Twitter URL:</label>
+    <%= f.text_field :twitter,class: "form-control",placeholder: "Enter your restaurant twitter" %>
+  </div>
+</div>
+<div class="col-md-6">
+  <%= flash[:recaptcha_error] %>
+  <%= recaptcha_tags %>
+</div>
+<script>
+ $(function () {   
+  $('#startdate,#enddate').datetimepicker({
+    format: 'LT',
+    useCurrent: false
+  });
+  $('#startdate').datetimepicker().on('dp.change', function (e) {
+    var incrementDay = moment(new Date(e.date));
+    incrementDay.add(0, 'days');
+    $('#enddate').data('DateTimePicker').minDate(incrementDay);
+    $(this).data("DateTimePicker").hide();
+  });
+
+  $('#enddate').datetimepicker().on('dp.change', function (e) {
+    var decrementDay = moment(new Date(e.date));
+    decrementDay.subtract(0, 'days');
+    $('#startdate').data('DateTimePicker').maxDate(decrementDay);
+    $(this).data("DateTimePicker").hide();
+  });
+
+});
+
+</script>

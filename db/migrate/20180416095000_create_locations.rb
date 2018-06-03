@@ -16,6 +16,8 @@ class CreateLocations < ActiveRecord::Migration[5.1]
       t.decimal :min_booking
       t.decimal :min_order
       t.float :rate_avg
+      t.string :facebook
+      t.string :twitter
       t.boolean :status_booking
       t.boolean :status_order
       
