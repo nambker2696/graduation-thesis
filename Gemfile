@@ -31,7 +31,8 @@ gem 'sweet-alert2-rails'
 gem 'rails-jquery-autocomplete'
 gem 'ransack', '~> 1.8', '>= 1.8.2' 
 gem "recaptcha", require: "recaptcha/rails"
-
+gem 'private_pub'
+gem 'thin'
 gem 'sass-rails', '~> 5.0'
 gem 'simple_form'
 gem 'social-share-button'
@@ -46,6 +47,7 @@ gem 'nexmo'
 # gem 'elasticsearch-model', git: 'git://github.com/elasticsearch/elasticsearch-rails.git'
 # gem 'elasticsearch-rails', git: 'git://github.com/elasticsearch/elasticsearch-rails.git'
 gem 'sweetify'
+
  gem 'faker', git: 'git@github.com:stympy/faker.git'  
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

@@ -13,9 +13,11 @@ class User < ApplicationRecord
   has_many :orders
   has_many :locations
   has_many :reviews, dependent: :destroy
+  has_many :conversations, foreign_key: :sender_id
 
   validates :sex, presence: false
-
+  after_create :create_default_conversation
+  
   SEX = ["Male","Female"]
 
   def self.from_omniauth_facebook(auth)
@@ -47,6 +49,9 @@ class User < ApplicationRecord
        )
     end
     user
-  end  
-
+  end
+  private
+  def create_default_conversation
+    Conversation.create(sender_id: 1, recipient_id: self.id) unless self.id == 1
+  end
 end

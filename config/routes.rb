@@ -55,11 +55,16 @@ Rails.application.routes.draw do
   get "users/rate_chefs" => "users#rate_chefs"
   get "users/password" => "users#password"
   get "users/address" => "users#address"
+  get "users/messages" => "users#messages"
   devise_for :users, skip: :omniauth_callbacks
     get 'about' => 'home#about'
     get 'contact' => 'home#contact'
     root to: 'home#index'
   end
+  resources :conversations do
+    resources :messages
+  end
+
   root to: redirect('/#{I18n.default_locale}', status: 302),
   as: :redirected_root
   get '*path' => redirect('/')

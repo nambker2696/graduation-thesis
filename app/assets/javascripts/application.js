@@ -21,6 +21,8 @@
 //= require sweetalert2
 //= require sweet-alert2-rails
 //= require jquery.easy-autocomplete
+//= require private_pub
+//= require chat
 //= require turbolinks
 //= require moment
 //= require bootstrap-datetimepicker
