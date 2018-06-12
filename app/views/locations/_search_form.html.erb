@@ -3,19 +3,18 @@
     <div id="seach-form">
 
       <ul>
-        <%= form_with url: get_location_path, local: true, method: :get  do |form| %>
+        <%= form_with url: search_path, local: true, method: :get  do |form| %>
         <li class="location" style="width: 520px; margin-left: 35px;">
-        <%= form.text_field :ql, placeholder: "Type your location or area...", data: { behavior: "autocomplete" }, class: "form-control mr-sm-2" %>
+        <%= form.text_field :ql, placeholder: "Search name your location ...",id: "search",class: "form-control mr-sm-2" %>
         </li>
-        <% end %>
+          <div class="easy-autocomplete-container">
+          </div>
         <li class="loction_bkg">
         </li>
         <li class="submit-search-btn">
-          <%= form_with url: search_path, local: true, method: :get  do |form2| %>
-          <%= form2.hidden_field :ql,id: "locate_params" %>
-          <%= form2.button "Search" %>
-          <% end %>
+          <%= form.button "Search" %>
         </li>
+        <% end %>
       </ul>
     </div>
   </div>

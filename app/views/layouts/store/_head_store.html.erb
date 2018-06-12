@@ -38,21 +38,10 @@
               <% end %>
             </li>
             <li>
-              <ul class="nav navbar-nav nav-narrow">
-                <li class="dropdown">
-                  <a href="#" class="hdcart dropdown-toggle" data-toggle="dropdown">
-                    <div class="hdrcart-icons"><i class="fa fa-bell fa-2x"></i></div>
-                    <div id="num-notfiy">0</div>
-                  </a>
-                  <ul class="dropdown-menu">
-                    <li><a href="">1</a></li>      
-
-                    <li><a href="">2</a></li>
-
-                    <li><a href="">3</a></li>
-                  </ul>
-                </li>
-              </ul>
+            <%= link_to users_messages_url,:class => "hdcart" do %>
+                <div class="hdrcart-icons"><i class="fa fa-envelope fa-2x"></i></div>
+                <div id="num-notfiy">0</div>
+              <% end %>
             </li>
             <li>
               <%= link_to carts_url,:class => "hdrcart" do %>
@@ -93,8 +82,6 @@
                     <li><a href="#"><%= t("bookmarks") %><span class="glyphicon glyphicon-bookmark pull-right"></span></a></li>
 
                     <li><a href="#"><%= t(".favourites") %> <span class="glyphicon glyphicon-heart pull-right"></span></a></li>
-                    <li><%= link_to admin_admin_url do %><%= t(".admin") %> <span class="glyphicon glyphicon-user pull-right"></span><% end %></li>
-
                     <li><%= link_to destroy_user_session_path, method: :delete do %>
                       <%= t(".sign_out") %> <span class="glyphicon glyphicon-log-out pull-right"></span>
                       <% end %>

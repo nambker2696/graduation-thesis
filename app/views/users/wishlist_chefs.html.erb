@@ -1,32 +1,70 @@
 <div class="container">
   <div class="content-heading" style="min-height: 700px; margin-top: 80px;">
     <div class="acc-detail">
-      <h3>List wishlist chefs</h3>
+      <h3>List Orders</h3>
       <div class="account-head">  
         <ul>
           <li><%= link_to edit_user_registration_url do %>My Account<% end %></li>
           <li><%= link_to users_bookings_url do %> My Booking<% end %></li>
           <li><%= link_to users_orders_url do %> My Order<% end %></li>
-          <li class="active"><%= link_to users_wishlist_chefs_url do %>My Wishlist Chefs<% end %></li>
-          <li><%= link_to users_rate_chefs_url do %>Rate The Chef<% end %></li>
+          <li class="active"><%= link_to users_messages_url do %>My Messages with Chefs<% end %></li>
+          <li><%= link_to users_rate_chefs_url do %>Rate The Chef<% end %></a></li>
           <li><%= link_to destroy_user_session_path do %>Logout<% end %></li>
         </ul>
       </div>
       <div class="account-content">
         <div class="row">
           <div class="col-md-4">
-            <ul>
-              <li class="tab-title active"><a href="">Edit your account information</a></li>
-              <li class="tab-title "><a href="">Change Password</a></li>
-              <li class="tab-title "><a href="">Change your address</a></li>
-              <li class="tab-title "><a href="">Delete my account </a></li>
-            </ul>
+            <div style="height: 300px; overflow-y: auto;">
+              <div class="panel panel-default">
+                <div class="panel-heading">Registered Users</div>
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Name</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% @users.each_with_index do |user, index| %>
+                    <tr>
+                      <td><%= index +=1 %></td>
+                      <td><%= user.name %></td>
+                      <td>
+                        <%= link_to "Send Message", "#", class: "btn btn-success btn-xs start-conversation",
+                        "data-sid" => current_user.id, "data-rip" => user.id %>
+                      </td>
+                    </tr>
+                    <% end %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </div>
-          <div id="customer-details" class="col-md-8">
+          <div class="col-md-8">
+            <h3>Your Conversations</h3>
+            <div style="height: 400px; overflow-y: auto;">
+              <% if @conversations.any? %>
+              <ul class="media-list">
+                <% @conversations.each do |conversation| %>
+                <li class="media">
+                  <%= image_tag("http://placehold.it/50x50", class: "media-object pull-left") %>
+                  <div class="media-body">
+                    <%= link_to "", conversation_path(conversation), class: "conversation", "data-cid" => conversation.id %>
+                    <h4 class="media-heading"><%= conversation_interlocutor(conversation).name %></h4>
+                    <p><%= conversation.messages.last.nil? ? "No messages" : truncate(conversation.messages.last.body, length: 45) %></p>
+                  </div>
+                </li>
+                <% end %>
+              </ul>
+              <% else %>
+              <p>You have no conversations. Click send message with any user to create one.</p>
+              <% end %>
+            </div>
           </div>
         </div>
       </div>
     </div>
-
   </div>
 </div>

@@ -13,8 +13,6 @@ class HomeController < ApplicationController
 
   def search
     # str = escape_characters_in_string(params[:q])
-
-    
     types = params[:types].present? ? params[:types] : nil
     booking_order = params[:booking_order].present? ? params[:booking_order] : nil
     time_order = params[:time_order] != "on" ? params[:time_order] : nil 
@@ -91,6 +89,18 @@ class HomeController < ApplicationController
           # users: @users.as_json,
           dishes: @dishes.as_json,
           reviews: @reviews.as_json,
+        }
+      }
+    end
+  end
+
+  def search_location
+    @locations = Location.ransack(name_cont: params[:ql]).result(distinct: true).limit(5)
+    respond_to do |format|
+      format.html {}
+      format.json {
+        render json:{
+          locations: @locations  
         }
       }
     end

@@ -227,8 +227,8 @@ var ready = function () {
 
 
                 $.cookie('chatbox_minimized', newCookie);
-                $('#chatbox_' + conversation_id + ' .chatboxcontent').css('display', 'none');
-                $('#chatbox_' + conversation_id + ' .chatboxinput').css('display', 'none');
+                $('#chatbox_' + conversation_id + ' .chatboxcontent').css('display', 'block');
+                $('#chatbox_' + conversation_id + ' .chatboxinput').css('display', 'block');
                 $("#chatbox_" + conversation_id + " .chatboxcontent").scrollTop($("#chatbox_" + conversation_id + " .chatboxcontent")[0].scrollHeight);
             } else {
 

@@ -1,54 +1,51 @@
-document.addEventListener("turbolinks:load", function() {
-  $input = $("[data-behavior='autocomplete']")
-
-  var options = {
-    getValue: "name",
-    url: function(phrase) {
-      return "/search.json?q=" + phrase;
-    },
-    categories: [
-      {
-        listLocation: "locations",
-        header: "<strong><i class='fa fa-map-marker'></i>Locations</strong>",
-      }
-    ],
-    list: {
-      onChooseEvent: function() {
-        var url = $input.getSelectedItemData().url
-        $input.val("")
-        Turbolinks.visit(url)
-      }
-    }
+function getArrayLocation(location){
+  var result= "";
+  console.log(location[1]['id']);
+  for(var k = 0, length3 = location.length; k < length3; k++){
+    result += '<li><a href="/en/locations/'+location[k]['id']+'">'+
+    '<div class="eac-item">'+location[k]['name']+'</div></a>'+
+    '</div><div class="eac-add">'+location[k]['address']+
+    '</li>';
   }
+  return result;
+}
 
-  $input.easyAutocomplete(options)
+$(document).ready(function(){
+ $('#search').keyup(function(){
+  var text_search = $(this).val();
+  $.ajax({
+    url: '/search_location',
+    type: 'GET',
+    dataType: 'json',
+    data: {ql: text_search},
+  })
+  .success(function(data){
+    $(".easy-autocomplete-container").empty();
+    if(data['locations'].length > 0){
+      console.log(data);
+      var stringArray = getArrayLocation(data['locations']);
+       $(".easy-autocomplete-container").append('<ul style="display: block;">'+
+          '<div class="eac-category"><strong><i class="fa fa-map-marker"></i>Locations</strong></div>'+
+          stringArray+
+          '</ul>'
+        );
+    }
+    else{
+      $(".easy-autocomplete-container").empty();
+    }
+  })
+  .done(function() {
+    console.log("success");
+  })
+  .fail(function() {
+    console.log("error");
+  })
+  .always(function() {
+    console.log("complete");
+  });
+ });
 });
 
-// document.addEventListener("turbolinks:load", function() {
-//   $input = $("[data-behavior='autocomplete-locat']")
-//   var options = {
-//     getValue: "name",
-//     url: function(phrase) {
-//       return "/search.json?q=" + phrase;
-//     },
-//     categories: [
-//     {
-//       listLocation: "locations",
-//       header: "<strong><i class='fa fa-map-marker'></i>Locations</strong>",
-//     }
-//     ],
-//     list: {
-//       onChooseEvent: function() {
-//         var url = $input.getSelectedItemData().url
-//         $input.val("")
-
-//         Turbolinks.visit(url)
-//       }
-//     }
-//   }
-
-//   $input.easyAutocomplete(options)
-// });
 function getRateAvg(rate_avg){
   var rating_star = []
   switch(rate_avg) {

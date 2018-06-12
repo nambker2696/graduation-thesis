@@ -46,6 +46,7 @@ Rails.application.routes.draw do
   end
   resources :categories,only:[:show]
   get :search, controller: :home
+  get :search_location, controller: :home
   get :get_location, controller: :home
   get :create_chef, controller: :home
   get :chef_signup, controller: :home
