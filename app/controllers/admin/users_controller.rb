@@ -1,6 +1,6 @@
 class Admin::UsersController < Admin::BaseController
   before_action :set_admin_user, only: [:show, :edit, :update, :destroy]
-
+  before_action :check_chef
   # GET /users
   # GET /users.json
   def index
@@ -70,5 +70,11 @@ class Admin::UsersController < Admin::BaseController
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_admin_params
       params.fetch(:user, {})
+    end
+    def check_chef 
+      if current_user.type_chef != 4
+        redirect_to admin_admin_url
+      end
+
     end
 end

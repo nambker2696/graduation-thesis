@@ -23,12 +23,15 @@
         <span>Bookings</span>
         <% end %>
       </li>
+      <% if current_user.type_chef == 4 %>
       <li>
         <%= link_to admin_users_url,:class => current_class?(admin_users_path) do %>
         <i class="fa fa-users"></i>
         <span>Custommers</span>
         <% end %>
       </li>
+      <% end %>
+
       <li>
         <%= link_to admin_locations_url,:class => current_class?(admin_locations_path)  do %>
         <i class="fa fa-map-marker"></i>
@@ -49,38 +52,9 @@
               <span>Dishes</span>
               <% end %>
             </li>
-            <li><%= link_to admin_admin_url,:class => "" do %>
-              <span>Order</span>
-              <% end %>
-            </li>
           </ul>
         </div>
       </li> 
-      <li>
-      <a data-toggle="collapse" data-target="#toggleDemo4" data-parent="#sidenav01" class="collapsed">
-          <i class="fa fa-gear"></i> Setting <span class="caret pull-right"></span>
-        </a>
-        <div class="collapse" id="toggleDemo4" style="height: 0px;">
-          <ul class="nav nav-list">
-            <li><%= link_to admin_admin_url,:class => "" do %>
-              <span>Menu</span>
-              <% end %>
-            </li>
-            <li><%= link_to admin_admin_url,:class => "" do %>
-              <span>Categories</span>
-              <% end %>
-            </li>
-            <li><%= link_to admin_dishes_url,:class => "" do %>
-              <span>Dishes</span>
-              <% end %>
-            </li>
-            <li><%= link_to admin_admin_url,:class => "" do %>
-              <span>Order</span>
-              <% end %>
-            </li>
-          </ul>
-        </div>
-      </li>
       <li>
         <%= link_to admin_admin_url,:class => "" do %>
         <i class="glyphicon glyphicon-usd"></i>

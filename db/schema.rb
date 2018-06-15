@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 20180610171109) do
   create_table "bookings", force: :cascade do |t|
     t.integer "table_number"
     t.date "day_to_eat"
+    t.string "time_eat"
     t.integer "location_id"
     t.integer "number_people"
     t.integer "number_child"

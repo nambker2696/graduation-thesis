@@ -3,6 +3,7 @@ class CreateBookings < ActiveRecord::Migration[5.1]
     create_table :bookings do |t|
       t.integer :table_number
       t.date :day_to_eat
+      t.string :time_eat
       t.integer :location_id
       t.integer :number_people
       t.integer :number_child

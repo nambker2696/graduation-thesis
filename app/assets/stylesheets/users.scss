@@ -86,7 +86,9 @@ $btn-color1: #41deb6;
 $form-control-color: #23ffd0;
 $outside-ground: rgba(168, 129, 110, 0.82);
 $inside-ground: rgba(199, 194, 155, 0.93);
-
+$white: #fff;
+$red-google: #d34836;
+$blue-face: #4066b0;
 
 #form-login-user{
   .float-label-control { position: relative; margin-bottom: 1.2em; }
@@ -348,4 +350,29 @@ li.media a {
   background-color: #FFF; /* Fix to make div clickable in IE */
   opacity: 0; /* Fix to make div clickable in IE */
   filter: alpha(opacity=1); /* Fix to make div clickable in IE */
+}
+
+.omni-btn {
+  color: $white !important;
+  border-radius: 5px;
+  display: block;
+  font-size: 1.1em;
+  margin-bottom: 10px;
+  padding: 8px 0;
+  text-align: center;
+
+  .fa {
+    font-size: 1.3em;
+    margin-right: 5px;
+  }
+}
+
+.face-btn {
+  background-color: $blue-face;
+  margin-bottom: 0;
+}
+
+.google-btn {
+  background-color: $red-google;
+  margin-top: 10px;
 }

@@ -5,7 +5,7 @@ class BookingsController < ApplicationController
   # GET /bookings
   # GET /bookings.json
   def index
-    @bookings = Booking.where(user_id: current_user.id)
+    @bookings = Booking.where(user_id: current_user)
   end
 
   # GET /bookings/1
@@ -77,7 +77,7 @@ class BookingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def booking_params
-      params.require(:booking).permit(:user_id, :location_id, :table_number,:day_to_eat,:number_people,:number_child, :status, :action,:payment_type)
+      params.require(:booking).permit(:user_id, :location_id,:time_eat, :table_number,:day_to_eat,:number_people,:number_child, :status, :action,:payment_type)
     end
 
     def ensure_cart_isnot_empty

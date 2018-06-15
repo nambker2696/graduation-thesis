@@ -24,25 +24,17 @@
             </div>
             <div class="col-sm-4">
               <div class="input-group date" id="startdate">
-                <input type="text" class="form-control" />
+                <%= f.text_field :day_to_eat,class: "form-control" %>
                 <span class="input-group-addon">
                   <span class="glyphicon-calendar glyphicon"></span>
                 </span>
               </div>
             </div>
             <div class="col-sm-2 control-label">
-              <label for="startdate" class="control-label">Time eat</label>
+            <%= f.label :time_eat,class: "control-label" %>
             </div>
             <div class="col-sm-4">
-              <select id="inputState" class="form-control">
-                <option selected>Choose...</option>
-                <option>10:00</option>
-                <option>12:00</option>
-                <option>14:00</option>
-                <option>16:00</option>
-                <option>18:00</option>
-                <option>20:00</option>
-              </select>
+            <%= f.select(:time_eat,Booking::TIME_EATS, {prompt: 'Select time eat'}, { :class => 'form-control',:id => "inputState"}) %>
             </div>
           </div>
           <div class="form-group">
@@ -51,33 +43,13 @@
               <%= f.label :num_people,class: "control-label" %>
             </div>
             <div class="col-sm-4">
-              <select id="inputState" class="form-control">
-                <option selected>Choose...</option>
-                <option>1 people</option>
-                <option>2 people</option>
-                <option>3 people</option>
-                <option>4 people</option>
-                <option>5 people</option>
-                <option>6 people</option>
-                <option>7 people</option>
-                <option>8 people</option>
-                <option>9 people</option>
-                <option>10 people</option>
-              </select>
+            <%= f.select(:number_people,Booking::NUMBER_PEOPLE, {prompt: 'Select number people'}, { :class => 'form-control',:id => "inputState"}) %>
             </div>
             <div class="col-sm-2 control-label">
               <%= f.label :num_child,class: "control-label" %>
             </div>
             <div class="col-sm-4">
-              <select id="inputState" class="form-control">
-                <option selected>Choose...</option>
-                <option>1 people</option>
-                <option>2 people</option>
-                <option>3 people</option>
-                <option>4 people</option>
-                <option>5 people</option>
-                <option>6 people</option>
-              </select>
+                <%= f.select(:number_child,Booking::NUMBER_CHILD, {prompt: 'Select number people'}, { :class => 'form-control',:id => "inputState"}) %>
             </div>
           </div>
 

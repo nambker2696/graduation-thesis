@@ -1,6 +1,29 @@
-<h1>Editing Category</h1>
 
-<%= render 'form', category: @category %>
+<section class="content">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="box box-primary">
+        <div class="box-header with-border">
+          <h4>Category edit</h4>
+        </div>
+        <%= form_for [:admin, @admin_category] do |f| %>
+        <div class="box-body">
 
-<%= link_to 'Show', @category %> |
-<%= link_to 'Back', categories_path %>
+          <div class="form-group">
+            <%= f.label :name %>
+            <%= f.text_field :name, class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :slug_cate%>
+            <%= f.text_field :slug_cate, class: "form-control" %>
+          </div>
+
+          <br>
+          <div class="form-group">
+            <%= f.submit "Edit", class: "btn btn-info" %>
+          </div>              
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </section>

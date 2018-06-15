@@ -4,7 +4,11 @@ class Admin::OrdersController < Admin::BaseController
   # GET /orders
   # GET /orders.json
   def index  
-    @orders = Order.all
+    if current_user.type_chef == 4
+      @orders = Order.all
+    else
+      @orders = Order.where(user_id: current_user)
+    end
   end
 
   # GET /orders/1

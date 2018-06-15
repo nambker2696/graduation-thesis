@@ -35,7 +35,7 @@
         
         <div class="sale-results">
           <p class="font-bold">Bookings</p>
-          <h2><span>₫0</span></h2>
+          <h2><span><%= @booking.count %></span></h2>
         </div>
       </div>
     </div>
@@ -44,7 +44,7 @@
         <%= image_tag('spoon.svg', alt: 'money') %>
         <div class="sale-results">
           <p class="font-bold">Orders</p>
-          <h2><span>₫0</span></h2>
+          <h2><span><%= @order.count %></span></h2>
         </div>
       </div>
     </div>

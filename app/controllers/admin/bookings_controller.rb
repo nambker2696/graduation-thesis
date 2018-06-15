@@ -4,7 +4,11 @@ class Admin::BookingsController < Admin::BaseController
   # GET /bookings
   # GET /bookings.json
   def index
-    @bookings = Booking.all
+    if current_user.type_chef == 4
+      @bookings = Booking.all
+    else
+      @bookings = Booking.where(user_id: current_user)
+    end
   end
 
   # GET /bookings/1
