@@ -6,8 +6,8 @@
     class: "form-control" %>
   </div>
   <div class="rate-section">
-    <h4>Rate</h4>
     <div class="stars">
+    <h4>Rate</h4>
       <input class="star star-5" id="star-5" value="5" type="radio" onchange="getRating(this)" name="star"/>
       <label class="star star-5" for="star-5"></label>
       <input class="star star-4" id="star-4" value="4" type="radio" onchange="getRating(this)" name="star"/>
@@ -21,7 +21,7 @@
     </div>
   </div>
 
-  <%= f.text_area :content, id: "froala-editor" %>
+  <%= f.text_area :content, id: "froala-editor",cols: 20, rows: 3 %>
 
   <%= f.hidden_field :user_id, value: current_user.id %>
   <%= f.hidden_field :location_id, value: @location.id %>

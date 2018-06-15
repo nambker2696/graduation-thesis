@@ -20,7 +20,7 @@
             </span>
           </div>
           <ul>            
-            <li class="bookmark-icon"><a href="#" id="bookmark_new"><i class="fa fa-bookmark"></i>Bookmark</a></li>
+            <li class="bookmark-icon"><a href="#" id="bookmark_new"><i class="fa fa-bookmark"></i>Menu</a></li>
             <li class="tab-review"><a href="#reviews" aria-controls="profile" role="tab" data-toggle="tab"><i class="fa fa-comment"></i>Add a review</a></li>
             <li class="bookmark-icon"><a href="#" id="bookmark_new"><i class="fa fa-envelope"></i>Contact chef</a></li>
             <li class="bookmark-icon">
@@ -44,10 +44,10 @@
   <div class="container">
     <div id="delivery-opening" class="content-heading">
       <div class="item">
-        <i class="fa fa-truck"></i>Delivery Time: 5 hours 
+        <i class="fa fa-truck"></i>Delivery Time: <% if @location.delivery_time != nil %><%= @location.delivery_time %><% else %> 0 <% end %> hours 
       </div>
       <div class="item">
-        <i class="fa fa fa-clock-o"></i>Opening Hours: Closed
+        <i class="fa fa fa-clock-o"></i>Opening Hours: <% if @location.status == true %> Open <% else %> Close <% end %>
       </div>
     </div>
     <div class="row">
@@ -81,6 +81,7 @@
               <% @dishes.each do |dish| %>
               <div class="col-md-3">
                 <%= image_tag("food/1.jpg", :alt => "rss feed") %>
+                <%= dish.name %>
               </div>
               <% end %>
             </div>
@@ -88,7 +89,6 @@
           </div>
           <div role="tabpanel" class="tab-pane" id="overview">
             <div class="row">
-
             </div>
           </div>
         </div>
@@ -96,7 +96,7 @@
       <div class="col-md-4">
         <div class="card">
           <ul class="nav nav-tabs cart-tabs" role="tablist">
-            <li class="tab-head" role="presentation"><a aria-controls="home" role="tab" data-toggle="tab">Cart</a></li>
+            <li class="tab-head" role="presentation"><a aria-controls="home" role="tab" data-toggle="tab">My cart</a></li>
             <li class="checkout">
               <a href="">Checkout</a>
             </li>
@@ -124,14 +124,12 @@
                     <%= button_to 'CheckOut', new_booking_path, method: :get,class: 'checkout-btn btn btn-default'%>
                   <%= button_to 'Clear Cart', @cart, :method => :delete,  data: { confirm: 'Are you sure?' },remote: true,class: 'clear-btn btn btn-default'%>
                   </div>
-                </div>
-            
+                </div>          
               </div>
             </div>
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </div>

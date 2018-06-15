@@ -1,37 +1,34 @@
 <div class="container above-also">
-  <p id="notice"><%= notice %></p>
+<div class="content-heading" style="min-height: 500px;>
+    <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>User:</strong>
-  <%= @booking.user_id %>
-</p>
-<p>
-  <strong>Location ID:</strong>
-  <%= @booking.location_id %>
-</p>
-<p>
-  <strong>Seat ID:</strong>
-  <%= @booking.seat_id %>
-</p>
-<p>
-  <strong>Date EAT:</strong>
-  <%= @booking.day_to_eat %>
-</p>
-<p>
-  <strong>Action of booking:</strong>
-  <%= @booking.action %>
-</p>
-<p>
-  <strong>delivery_type:</strong>
-  <%= @booking.delivery_type %>
-</p>
+    <p>
+      <strong>User:</strong>
+      <%= @booking.user_id %>
+    </p>
+    <p>
+      <strong>Location ID:</strong>
+      <%= @booking.location_id %>
+    </p>
+    <p>
+      <strong>Seat ID:</strong>
+      <%= @booking.table_number %>
+    </p>
+    <p>
+      <strong>Date EAT:</strong>
+      <%= @booking.day_to_eat %>
+    </p>
+    <p>
+      <strong>Action of booking:</strong>
+      <%= @booking.action %>
+    </p>
+    <p>
+      <strong>payment_type:</strong>
+      <%= @booking.payment_type %>
+    </p>
 
-<p>
-  <strong>payment_type:</strong>
-  <%= @booking.payment_type %>
-</p>
+    <%= link_to 'Edit', edit_booking_path(@booking) %> |
+    <%= link_to 'Back', bookings_path %>
 
-<%= link_to 'Edit', edit_booking_path(@booking) %> |
-<%= link_to 'Back', bookings_path %>
-
+  </div>
 </div>

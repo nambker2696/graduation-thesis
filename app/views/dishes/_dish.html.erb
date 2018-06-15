@@ -1,7 +1,13 @@
 <div class="row ">
   <div class="dish-box">
     <div class="col-md-3 dish-image">
+    <%= link_to location_dish_path(id: dish,location_id: @location) do%>
+    <% if dish.image == "" %>
+    <%= image_tag(dish.image, :alt => "rss feed") %>
+    <% else %>
       <%= image_tag("food/1.jpg", :alt => "rss feed") %>
+    <% end %>
+    <% end %>
     </div>
     <div class="col-md-6 dish-detail-box">
       <h2><%= dish.name %></h2>

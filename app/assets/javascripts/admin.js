@@ -19,4 +19,3 @@
 //= require social-share-button
 //= require owl.carousel
 //= require jquery-ui
-//= require autocomplete-rails

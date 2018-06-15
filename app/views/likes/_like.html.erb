@@ -1,5 +1,6 @@
 <%= link_to location_likes_path(location_id: @location.id),
-  class: "interactive-link",
+  class: "interactive-link",title: 'You like restaurant', data: { toggle: 'tooltip', placement: 'top' },
   method: :post, remote: true do %>
     <%= fa_icon "thumbs-o-up" %> <%= t "app.shared.like" %>
 <% end %>
+  

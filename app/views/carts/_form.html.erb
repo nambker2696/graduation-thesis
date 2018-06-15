@@ -1,11 +1,10 @@
-
-<div class="content-heading background-fff">
+<div class="content-heading">
 <% unless cart.cart_items.empty? %>
-<h3>Dishes wanted</h3>
   <div id="cart">
     <table>
       <%= render(cart.cart_items) %>
       <tr class="total_line">
+        <td></td>
         <td colspan="2">Total</td>
         <td class="total_cell"><%= number_to_currency(cart.total_price) %></td>
       </tr>

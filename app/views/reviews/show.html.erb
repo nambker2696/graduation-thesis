@@ -1,19 +1,23 @@
-<p id="notice"><%= notice %></p>
+<div class="container above-also">
+  <div class="content-heading" style="min-height: 700px;>
+    <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @review.title %>
-</p>
+    <p>
+      <strong>Title:</strong>
+      <%= @review.title %>
+    </p>
 
-<p>
-  <strong>Content:</strong>
-  <%= @review.content %>
-</p>
+    <p>
+      <strong>Content:</strong>
+      <%= @review.content %>
+    </p>
 
-<p>
-  <strong>Rate score:</strong>
-  <%= @review.rate_score %>
-</p>
+    <p>
+      <strong>Rate score:</strong>
+      <%= @review.rate_score %>
+    </p>
 
-<%= link_to 'Edit', edit_review_path(@review) %> |
-<%= link_to 'Back', reviews_path %>
+    <%= link_to 'Edit', edit_review_path(@review) %> |
+    <%= link_to 'Back', reviews_path %>
+  </div>
+</div>

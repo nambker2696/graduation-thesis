@@ -5,7 +5,7 @@
       <ul>
         <%= form_with url: search_path, local: true, method: :get  do |form| %>
         <li class="location" style="width: 520px; margin-left: 35px;">
-        <%= form.text_field :ql, placeholder: "Search name your location ...",id: "search",class: "form-control mr-sm-2" %>
+        <%= form.text_field :ql, placeholder: "Search name your location ...",autocomplete: "off",id: "search",class: "form-control mr-sm-2" %>
         </li>
           <div class="easy-autocomplete-container">
           </div>

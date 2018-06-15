@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_cart,only: [:new, :create]
+  before_action :ensure_cart_isnot_empty,only: [:new]
   # GET /orders
   # GET /orders.json
   def index
@@ -69,6 +70,12 @@ class OrdersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:user_id, :total_price, :status, :date_order, :date_receipt)
+      params.require(:order).permit(:user_id,:location_id,:delivery_type,:payment_type, :status,:action, :date_receipt)
+    end
+    def ensure_cart_isnot_empty
+      if @cart.cart_items.empty?
+        sweetalert_error('Your cart is empty', 'Error', persistent: 'Awesome!')
+        redirect_to root_url,notice: 'Your cart is empty'
+      end
     end
 end

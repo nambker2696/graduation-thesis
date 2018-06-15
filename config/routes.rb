@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   resources :guesses
   resources :order_details
   resources :bookings
+  resources :orders
   resources :reviews
   resources :cart_items do  
     put 'decrement', on: :member

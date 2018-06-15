@@ -10,7 +10,6 @@ class CartItemsController < ApplicationController
 
     respond_to do |format|
       if @cart_item.save
-        sweetalert_success('Your resource is created and available.', 'Successfully created', persistent: 'Awesome!')
         format.html { redirect_to carts_url }
         format.js { @current_item = @cart_item}
         format.json { render :show, status: :created, location: @cart_item }
@@ -39,7 +38,7 @@ class CartItemsController < ApplicationController
     @cart_item.destroy
       respond_to do |format|
       sweetalert_success('Cart is delete', 'Successfully delete', persistent: 'Awesome!')
-      redirect_to current_page_url
+      redirect_to carts_url
       format.html {  }#, notice: 'Line item was successfully destroyed.' }
       format.js {@current_item = @cart_item}
       format.json { head :no_content }

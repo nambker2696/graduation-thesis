@@ -79,6 +79,7 @@ data_hash.each do |store|
     phone: store['phone'],
     description: store['des'],
     status: true,
+    delivery_time: Faker::Number.between(1, 6),
     open_time: store['open_time'],
     open_at: Faker::Time.forward(23, :morning),
     close_at: Faker::Time.backward(14, :evening),
@@ -219,6 +220,7 @@ puts "Faker 500 Booking"
     day_to_eat: Faker::Date.between(7.days.ago, Date.today),
     number_people: Faker::Number.between(3, 8),
     number_child: Faker::Number.between(0, 2),
+    location_id: Faker::Number.between(1, 10),
     status: true,
     action: Faker::Number.between(1, 3),
     payment_type: "Cash On Delivery"
@@ -230,6 +232,7 @@ end
     status: Faker::Boolean.boolean,
     delivery_type: "Courier(DPD)",
     payment_type: "Cash On Delivery",
+    location_id: Faker::Number.between(1, 10),
     date_receipt: Faker::Date.between(7.days.ago, Date.today)
     )
 end

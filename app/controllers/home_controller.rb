@@ -3,10 +3,12 @@ class HomeController < ApplicationController
   before_action :set_cart
   # before_action :force_json, only: :search 
   before_action :set_locale
+  before_action :set_chef, only: [:index]
   # skip_before_action :set_cart
   # skip_before_action :get_category
   # skip_before_action :get_city_district
   # skip_before_action :get_num_cart_item
+
   def index
     @dishs =  Dish.all.page params[:page]
   end
@@ -166,7 +168,9 @@ class HomeController < ApplicationController
 
   def contact; end 
 
-  # private
+  def set_chef
+    @owner = User.where(type_chef: 2).limit(4)
+  end
    # def force_json 
    #      request.format = :json 
    #  end 

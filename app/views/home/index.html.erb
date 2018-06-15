@@ -2,34 +2,43 @@
 
 <div id="page-home-index" class="container page-section">
   <div class="row">
-  <h2>Our concierge services will take care of you!</h2>
-  <div class="col-md-3 category-home">
-  <%= image_tag('home/noodles-logo.jpg', alt: 'money') %>
+    <h2>Quick Search</h2>
+    <div class="col-md-4">
+      <a href="http://localhost:3000/search/utf8=✓&q=&types%5B%5D=barbecue", title="Search restauran is Bebecue", data-toggle="tooltip">
+        <%= image_tag('home/c1.jpg', alt: 'money') %>
+      </a>
+    </div>
+    <div class="col-md-4">
+      <%= link_to root_path , title: 'Search restauran is Buffet', data: { toggle: 'tooltip', placement: 'top' } do %>
+      <%= image_tag('home/c2.jpg', alt: 'money') %>
+      <% end %>
+    </div>
+    <div class="col-md-4">
+      <%= link_to root_path,title: "Search restauran is Hotpot",data: { toggle: 'tooltip', placement: 'top' } do %>
+      <%= image_tag('home/c3.jpg', alt: 'money') %>
+      <% end %>
+    </div>
+    <div class="col-md-4">
+      <%= link_to root_path ,title: "Search restauran is Cakes",data: { toggle: 'tooltip', placement: 'top' } do %>
+      <%= image_tag('home/c4.jpg', alt: 'money') %>
+      <% end %>
+    </div>
+    <div class="col-md-4">
+      <%= link_to root_path ,title: "Search restauran is Tea & Snacks",data: { toggle: 'tooltip', placement: 'top' } do %>
+      <%= image_tag('home/c5.jpg', alt: 'money') %>
+      <% end %>
+    </div>
+    <div class="col-md-4">
+      <%= link_to root_path ,title: "Search restauran is Rices",data: { toggle: 'tooltip', placement: 'top' } do %>
+      <%= image_tag('home/c6.jpg', alt: 'money') %>
+      <% end %>
+    </div>
   </div>
-  <div class="col-md-3 category-home">
-    <%= image_tag('home/dessert-logo.jpg', alt: 'money') %>
+  <div class="row">
+    <h2>List Great Chefs  </h2>
+    <div class="col-md-3">
+      
+    </div>
   </div>
-  <div class="col-md-3 category-home">
-    <%= image_tag('home/non-veget.png', alt: 'money') %>
-  </div>
-  <div class="col-md-3 category-home">
-    <%= image_tag('home/tea.png', alt: 'money') %>
-  </div>
-  <div class="col-md-3 category-home">
-    <%= image_tag('home/cake.jpg', alt: 'money') %>
-  </div>
-  <div class="col-md-3 category-home">
-    <%= image_tag('home/only-veget.jpg', alt: 'money') %>
-  </div>
-  <div class="col-md-3 category-home">
-    <%= image_tag('home/helthy.jpg', alt: 'money') %>
-  </div>
-  <div class="col-md-3 category-home">
-    <%= image_tag('home/International_foodfest.png', alt: 'money') %>
-  </div>
-  </div>
-</div>
-<%= render "layouts/store/slider_brand_solutions" %>
-<div style='width: 800px;'>
-  <div id="map" style='width: 800px; height: 400px;'></div>
+
 </div>
